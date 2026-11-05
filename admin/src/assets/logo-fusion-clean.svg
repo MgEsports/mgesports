@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <defs>
+    <linearGradient id="fusionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FF3366" />
+      <stop offset="50%" stopColor="#FF6B00" />
+      <stop offset="100%" stopColor="#FFAA00" />
+    </linearGradient>
+  </defs>
+  <!-- Crystal Emblem -->
+  <g transform="translate(8, 10)">
+    <polygon points="20,0 36,18 20,38 4,18" fill="url(#fusionGrad)" />
+    <polygon points="20,0 28,18 20,38" fill="#FFFFFF" opacity="0.35" />
+    <polygon points="12,18 20,6 28,18 20,32" fill="#FFFFFF" opacity="0.6" />
+  </g>
+  <!-- Wordmark -->
+  <text x="56" y="32" fill="#FFFFFF" font-family="'Poppins', sans-serif" font-weight="800" font-size="20" letter-spacing="1.5px">
+    FUSION
+  </text>
+  <text x="57" y="46" fill="#FF6B00" font-family="'Poppins', sans-serif" font-weight="700" font-size="11" letter-spacing="3.5px">
+    CRYSTALS
+  </text>
+</svg>

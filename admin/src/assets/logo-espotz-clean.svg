@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <defs>
+    <linearGradient id="espotzGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#00E5FF" />
+      <stop offset="100%" stopColor="#0077FE" />
+    </linearGradient>
+  </defs>
+  <!-- Broadcast Signal Icon -->
+  <g transform="translate(10, 12)">
+    <circle cx="18" cy="18" r="8" fill="url(#espotzGrad)" />
+    <path d="M18 4 A14 14 0 0 1 32 18" stroke="#00E5FF" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.8" />
+    <path d="M18 -2 A20 20 0 0 1 38 18" stroke="#00E5FF" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.4" />
+    <polygon points="16,13 23,18 16,23" fill="#FFFFFF" />
+  </g>
+  <!-- Wordmark -->
+  <text x="60" y="32" fill="#FFFFFF" font-family="'Poppins', sans-serif" font-weight="800" font-size="21" letter-spacing="1px">
+    ESPOTZ
+  </text>
+  <text x="61" y="47" fill="#00E5FF" font-family="'Poppins', sans-serif" font-weight="700" font-size="11" letter-spacing="3.5px">
+    LIVE BROADCAST
+  </text>
+</svg>

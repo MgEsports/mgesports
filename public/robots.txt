@@ -1,0 +1,16 @@
+User-agent: Googlebot-Image
+Allow: /
+Allow: /favicon.ico
+Allow: /favicon*
+Allow: /apple-touch-icon*
+Allow: /android-chrome*
+Allow: /lordz-logo.png
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /api/
+Disallow: /my-tournaments
+
+Sitemap: https://lordesportz.com/sitemap.xml

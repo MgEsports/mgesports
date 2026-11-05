@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <defs>
+    <linearGradient id="ewcSilverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FFFFFF" />
+      <stop offset="50%" stopColor="#CCCCCC" />
+      <stop offset="100%" stopColor="#888888" />
+    </linearGradient>
+    <linearGradient id="ewcGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FFE599" />
+      <stop offset="100%" stopColor="#FFBE32" />
+    </linearGradient>
+  </defs>
+  <!-- EWC Geometric Glyph -->
+  <g transform="translate(8, 11)">
+    <polygon points="4,2 14,2 24,34 16,34" fill="url(#ewcGoldGrad)" />
+    <polygon points="16,2 26,2 34,26 26,26" fill="url(#ewcSilverGrad)" />
+    <polygon points="26,2 36,2 40,14 32,14" fill="#FFFFFF" />
+  </g>
+  <!-- Wordmark -->
+  <text x="60" y="30" fill="#FFFFFF" font-family="'Poppins', sans-serif" font-weight="900" font-size="20" letter-spacing="1.5px">
+    ESPORTS
+  </text>
+  <text x="61" y="46" fill="#FFBE32" font-family="'Poppins', sans-serif" font-weight="800" font-size="12" letter-spacing="4px">
+    WORLD CUP
+  </text>
+</svg>

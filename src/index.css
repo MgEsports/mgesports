@@ -1,0 +1,219 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --color-lordz-black: #050505;
+  --color-lordz-charcoal: #111111;
+  --color-lordz-dark: #0A0A0A;
+  --color-lordz-card: #0D0D0E;
+  --color-lordz-card-hover: #141416;
+  --color-lordz-gold: #FFBE32;
+  --color-lordz-gold-bright: #FFCD59;
+  --color-lordz-gold-dim: #D4981C;
+  --color-lordz-gold-glow: rgba(255, 190, 50, 0.18);
+  --color-lordz-border: rgba(255, 190, 50, 0.15);
+  --color-lordz-border-subtle: rgba(255, 255, 255, 0.08);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #050505;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #050505;
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-overflow-scrolling: touch;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+/* Custom Typography Utility Classes - Poppins Styling */
+.font-display {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.font-heading {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.font-body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+/* Subtle Gold Text Gradient */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFF0C2 0%, #FFBE32 50%, #D4981C 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-silver {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFD778 60%, #FFBE32 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Border and Card Utilities */
+.gold-glow-card {
+  position: relative;
+  background: #0D0D0E;
+  border: 1px solid rgba(255, 190, 50, 0.15);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+.gold-glow-card:hover {
+  border-color: rgba(255, 190, 50, 0.5);
+  box-shadow: 0 10px 30px -10px rgba(255, 190, 50, 0.2);
+  transform: translateY(-4px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222222;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 190, 50, 0.15);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFBE32;
+}
+
+/* Diagonal Cut / Esports Chamfer Accent */
+.clip-chamfer {
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+}
+
+.clip-badge {
+  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+}
+
+.clip-corner-top-right {
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
+}
+
+/* Temple & Geometric Hairline Grid Background */
+.bg-esports-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 190, 50, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 190, 50, 0.03) 1px, transparent 1px);
+}
+
+/* Shimmer Light Sweep Keyframe */
+@keyframes sweep {
+  0% { transform: translateX(-100%) rotate(25deg); opacity: 0; }
+  50% { opacity: 0.35; }
+  100% { transform: translateX(250%) rotate(25deg); opacity: 0; }
+}
+
+.animate-sweep {
+  animation: sweep 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Pulse Glow — Hardware accelerated opacity on compositor */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.75; }
+}
+
+.animate-pulse-glow {
+  filter: blur(35px);
+  animation: pulseGlow 4s ease-in-out infinite;
+  will-change: opacity;
+}
+
+/* Infinite Marquee Animation for Partner Logos */
+@keyframes marqueeLeft {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes marqueeRight {
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeft 32s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-smooth {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeft 34s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marqueeRight 32s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-left:hover,
+.animate-marquee-smooth:hover,
+.animate-marquee-right:hover {
+  animation-play-state: paused;
+}
+
+/* Glassmorphism Esports Card */
+.esports-glass-card {
+  background: rgba(13, 13, 16, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.esports-glass-card:hover {
+  border-color: rgba(255, 190, 50, 0.5);
+  box-shadow: 0 12px 35px -10px rgba(255, 190, 50, 0.3);
+}

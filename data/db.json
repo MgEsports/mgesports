@@ -1,0 +1,160 @@
+{
+  "media": [
+    {
+      "id": "media-sh-1",
+      "type": "VIDEOS",
+      "title": "എന്തിനാണ് E-Sports Organisation സ്റ്റാർട്ട് ചെയ്തത് - Interview with MG E-Sports",
+      "duration": "00:30",
+      "views": "89K VIEWS",
+      "date": "LAST WEEK",
+      "game": "FREE FIRE MAX",
+      "youtubeId": "DKhXXzuxXy0",
+      "thumbnail": "https://img.youtube.com/vi/DKhXXzuxXy0/hqdefault.jpg",
+      "tag": "PREMIERE",
+      "featured": true,
+      "description": "Official Grand Finals highlights of MG Esports starring MG Luffy dominating Bermuda.",
+      "updatedAt": "2026-11-05T11:23:56.707Z"
+    },
+    {
+      "id": "media-hl-1",
+      "type": "HIGHLIGHTS",
+      "title": "RNG x TPM vs MG Esports | LCQ World Championship | MG AERO",
+      "duration": "01:18",
+      "views": "34K VIEWS",
+      "date": "YESTERDAY",
+      "game": "COC",
+      "youtubeId": "oa-boR8jXEE",
+      "thumbnail": "https://img.youtube.com/vi/oa-boR8jXEE/hqdefault.jpg",
+      "tag": "CLUTCH",
+      "featured": false,
+      "description": "RNG x TPM vs MG Esports | LCQ World Championship | MG AERO",
+      "updatedAt": "2026-11-05T11:25:51.423Z"
+    },
+    {
+      "id": "media-vid-1",
+      "type": "VIDEOS",
+      "title": "RNG x TPM vs MG Esports | LCQ World Championship | MG DESTRO",
+      "duration": "02:45",
+      "views": "48K VIEWS",
+      "date": "2 DAYS AGO",
+      "game": "FREE FIRE MAX",
+      "youtubeId": "Ul_kRfIlfbU",
+      "thumbnail": "https://img.youtube.com/vi/Ul_kRfIlfbU/hqdefault.jpg",
+      "tag": "FEATURED",
+      "featured": false,
+      "description": "The grand cinematic reveal of Flame of Glory Season 2, featuring all 32 qualified squads.",
+      "updatedAt": "2026-11-05T11:25:42.504Z"
+    },
+    {
+      "id": "media-ph-2",
+      "type": "PHOTOS",
+      "title": "FLAME OF GLORY TROPHY TOUR IN CHENNAI",
+      "views": "19K VIEWS",
+      "date": "LAST WEEK",
+      "game": "FLAME OF GLORY",
+      "tag": "COMMUNITY",
+      "featured": false
+    }
+  ],
+  "tournaments": [
+    {
+      "id": "fog-season-2",
+      "slug": "fog-season-2",
+      "title": "FLAME OF GLORY - FINALS",
+      "game": "FREE FIRE MAX",
+      "gameCategory": "FREE FIRE MAX",
+      "status": "REGISTRATION_OPEN",
+      "prizePool": "₹50,000",
+      "firstPrize": "₹30,000",
+      "secondPrize": "₹15,000",
+      "thirdPrize": "₹5,000",
+      "entryFee": "FREE PRE-ENTRY",
+      "feeAmount": 0,
+      "currency": "INR",
+      "slots": "128 TEAMS",
+      "totalTeams": 128,
+      "registeredTeams": 127,
+      "teamSize": 4,
+      "maxPlayersPerTeam": 5,
+      "substituteCount": 1,
+      "date": "SEP 28, 2026 • 6:00 PM IST",
+      "startDate": "2026-09-28T18:00:00Z",
+      "endDate": "2026-09-30T22:00:00Z",
+      "regStartDate": "2026-09-10T00:00:00Z",
+      "regEndDate": "2026-09-26T23:59:59Z",
+      "format": "Group Stage + Knockout",
+      "featured": true,
+      "tagline": "The pinnacle championship of South Indian esports supremacy.",
+      "shortDescription": "India's top tier Free Fire MAX squads battling across Bermuda and Purgatory for the prestigious championship crown.",
+      "description": "Flame of Glory Finals Season 2 brings together 128 vetted competitive squads.",
+      "streamUrl": "https://www.youtube.com",
+      "bannerImage": "https://res.cloudinary.com/jonhcrfa/image/upload/v1790420643/lordz-esports/tournaments/flame-of-glory-finals.jpg"
+    }
+  ],
+  "news": [
+    {
+      "id": "news-1",
+      "category": "TOURNAMENT",
+      "title": "MG ESPORTS SECURES GOLDEN TICKET TO CLASH OF CLANS WORLD CHAMPIONSHIP",
+      "slug": "mg-esports-golden-ticket-world-championship",
+      "coverImage": "/images/hero.png",
+      "image": "/images/hero.png",
+      "excerpt": "Dominating competitive circuits with flawless 100% destruction star records, MG ESPORTS qualifies for the World Championship Finals stage.",
+      "content": "The global battle lines are drawn as MG ESPORTS earns its historic Golden Ticket to the Clash of Clans World Championship.",
+      "date": "OCT 28, 2026",
+      "readTime": "3 MIN READ",
+      "badgeColor": "bg-amber-500/20 text-amber-400 border-amber-500/30",
+      "author": "MG Editorial"
+    }
+  ],
+  "partners": [
+    {
+      "id": "partner-1",
+      "name": "Free Fire MAX",
+      "tier": "TITLE SPONSOR",
+      "category": "Game Publisher",
+      "logoImage": "/images/card_free_fire_max.png",
+      "isActive": true
+    },
+    {
+      "id": "partner-2",
+      "name": "Fusion Crystals",
+      "tier": "OFFICIAL PARTNER",
+      "category": "Digital Currency",
+      "logoImage": "/images/card_fusion_crystals.png",
+      "isActive": true
+    },
+    {
+      "id": "partner-3",
+      "name": "Esports World Cup",
+      "tier": "GLOBAL PARTNER",
+      "category": "Tournament Series",
+      "logoImage": "/images/card_esports_world_cup.png",
+      "isActive": true
+    },
+    {
+      "id": "partner-4",
+      "name": "Esports Pro",
+      "tier": "BROADCAST PARTNER",
+      "category": "Live Media",
+      "logoImage": "/images/card_esports_pro.png",
+      "isActive": true
+    },
+    {
+      "id": "partner-5",
+      "name": "Espotz Live",
+      "tier": "STREAMING PARTNER",
+      "category": "Broadcasting",
+      "logoImage": "/images/card_espotz_live.png",
+      "isActive": true
+    },
+    {
+      "id": "partner-6",
+      "name": "Infinix Mobile",
+      "tier": "DEVICE PARTNER",
+      "category": "Hardware",
+      "logoImage": "/images/card_infinix.png",
+      "isActive": true
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="100%" height="100%">
+  <defs>
+    <linearGradient id="leGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE066"/>
+      <stop offset="40%" stop-color="#FFBE32"/>
+      <stop offset="85%" stop-color="#E59B00"/>
+      <stop offset="100%" stop-color="#B87700"/>
+    </linearGradient>
+    <filter id="glow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#FFBE32" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="1024" height="1024" rx="220" fill="#0A0A0C"/>
+  <rect width="1016" height="1016" x="4" y="4" rx="216" fill="none" stroke="url(#leGold)" stroke-width="8" stroke-opacity="0.25"/>
+  <g filter="url(#glow)">
+    <path d="M256,218 L340,218 L340,517 L344,541 L366,598 L386,629 L414,661 L416,593 L485,594 L485,802 L420,757 L349,691 L299,626 L270,570 L255,510 Z" fill="url(#leGold)"/>
+    <path d="M531,218 L769,220 L768,281 L603,282 L602,422 L766,424 L767,485 L603,487 L604,663 L664,592 L742,593 L713,641 L658,706 L598,759 L531,805 Z" fill="url(#leGold)"/>
+  </g>
+</svg>

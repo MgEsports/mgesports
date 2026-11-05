@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <defs>
+    <linearGradient id="proGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FFF2B2" />
+      <stop offset="100%" stopColor="#FFBE32" />
+    </linearGradient>
+  </defs>
+  <!-- Shield Emblem -->
+  <g transform="translate(10, 10)">
+    <path d="M18 2 L32 7 L32 22 Q32 34 18 39 Q4 34 4 22 L4 7 Z" fill="url(#proGoldGrad)" />
+    <path d="M18 7 L28 11 L28 22 Q28 30 18 34 Q8 30 8 22 L8 11 Z" fill="#0A0A0C" />
+    <polygon points="18,11 20.5,17 27,17 22,21 24,27 18,23 12,27 14,21 9,17 15.5,17" fill="#FFBE32" />
+  </g>
+  <!-- Wordmark -->
+  <text x="56" y="31" fill="#FFFFFF" font-family="'Poppins', sans-serif" font-weight="800" font-size="20" letter-spacing="1px">
+    ESPORTS
+  </text>
+  <text x="57" y="47" fill="#FFBE32" font-family="'Poppins', sans-serif" font-weight="800" font-size="12" letter-spacing="5px">
+    PRO PLATFORM
+  </text>
+</svg>
