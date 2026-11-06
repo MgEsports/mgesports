@@ -4,6 +4,8 @@ A premium, modern, and cinematic frontend website built for **MG ESPORTS** (`mge
 
 ![MG Esports Banner](src/assets/jersey-promo.jpg)
 
+
+
 ---
 
 ## ⚡ Overview
