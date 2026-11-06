@@ -46,6 +46,9 @@ export const newsApi = {
     try {
       const res = await apiRequest<NewsArticle[]>(`/news${qs}`, { method: "GET" }, filteredLocal);
       if (Array.isArray(res) && res.length > 0) {
+        if (!params?.category || params.category === "ALL") {
+          persistStoredNews(res);
+        }
         return res;
       }
       return filteredLocal;

@@ -80,7 +80,12 @@ export const tournamentsApi = {
     const qs = query.toString() ? `?${query.toString()}` : "";
     try {
       const res = await apiRequest<Tournament[]>(`/tournaments${qs}`, { method: "GET" }, local);
-      if (Array.isArray(res) && res.length > 0) return res;
+      if (Array.isArray(res) && res.length > 0) {
+        if (!params || (!params.gameCategory && !params.status && !params.search)) {
+          persistStoredTournaments(res);
+        }
+        return res;
+      }
       return local;
     } catch {
       return local;

@@ -40,6 +40,9 @@ export const mediaApi = {
     try {
       const res = await apiRequest<MediaItem[]>(`/media${query}`, { method: "GET" }, filteredLocal);
       if (Array.isArray(res) && res.length > 0) {
+        if (!type || type === "ALL") {
+          persistStoredMedia(res);
+        }
         return res;
       }
       return filteredLocal;
@@ -63,8 +66,9 @@ export const mediaApi = {
 
   create: async (data: Partial<MediaItem>): Promise<MediaItem> => {
     const local = getStoredMediaList();
+    const tempId = data.id || `media-${Date.now()}`;
     const newItem: MediaItem = {
-      id: data.id || `media-${Date.now()}`,
+      id: tempId,
       title: data.title || "NEW VIDEO",
       type: data.type || "VIDEOS",
       game: data.game || "FREE FIRE MAX",
@@ -77,15 +81,19 @@ export const mediaApi = {
       description: data.description,
       featured: data.featured !== undefined ? !!data.featured : true,
     };
-    const updated = [newItem, ...local];
-    persistStoredMedia(updated);
+    persistStoredMedia([newItem, ...local]);
 
     try {
       const res = await apiRequest<MediaItem>("/media", {
         method: "POST",
         body: JSON.stringify(data),
       });
-      return res || newItem;
+      if (res && res.id) {
+        const synced = [res, ...local.filter((m) => m.id !== tempId)];
+        persistStoredMedia(synced);
+        return res;
+      }
+      return newItem;
     } catch {
       return newItem;
     }
@@ -101,7 +109,12 @@ export const mediaApi = {
         method: "PUT",
         body: JSON.stringify(data),
       });
-      return res || (updated.find((m) => m.id === id) as MediaItem);
+      if (res && res.id) {
+        const synced = local.map((m) => (m.id === id ? { ...m, ...res } : m));
+        persistStoredMedia(synced);
+        return res;
+      }
+      return (updated.find((m) => m.id === id) as MediaItem);
     } catch {
       return (updated.find((m) => m.id === id) || data) as MediaItem;
     }

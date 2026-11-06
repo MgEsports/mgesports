@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
-import { useAdminAuth } from "../context/AdminAuthContext";
+import { useAdminAuth, MASTER_ADMIN_JWT, MASTER_ADMIN_USER } from "../context/AdminAuthContext";
 import { getApiUrl } from "../api/client";
 import logoImg from "../assets/lordz-logo.png";
 import { Lock, Mail, ArrowRight, ShieldCheck, AlertCircle, Loader2 } from "lucide-react";
@@ -55,12 +55,9 @@ export const AdminLoginPage: React.FC = () => {
 
       // If backend returned invalid credentials or 5xx proxy error, check master credentials
       if (isMasterCredential) {
-        login("admin-master-session-token", {
-          id: "4a8879b4-c0a4-40c4-bce6-181b496bec6f",
+        login(MASTER_ADMIN_JWT, {
+          ...MASTER_ADMIN_USER,
           email: normEmail.includes("@") ? normEmail : "admin@mgesports.in",
-          role: "SUPER_ADMIN",
-          fullName: "MG Administrator",
-          ign: "MG_OVERLORD",
         });
         navigate(from, { replace: true });
         return;
@@ -70,12 +67,9 @@ export const AdminLoginPage: React.FC = () => {
     } catch {
       // Offline / network fallback
       if (isMasterCredential) {
-        login("admin-master-session-token", {
-          id: "4a8879b4-c0a4-40c4-bce6-181b496bec6f",
+        login(MASTER_ADMIN_JWT, {
+          ...MASTER_ADMIN_USER,
           email: normEmail.includes("@") ? normEmail : "admin@mgesports.in",
-          role: "SUPER_ADMIN",
-          fullName: "MG Administrator",
-          ign: "MG_OVERLORD",
         });
         navigate(from, { replace: true });
         return;

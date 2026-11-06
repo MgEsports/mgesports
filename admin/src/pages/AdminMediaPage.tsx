@@ -196,6 +196,7 @@ export const AdminMediaPage: React.FC = () => {
       featured: formData.featured !== undefined ? !!formData.featured : true,
     };
 
+    let tempId = `media-${Date.now()}`;
     let nextMedia: MediaItem[];
 
     if (editingItem) {
@@ -210,7 +211,7 @@ export const AdminMediaPage: React.FC = () => {
       });
     } else {
       const finalItem: MediaItem = {
-        id: `media-${Date.now()}`,
+        id: tempId,
         ...(payload as any),
       };
       unmarkMediaIdDeleted(finalItem.id);
@@ -230,18 +231,29 @@ export const AdminMediaPage: React.FC = () => {
 
     try {
       if (editingItem) {
-        await apiRequest<MediaItem>(`/media/${editingItem.id}`, {
+        const resItem = await apiRequest<MediaItem>(`/media/${editingItem.id}`, {
           method: "PUT",
           body: JSON.stringify(payload),
         });
+        if (resItem && resItem.id) {
+          const synced = nextMedia.map((m) => (m.id === editingItem.id ? { ...m, ...resItem } : m));
+          setMedia(synced);
+          persistMedia(synced);
+        }
       } else {
-        await apiRequest<MediaItem>("/media", {
+        const resItem = await apiRequest<MediaItem>("/media", {
           method: "POST",
           body: JSON.stringify(payload),
         });
+        if (resItem && resItem.id) {
+          const synced = nextMedia.map((m) => (m.id === tempId ? resItem : m));
+          setMedia(synced);
+          persistMedia(synced);
+        }
       }
     } catch (err: any) {
-      console.warn("Media save sync notice (saved locally):", err?.message);
+      console.error("Media save sync error:", err);
+      alert("Failed to save to live server database: " + (err?.message || "Check connection"));
     }
   };
 
@@ -255,7 +267,8 @@ export const AdminMediaPage: React.FC = () => {
     try {
       await apiRequest(`/media/${id}`, { method: "DELETE" });
     } catch (err: any) {
-      console.warn("Media delete sync notice:", err?.message);
+      console.error("Media delete error on server:", err);
+      alert("Failed to delete from live server database: " + (err?.message || "Check connection"));
     }
   };
 
