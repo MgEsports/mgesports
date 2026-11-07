@@ -88,7 +88,7 @@ export const CommunitySection = ({ showHeader = true }: CommunitySectionProps) =
       accentColor: "#5865F2",
       borderHover: "hover:border-[#5865F2] hover:shadow-[0_0_25px_rgba(88,101,242,0.3)]",
       btnText: "JOIN DISCORD SERVER",
-      href: settings.discordUrl || "https://discord.gg/mgesports",
+      href: "https://x.com/mg13esports",
     },
   ];
 
