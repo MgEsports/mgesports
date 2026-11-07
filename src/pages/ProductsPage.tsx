@@ -57,106 +57,7 @@ export interface LocalProductItem {
 }
 
 const fallbackCatalog: LocalProductItem[] = [
-  {
-    id: "mg-pro-jersey-2026",
-    name: "MG PRO COMBAT JERSEY 2026",
-    category: "JERSEYS",
-    tag: "OFFICIAL ATHLETE SPEC",
-    price: 1299,
-    originalPrice: 1999,
-    image: jerseyFrontImg,
-    description:
-      "The official uniform worn by MG ESPORTS athletes in national tournaments. Crafted with Dravidian temple art motifs, moisture-wicking micro-poly, and customized athlete IGN print.",
-    specs: [
-      "100% Breathable Micro-Poly Waffle Knit",
-      "Official Clan Squad IGN & Number Print",
-      "Fade-Resistant Sublimation Art",
-      "Tournament-Certified Anti-Static Fit",
-    ],
-    sizes: ["S", "M", "L", "XL", "2XL"],
-    hasCustomIgn: true,
-    upiId: "mgesports@upi",
-  },
-  {
-    id: "mg-stealth-hoodie",
-    name: "MG STEALTH PRO FLEECE HOODIE",
-    category: "APPAREL",
-    tag: "LIMITED WINTER DROP",
-    price: 2199,
-    originalPrice: 2999,
-    image: hoodieImg,
-    description:
-      "Heavyweight 420 GSM French Terry fleece hoodie featuring high-density 3D metallic gold embroidered MG clan crest, double-layered drawstring hood, and ribbed cuffs.",
-    specs: [
-      "420 GSM Heavy French Terry Cotton",
-      "Metallic Gold Embroidered Crest",
-      "Double-Lined Heavyweight Hood",
-      "Oversized Relaxed Esports Silhouette",
-    ],
-    sizes: ["M", "L", "XL", "2XL"],
-    hasCustomIgn: false,
-    upiId: "mgesports@upi",
-  },
-  {
-    id: "mg-speed-mousepad-xxl",
-    name: "MG SPEED XXL GAMING MOUSEPAD (900x400MM)",
-    category: "GEAR",
-    tag: "BESTSELLER",
-    price: 899,
-    originalPrice: 1499,
-    image: mousepadImg,
-    description:
-      "4mm thick high-density rubber desk mat with micro-woven cloth surface engineered for ultra-fast glide and stopping power. Features radiant gold dragon & Dravidian battle artwork.",
-    specs: [
-      "900 x 400 x 4 mm XXL Coverage",
-      "Micro-Woven Low-Friction Surface",
-      "Anti-Fray Precision Gold Stitched Edge",
-      "Non-Slip Textured Natural Rubber Base",
-    ],
-    sizes: ["XXL (900x400mm)"],
-    hasCustomIgn: false,
-    upiId: "mgesports@upi",
-  },
-  {
-    id: "mg-tactical-cap",
-    name: "MG TACTICAL SNAPBACK PRO CAP",
-    category: "GEAR",
-    tag: "CLAN CREST",
-    price: 649,
-    originalPrice: 999,
-    image: capImg,
-    description:
-      "Structured 6-panel snapback cap in matte obsidian black with gold 3D raised embroidery and custom Dravidian brim under-print. Adjustable rear strap for all head sizes.",
-    specs: [
-      "Structured 6-Panel High Crown Fit",
-      "High-Density 3D Gold Embroidered Logo",
-      "Sublimated Dravidian Artwork Underbrim",
-      "Heavy-Duty Adjustable Snap Closure",
-    ],
-    sizes: ["Adjustable Snapback (One Size)"],
-    hasCustomIgn: false,
-    upiId: "mgesports@upi",
-  },
-  {
-    id: "mg-compression-sleeves",
-    name: "MG ARM COMPRESSION GAMING SLEEVES (PAIR)",
-    category: "GEAR",
-    tag: "COMPETITION SPEC",
-    price: 499,
-    originalPrice: 799,
-    image: sleeveImg,
-    description:
-      "Precision friction-reducing esports compression sleeves engineered to prevent desk drag on cloth and glass mousepads. Keeps arm muscles warm and reduces fatigue during 8-hour scrim blocks.",
-    specs: [
-      "Seamless Low-Friction Spandex Weave",
-      "Graduated Compression Muscle Support",
-      "Silicone Anti-Slip Upper Bicep Band",
-      "Rapid-Dry Moisture Management",
-    ],
-    sizes: ["S/M", "L/XL"],
-    hasCustomIgn: false,
-    upiId: "mgesports@upi",
-  },
+  
 ];
 
 function resolveProductImage(p: ApiProductItem): string {
@@ -165,7 +66,7 @@ function resolveProductImage(p: ApiProductItem): string {
 }
 
 function parseSpecs(specsString?: string | null): string[] {
-  if (!specsString) return ["Official Tournament Certified Spec", "Official MG Clan Merchandise"];
+  if (!specsString) return ["Official Certified Spec", "Official MG Clan Merchandise"];
   try {
     const parsed = JSON.parse(specsString);
     if (Array.isArray(parsed)) return parsed;
@@ -216,8 +117,8 @@ export const ProductsPage = () => {
     customerEmail: "",
     customerPhone: "",
     address: "",
-    city: "Chennai",
-    state: "Tamil Nadu",
+    city: "Kochi",
+    state: "Keralam",
     pincode: "",
     size: "L",
     customIgn: "BEAST",
