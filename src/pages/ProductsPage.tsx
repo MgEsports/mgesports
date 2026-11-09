@@ -32,11 +32,11 @@ import { SEO } from "../components/common/SEO";
 import { SITE_URL } from "../config/seo";
 
 // Fallback Product Assets
-import jerseyFrontImg from "../assets/jersey-front.jpg";
-import hoodieImg from "../assets/product-hoodie.jpg";
-import mousepadImg from "../assets/product-mousepad.jpg";
-import capImg from "../assets/product-cap.jpg";
-import sleeveImg from "../assets/product-sleeve.jpg";
+// import jerseyFrontImg from "../assets/jersey-front.jpg";
+// import hoodieImg from "../assets/product-hoodie.jpg";
+// import mousepadImg from "../assets/product-mousepad.jpg";
+// import capImg from "../assets/product-cap.jpg";
+// import sleeveImg from "../assets/product-sleeve.jpg";
 import { LazyProductImage } from "../components/common/LazyProductImage";
 import { getProductFallbackImage, optimizeCloudinaryUrl } from "../utils/imageOptimizer";
 
