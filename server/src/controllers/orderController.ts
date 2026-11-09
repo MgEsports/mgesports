@@ -218,3 +218,19 @@ export const updateOrderStatus = async (
     next(error);
   }
 };
+
+
+export const deleteOrder = async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> => {
+  try {
+    const { id } = req.params;
+    if (id === "all") {
+      await prisma.order.deleteMany({});
+      res.json({ success: true, message: "All orders deleted successfully" });
+      return;
+    }
+    await prisma.order.delete({ where: { id } });
+    res.json({ success: true, message: "Order deleted successfully" });
+  } catch (error) {
+    next(error);
+  }
+};

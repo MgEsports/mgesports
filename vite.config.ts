@@ -93,6 +93,62 @@ function localDatabasePlugin(): Plugin {
           })
         }
 
+        // 1b. Site Settings route
+        if (pathname === '/settings') {
+          const db = readDb()
+          if (method === 'GET') {
+            return sendJson(res, 200, { success: true, data: db.settings || {} })
+          }
+          if (method === 'PUT' || method === 'POST') {
+            const body = await parseJsonBody(req)
+            db.settings = { ...(db.settings || {}), ...body }
+            writeDb(db)
+            return sendJson(res, 200, { success: true, message: 'Settings updated successfully', data: db.settings })
+          }
+        }
+
+        // 1c. Backup & Restore routes
+        if (pathname === '/admin/backup/export') {
+          const db = readDb()
+          return sendJson(res, 200, {
+            success: true,
+            data: {
+              version: '2.0',
+              organization: 'MG Esports',
+              exportedAt: new Date().toISOString(),
+              settings: db.settings || {},
+              tournaments: db.tournaments || [],
+              media: db.media || [],
+              news: db.news || [],
+              partners: db.partners || [],
+              partnerPlans: db.partnerPlans || [],
+              players: db.players || [],
+              legends: db.legends || [],
+              products: db.products || [],
+              votingEvents: db.votingEvents || [],
+            }
+          })
+        }
+
+        if (pathname === '/admin/backup/import' && (method === 'POST' || method === 'PUT')) {
+          const body = await parseJsonBody(req)
+          const mode = body.mode || 'merge'
+          const d = body.data || body
+          const db = readDb()
+
+          if (d.settings && typeof d.settings === 'object') {
+            db.settings = mode === 'replace' ? d.settings : { ...(db.settings || {}), ...d.settings }
+          }
+          const listKeys = ['tournaments', 'media', 'news', 'partners', 'partnerPlans', 'players', 'legends', 'products', 'votingEvents']
+          for (const k of listKeys) {
+            if (Array.isArray(d[k])) {
+              db[k] = mode === 'replace' ? d[k] : [...(Array.isArray(db[k]) ? db[k] : []), ...d[k]]
+            }
+          }
+          writeDb(db)
+          return sendJson(res, 200, { success: true, message: 'Backup imported successfully' })
+        }
+
         // 2. Resource Collections: /media, /tournaments, /news, /partners
         const match = pathname.match(/^\/([a-zA-Z0-9_-]+)(?:\/([a-zA-Z0-9_-]+))?/)
         if (!match) {
@@ -147,6 +203,11 @@ function localDatabasePlugin(): Plugin {
 
         // DELETE Remove Item
         if (method === 'DELETE' && id) {
+          if (id === 'all') {
+            db[resource] = []
+            writeDb(db)
+            return sendJson(res, 200, { success: true, message: `All ${resource} deleted` })
+          }
           db[resource] = collection.filter((x: any) => x.id !== id && x.slug !== id)
           writeDb(db)
           return sendJson(res, 200, { success: true })

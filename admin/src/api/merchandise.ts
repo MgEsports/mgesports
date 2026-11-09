@@ -49,40 +49,11 @@ export interface OrderItem {
   createdAt: string;
 }
 
-export const fallbackProducts: ProductItem[] = [
-  {
-    id: "lordz-pro-jersey-2026",
-    name: "LORD PRO COMBAT JERSEY 2026",
-    slug: "lordz-pro-jersey-2026",
-    subtitle: "Official 2026-27 Athlete Edition • Black & Gold Temple Dravidian Edition",
-    description: "Engineered for high-pressure competition. Crafted with breathable micro-poly, Dravidian temple gopuram architectural line art, and battle flame aesthetics.",
-    price: 1299,
-    originalPrice: 1999,
-    stock: 150,
-    category: "JERSEY",
-    sizes: JSON.stringify(["S", "M", "L", "XL", "2XL"]),
-    isAvailable: true,
-    isFeatured: true,
-  },
-  {
-    id: "lordz-stealth-hoodie",
-    name: "LORD STEALTH CLAN HOODIE",
-    slug: "lordz-stealth-hoodie",
-    subtitle: "Heavyweight 380 GSM Fleece with Metallic Gold Crest",
-    description: "Premium fleece pullover with gold-embroidered Lord crest, kangaroo pocket, and thumbhole cuffs.",
-    price: 2499,
-    originalPrice: 3299,
-    stock: 75,
-    category: "HOODIE",
-    sizes: JSON.stringify(["M", "L", "XL", "2XL"]),
-    isAvailable: true,
-    isFeatured: false,
-  },
-];
+export const fallbackProducts: ProductItem[] = [];
 
 export const merchandiseApi = {
   getProducts: async (): Promise<ProductItem[]> => {
-    return apiRequest<ProductItem[]>("/merchandise", { method: "GET" }, fallbackProducts);
+    return apiRequest<ProductItem[]>("/merchandise", { method: "GET" }, []);
   },
 
   createProduct: async (data: Partial<ProductItem>): Promise<ProductItem> => {
@@ -105,6 +76,12 @@ export const merchandiseApi = {
     });
   },
 
+  deleteAllProducts: async (): Promise<{ success: boolean }> => {
+    return apiRequest<{ success: boolean }>("/merchandise/all", {
+      method: "DELETE",
+    });
+  },
+
   createOrder: async (data: any): Promise<OrderItem> => {
     return apiRequest<OrderItem>("/orders", {
       method: "POST",
@@ -119,6 +96,18 @@ export const merchandiseApi = {
 
     const qs = query.toString() ? `?${query.toString()}` : "";
     return apiRequest<OrderItem[]>(`/orders${qs}`, { method: "GET" }, []);
+  },
+
+  deleteOrder: async (id: string): Promise<{ success: boolean }> => {
+    return apiRequest<{ success: boolean }>(`/orders/${id}`, {
+      method: "DELETE",
+    });
+  },
+
+  deleteAllOrders: async (): Promise<{ success: boolean }> => {
+    return apiRequest<{ success: boolean }>("/orders/all", {
+      method: "DELETE",
+    });
   },
 
   updateOrderStatus: async (

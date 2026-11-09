@@ -16,6 +16,7 @@ import {
   ChevronDown,
   ChevronUp,
   Mail,
+  Trash2,
 } from "lucide-react";
 
 export const AdminOrdersPage: React.FC = () => {
@@ -147,15 +148,53 @@ export const AdminOrdersPage: React.FC = () => {
     setTimeout(() => setCopiedUtr(null), 2000);
   };
 
+  const handleDeleteOrder = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this order?")) return;
+    try {
+      await merchandiseApi.deleteOrder(id);
+      setOrders((prev) => prev.filter((o) => o.id !== id));
+    } catch (err: any) {
+      alert(err.message || "Failed to delete order");
+    }
+  };
+
+  const handleDeleteAllOrders = async () => {
+    if (orders.length === 0) return;
+    if (!confirm(`Are you sure you want to delete ALL ${orders.length} orders? This will wipe all demo and customer orders.`)) return;
+    try {
+      try {
+        await merchandiseApi.deleteAllOrders();
+      } catch {
+        await Promise.all(orders.map((o) => merchandiseApi.deleteOrder(o.id).catch(() => {})));
+      }
+      setOrders([]);
+    } catch (err: any) {
+      alert(err.message || "Failed to delete all orders");
+    }
+  };
+
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="font-display text-3xl uppercase tracking-wider text-white">
-          MERCHANDISE ORDER FULFILLMENT &amp; TRACKING
-        </h1>
-        <p className="text-xs text-gray-400 font-body">
-          Manage customer apparel orders, verify UPI UTR numbers, assign couriers, and set expected delivery dates.
-        </p>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 className="font-display text-3xl uppercase tracking-wider text-white">
+            MERCHANDISE ORDER FULFILLMENT &amp; TRACKING
+          </h1>
+          <p className="text-xs text-gray-400 font-body">
+            Manage customer apparel orders, verify UPI UTR numbers, assign couriers, and set expected delivery dates.
+          </p>
+        </div>
+
+        {orders.length > 0 && (
+          <button
+            onClick={handleDeleteAllOrders}
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-rose-400 hover:text-white bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/20 hover:border-rose-500/40 transition-all cursor-pointer shrink-0"
+            title="Delete all demo and customer orders"
+          >
+            <Trash2 className="h-4 w-4" />
+            <span>Delete All Orders ({orders.length})</span>
+          </button>
+        )}
       </div>
 
       {/* View Mode & Filter Bar */}
@@ -524,15 +563,25 @@ export const AdminOrdersPage: React.FC = () => {
                     <span>WhatsApp</span>
                   </a>
 
-                  {/* Manage Shipping & Tracking Button */}
-                  <button
-                    type="button"
-                    onClick={() => handleOpenTrackingModal(ord)}
-                    className="px-4 py-2 rounded-xl bg-[#FFBE32] hover:bg-[#FFA000] text-black font-heading text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 cursor-pointer shadow-[0_0_12px_rgba(255,190,50,0.3)] w-full sm:w-auto justify-center"
-                  >
-                    <Edit3 className="h-3.5 w-3.5" />
-                    <span>Manage Dispatch</span>
-                  </button>
+                  <div className="flex items-center gap-2 w-full sm:w-auto">
+                    {/* Manage Shipping & Tracking Button */}
+                    <button
+                      type="button"
+                      onClick={() => handleOpenTrackingModal(ord)}
+                      className="px-4 py-2 rounded-xl bg-[#FFBE32] hover:bg-[#FFA000] text-black font-heading text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 cursor-pointer shadow-[0_0_12px_rgba(255,190,50,0.3)] flex-1 sm:flex-initial justify-center"
+                    >
+                      <Edit3 className="h-3.5 w-3.5" />
+                      <span>Fulfill / Tracking</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleDeleteOrder(ord.id)}
+                      className="p-2 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/20 hover:border-rose-500/40 cursor-pointer transition-colors"
+                      title="Delete Order"
+                    >
+                      <Trash2 className="h-3.5 w-3.5" />
+                    </button>
+                  </div>
 
                   {/* Quick Status Select */}
                   <select

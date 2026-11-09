@@ -188,7 +188,11 @@ export const ProductsPage = () => {
     merchandiseApi
       .getProducts()
       .then((data) => {
-        if (data && data.length > 0) {
+        if (Array.isArray(data)) {
+          if (data.length === 0) {
+            setProducts([]);
+            return;
+          }
           const mapped: LocalProductItem[] = data.map((p) => {
             const rawCat = (p.category || "JERSEY").toUpperCase();
             let cat = "JERSEYS";
@@ -216,7 +220,7 @@ export const ProductsPage = () => {
         }
       })
       .catch(() => {
-        setProducts(fallbackCatalog);
+        setProducts([]);
       });
   };
 
@@ -666,7 +670,22 @@ export const ProductsPage = () => {
           ))}
         </div>
 
-        {/* Products Grid */}
+        {/* Products Grid or Empty State */}
+        {filteredProducts.length === 0 ? (
+          <div className="py-20 px-4 text-center rounded-2xl bg-[#0D0D12] border border-white/10 flex flex-col items-center justify-center gap-4">
+            <div className="h-14 w-14 rounded-2xl bg-[#FFBE32]/10 border border-[#FFBE32]/30 flex items-center justify-center text-[#FFBE32]">
+              <ShoppingBag className="h-7 w-7" />
+            </div>
+            <div className="space-y-1">
+              <h3 className="font-display text-lg uppercase tracking-wider text-white">
+                Official Drops Coming Soon
+              </h3>
+              <p className="text-xs text-gray-400 font-body max-w-md mx-auto">
+                No merchandise items are currently listed in the store. Stay tuned for our upcoming tournament combat jerseys, hoodies, and athlete gear.
+              </p>
+            </div>
+          </div>
+        ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProducts.map((product, index) => (
             <motion.div
@@ -758,6 +777,7 @@ export const ProductsPage = () => {
             </motion.div>
           ))}
         </div>
+        )}
 
         {/* Armory Trust Badges */}
         <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6 p-6 sm:p-8 rounded-2xl bg-[#0D0D12] border border-white/10 text-center sm:text-left">

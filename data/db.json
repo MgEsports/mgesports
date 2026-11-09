@@ -156,5 +156,29 @@
       "logoImage": "/images/card_infinix.png",
       "isActive": true
     }
-  ]
+  ],
+  "merchandise": [],
+  "admin": [],
+  "settings": {
+    "liveTicker": "🔥 CLASH OF CLANS WORLD CHAMPIONSHIP FINALS • MG ESPORTS VS TRIBE GAMING • WATCH LIVE",
+    "emergencyBanner": "MG ESPORTS • GOLDEN TICKET WINNERS • CLASH OF CLANS WORLD CHAMPIONSHIP",
+    "emergencyBannerActive": "false",
+    "tournamentsCount": "84% Win Rate",
+    "playersCount": "Top 8 World",
+    "teamsCount": "3x Champions",
+    "prizePoolCount": "Golden Ticket",
+    "discordUrl": "https://discord.gg/rH3PkZdNz",
+    "whatsappUrl": "https://whatsapp.com/channel/mgesports",
+    "whatsappScrimsUrl": "https://whatsapp.com/channel/mgesports-scrims",
+    "youtubeUrl": "https://youtube.com/@mgesports-mg",
+    "instagramUrl": "https://www.instagram.com/mg13e.sports",
+    "twitterUrl": "https://x.com/mg13esports",
+    "businessEmail": "contact@mgesports.gg",
+    "success": true
+  },
+  "partnerPlans": [],
+  "players": [],
+  "legends": [],
+  "products": [],
+  "votingEvents": []
 }

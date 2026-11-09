@@ -108,6 +108,13 @@ export const updateProduct = async (req: AuthenticatedRequest, res: Response, ne
 export const deleteProduct = async (_req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> => {
   try {
     const { id } = _req.params;
+    if (id === "all") {
+      await prisma.product.deleteMany({});
+      await delCache("api:merchandise:*");
+      await delCache("http:*merchandise*");
+      res.json({ success: true, message: "All products deleted successfully" });
+      return;
+    }
     await prisma.product.delete({ where: { id } });
 
     // Invalidate Redis and HTTP caches
@@ -119,4 +126,3 @@ export const deleteProduct = async (_req: AuthenticatedRequest, res: Response, n
     next(error);
   }
 };
-

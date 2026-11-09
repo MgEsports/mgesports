@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { merchandiseApi, type ProductItem, fallbackProducts } from "../api/merchandise";
+import { merchandiseApi, type ProductItem } from "../api/merchandise";
 import { adminApi } from "../api/admin";
 import {
   Plus,
@@ -11,6 +11,7 @@ import {
   Sparkles,
   Search,
   Image as ImageIcon,
+  ShoppingBag,
 } from "lucide-react";
 import { optimizeCloudinaryUrl } from "../utils/imageOptimizer";
 
@@ -54,9 +55,9 @@ export const AdminMerchandisePage: React.FC = () => {
     setLoading(true);
     try {
       const data = await merchandiseApi.getProducts();
-      setProducts(data && data.length > 0 ? data : fallbackProducts);
+      setProducts(Array.isArray(data) ? data : []);
     } catch {
-      setProducts(fallbackProducts);
+      setProducts([]);
     } finally {
       setLoading(false);
     }
@@ -199,6 +200,27 @@ export const AdminMerchandisePage: React.FC = () => {
     }
   };
 
+  const handleDeleteAll = async () => {
+    if (products.length === 0) return;
+    if (
+      !confirm(
+        `Are you sure you want to delete ALL ${products.length} products? This will completely clear all merchandise and demo data from the catalog.`
+      )
+    ) {
+      return;
+    }
+    try {
+      try {
+        await merchandiseApi.deleteAllProducts();
+      } catch {
+        await Promise.all(products.map((p) => merchandiseApi.deleteProduct(p.id).catch(() => {})));
+      }
+      setProducts([]);
+    } catch (err: any) {
+      alert(err.message || "Failed to delete products");
+    }
+  };
+
   const filteredProducts = products.filter((p) => {
     if (categoryFilter !== "ALL" && p.category !== categoryFilter) return false;
     if (searchQuery) {
@@ -241,13 +263,26 @@ export const AdminMerchandisePage: React.FC = () => {
           </p>
         </div>
 
-        <button
-          onClick={handleOpenCreate}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#FFBE32] hover:bg-[#FFA000] transition-all cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)] shrink-0"
-        >
-          <Plus className="h-4 w-4" />
-          <span>Add New Product</span>
-        </button>
+        <div className="flex items-center gap-2.5">
+          {products.length > 0 && (
+            <button
+              onClick={handleDeleteAll}
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-rose-400 hover:text-white bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/20 hover:border-rose-500/40 transition-all cursor-pointer shrink-0"
+              title="Delete all merchandise products and demo data"
+            >
+              <Trash2 className="h-4 w-4" />
+              <span>Delete All ({products.length})</span>
+            </button>
+          )}
+
+          <button
+            onClick={handleOpenCreate}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#FFBE32] hover:bg-[#FFA000] transition-all cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)] shrink-0"
+          >
+            <Plus className="h-4 w-4" />
+            <span>Add New Product</span>
+          </button>
+        </div>
       </div>
 
       {/* Filter & Search Bar */}
@@ -286,8 +321,29 @@ export const AdminMerchandisePage: React.FC = () => {
           Loading merchandise catalog...
         </div>
       ) : filteredProducts.length === 0 ? (
-        <div className="py-20 text-center text-gray-400 font-mono text-xs bg-[#0C0C10] rounded-2xl border border-white/10">
-          No merchandise products found matching your filter.
+        <div className="py-20 px-4 text-center bg-[#0C0C10] rounded-2xl border border-white/10 flex flex-col items-center justify-center gap-3">
+          <div className="h-12 w-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-500">
+            <ShoppingBag className="h-6 w-6" />
+          </div>
+          <div className="space-y-1">
+            <h3 className="font-heading text-sm font-bold uppercase tracking-wider text-white">
+              {products.length === 0 ? "Merchandise Catalog is Empty" : "No Matching Products Found"}
+            </h3>
+            <p className="text-xs text-gray-400 font-body max-w-md mx-auto">
+              {products.length === 0
+                ? "All demo merchandise products have been removed. No dummy items are active on your website. Click below to add a real product whenever you wish."
+                : "No products matched your search or category filter. Try clearing filters or search terms."}
+            </p>
+          </div>
+          {products.length === 0 && (
+            <button
+              onClick={handleOpenCreate}
+              className="mt-2 inline-flex items-center gap-2 px-4 py-2 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#FFBE32] hover:bg-[#FFA000] transition-all cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)]"
+            >
+              <Plus className="h-4 w-4" />
+              <span>Add New Product</span>
+            </button>
+          )}
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

@@ -21,6 +21,7 @@ import * as userCtrl from "../controllers/userController.js";
 import * as uploadCtrl from "../controllers/uploadController.js";
 import * as planCtrl from "../controllers/partnerPlanController.js";
 import * as votingCtrl from "../controllers/votingController.js";
+import * as backupCtrl from "../controllers/backupController.js";
 import { cacheMiddleware, delCache, getCacheStatus } from "../config/cache.js";
 
 const invalidate = (pattern: string) => (_req: any, _res: any, next: any) => {
@@ -433,6 +434,12 @@ router.put(
   requireRole("SUPER_ADMIN", "TOURNAMENT_ADMIN"),
   orderCtrl.updateOrderStatus
 );
+router.delete(
+  "/orders/:id",
+  authenticate,
+  requireRole("SUPER_ADMIN", "TOURNAMENT_ADMIN"),
+  orderCtrl.deleteOrder
+);
 
 // ================= NEWS ROUTES =================
 router.get("/news", cacheMiddleware(180), newsCtrl.getArticles);
@@ -648,6 +655,21 @@ router.delete(
   authenticate,
   requireRole("SUPER_ADMIN"),
   votingCtrl.deleteVotingEventAdmin
+);
+
+
+// ================= BACKUP & RESTORE ROUTES =================
+router.get(
+  "/admin/backup/export",
+  authenticate,
+  requireRole("SUPER_ADMIN"),
+  backupCtrl.exportAllData
+);
+router.post(
+  "/admin/backup/import",
+  authenticate,
+  requireRole("SUPER_ADMIN"),
+  backupCtrl.importAllData
 );
 
 export default router;

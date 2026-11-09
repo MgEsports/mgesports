@@ -13,6 +13,7 @@ export interface SettingsMap {
   whatsappScrimsUrl?: string;
   youtubeUrl?: string;
   instagramUrl?: string;
+  twitterUrl?: string;
   businessEmail?: string;
   [key: string]: string | undefined;
 }
@@ -30,6 +31,7 @@ export const fallbackSettings: SettingsMap = {
   whatsappScrimsUrl: "https://whatsapp.com/channel/mgesports-scrims",
   youtubeUrl: "https://youtube.com/@mgesports-mg",
   instagramUrl: "https://www.instagram.com/mg13e.sports",
+  twitterUrl: "https://x.com/mg13esports",
   businessEmail: "contact@mgesports.gg",
 };
 
