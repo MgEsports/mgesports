@@ -8,6 +8,7 @@ import {
   Handshake,
   Info,
   Home,
+  Shirt,
 } from "lucide-react";
 import logoImg from "../../assets/lordz-logo.png";
 
@@ -23,8 +24,8 @@ const navLinks = [
   { name: "HOME", path: "/", icon: Home },
   // { name: "TOURNAMENTS", path: "/tournaments", icon: Trophy },
   // { name: "VOTING", path: "/voting", icon: Vote },
-  // { name: "PRODUCTS", path: "/products", icon: Shirt },
-  { name: "BRAND PARTNERS", path: "/partners", icon: Handshake },
+  { name: "PRODUCTS", path: "/products", icon: Shirt },
+  // { name: "BRAND PARTNERS", path: "/partners", icon: Handshake },
   // { name: "PARTNER WITH US", path: "/partner-with-us", icon: Award },
   { name: "ABOUT (ROSTER & TEAMS)", path: "/about", icon: Info },
   { name: "NEWS", path: "/news", icon: Newspaper },

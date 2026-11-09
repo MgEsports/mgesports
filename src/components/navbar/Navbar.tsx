@@ -10,7 +10,7 @@ const straightNavItems = [
   { label: "HOME", path: "/" },
   // { label: "TOURNAMENTS", path: "/tournaments" },
   // { label: "VOTING", path: "/voting" },
-  // { label: "PRODUCTS", path: "/products" },
+  { label: "PRODUCTS", path: "/products" },
   { label: "PARTNERS", path: "/partners" },
   // { label: "PARTNER WITH US", path: "/partner-with-us" },
   { label: "MEDIA", path: "/media" },
