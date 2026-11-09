@@ -350,6 +350,10 @@ export const AdminSettingsPage: React.FC = () => {
       if (parsed && typeof parsed === "object") {
         if (parsed.settings && typeof parsed.settings === "object") {
           extracted = parsed.settings;
+        } else if (parsed.data && parsed.data.settings && typeof parsed.data.settings === "object") {
+          extracted = parsed.data.settings;
+        } else if (parsed.data && typeof parsed.data === "object" && !Array.isArray(parsed.data)) {
+          extracted = parsed.data;
         } else {
           extracted = parsed;
         }

@@ -536,7 +536,7 @@ router.delete(
 );
 
 // ================= MEDIA ROUTES =================
-router.get("/media", cacheMiddleware(180), mediaCtrl.getMedia);
+router.get("/media", mediaCtrl.getMedia);
 router.post(
   "/media",
   authenticate,
@@ -564,7 +564,14 @@ router.get("/settings", cacheMiddleware(300), settingCtrl.getSettings);
 router.put(
   "/settings",
   authenticate,
-  requireRole("SUPER_ADMIN"),
+  requireRole("SUPER_ADMIN", "ADMIN"),
+  invalidate("http:*settings*"),
+  settingCtrl.updateSettings
+);
+router.post(
+  "/settings",
+  authenticate,
+  requireRole("SUPER_ADMIN", "ADMIN"),
   invalidate("http:*settings*"),
   settingCtrl.updateSettings
 );
@@ -662,13 +669,25 @@ router.delete(
 router.get(
   "/admin/backup/export",
   authenticate,
-  requireRole("SUPER_ADMIN"),
+  requireRole("SUPER_ADMIN", "ADMIN"),
+  backupCtrl.exportAllData
+);
+router.get(
+  "/backup/export",
+  authenticate,
+  requireRole("SUPER_ADMIN", "ADMIN"),
   backupCtrl.exportAllData
 );
 router.post(
   "/admin/backup/import",
   authenticate,
-  requireRole("SUPER_ADMIN"),
+  requireRole("SUPER_ADMIN", "ADMIN"),
+  backupCtrl.importAllData
+);
+router.post(
+  "/backup/import",
+  authenticate,
+  requireRole("SUPER_ADMIN", "ADMIN"),
   backupCtrl.importAllData
 );
 

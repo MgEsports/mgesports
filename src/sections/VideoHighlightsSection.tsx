@@ -34,7 +34,7 @@ export const VideoHighlightsSection = ({
       try {
         const data = await mediaApi.getAll();
         if (!isMounted) return;
-        if (data && data.length > 0) {
+        if (Array.isArray(data)) {
           const chosen = data.filter((m) => m.featured || m.tag === "PREMIERE");
           const finalVideos = chosen.length > 0 ? chosen.slice(0, 6) : data.slice(0, 3);
           setHighlights(finalVideos);

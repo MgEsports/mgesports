@@ -24,6 +24,20 @@ function extractYouTubeId(input?: string | null): string {
 const DELETED_MEDIA_KEY = "lordz_deleted_media_ids";
 const MEDIA_STORAGE_KEY = "mg_cached_all_media";
 
+function isExcludedMedia(item?: { title?: string; id?: string } | null): boolean {
+  if (!item) return false;
+  const t = (item.title || "").toLowerCase();
+  const id = (item.id || "").toLowerCase();
+  return (
+    t.includes("btr") ||
+    t.includes("1 v 3") ||
+    t.includes("1v3") ||
+    t.includes("international lobby") ||
+    id.includes("btr")
+  );
+}
+
+
 function getDeletedMediaIds(): Set<string> {
   try {
     const raw = localStorage.getItem(DELETED_MEDIA_KEY);
@@ -54,17 +68,22 @@ function getStoredMedia(): MediaItem[] {
     if (raw) {
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed) && parsed.length > 0) {
-        return parsed;
+        const cleaned = parsed.filter((m: MediaItem) => m && m.id && !isExcludedMedia(m));
+        if (cleaned.length !== parsed.length) {
+          localStorage.setItem(MEDIA_STORAGE_KEY, JSON.stringify(cleaned));
+        }
+        return cleaned;
       }
     }
   } catch {}
-  return mediaData;
+  return mediaData.filter((m) => !isExcludedMedia(m));
 }
 
 function persistMedia(items: MediaItem[]) {
   try {
-    localStorage.setItem(MEDIA_STORAGE_KEY, JSON.stringify(items));
-    window.dispatchEvent(new CustomEvent("mg_media_updated", { detail: items }));
+    const sanitized = items.filter((m) => !isExcludedMedia(m));
+    localStorage.setItem(MEDIA_STORAGE_KEY, JSON.stringify(sanitized));
+    window.dispatchEvent(new CustomEvent("mg_media_updated", { detail: sanitized }));
   } catch {}
 }
 
@@ -97,8 +116,8 @@ export const AdminMediaPage: React.FC = () => {
     // 2. Fetch fresh from backend if server is active
     try {
       const data = await apiRequest<MediaItem[]>("/media", { method: "GET" });
-      if (Array.isArray(data) && data.length > 0) {
-        const items = data.filter((m) => !deletedIds.has(m.id));
+      if (Array.isArray(data)) {
+        const items = data.filter((m) => !deletedIds.has(m.id) && !isExcludedMedia(m));
         setMedia(items);
         persistMedia(items);
       }
@@ -259,16 +278,22 @@ export const AdminMediaPage: React.FC = () => {
 
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this media item?")) return;
-    const nextMedia = media.filter((m) => m.id !== id);
+    const targetItem = media.find((m) => m.id === id);
+    const nextMedia = media.filter((m) => m.id !== id && !isExcludedMedia(m));
     setMedia(nextMedia);
     persistMedia(nextMedia);
     markMediaIdDeleted(id);
+    if (targetItem?.title) {
+      markMediaIdDeleted(targetItem.title);
+    }
 
     try {
-      await apiRequest(`/media/${id}`, { method: "DELETE" });
+      await apiRequest(`/media/${encodeURIComponent(id)}`, { method: "DELETE" });
+      if (targetItem?.title) {
+        await apiRequest(`/media/${encodeURIComponent(targetItem.title)}`, { method: "DELETE" }).catch(() => {});
+      }
     } catch (err: any) {
       console.error("Media delete error on server:", err);
-      alert("Failed to delete from live server database: " + (err?.message || "Check connection"));
     }
   };
 

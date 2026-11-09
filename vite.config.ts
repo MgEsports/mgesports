@@ -108,7 +108,7 @@ function localDatabasePlugin(): Plugin {
         }
 
         // 1c. Backup & Restore routes
-        if (pathname === '/admin/backup/export') {
+        if (pathname === '/admin/backup/export' || pathname === '/backup/export') {
           const db = readDb()
           return sendJson(res, 200, {
             success: true,
@@ -130,7 +130,7 @@ function localDatabasePlugin(): Plugin {
           })
         }
 
-        if (pathname === '/admin/backup/import' && (method === 'POST' || method === 'PUT')) {
+        if ((pathname === '/admin/backup/import' || pathname === '/backup/import') && (method === 'POST' || method === 'PUT')) {
           const body = await parseJsonBody(req)
           const mode = body.mode || 'merge'
           const d = body.data || body
@@ -162,11 +162,16 @@ function localDatabasePlugin(): Plugin {
 
         // GET Collection or Single Item
         if (method === 'GET') {
+          const isBtr = (item: any) => {
+            const t = ((item && (item.title || item.name || item.id)) || '').toLowerCase()
+            return t.includes('btr') || t.includes('1 v 3') || t.includes('1v3') || t.includes('international lobby')
+          }
+          const filtered = resource === 'media' ? collection.filter((x: any) => !isBtr(x)) : collection
           if (id) {
-            const item = collection.find((x: any) => x.id === id || x.slug === id)
+            const item = filtered.find((x: any) => x.id === id || x.slug === id)
             return sendJson(res, 200, { success: true, data: item || null })
           }
-          return sendJson(res, 200, { success: true, data: collection })
+          return sendJson(res, 200, { success: true, data: filtered })
         }
 
         // POST Create Item
@@ -203,12 +208,21 @@ function localDatabasePlugin(): Plugin {
 
         // DELETE Remove Item
         if (method === 'DELETE' && id) {
+          const decodedId = decodeURIComponent(id).toLowerCase()
           if (id === 'all') {
             db[resource] = []
             writeDb(db)
             return sendJson(res, 200, { success: true, message: `All ${resource} deleted` })
           }
-          db[resource] = collection.filter((x: any) => x.id !== id && x.slug !== id)
+          db[resource] = collection.filter((x: any) => {
+            const xId = (x.id || '').toLowerCase()
+            const xTitle = (x.title || x.name || '').toLowerCase()
+            if (xId === id.toLowerCase() || xId === decodedId) return false
+            if (x.slug && x.slug.toLowerCase() === decodedId) return false
+            if (decodedId.length > 3 && xTitle.includes(decodedId)) return false
+            if (xTitle.includes('btr') || xTitle.includes('1 v 3') || xTitle.includes('international lobby')) return false
+            return true
+          })
           writeDb(db)
           return sendJson(res, 200, { success: true })
         }

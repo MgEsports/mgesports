@@ -25,7 +25,7 @@ export const MediaSection = ({
       mediaApi
         .getAll()
         .then((data) => {
-          if (data && data.length > 0) {
+          if (Array.isArray(data)) {
             setItems(data);
           }
         })

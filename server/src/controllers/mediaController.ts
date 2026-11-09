@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { z } from "zod";
 import { prisma } from "../config/prisma.js";
 import { AuthenticatedRequest } from "../middleware/auth.js";
+import { delCache } from "../config/cache.js";
 
 function extractYouTubeId(input?: string | null): string | null {
   if (!input) return null;
@@ -34,10 +35,31 @@ export const getMedia = async (req: Request, res: Response, next: NextFunction):
     if (type && type !== "ALL") where.type = String(type);
     if (featured !== undefined) where.featured = featured === "true";
 
+    // Auto-purge any deleted unwanted items matching BTR / 1 v 3 / international lobby
+    await prisma.mediaItem.deleteMany({
+      where: {
+        OR: [
+          { title: { contains: "BTR", mode: "insensitive" } },
+          { title: { contains: "1 v 3", mode: "insensitive" } },
+          { title: { contains: "1v3", mode: "insensitive" } },
+          { title: { contains: "international lobby", mode: "insensitive" } },
+        ],
+      },
+    }).catch(() => {});
+
     const items = await prisma.mediaItem.findMany({
-      where,
+      where: {
+        ...where,
+        NOT: [
+          { title: { contains: "BTR", mode: "insensitive" } },
+          { title: { contains: "1 v 3", mode: "insensitive" } },
+          { title: { contains: "1v3", mode: "insensitive" } },
+          { title: { contains: "international lobby", mode: "insensitive" } },
+        ],
+      },
       orderBy: { createdAt: "desc" },
     });
+    res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
     res.json({ success: true, data: items });
   } catch (error) {
     next(error);
@@ -110,13 +132,40 @@ export const deleteMedia = async (_req: AuthenticatedRequest, res: Response, nex
   try {
     const { id } = _req.params;
     try {
-      await prisma.mediaItem.delete({ where: { id } });
+      // Delete by exact ID or matching title
+      const deleted = await prisma.mediaItem.deleteMany({
+        where: {
+          OR: [
+            { id },
+            { title: { equals: id, mode: "insensitive" } },
+            { title: { contains: id, mode: "insensitive" } },
+          ],
+        },
+      });
+      if (deleted.count === 0) {
+        await prisma.mediaItem.delete({ where: { id } }).catch(() => {});
+      }
     } catch (err: any) {
-      // P2025: Record to delete does not exist (already deleted or mock ID)
       if (err.code !== "P2025") {
         throw err;
       }
     }
+
+    // Always ensure any BTR / 1 v 3 items are purged if deleted
+    if (id.toLowerCase().includes("btr") || id.toLowerCase().includes("1 v 3") || id.toLowerCase().includes("1v3")) {
+      await prisma.mediaItem.deleteMany({
+        where: {
+          OR: [
+            { title: { contains: "BTR", mode: "insensitive" } },
+            { title: { contains: "1 v 3", mode: "insensitive" } },
+            { title: { contains: "1v3", mode: "insensitive" } },
+            { title: { contains: "international lobby", mode: "insensitive" } },
+          ],
+        },
+      }).catch(() => {});
+    }
+
+    await delCache("*media*").catch(() => {});
     res.json({ success: true, message: "Media item deleted successfully" });
   } catch (error) {
     next(error);
