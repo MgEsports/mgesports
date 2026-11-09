@@ -5,7 +5,6 @@ import {
   Newspaper,
   Video,
   MessageSquare,
-  Handshake,
   Info,
   Home,
   Shirt,
