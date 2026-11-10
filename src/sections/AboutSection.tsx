@@ -370,7 +370,7 @@ export const AboutSection = ({
 
                         <div className="min-h-[40px] sm:min-h-[48px] flex flex-col justify-center">
                           <p className="text-[10px] xs:text-[11px] sm:text-xs text-gray-400 font-body leading-relaxed line-clamp-2">
-                            {player.about || player.featuredQuote || "Pro athlete competing under the banner of LORD ESPORTZ."}
+                            {player.about || player.featuredQuote || "Pro athlete competing under the banner of MG ESPORTS."}
                           </p>
                         </div>
                       </div>

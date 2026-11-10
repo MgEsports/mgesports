@@ -1,5 +1,5 @@
 /**
- * LORD ESPORTZ API Client
+ * MG ESPORTS API Client
  * Resilient API fetcher with token management and automatic fallback support.
  */
 

@@ -268,7 +268,7 @@ export const TournamentDetailPage: React.FC = () => {
       description:
         tournament.shortDescription ||
         tournament.description ||
-        `Official ${tournament.game} tournament hosted by LORD ESPORTZ.`,
+        `Official ${tournament.game} tournament hosted by MG ESPORTS.`,
       url: `${SITE_URL}${path}`,
       startDate: tournament.startDate || "2026-09-28T18:00:00Z",
       ...(tournament.endDate ? { endDate: tournament.endDate } : {}),
@@ -283,7 +283,7 @@ export const TournamentDetailPage: React.FC = () => {
       },
       organizer: {
         "@type": "SportsOrganization",
-        name: "LORD ESPORTZ",
+        name: "MG ESPORTS",
         url: SITE_URL,
       },
       offers: {
@@ -311,7 +311,7 @@ export const TournamentDetailPage: React.FC = () => {
   if (!tournament) {
     return (
       <div className="min-h-screen bg-[#050505] text-white flex flex-col items-center justify-center p-6 text-center">
-        <SEO title="Tournament Not Found | LORD ESPORTZ" noindex nofollow />
+        <SEO title="Tournament Not Found | MG ESPORTS" noindex nofollow />
         <Trophy className="h-16 w-16 text-gray-600 mb-4" />
         <h1 className="font-display text-3xl uppercase tracking-wider">Tournament Not Found</h1>
         <p className="text-sm text-gray-400 mt-2">The tournament arena you are looking for may have concluded or been archived.</p>
@@ -400,11 +400,11 @@ export const TournamentDetailPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#050505] text-white selection:bg-[#FFBE32] selection:text-black w-full max-w-full overflow-x-hidden">
       <SEO
-        title={`${tournament.title} | LORD ESPORTZ Tournament`}
+        title={`${tournament.title} | MG ESPORTS Tournament`}
         description={
           tournament.shortDescription ||
           tournament.description ||
-          `Join ${tournament.title}, the official ${tournament.game} championship by LORD ESPORTZ. Total Prize Pool: ${prizeDisplay}. Format: ${tournament.format}.`
+          `Join ${tournament.title}, the official ${tournament.game} championship by MG ESPORTS. Total Prize Pool: ${prizeDisplay}. Format: ${tournament.format}.`
         }
         canonicalPath={`/tournaments/${tournament.slug || slug}`}
         ogImage={tournament.bannerImage || "/og-image.jpg"}
@@ -895,7 +895,7 @@ export const TournamentDetailPage: React.FC = () => {
                 <p className="text-sm text-gray-300 font-body leading-relaxed">
                   {tournament.description ||
                     tournament.shortDescription ||
-                    "Official competitive tournament organized by LORD ESPORTZ. Squads battle across Bermuda, Purgatory, and Kalahari maps with real-time observer review and anti-cheat monitoring."}
+                    "Official competitive tournament organized by MG ESPORTS. Squads battle across Bermuda, Purgatory, and Kalahari maps with real-time observer review and anti-cheat monitoring."}
                 </p>
               </div>
 

@@ -14,7 +14,7 @@ export const MediaPage = () => {
       "@context": "https://schema.org",
       "@type": "VideoObject",
       name: m.title,
-      description: m.description || `Official LORD ESPORTZ ${m.game} highlight.`,
+      description: m.description || `Official MG ESPORTS ${m.game} highlight.`,
       thumbnailUrl: m.thumbnail || `https://img.youtube.com/vi/${m.youtubeId}/hqdefault.jpg`,
       uploadDate: "2026-09-20T12:00:00Z",
       contentUrl: `https://www.youtube.com/watch?v=${m.youtubeId}`,

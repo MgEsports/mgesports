@@ -500,7 +500,7 @@ export const VotingPage = () => {
                     Candidate Affiliation
                   </span>
                   <span className="font-heading font-black text-sm text-[#FFBE32] uppercase">
-                    {votedNomineeCurrent.platform || votedNomineeCurrent.team || "LORD ESPORTZ"}
+                    {votedNomineeCurrent.platform || votedNomineeCurrent.team || "MG ESPORTS"}
                   </span>
                 </div>
               </motion.div>
@@ -532,7 +532,7 @@ export const VotingPage = () => {
                     const isUserVotedThis = activeEvent.userVotingStatus?.votedNomineeId === nominee.id;
                     const candidateName = nominee.name || nominee.player?.ign || "Candidate";
                     const candidateRole = nominee.role || nominee.player?.role || "CREATOR";
-                    const candidateOrg = nominee.platform || nominee.team || nominee.player?.team || "LORD ESPORTZ";
+                    const candidateOrg = nominee.platform || nominee.team || nominee.player?.team || "MG ESPORTS";
                     const candidateBio = nominee.bio || nominee.player?.featuredQuote || nominee.player?.about || "";
                     const imgUrl =
                       nominee.imageUrl ||

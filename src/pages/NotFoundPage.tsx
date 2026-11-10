@@ -33,7 +33,7 @@ export const NotFoundPage = () => {
         >
           <img
             src={logoImg}
-            alt="LORD ESPORTZ Emblem"
+            alt="MG ESPORTS Emblem"
             width={56}
             height={56}
             className="h-full w-full object-contain drop-shadow-[0_0_10px_#FFBE32]"

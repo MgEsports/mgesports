@@ -1,5 +1,5 @@
 /**
- * Centralized formatting utilities for currency and dates across LORD ESPORTZ.
+ * Centralized formatting utilities for currency and dates across MG ESPORTS.
  * Guarantees zero duplicate currency symbols (never "₹₹") and zero "Invalid Date" outputs.
  */
 

@@ -24,7 +24,7 @@ function getEffectiveFromEmail(): string {
   ) {
     return envFrom;
   }
-  return "LORD ESPORTZ <noreply@lordesportz.com>";
+  return "MG ESPORTS <noreply@mgesports.gg>";
 }
 
 export interface SendOtpResult {
@@ -65,7 +65,7 @@ export async function sendPasswordResetOtpEmail(
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>LORD ESPORTZ — Password Reset Code</title>
+  <title>MG ESPORTS — Password Reset Code</title>
   <style>
     body { margin: 0; padding: 0; background-color: #050507; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #FFFFFF; }
     .container { max-width: 580px; margin: 0 auto; background-color: #0C0C10; border: 1px solid #22222A; border-radius: 16px; overflow: hidden; }
@@ -87,14 +87,14 @@ export async function sendPasswordResetOtpEmail(
     <div class="container">
       <div class="header">
         <span class="badge">SECURITY VERIFICATION</span>
-        <h1 class="title">LORD ESPORTZ</h1>
+        <h1 class="title">MG ESPORTS</h1>
         <p style="color: #9CA3AF; font-size: 12px; margin: 6px 0 0 0; text-transform: uppercase; letter-spacing: 1.5px;">Athlete Passport Verification</p>
       </div>
       
       <div class="content">
         <p class="greeting">Greetings ${recipientName},</p>
         <p class="desc">
-          You requested to reset your password for the <strong>LORD ESPORTZ Portal</strong>. Use the 6-digit verification code below to authorize your password change.
+          You requested to reset your password for the <strong>MG ESPORTS Portal</strong>. Use the 6-digit verification code below to authorize your password change.
         </p>
         
         <div class="otp-box">
@@ -108,7 +108,7 @@ export async function sendPasswordResetOtpEmail(
       </div>
       
       <div class="footer">
-        © ${new Date().getFullYear()} LORD ESPORTZ CLAN. All Rights Reserved.<br>
+        © ${new Date().getFullYear()} MG ESPORTS. All Rights Reserved.<br>
         Premier Indian Esports Tournaments & Pro Gaming Organization.
       </div>
     </div>
@@ -122,7 +122,7 @@ export async function sendPasswordResetOtpEmail(
       from: fromEmail,
       replyTo: replyTo,
       to: [toEmail],
-      subject: `[${otp}] Your LORD ESPORTZ Password Reset Code`,
+      subject: `[${otp}] Your MG ESPORTS Password Reset Code`,
       html: htmlContent,
     });
 
@@ -193,7 +193,7 @@ export async function sendWelcomeEmail(
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to LORD ESPORTZ Clan</title>
+  <title>Welcome to MG ESPORTS</title>
 </head>
 <body style="margin: 0; padding: 0; background-color: #050507; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #FFFFFF; -webkit-font-smoothing: antialiased;">
   <div style="padding: 40px 16px; background-color: #050507;">
@@ -204,7 +204,7 @@ export async function sendWelcomeEmail(
         <td style="padding: 40px 24px 30px; text-align: center; background: linear-gradient(180deg, #161622 0%, #0C0C10 100%); border-bottom: 2px solid rgba(255, 190, 50, 0.25);">
           <!-- Logo Image -->
           <div style="display: inline-block; margin-bottom: 18px;">
-            <img src="${logoUrl}" alt="LORD ESPORTZ" width="90" height="90" style="display: block; width: 90px; height: 90px; border-radius: 20px; border: 2px solid #FFBE32; box-shadow: 0 0 30px rgba(255, 190, 50, 0.5); object-fit: contain; background-color: #070709;" />
+            <img src="${logoUrl}" alt="MG ESPORTS" width="90" height="90" style="display: block; width: 90px; height: 90px; border-radius: 20px; border: 2px solid #FFBE32; box-shadow: 0 0 30px rgba(255, 190, 50, 0.5); object-fit: contain; background-color: #070709;" />
           </div>
           
           <div style="margin-bottom: 10px;">
@@ -214,7 +214,7 @@ export async function sendWelcomeEmail(
           </div>
 
           <h1 style="margin: 0; font-size: 28px; font-weight: 900; color: #FFFFFF; letter-spacing: 1.5px; text-transform: uppercase; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">
-            WELCOME TO LORD ESPORTZ
+            WELCOME TO MG ESPORTS
           </h1>
           <p style="margin: 8px 0 0 0; color: #9CA3AF; font-size: 13px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;">
             Compete • Dominate • Build Your Legacy
@@ -230,7 +230,7 @@ export async function sendWelcomeEmail(
             Greetings <span style="color: #FFBE32;">${athleteName}</span>,
           </p>
           <p style="margin: 0 0 24px 0; font-size: 14px; line-height: 1.7; color: #D1D5DB;">
-            Welcome to the frontlines of Indian competitive esports! Your official <strong>LORD ESPORTZ Athlete Passport</strong> has been verified and registered on our portal. You now have unrestricted access to our national tournament brackets, live scrims, verified stats, and official clan operations.
+            Welcome to the frontlines of Indian competitive esports! Your official <strong>MG ESPORTS Athlete Passport</strong> has been verified and registered on our portal. You now have unrestricted access to our national tournament brackets, live scrims, verified stats, and official clan operations.
           </p>
 
           <!-- ATHLETE PASSPORT CREDENTIAL CARD -->
@@ -341,7 +341,7 @@ export async function sendWelcomeEmail(
       <tr>
         <td style="padding: 28px 24px; text-align: center; font-size: 11px; color: #6B7280; border-top: 1px solid #1C1C24; line-height: 1.7;">
           <p style="margin: 0 0 6px 0; font-weight: 700; color: #9CA3AF; letter-spacing: 1px; text-transform: uppercase;">
-            © ${new Date().getFullYear()} LORD ESPORTZ CLAN. ALL RIGHTS RESERVED.
+            © ${new Date().getFullYear()} MG ESPORTS. ALL RIGHTS RESERVED.
           </p>
           <p style="margin: 0; color: #4B5563;">
             Chennai, Tamil Nadu, India • Premier Indian Esports Tournaments & Pro Gaming Organization.
@@ -359,7 +359,7 @@ export async function sendWelcomeEmail(
       from: fromEmail,
       replyTo: replyTo,
       to: [user.email],
-      subject: `🏆 Welcome to LORD ESPORTZ Clan, ${athleteIgn}! Your Athlete Passport is Active`,
+      subject: `🏆 Welcome to MG ESPORTS, ${athleteIgn}! Your Athlete Passport is Active`,
       html: htmlContent,
     });
 
@@ -531,7 +531,7 @@ export async function sendRoomCredentialsEmail(
       <tr>
         <td style="padding: 24px; text-align: center; font-size: 11px; color: #6B7280; border-top: 1px solid #1C1C24;">
           <p style="margin: 0 0 4px 0; font-weight: 700; color: #9CA3AF; text-transform: uppercase;">
-            © ${new Date().getFullYear()} LORD ESPORTZ. ALL RIGHTS RESERVED.
+            © ${new Date().getFullYear()} MG ESPORTS. ALL RIGHTS RESERVED.
           </p>
           <p style="margin: 0; color: #4B5563;">
             Official Match Room Dispatch for competitive registered athletes.

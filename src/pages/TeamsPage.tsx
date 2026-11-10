@@ -125,7 +125,7 @@ export const TeamsPage = () => {
         {!hasError && imgSrc ? (
           <img
             src={imgSrc}
-            alt={`${member.name} (${member.primaryRole || member.handle || "Team Member"}) - LORD ESPORTZ`}
+            alt={`${member.name} (${member.primaryRole || member.handle || "Team Member"}) - MG ESPORTS`}
             onError={handleImgError}
             loading="lazy"
             decoding="async"
@@ -160,8 +160,8 @@ export const TeamsPage = () => {
   return (
     <div className="min-h-screen bg-[#050505] text-[#E0E0E0] selection:bg-[#FFBE32] selection:text-black font-sans">
       <SEO
-        title="LORD ESPORTZ Team | Founders, Leadership & Operations Collective"
-        description="Meet the core team and leadership powering LORD ESPORTZ across technology, tournament operations, management, creative media, and community."
+        title="MG ESPORTS Team | Founders, Leadership & Operations Collective"
+        description="Meet the core team and leadership powering MG ESPORTS across technology, tournament operations, management, creative media, and community."
         canonicalPath="/teams"
         breadcrumbs={[
           { name: "Home", item: "/" },
@@ -181,7 +181,7 @@ export const TeamsPage = () => {
           <div className="flex items-center gap-3 mb-3 sm:mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FFBE32]" />
             <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#A0A0A0]">
-              LORD ESPORTZ / THE COLLECTIVE
+              MG ESPORTS / THE COLLECTIVE
             </span>
           </div>
 
@@ -199,7 +199,7 @@ export const TeamsPage = () => {
               <div className="w-12 h-px bg-[#FFBE32]/60 my-6" />
 
               <p className="text-base sm:text-lg text-[#A0A0A0] font-body leading-relaxed max-w-xl">
-                Real people. Distinct roles. One competitive organization. LORD ESPORTZ is powered by individuals working across technology, tournament operations, management, creative media, player talent, and community.
+                Real people. Distinct roles. One competitive organization. MG ESPORTS is powered by individuals working across technology, tournament operations, management, creative media, player talent, and community.
               </p>
 
               {/* Minimal Editorial Subtext */}
@@ -217,7 +217,7 @@ export const TeamsPage = () => {
               <div className="relative group overflow-hidden rounded-md border border-white/[0.08] bg-[#0A0A0A]">
                 <img
                   src={teamPhoto}
-                  alt="LORD ESPORTZ Collective"
+                  alt="MG ESPORTS Collective"
                   className="w-full h-52 xs:h-60 sm:h-80 object-cover hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/20 to-transparent pointer-events-none" />

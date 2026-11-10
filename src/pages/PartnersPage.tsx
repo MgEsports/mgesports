@@ -106,8 +106,8 @@ export const PartnersPage = () => {
   return (
     <div className="min-h-screen bg-[#050505] text-white pt-20 sm:pt-28 pb-14 sm:pb-20 w-full max-w-full overflow-x-hidden relative">
       <SEO
-        title="Partner With Us | Esports Sponsorship &amp; Collaboration | LORD ESPORTZ"
-        description="Collaborate with LORD ESPORTZ. Choose from customized sponsorship tiers, brand integration in premier tournaments, community activations, and broadcast features."
+        title="Partner With Us | Esports Sponsorship &amp; Collaboration | MG ESPORTS"
+        description="Collaborate with MG ESPORTS. Choose from customized sponsorship tiers, brand integration in premier tournaments, community activations, and broadcast features."
         canonicalPath="/partner-with-us"
         breadcrumbs={[
           { name: "Home", item: "/" },
@@ -130,7 +130,7 @@ export const PartnersPage = () => {
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFBE32]/10 border border-[#FFBE32]/30 mb-5">
               <Sparkles className="h-3.5 w-3.5 text-[#FFBE32]" />
               <span className="font-heading text-xs font-bold uppercase tracking-widest text-[#FFBE32]">
-                PARTNER WITH LORD ESPORTZ
+                PARTNER WITH MG ESPORTS
               </span>
             </div>
 
@@ -420,7 +420,7 @@ export const PartnersPage = () => {
                     Application Received!
                   </h4>
                   <p className="text-sm text-gray-400 font-body max-w-md mx-auto leading-relaxed">
-                    Thank you for applying to join the LORD ESPORTZ Partner Network. Our partnerships team will contact you within 24 hours on WhatsApp and email with your invoice, Discord onboarding, and partnership perks.
+                    Thank you for applying to join the MG ESPORTS Partner Network. Our partnerships team will contact you within 24 hours on WhatsApp and email with your invoice, Discord onboarding, and partnership perks.
                   </p>
                   <div className="pt-4">
                     <button

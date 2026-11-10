@@ -240,7 +240,7 @@ export const ModalProvider = ({ children }: { children: ReactNode }) => {
             </div>
           ) : (
             <p className="leading-relaxed text-gray-400">
-              As competitive esports across India enters an unprecedented era of professionalization, LORD ESPORTZ continues to establish the gold standard for player development, scrim infrastructure, and fair play.
+              As competitive esports across India enters an unprecedented era of professionalization, MG ESPORTS continues to establish the gold standard for player development, scrim infrastructure, and fair play.
             </p>
           )}
 

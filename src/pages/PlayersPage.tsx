@@ -10,8 +10,8 @@ export const PlayersPage = () => {
   const playersSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "LORD ESPORTZ Official Athlete Roster",
-    description: "Championship esports athletes representing LORD ESPORTZ.",
+    name: "MG ESPORTS Official Athlete Roster",
+    description: "Championship esports athletes representing MG ESPORTS.",
     url: `${SITE_URL}/players`,
     numberOfItems: playersData.length,
     itemListElement: playersData.map((p, idx) => ({
@@ -50,7 +50,7 @@ export const PlayersPage = () => {
         badge="PRO ATHLETE ROSTER"
         title="MEET THE"
         titleHighlight="CHAMPIONS"
-        subtitle="The championship athletes representing LORD ESPORTZ across premier national mobile stages."
+        subtitle="The championship athletes representing MG ESPORTS across premier national mobile stages."
       />
 
       {/* Community Voting CTA Banner */}
