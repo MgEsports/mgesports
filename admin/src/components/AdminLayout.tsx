@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate, Outlet } from "react-router-dom";
 import { useAdminAuth } from "../context/AdminAuthContext";
 import logoImg from "../assets/lordz-logo.png";
@@ -21,7 +21,9 @@ import {
   Radio,
   Clock,
   ChevronRight,
-  Vote
+  Vote,
+  Sun,
+  Moon,
 } from "lucide-react";
 
 interface NavGroup {
@@ -86,6 +88,33 @@ export const AdminLayout: React.FC = () => {
   const navigate = useNavigate();
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
+  const [theme, setTheme] = useState<"dark" | "light">(() => {
+    try {
+      const stored = localStorage.getItem("mg_esports_theme");
+      return stored === "light" ? "light" : "dark";
+    } catch {
+      return "dark";
+    }
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === "light") {
+      root.classList.remove("dark");
+      root.classList.add("light");
+    } else {
+      root.classList.remove("light");
+      root.classList.add("dark");
+    }
+    try {
+      localStorage.setItem("mg_esports_theme", theme);
+    } catch {}
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  };
+
   const handleLogout = () => {
     logout();
     navigate("/admin/login");
@@ -147,8 +176,18 @@ export const AdminLayout: React.FC = () => {
           <span>LIVE DATABASE SYNC ACTIVE</span>
         </div>
 
-        {/* Right: Public Site Link, Profile, Logout */}
+        {/* Right: Public Site Link, Theme Toggle, Profile, Logout */}
         <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+            title={`Switch to ${theme === "dark" ? "Light Mode" : "Dark Mode"}`}
+            className="p-2 rounded-lg bg-black/40 border border-white/10 hover:border-[#fc8100]/50 text-gray-300 hover:text-[#fc8100] transition-colors cursor-pointer"
+          >
+            {theme === "dark" ? <Sun className="h-4 w-4 text-[#fc8100]" /> : <Moon className="h-4 w-4 text-[#fc8100]" />}
+          </button>
+
           <Link
             to="/"
             target="_blank"

@@ -78,10 +78,11 @@ html.light {
 
 html.light body {
   background-color: #F8F9FA !important;
-  color: #111827 !important;
+  color: #0F172A !important;
 }
 
 html.light .bg-\[\#050507\],
+html.light .bg-\[\#060608\],
 html.light .bg-\[\#070709\],
 html.light .bg-\[\#08080A\],
 html.light .bg-\[\#0A0A0E\],
@@ -89,27 +90,76 @@ html.light .bg-black {
   background-color: #F8F9FA !important;
 }
 
+html.light header,
+html.light .bg-\[\#0B0B0F\]\/95 {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  border-bottom-color: #E2E8F0 !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+html.light .bg-\[\#0A0A0D\],
 html.light .bg-\[\#0C0C10\],
 html.light .bg-\[\#0D0D10\],
+html.light .bg-\[\#0D0D12\],
 html.light .bg-\[\#0E0E12\],
 html.light .bg-\[\#111116\],
 html.light .bg-\[\#121217\],
+html.light .bg-\[\#141418\],
 html.light .bg-\[\#14141C\] {
   background-color: #FFFFFF !important;
-  border-color: #E5E7EB !important;
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05) !important;
 }
 
 html.light .text-white {
-  color: #111827 !important;
+  color: #0F172A !important;
 }
 
+html.light .text-gray-200,
 html.light .text-gray-300,
 html.light .text-gray-400 {
-  color: #4B5563 !important;
+  color: #334155 !important;
+}
+
+html.light .text-gray-500,
+html.light .text-gray-600 {
+  color: #64748B !important;
 }
 
 html.light .border-white\/10,
-html.light .border-white\/5 {
-  border-color: rgba(0, 0, 0, 0.08) !important;
+html.light .border-white\/5,
+html.light .border-white\/20 {
+  border-color: #E2E8F0 !important;
+}
+
+html.light input,
+html.light textarea,
+html.light select {
+  color: #0F172A !important;
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+}
+
+html.light input:focus,
+html.light textarea:focus,
+html.light select:focus {
+  border-color: #fc8100 !important;
+  box-shadow: 0 0 0 3px rgba(252, 129, 0, 0.15) !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+html.light ::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #fc8100;
 }

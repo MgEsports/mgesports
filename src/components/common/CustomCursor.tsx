@@ -1,7 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useTheme } from "../../context/ThemeContext";
 
 export const CustomCursor = () => {
+  const { theme } = useTheme();
+  const isLight = theme === "light";
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isTouch] = useState(
@@ -74,7 +77,11 @@ export const CustomCursor = () => {
     <div className="pointer-events-none fixed inset-0 z-[9999] overflow-hidden">
       {/* Outer subtle follower ring — GPU accelerated transform without layout reflow */}
       <motion.div
-        className="fixed top-0 left-0 h-7 w-7 rounded-full border border-[#fc8100]/60 bg-[#fc8100]/10 backdrop-blur-[1px]"
+        className={`fixed top-0 left-0 h-7 w-7 rounded-full border backdrop-blur-[1px] transition-colors duration-200 ${
+          isLight
+            ? "border-[#fc8100] bg-[#fc8100]/20 shadow-[0_0_12px_rgba(252,129,0,0.35)]"
+            : "border-[#fc8100]/60 bg-[#fc8100]/10 shadow-[0_0_10px_rgba(252,129,0,0.2)]"
+        }`}
         style={{
           x: ringX,
           y: ringY,
@@ -93,7 +100,9 @@ export const CustomCursor = () => {
       />
       {/* Center pinpoint dot */}
       <motion.div
-        className="fixed top-0 left-0 h-1.5 w-1.5 rounded-full bg-[#fc8100] shadow-[0_0_8px_#fc8100]"
+        className={`fixed top-0 left-0 h-1.5 w-1.5 rounded-full bg-[#fc8100] ${
+          isLight ? "shadow-[0_0_8px_#fc8100]" : "shadow-[0_0_8px_#fc8100]"
+        }`}
         style={{
           x: dotX,
           y: dotY,
