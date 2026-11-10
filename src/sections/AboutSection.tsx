@@ -344,7 +344,7 @@ export const AboutSection = ({
                           {athleteImg ? (
                             <img
                               src={athleteImg}
-                              alt={`${cleanIgn} (${cleanRealName}) - Pro Free Fire Athlete for LORD ESPORTZ`}
+                              alt={`${cleanIgn} (${cleanRealName}) - Pro Clan Athlete for Mg ESPORTS`}
                               loading="lazy"
                               decoding="async"
                               className="w-full h-full object-cover object-top filter contrast-105 group-hover:scale-105 transition-transform duration-500"

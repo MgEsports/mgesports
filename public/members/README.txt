@@ -1,4 +1,4 @@
-LORD ESPORTS - TEAM MEMBER IMAGES DIRECTORY
+MGesports ESPORTS - TEAM MEMBER IMAGES DIRECTORY
 ============================================
 
 Place your photo files for each team member in this directory (`public/members/`).
