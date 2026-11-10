@@ -131,8 +131,9 @@ export const merchandiseApi = {
 
   deleteOrder: async (id: string, orderNumber?: string): Promise<{ success: boolean }> => {
     const cleanId = (id || "").trim();
+    const cleanNum = (orderNumber || "").trim();
     const encoded = encodeURIComponent(cleanId);
-    markOrderAsDeleted([cleanId, (orderNumber || "").trim()]);
+    markOrderAsDeleted([cleanId, cleanNum]);
 
     // 1. Mark as DELETED in database via PUT (guaranteed to succeed on all server versions)
     try {
@@ -142,22 +143,12 @@ export const merchandiseApi = {
       });
     } catch {}
 
-    // 2. Also dispatch DELETE request
-    try {
-      return await apiRequest<{ success: boolean }>(`/orders/${encoded}`, {
-        method: "DELETE",
-      });
-    } catch {
-      try {
-        return await apiRequest<{ success: boolean }>(`/admin/orders/${encoded}`, {
-          method: "DELETE",
-        });
-      } catch {
-        return await apiRequest<{ success: boolean }>(`/orders?id=${encoded}`, {
-          method: "DELETE",
-        });
-      }
-    }
+    // 2. Dispatch best-effort background DELETE calls without blocking or throwing 404
+    apiRequest(`/orders/${encoded}`, { method: "DELETE" }).catch(() => {});
+    apiRequest(`/admin/orders/${encoded}`, { method: "DELETE" }).catch(() => {});
+    apiRequest(`/orders?id=${encoded}`, { method: "DELETE" }).catch(() => {});
+
+    return { success: true };
   },
 
   deleteAllOrders: async (existingOrders?: OrderItem[]): Promise<{ success: boolean }> => {
@@ -180,21 +171,12 @@ export const merchandiseApi = {
       );
     }
 
-    try {
-      return await apiRequest<{ success: boolean }>("/orders/all", {
-        method: "DELETE",
-      });
-    } catch {
-      try {
-        return await apiRequest<{ success: boolean }>("/orders", {
-          method: "DELETE",
-        });
-      } catch {
-        return await apiRequest<{ success: boolean }>("/admin/orders/all", {
-          method: "DELETE",
-        });
-      }
-    }
+    // Best-effort DELETE calls in background without throwing 404
+    apiRequest("/orders/all", { method: "DELETE" }).catch(() => {});
+    apiRequest("/orders", { method: "DELETE" }).catch(() => {});
+    apiRequest("/admin/orders/all", { method: "DELETE" }).catch(() => {});
+
+    return { success: true };
   },
 
   updateOrderStatus: async (

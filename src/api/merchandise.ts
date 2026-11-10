@@ -89,7 +89,10 @@ export const merchandiseApi = {
     if (params?.search) query.set("search", params.search);
 
     const qs = query.toString() ? `?${query.toString()}` : "";
-    return apiRequest<OrderItem[]>(`/orders${qs}`, { method: "GET" }, []);
+    const list = await apiRequest<OrderItem[]>(`/orders${qs}`, { method: "GET" }, []);
+    return (Array.isArray(list) ? list : []).filter(
+      (o) => o && (o.orderStatus as any) !== "DELETED" && o.adminNotes !== "__DELETED__"
+    );
   },
 
   trackOrders: async (query: string): Promise<OrderItem[]> => {
