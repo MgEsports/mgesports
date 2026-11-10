@@ -683,7 +683,7 @@ export const AdminTournamentsPage: React.FC = () => {
             <div className="flex items-center gap-2">
               <button
                 onClick={handleRestoreDraft}
-                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-[#FFBE32] bg-[#FFBE32]/10 border border-[#FFBE32]/30 hover:bg-[#FFBE32]/20 transition-all cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-[#fc8100] bg-[#fc8100]/10 border border-[#fc8100]/30 hover:bg-[#fc8100]/20 transition-all cursor-pointer"
               >
                 <RefreshCw className="h-3.5 w-3.5" />
                 <span>Restore Draft</span>
@@ -699,7 +699,7 @@ export const AdminTournamentsPage: React.FC = () => {
 
           <button
             onClick={handleOpenCreate}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#FFBE32] hover:bg-[#FFA000] transition-all cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)] shrink-0"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#fc8100] hover:bg-[#e07200] transition-all cursor-pointer shadow-[0_0_15px_rgba(252, 129, 0,0.3)] shrink-0"
           >
             <Plus className="h-4 w-4" />
             <span>Create Tournament</span>
@@ -724,7 +724,7 @@ export const AdminTournamentsPage: React.FC = () => {
               onClick={() => setStatusFilter(tab.id)}
               className={`px-4 py-1.5 rounded-lg text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1.5 ${
                 statusFilter === tab.id
-                  ? "bg-[#FFBE32] text-black shadow-[0_0_10px_rgba(255,190,50,0.3)] font-extrabold"
+                  ? "bg-[#fc8100] text-black shadow-[0_0_10px_rgba(252, 129, 0,0.3)] font-extrabold"
                   : "bg-black/50 text-gray-400 hover:text-white border border-white/5"
               }`}
             >
@@ -747,7 +747,7 @@ export const AdminTournamentsPage: React.FC = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search tournament title..."
-            className="w-full rounded-xl border border-white/10 bg-black/60 pl-9 pr-3 py-1.5 text-xs text-white placeholder-gray-500 focus:border-[#FFBE32] focus:outline-none"
+            className="w-full rounded-xl border border-white/10 bg-black/60 pl-9 pr-3 py-1.5 text-xs text-white placeholder-gray-500 focus:border-[#fc8100] focus:outline-none"
           />
         </div>
       </div>
@@ -759,7 +759,7 @@ export const AdminTournamentsPage: React.FC = () => {
         </div>
       ) : tournaments.length === 0 ? (
         <div className="py-20 px-6 rounded-2xl bg-[#0D0D12] border border-white/10 text-center max-w-lg mx-auto shadow-2xl">
-          <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-[#FFBE32]/10 border border-[#FFBE32]/25 flex items-center justify-center text-[#FFBE32]">
+          <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-[#fc8100]/10 border border-[#fc8100]/25 flex items-center justify-center text-[#fc8100]">
             <Trophy className="w-8 h-8 opacity-80" />
           </div>
           <h3 className="font-heading text-lg font-bold uppercase tracking-wider text-white">
@@ -777,7 +777,7 @@ export const AdminTournamentsPage: React.FC = () => {
           {statusFilter === "ALL" && (
             <button
               onClick={handleOpenCreate}
-              className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#FFBE32] hover:bg-[#FFA000] transition-all cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)]"
+              className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#fc8100] hover:bg-[#e07200] transition-all cursor-pointer shadow-[0_0_15px_rgba(252, 129, 0,0.3)]"
             >
               <Plus className="h-4 w-4" />
               <span>Create Tournament Now</span>
@@ -793,7 +793,7 @@ export const AdminTournamentsPage: React.FC = () => {
             return (
               <div
                 key={t.id}
-                className="rounded-2xl bg-[#0C0C10] border border-white/10 hover:border-[#FFBE32]/40 transition-all flex flex-col lg:flex-row overflow-hidden group shadow-xl"
+                className="rounded-2xl bg-[#0C0C10] border border-white/10 hover:border-[#fc8100]/40 transition-all flex flex-col lg:flex-row overflow-hidden group shadow-xl"
               >
                 {/* Banner Thumbnail (Left on desktop) */}
                 <div className="relative lg:w-72 h-44 lg:h-auto bg-[#141419] shrink-0 overflow-hidden">
@@ -817,7 +817,7 @@ export const AdminTournamentsPage: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/80 via-transparent to-transparent" />
 
                   {/* Registered Count Badge on Banner */}
-                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/80 border border-[#FFBE32]/40 text-[#FFBE32] font-heading font-extrabold text-[11px] uppercase tracking-wider backdrop-blur-md shadow-lg">
+                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/80 border border-[#fc8100]/40 text-[#fc8100] font-heading font-extrabold text-[11px] uppercase tracking-wider backdrop-blur-md shadow-lg">
                     {registeredCount} TEAMS REGISTERED
                   </div>
                 </div>
@@ -826,7 +826,7 @@ export const AdminTournamentsPage: React.FC = () => {
                 <div className="p-5 flex-1 space-y-3 flex flex-col justify-between">
                   <div className="space-y-2">
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="px-2.5 py-0.5 rounded bg-black border border-white/10 text-[10px] font-mono font-bold text-[#FFBE32] uppercase">
+                      <span className="px-2.5 py-0.5 rounded bg-black border border-white/10 text-[10px] font-mono font-bold text-[#fc8100] uppercase">
                         {t.gameCategory || t.game}
                       </span>
 
@@ -849,7 +849,7 @@ export const AdminTournamentsPage: React.FC = () => {
                       </span>
 
                       {t.featured && (
-                        <span className="px-2 py-0.5 rounded bg-[#FFBE32]/20 text-[#FFBE32] border border-[#FFBE32]/40 text-[9px] font-mono uppercase font-bold">
+                        <span className="px-2 py-0.5 rounded bg-[#fc8100]/20 text-[#fc8100] border border-[#fc8100]/40 text-[9px] font-mono uppercase font-bold">
                           Featured Hero
                         </span>
                       )}
@@ -868,7 +868,7 @@ export const AdminTournamentsPage: React.FC = () => {
                     </div>
 
                     <Link to={`/admin/tournaments/${t.id}`}>
-                      <h3 className="font-display text-2xl uppercase tracking-wider text-white hover:text-[#FFBE32] transition-colors">
+                      <h3 className="font-display text-2xl uppercase tracking-wider text-white hover:text-[#fc8100] transition-colors">
                         {t.title}
                       </h3>
                     </Link>
@@ -880,13 +880,13 @@ export const AdminTournamentsPage: React.FC = () => {
 
                   {/* Prominent Registered Teams Counter + Metadata */}
                   <div className="flex flex-wrap items-center gap-4 text-xs font-mono pt-1">
-                    <div className="px-3 py-1.5 rounded-lg bg-black/70 border border-[#FFBE32]/30 text-white font-bold inline-flex items-center gap-1.5">
-                      <Users className="h-3.5 w-3.5 text-[#FFBE32]" />
-                      <span className="text-[#FFBE32] text-sm font-display">{registeredCount}</span>
+                    <div className="px-3 py-1.5 rounded-lg bg-black/70 border border-[#fc8100]/30 text-white font-bold inline-flex items-center gap-1.5">
+                      <Users className="h-3.5 w-3.5 text-[#fc8100]" />
+                      <span className="text-[#fc8100] text-sm font-display">{registeredCount}</span>
                       <span className="text-gray-400">/ {maxCount} TEAMS REGISTERED</span>
                     </div>
 
-                    <span className="flex items-center gap-1 text-[#FFBE32]">
+                    <span className="flex items-center gap-1 text-[#fc8100]">
                       <DollarSign className="h-3.5 w-3.5" /> Pool: <strong>{formatCurrency(t.prizePool)}</strong>
                     </span>
 
@@ -904,7 +904,7 @@ export const AdminTournamentsPage: React.FC = () => {
                 <div className="p-5 lg:border-l border-white/5 flex lg:flex-col items-center lg:items-end justify-between lg:justify-center gap-3 bg-black/20 shrink-0">
                   <Link
                     to={`/tournaments/${t.id}`}
-                    className="w-full lg:w-40 py-2.5 px-4 rounded-xl font-heading text-xs font-bold uppercase tracking-wider bg-[#FFBE32] hover:bg-[#FFA000] text-black text-center transition-all shadow-[0_0_12px_rgba(255,190,50,0.2)] flex items-center justify-center gap-1.5"
+                    className="w-full lg:w-40 py-2.5 px-4 rounded-xl font-heading text-xs font-bold uppercase tracking-wider bg-[#fc8100] hover:bg-[#e07200] text-black text-center transition-all shadow-[0_0_12px_rgba(252, 129, 0,0.2)] flex items-center justify-center gap-1.5"
                   >
                     <span>Manage Hub</span>
                     <ArrowRight className="h-3.5 w-3.5" />
@@ -939,7 +939,7 @@ export const AdminTournamentsPage: React.FC = () => {
                     </button>
                     <button
                       onClick={() => handleOpenEdit(t)}
-                      className="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 hover:text-[#FFBE32] transition-all cursor-pointer"
+                      className="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 hover:text-[#fc8100] transition-all cursor-pointer"
                       title="Edit Tournament"
                     >
                       <Edit className="h-4 w-4" />
@@ -990,11 +990,11 @@ export const AdminTournamentsPage: React.FC = () => {
       {/* ======================================================== */}
       {modalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/85 backdrop-blur-md overflow-y-auto">
-          <div className="relative w-full max-w-5xl rounded-2xl bg-[#0C0C10] border border-[#FFBE32]/40 shadow-[0_25px_60px_rgba(0,0,0,0.95)] max-h-[92vh] flex flex-col overflow-hidden">
+          <div className="relative w-full max-w-5xl rounded-2xl bg-[#0C0C10] border border-[#fc8100]/40 shadow-[0_25px_60px_rgba(0,0,0,0.95)] max-h-[92vh] flex flex-col overflow-hidden">
             {/* Modal Header */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#0D0D14]">
               <div className="flex items-center gap-3">
-                <div className="h-9 w-9 rounded-xl bg-[#FFBE32]/10 border border-[#FFBE32]/30 flex items-center justify-center text-[#FFBE32]">
+                <div className="h-9 w-9 rounded-xl bg-[#fc8100]/10 border border-[#fc8100]/30 flex items-center justify-center text-[#fc8100]">
                   <Trophy className="h-5 w-5" />
                 </div>
                 <div>
@@ -1013,7 +1013,7 @@ export const AdminTournamentsPage: React.FC = () => {
                   onClick={() => setPreviewModalOpen(true)}
                   className="px-3 py-1.5 rounded-lg border border-white/15 bg-white/5 hover:bg-white/10 text-xs font-heading font-bold text-gray-300 hover:text-white uppercase flex items-center gap-1.5"
                 >
-                  <Eye className="h-3.5 w-3.5 text-[#FFBE32]" />
+                  <Eye className="h-3.5 w-3.5 text-[#fc8100]" />
                   <span>Preview</span>
                 </button>
                 <button
@@ -1046,7 +1046,7 @@ export const AdminTournamentsPage: React.FC = () => {
                     onClick={() => setActiveSection(step.key as FormSection)}
                     className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-heading font-bold uppercase tracking-wider transition-all whitespace-nowrap cursor-pointer ${
                       active
-                        ? "bg-[#FFBE32] text-black shadow-[0_0_10px_rgba(255,190,50,0.3)] font-extrabold"
+                        ? "bg-[#fc8100] text-black shadow-[0_0_10px_rgba(252, 129, 0,0.3)] font-extrabold"
                         : "text-gray-400 hover:text-white hover:bg-white/5"
                     }`}
                   >
@@ -1075,7 +1075,7 @@ export const AdminTournamentsPage: React.FC = () => {
                         value={formData.title}
                         onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                         placeholder="e.g. FLAME OF GLORY S3 FINALS"
-                        className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-medium"
+                        className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none font-medium"
                       />
                     </div>
 
@@ -1088,7 +1088,7 @@ export const AdminTournamentsPage: React.FC = () => {
                         value={formData.slug}
                         onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
                         placeholder="e.g. fog-s3-finals"
-                        className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-mono text-xs"
+                        className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none font-mono text-xs"
                       />
                     </div>
                   </div>
@@ -1107,7 +1107,7 @@ export const AdminTournamentsPage: React.FC = () => {
                             game: e.target.value,
                           })
                         }
-                        className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                        className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                       >
                         <option value="FREE FIRE MAX">FREE FIRE MAX</option>
                         <option value="FREE FIRE">FREE FIRE</option>
@@ -1123,7 +1123,7 @@ export const AdminTournamentsPage: React.FC = () => {
                       <select
                         value={formData.status}
                         onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                        className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-bold"
+                        className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none font-bold"
                       >
                         <option value="DRAFT">DRAFT (Hidden from Public)</option>
                         <option value="REGISTRATION_OPEN">REGISTRATION OPEN</option>
@@ -1144,7 +1144,7 @@ export const AdminTournamentsPage: React.FC = () => {
                             type="checkbox"
                             checked={formData.featured}
                             onChange={(e) => setFormData({ ...formData, featured: e.target.checked })}
-                            className="h-4 w-4 rounded accent-[#FFBE32]"
+                            className="h-4 w-4 rounded accent-[#fc8100]"
                           />
                           <span>Pin to Website Homepage Hero</span>
                         </label>
@@ -1161,7 +1161,7 @@ export const AdminTournamentsPage: React.FC = () => {
                       value={formData.tagline}
                       onChange={(e) => setFormData({ ...formData, tagline: e.target.value })}
                       placeholder="The pinnacle championship of mobile esports supremacy."
-                      className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                      className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                     />
                   </div>
 
@@ -1183,9 +1183,9 @@ export const AdminTournamentsPage: React.FC = () => {
                         onChange={(e) => {
                           if (e.target.files && e.target.files[0]) handleBannerUpload(e.target.files[0]);
                         }}
-                        className="w-full text-xs text-gray-400 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-heading file:font-bold file:bg-[#FFBE32] file:text-black cursor-pointer"
+                        className="w-full text-xs text-gray-400 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-heading file:font-bold file:bg-[#fc8100] file:text-black cursor-pointer"
                       />
-                      {uploadingBanner && <span className="text-xs text-[#FFBE32] animate-pulse">Uploading banner...</span>}
+                      {uploadingBanner && <span className="text-xs text-[#fc8100] animate-pulse">Uploading banner...</span>}
                     </div>
 
                     <div className="p-4 rounded-xl border border-white/10 bg-black/40 space-y-3">
@@ -1211,7 +1211,7 @@ export const AdminTournamentsPage: React.FC = () => {
                         }}
                         className="w-full text-xs text-gray-400 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-heading file:font-bold file:bg-white/10 file:text-white cursor-pointer"
                       />
-                      {uploadingLogo && <span className="text-xs text-[#FFBE32] animate-pulse">Uploading logo...</span>}
+                      {uploadingLogo && <span className="text-xs text-[#fc8100] animate-pulse">Uploading logo...</span>}
                     </div>
                   </div>
                 </div>
@@ -1223,7 +1223,7 @@ export const AdminTournamentsPage: React.FC = () => {
               {activeSection === "TEAM" && (
                 <div className="space-y-6">
                   <div className="p-4 rounded-xl border border-white/10 bg-black/40 space-y-4">
-                    <h4 className="text-xs font-heading font-bold uppercase tracking-wider text-[#FFBE32] flex items-center gap-2">
+                    <h4 className="text-xs font-heading font-bold uppercase tracking-wider text-[#fc8100] flex items-center gap-2">
                       <Users className="h-4 w-4" /> Team Size & Roster Structure
                     </h4>
 
@@ -1249,7 +1249,7 @@ export const AdminTournamentsPage: React.FC = () => {
                           }
                           className={`p-3 rounded-xl border text-center transition-all cursor-pointer ${
                             formData.teamType === tm.type
-                              ? "border-[#FFBE32] bg-[#FFBE32]/10 text-white font-bold shadow-[0_0_12px_rgba(255,190,50,0.2)]"
+                              ? "border-[#fc8100] bg-[#fc8100]/10 text-white font-bold shadow-[0_0_12px_rgba(252, 129, 0,0.2)]"
                               : "border-white/10 bg-black/60 text-gray-400 hover:text-white"
                           }`}
                         >
@@ -1278,7 +1278,7 @@ export const AdminTournamentsPage: React.FC = () => {
                               maxPlayersPerTeam: val + (formData.allowSubstitutes ? formData.substituteCount : 0),
                             });
                           }}
-                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none font-mono"
                         />
                       </div>
 
@@ -1292,7 +1292,7 @@ export const AdminTournamentsPage: React.FC = () => {
                           max={12}
                           value={formData.maxPlayersPerTeam}
                           onChange={(e) => setFormData({ ...formData, maxPlayersPerTeam: Number(e.target.value) })}
-                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none font-mono"
                         />
                       </div>
                     </div>
@@ -1322,7 +1322,7 @@ export const AdminTournamentsPage: React.FC = () => {
                           }
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#FFBE32]"></div>
+                        <div className="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#fc8100]"></div>
                       </label>
                     </div>
 
@@ -1342,7 +1342,7 @@ export const AdminTournamentsPage: React.FC = () => {
                                 maxPlayersPerTeam: formData.teamSize + cnt,
                               });
                             }}
-                            className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                            className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                           >
                             <option value={1}>1 Substitute</option>
                             <option value={2}>2 Substitutes</option>
@@ -1359,7 +1359,7 @@ export const AdminTournamentsPage: React.FC = () => {
 
                   {/* Slot Limits & Waitlist */}
                   <div className="p-4 rounded-xl border border-white/10 bg-black/40 space-y-4">
-                    <h4 className="text-xs font-heading font-bold uppercase tracking-wider text-[#FFBE32] flex items-center gap-2">
+                    <h4 className="text-xs font-heading font-bold uppercase tracking-wider text-[#fc8100] flex items-center gap-2">
                       <Users className="h-4 w-4" /> Capacity & Waitlist Queue
                     </h4>
 
@@ -1381,7 +1381,7 @@ export const AdminTournamentsPage: React.FC = () => {
                               slots: `${val} TEAMS`,
                             });
                           }}
-                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none font-mono"
                         />
                       </div>
 
@@ -1394,7 +1394,7 @@ export const AdminTournamentsPage: React.FC = () => {
                           min={2}
                           value={formData.minTeams}
                           onChange={(e) => setFormData({ ...formData, minTeams: Number(e.target.value) })}
-                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none font-mono"
                         />
                       </div>
 
@@ -1407,7 +1407,7 @@ export const AdminTournamentsPage: React.FC = () => {
                             type="checkbox"
                             checked={formData.allowWaitlist}
                             onChange={(e) => setFormData({ ...formData, allowWaitlist: e.target.checked })}
-                            className="h-4 w-4 rounded accent-[#FFBE32]"
+                            className="h-4 w-4 rounded accent-[#fc8100]"
                           />
                           <span>Allow athletes to join waitlist when full</span>
                         </label>
@@ -1424,7 +1424,7 @@ export const AdminTournamentsPage: React.FC = () => {
                 <div className="space-y-6">
                   {/* Tournament Schedule */}
                   <div className="p-4 rounded-xl border border-white/10 bg-black/40 space-y-4">
-                    <h4 className="text-xs font-heading font-bold uppercase tracking-wider text-[#FFBE32] flex items-center gap-2">
+                    <h4 className="text-xs font-heading font-bold uppercase tracking-wider text-[#fc8100] flex items-center gap-2">
                       <Calendar className="h-4 w-4" /> Tournament Schedule & Registration Windows
                     </h4>
 
@@ -1438,7 +1438,7 @@ export const AdminTournamentsPage: React.FC = () => {
                           value={formData.date}
                           onChange={(e) => setFormData({ ...formData, date: e.target.value })}
                           placeholder="e.g. SEP 28, 2026 • 6:00 PM IST"
-                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                         />
                       </div>
 
@@ -1450,7 +1450,7 @@ export const AdminTournamentsPage: React.FC = () => {
                           type="datetime-local"
                           value={formData.rosterLockDate}
                           onChange={(e) => setFormData({ ...formData, rosterLockDate: e.target.value })}
-                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                         />
                       </div>
                     </div>
@@ -1464,7 +1464,7 @@ export const AdminTournamentsPage: React.FC = () => {
                           type="datetime-local"
                           value={formData.regStartDate}
                           onChange={(e) => setFormData({ ...formData, regStartDate: e.target.value })}
-                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                         />
                       </div>
 
@@ -1476,7 +1476,7 @@ export const AdminTournamentsPage: React.FC = () => {
                           type="datetime-local"
                           value={formData.regEndDate}
                           onChange={(e) => setFormData({ ...formData, regEndDate: e.target.value })}
-                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                         />
                       </div>
                     </div>
@@ -1490,7 +1490,7 @@ export const AdminTournamentsPage: React.FC = () => {
                           type="datetime-local"
                           value={formData.startDate}
                           onChange={(e) => setFormData({ ...formData, startDate: e.target.value })}
-                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                         />
                       </div>
 
@@ -1502,7 +1502,7 @@ export const AdminTournamentsPage: React.FC = () => {
                           type="datetime-local"
                           value={formData.endDate}
                           onChange={(e) => setFormData({ ...formData, endDate: e.target.value })}
-                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                         />
                       </div>
                     </div>
@@ -1512,7 +1512,7 @@ export const AdminTournamentsPage: React.FC = () => {
                   <div className="p-4 rounded-xl border border-white/10 bg-black/40 space-y-4">
                     <div className="flex items-center justify-between">
                       <div>
-                        <h4 className="text-xs font-heading font-bold uppercase tracking-wider text-[#FFBE32] flex items-center gap-2">
+                        <h4 className="text-xs font-heading font-bold uppercase tracking-wider text-[#fc8100] flex items-center gap-2">
                           <Clock className="h-4 w-4" /> Athlete Check-In Window
                         </h4>
                         <p className="text-[11px] text-gray-400">
@@ -1527,7 +1527,7 @@ export const AdminTournamentsPage: React.FC = () => {
                           onChange={(e) => setFormData({ ...formData, checkInEnabled: e.target.checked })}
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#FFBE32]"></div>
+                        <div className="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#fc8100]"></div>
                       </label>
                     </div>
 
@@ -1541,7 +1541,7 @@ export const AdminTournamentsPage: React.FC = () => {
                             type="datetime-local"
                             value={formData.checkInStartTime}
                             onChange={(e) => setFormData({ ...formData, checkInStartTime: e.target.value })}
-                            className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                            className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                           />
                         </div>
 
@@ -1553,7 +1553,7 @@ export const AdminTournamentsPage: React.FC = () => {
                             type="datetime-local"
                             value={formData.checkInEndTime}
                             onChange={(e) => setFormData({ ...formData, checkInEndTime: e.target.value })}
-                            className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                            className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                           />
                         </div>
 
@@ -1567,7 +1567,7 @@ export const AdminTournamentsPage: React.FC = () => {
                             max={60}
                             value={formData.noShowTimeoutMinutes}
                             onChange={(e) => setFormData({ ...formData, noShowTimeoutMinutes: Number(e.target.value) })}
-                            className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                            className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none font-mono"
                           />
                         </div>
                       </div>
@@ -1583,7 +1583,7 @@ export const AdminTournamentsPage: React.FC = () => {
                 <div className="space-y-6">
                   {/* Fee Type Selection */}
                   <div className="p-4 rounded-xl border border-white/10 bg-black/40 space-y-4">
-                    <h4 className="text-xs font-heading font-bold uppercase tracking-wider text-[#FFBE32] flex items-center gap-2">
+                    <h4 className="text-xs font-heading font-bold uppercase tracking-wider text-[#fc8100] flex items-center gap-2">
                       <DollarSign className="h-4 w-4" /> Entry Fee Model
                     </h4>
 
@@ -1605,11 +1605,11 @@ export const AdminTournamentsPage: React.FC = () => {
                           }
                           className={`p-4 rounded-xl border text-left transition-all cursor-pointer ${
                             formData.entryFeeType === ef.type
-                              ? "border-[#FFBE32] bg-[#FFBE32]/10 text-white shadow-[0_0_12px_rgba(255,190,50,0.2)]"
+                              ? "border-[#fc8100] bg-[#fc8100]/10 text-white shadow-[0_0_12px_rgba(252, 129, 0,0.2)]"
                               : "border-white/10 bg-black/60 text-gray-400 hover:text-white"
                           }`}
                         >
-                          <div className="font-heading font-bold text-sm text-[#FFBE32]">{ef.label}</div>
+                          <div className="font-heading font-bold text-sm text-[#fc8100]">{ef.label}</div>
                           <div className="text-[11px] text-gray-400 mt-1">{ef.desc}</div>
                         </button>
                       ))}
@@ -1626,14 +1626,14 @@ export const AdminTournamentsPage: React.FC = () => {
                             min={1}
                             value={formData.feeAmount}
                             onChange={(e) => setFormData({ ...formData, feeAmount: Math.max(0, parseInt(e.target.value) || 0) })}
-                            className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                            className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none font-mono"
                           />
                         </div>
 
                         {formData.entryFeeType === "PER_PLAYER" && (
-                          <div className="p-3 rounded-xl bg-black/70 border border-[#FFBE32]/30 flex flex-col justify-center">
+                          <div className="p-3 rounded-xl bg-black/70 border border-[#fc8100]/30 flex flex-col justify-center">
                             <span className="text-[10px] font-mono text-gray-400 uppercase">Live Squad Fee Calculation</span>
-                            <span className="font-display text-lg text-[#FFBE32]">
+                            <span className="font-display text-lg text-[#fc8100]">
                               {formData.teamSize} Starters × ₹{formData.feeAmount} = ₹{formData.teamSize * formData.feeAmount} per Squad
                             </span>
                           </div>
@@ -1645,7 +1645,7 @@ export const AdminTournamentsPage: React.FC = () => {
                   {/* Payment Methods & UPI Gateway */}
                   {formData.entryFeeType !== "FREE" && (
                     <div className="p-4 rounded-xl border border-white/10 bg-black/40 space-y-4">
-                      <h4 className="text-xs font-heading font-bold uppercase tracking-wider text-[#FFBE32] flex items-center gap-2">
+                      <h4 className="text-xs font-heading font-bold uppercase tracking-wider text-[#fc8100] flex items-center gap-2">
                         <DollarSign className="h-4 w-4" /> UPI & Payment Verification
                       </h4>
 
@@ -1657,7 +1657,7 @@ export const AdminTournamentsPage: React.FC = () => {
                           <select
                             value={formData.paymentMethod}
                             onChange={(e) => setFormData({ ...formData, paymentMethod: e.target.value as any })}
-                            className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                            className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                           >
                             <option value="UPI">UPI (QR Code & UTR Verification)</option>
                             <option value="ONLINE">Online Payment Gateway</option>
@@ -1674,7 +1674,7 @@ export const AdminTournamentsPage: React.FC = () => {
                             value={formData.upiId}
                             onChange={(e) => setFormData({ ...formData, upiId: e.target.value })}
                             placeholder="mgesports@upi"
-                            className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                            className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none font-mono"
                           />
                         </div>
                       </div>
@@ -1686,7 +1686,7 @@ export const AdminTournamentsPage: React.FC = () => {
                         </label>
 
                         {formData.upiQrImage ? (
-                          <div className="flex flex-col sm:flex-row items-center gap-4 p-4 rounded-xl border border-[#FFBE32]/30 bg-black/70">
+                          <div className="flex flex-col sm:flex-row items-center gap-4 p-4 rounded-xl border border-[#fc8100]/30 bg-black/70">
                             <div className="h-28 w-28 rounded-xl border border-white/10 bg-white p-1 flex items-center justify-center overflow-hidden shrink-0">
                               <img src={formData.upiQrImage} alt="Payment QR" className="h-full w-full object-contain" />
                             </div>
@@ -1709,9 +1709,9 @@ export const AdminTournamentsPage: React.FC = () => {
                             </div>
                           </div>
                         ) : (
-                          <label className="flex flex-col items-center justify-center p-6 rounded-xl border-2 border-dashed border-white/20 hover:border-[#FFBE32]/50 bg-black/40 hover:bg-black/60 cursor-pointer transition-all">
+                          <label className="flex flex-col items-center justify-center p-6 rounded-xl border-2 border-dashed border-white/20 hover:border-[#fc8100]/50 bg-black/40 hover:bg-black/60 cursor-pointer transition-all">
                             {qrUploading ? (
-                              <div className="flex items-center gap-2 text-xs font-heading font-bold text-[#FFBE32] animate-pulse">
+                              <div className="flex items-center gap-2 text-xs font-heading font-bold text-[#fc8100] animate-pulse">
                                 <Upload className="h-4 w-4 animate-spin" /> Uploading QR Code...
                               </div>
                             ) : (
@@ -1739,7 +1739,7 @@ export const AdminTournamentsPage: React.FC = () => {
                   <div className="p-5 rounded-xl border border-white/10 bg-black/40 space-y-4">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                       <div>
-                        <h4 className="text-xs font-heading font-bold uppercase tracking-wider text-[#FFBE32] flex items-center gap-2">
+                        <h4 className="text-xs font-heading font-bold uppercase tracking-wider text-[#fc8100] flex items-center gap-2">
                           <Award className="h-4 w-4" /> Prize Distribution Hub
                         </h4>
                         <p className="text-[11px] text-gray-400">
@@ -1769,7 +1769,7 @@ export const AdminTournamentsPage: React.FC = () => {
                             }
                           }}
                           placeholder="₹50,000"
-                          className="w-36 rounded-xl border border-[#FFBE32]/40 bg-black/80 px-3 py-1.5 text-sm font-display font-bold text-[#FFBE32] text-right focus:border-[#FFBE32] focus:outline-none"
+                          className="w-36 rounded-xl border border-[#fc8100]/40 bg-black/80 px-3 py-1.5 text-sm font-display font-bold text-[#fc8100] text-right focus:border-[#fc8100] focus:outline-none"
                         />
                       </div>
                     </div>
@@ -1788,7 +1788,7 @@ export const AdminTournamentsPage: React.FC = () => {
                           onClick={() => handlePrizeModeChange(md.key as any)}
                           className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
                             formData.prizeDistributionType === md.key
-                              ? "border-[#FFBE32] bg-[#FFBE32]/10 text-white font-bold shadow-[0_0_10px_rgba(255,190,50,0.2)]"
+                              ? "border-[#fc8100] bg-[#fc8100]/10 text-white font-bold shadow-[0_0_10px_rgba(252, 129, 0,0.2)]"
                               : "border-white/10 bg-black/60 text-gray-400 hover:text-white"
                           }`}
                         >
@@ -1814,7 +1814,7 @@ export const AdminTournamentsPage: React.FC = () => {
                             type="checkbox"
                             checked={formData.allowUnallocatedPrize}
                             onChange={(e) => setFormData({ ...formData, allowUnallocatedPrize: e.target.checked })}
-                            className="h-3.5 w-3.5 rounded accent-[#FFBE32]"
+                            className="h-3.5 w-3.5 rounded accent-[#fc8100]"
                           />
                           <span>Allow unallocated balance</span>
                         </label>
@@ -1828,7 +1828,7 @@ export const AdminTournamentsPage: React.FC = () => {
                               ? "bg-emerald-500"
                               : allocatedPercentage > 100
                               ? "bg-rose-500"
-                              : "bg-[#FFBE32]"
+                              : "bg-[#fc8100]"
                           }`}
                           style={{ width: `${Math.min(100, allocatedPercentage)}%` }}
                         />
@@ -1845,7 +1845,7 @@ export const AdminTournamentsPage: React.FC = () => {
                       <button
                         type="button"
                         onClick={handleAddPrizeTier}
-                        className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-[#FFBE32]/10 hover:bg-[#FFBE32]/20 border border-[#FFBE32]/30 text-xs font-heading font-bold uppercase text-[#FFBE32] transition-all cursor-pointer"
+                        className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-[#fc8100]/10 hover:bg-[#fc8100]/20 border border-[#fc8100]/30 text-xs font-heading font-bold uppercase text-[#fc8100] transition-all cursor-pointer"
                       >
                         <Plus className="h-3 w-3" /> Add Position
                       </button>
@@ -1868,7 +1868,7 @@ export const AdminTournamentsPage: React.FC = () => {
                             value={tier.place}
                             onChange={(e) => updatePrizeTier(idx, "place", e.target.value)}
                             placeholder="e.g. 1st Place / Top Fragger"
-                            className="flex-1 w-full sm:w-auto rounded-lg border border-white/15 bg-black/80 px-3 py-1.5 text-xs text-white focus:border-[#FFBE32] focus:outline-none"
+                            className="flex-1 w-full sm:w-auto rounded-lg border border-white/15 bg-black/80 px-3 py-1.5 text-xs text-white focus:border-[#fc8100] focus:outline-none"
                           />
 
                           {/* Percentage Input (if in percentage mode) */}
@@ -1880,7 +1880,7 @@ export const AdminTournamentsPage: React.FC = () => {
                                 max={100}
                                 value={tier.percentage || 0}
                                 onChange={(e) => updatePrizeTier(idx, "percentage", e.target.value)}
-                                className="w-full rounded-lg border border-white/15 bg-black/80 px-2 py-1.5 text-xs text-white text-right focus:border-[#FFBE32] focus:outline-none font-mono"
+                                className="w-full rounded-lg border border-white/15 bg-black/80 px-2 py-1.5 text-xs text-white text-right focus:border-[#fc8100] focus:outline-none font-mono"
                               />
                               <span className="text-xs text-gray-400 font-bold">%</span>
                             </div>
@@ -1888,13 +1888,13 @@ export const AdminTournamentsPage: React.FC = () => {
 
                           {/* Amount Input */}
                           <div className="flex items-center gap-1 shrink-0 w-full sm:w-36">
-                            <span className="text-xs text-[#FFBE32] font-bold">₹</span>
+                            <span className="text-xs text-[#fc8100] font-bold">₹</span>
                             <input
                               type="number"
                               min={0}
                               value={tier.amount || 0}
                               onChange={(e) => updatePrizeTier(idx, "amount", e.target.value)}
-                              className="w-full rounded-lg border border-white/15 bg-black/80 px-2.5 py-1.5 text-xs text-[#FFBE32] font-bold text-right focus:border-[#FFBE32] focus:outline-none font-mono"
+                              className="w-full rounded-lg border border-white/15 bg-black/80 px-2.5 py-1.5 text-xs text-[#fc8100] font-bold text-right focus:border-[#fc8100] focus:outline-none font-mono"
                             />
                           </div>
 
@@ -1926,7 +1926,7 @@ export const AdminTournamentsPage: React.FC = () => {
                             <span className="text-2xl">{tier.badge || (idx === 0 ? "🥇" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : "🎖️")}</span>
                             <div>
                               <div className="text-[10px] text-gray-400 uppercase font-mono">{tier.place}</div>
-                              <div className="text-sm font-display font-bold text-[#FFBE32]">
+                              <div className="text-sm font-display font-bold text-[#fc8100]">
                                 ₹{Number(tier.amount || 0).toLocaleString("en-IN")}
                               </div>
                             </div>
@@ -1945,7 +1945,7 @@ export const AdminTournamentsPage: React.FC = () => {
                 <div className="space-y-6">
                   {/* Tournament Format */}
                   <div className="p-4 rounded-xl border border-white/10 bg-black/40 space-y-4">
-                    <h4 className="text-xs font-heading font-bold uppercase tracking-wider text-[#FFBE32] flex items-center gap-2">
+                    <h4 className="text-xs font-heading font-bold uppercase tracking-wider text-[#fc8100] flex items-center gap-2">
                       <Trophy className="h-4 w-4" /> Tournament Structure & Format
                     </h4>
 
@@ -1961,7 +1961,7 @@ export const AdminTournamentsPage: React.FC = () => {
                           onClick={() => setFormData({ ...formData, tournamentFormat: fmt.key as any })}
                           className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
                             formData.tournamentFormat === fmt.key
-                              ? "border-[#FFBE32] bg-[#FFBE32]/10 text-white font-bold"
+                              ? "border-[#fc8100] bg-[#fc8100]/10 text-white font-bold"
                               : "border-white/10 bg-black/60 text-gray-400 hover:text-white"
                           }`}
                         >
@@ -1980,14 +1980,14 @@ export const AdminTournamentsPage: React.FC = () => {
                         value={formData.format}
                         onChange={(e) => setFormData({ ...formData, format: e.target.value })}
                         placeholder="e.g. BATTLE ROYALE • 6 MATCHES • BERMUDA & PURGATORY"
-                        className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                        className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                       />
                     </div>
                   </div>
 
                   {/* Scoring Rules Matrix */}
                   <div className="p-4 rounded-xl border border-white/10 bg-black/40 space-y-4">
-                    <h4 className="text-xs font-heading font-bold uppercase tracking-wider text-[#FFBE32] flex items-center gap-2">
+                    <h4 className="text-xs font-heading font-bold uppercase tracking-wider text-[#fc8100] flex items-center gap-2">
                       <Percent className="h-4 w-4" /> Scoring Engine & Point System
                     </h4>
 
@@ -2000,7 +2000,7 @@ export const AdminTournamentsPage: React.FC = () => {
                           type="number"
                           value={formData.scoringWin}
                           onChange={(e) => setFormData({ ...formData, scoringWin: Number(e.target.value) })}
-                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none font-mono"
                         />
                       </div>
 
@@ -2012,7 +2012,7 @@ export const AdminTournamentsPage: React.FC = () => {
                           type="number"
                           value={formData.scoringKill}
                           onChange={(e) => setFormData({ ...formData, scoringKill: Number(e.target.value) })}
-                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none font-mono"
                         />
                       </div>
                     </div>
@@ -2027,7 +2027,7 @@ export const AdminTournamentsPage: React.FC = () => {
                           value={formData.scoringBonus}
                           onChange={(e) => setFormData({ ...formData, scoringBonus: e.target.value })}
                           placeholder="e.g. 1st Kill: +2 pts, Squad Wipe: +3 pts"
-                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-xs text-white focus:border-[#FFBE32] focus:outline-none"
+                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-xs text-white focus:border-[#fc8100] focus:outline-none"
                         />
                       </div>
 
@@ -2040,7 +2040,7 @@ export const AdminTournamentsPage: React.FC = () => {
                           value={formData.scoringPenalty}
                           onChange={(e) => setFormData({ ...formData, scoringPenalty: e.target.value })}
                           placeholder="e.g. Late Room Entry: -2 pts"
-                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-xs text-white focus:border-[#FFBE32] focus:outline-none"
+                          className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2 text-xs text-white focus:border-[#fc8100] focus:outline-none"
                         />
                       </div>
                     </div>
@@ -2055,7 +2055,7 @@ export const AdminTournamentsPage: React.FC = () => {
                 <div className="space-y-6">
                   {/* Tournament Rules */}
                   <div className="p-4 rounded-xl border border-white/10 bg-black/40 space-y-2">
-                    <label className="block text-xs font-heading font-bold uppercase tracking-wider text-[#FFBE32]">
+                    <label className="block text-xs font-heading font-bold uppercase tracking-wider text-[#fc8100]">
                       Tournament Rules & Anti-Cheat Requirements
                     </label>
                     <textarea
@@ -2063,7 +2063,7 @@ export const AdminTournamentsPage: React.FC = () => {
                       value={formData.rules}
                       onChange={(e) => setFormData({ ...formData, rules: e.target.value })}
                       placeholder="1. Emulators strictly banned. 2. Recording mandatory..."
-                      className="w-full rounded-xl border border-white/15 bg-black/60 p-3 text-xs text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                      className="w-full rounded-xl border border-white/15 bg-black/60 p-3 text-xs text-white focus:border-[#fc8100] focus:outline-none font-mono"
                     />
                   </div>
 
@@ -2086,7 +2086,7 @@ export const AdminTournamentsPage: React.FC = () => {
                           onChange={(e) => setFormData({ ...formData, refundAvailable: e.target.checked })}
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#FFBE32]"></div>
+                        <div className="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#fc8100]"></div>
                       </label>
                     </div>
 
@@ -2099,7 +2099,7 @@ export const AdminTournamentsPage: React.FC = () => {
                           rows={2}
                           value={formData.refundPolicy}
                           onChange={(e) => setFormData({ ...formData, refundPolicy: e.target.value })}
-                          className="w-full rounded-xl border border-white/15 bg-black/60 p-3 text-xs text-white focus:border-[#FFBE32] focus:outline-none"
+                          className="w-full rounded-xl border border-white/15 bg-black/60 p-3 text-xs text-white focus:border-[#fc8100] focus:outline-none"
                         />
                       </div>
                     )}
@@ -2108,13 +2108,13 @@ export const AdminTournamentsPage: React.FC = () => {
                   {/* Sponsors Section */}
                   <div className="p-4 rounded-xl border border-white/10 bg-black/40 space-y-3">
                     <div className="flex items-center justify-between">
-                      <h4 className="text-xs font-heading font-bold uppercase tracking-wider text-[#FFBE32] flex items-center gap-2">
+                      <h4 className="text-xs font-heading font-bold uppercase tracking-wider text-[#fc8100] flex items-center gap-2">
                         <Sparkles className="h-4 w-4" /> Sponsors & Partners Showcase
                       </h4>
                       <button
                         type="button"
                         onClick={handleAddSponsor}
-                        className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-[#FFBE32]/10 hover:bg-[#FFBE32]/20 border border-[#FFBE32]/30 text-xs font-heading font-bold uppercase text-[#FFBE32] cursor-pointer"
+                        className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-[#fc8100]/10 hover:bg-[#fc8100]/20 border border-[#fc8100]/30 text-xs font-heading font-bold uppercase text-[#fc8100] cursor-pointer"
                       >
                         <Plus className="h-3 w-3" /> Add Sponsor
                       </button>
@@ -2205,7 +2205,7 @@ export const AdminTournamentsPage: React.FC = () => {
                 <div className="space-y-6">
                   {/* Pre-Publish Validation Checklist */}
                   <div className="p-5 rounded-2xl border border-white/10 bg-black/40 space-y-4">
-                    <h4 className="text-xs font-heading font-bold uppercase tracking-wider text-[#FFBE32] flex items-center gap-2">
+                    <h4 className="text-xs font-heading font-bold uppercase tracking-wider text-[#fc8100] flex items-center gap-2">
                       <CheckCircle2 className="h-4 w-4" /> Pre-Publish Validation Checklist
                     </h4>
                     <p className="text-[11px] text-gray-400">
@@ -2267,7 +2267,7 @@ export const AdminTournamentsPage: React.FC = () => {
 
                       <div className="p-3 rounded-xl border border-white/10 bg-black/60 flex items-center gap-3 text-gray-300">
                         <div className="h-6 w-6 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                          <Clock className="h-3.5 w-3.5 text-[#FFBE32]" />
+                          <Clock className="h-3.5 w-3.5 text-[#fc8100]" />
                         </div>
                         <div className="text-xs">
                           <div className="font-heading font-bold uppercase">Check-In System</div>
@@ -2280,10 +2280,10 @@ export const AdminTournamentsPage: React.FC = () => {
                   {/* Player View Card Preview */}
                   <div className="p-5 rounded-2xl border border-white/10 bg-black/60 space-y-3">
                     <span className="text-xs font-heading font-bold uppercase tracking-wider text-gray-300 flex items-center gap-2">
-                      <Eye className="h-4 w-4 text-[#FFBE32]" /> Live Player Card Preview
+                      <Eye className="h-4 w-4 text-[#fc8100]" /> Live Player Card Preview
                     </span>
 
-                    <div className="rounded-xl border border-[#FFBE32]/30 bg-[#0D0D12] overflow-hidden p-4 flex flex-col sm:flex-row items-center gap-4">
+                    <div className="rounded-xl border border-[#fc8100]/30 bg-[#0D0D12] overflow-hidden p-4 flex flex-col sm:flex-row items-center gap-4">
                       <div className="h-28 w-44 rounded-lg bg-black overflow-hidden shrink-0 border border-white/10">
                         {formData.bannerImage ? (
                           <img src={formData.bannerImage} alt="Banner" className="h-full w-full object-cover" />
@@ -2292,7 +2292,7 @@ export const AdminTournamentsPage: React.FC = () => {
                         )}
                       </div>
                       <div className="flex-1 space-y-1.5 text-center sm:text-left">
-                        <div className="text-xs font-mono font-bold text-[#FFBE32] uppercase">{formData.gameCategory}</div>
+                        <div className="text-xs font-mono font-bold text-[#fc8100] uppercase">{formData.gameCategory}</div>
                         <div className="font-display text-xl text-white uppercase">{formData.title || "Untitled Tournament"}</div>
                         <div className="text-xs text-gray-400 line-clamp-1">{formData.tagline}</div>
                         <div className="flex flex-wrap items-center gap-3 text-xs font-mono pt-1 text-gray-300">
@@ -2362,10 +2362,10 @@ export const AdminTournamentsPage: React.FC = () => {
                     }
                     handleSave(false);
                   }}
-                  className={`px-6 py-2.5 rounded-xl font-heading font-bold text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(255,190,50,0.3)] cursor-pointer transition-all ${
+                  className={`px-6 py-2.5 rounded-xl font-heading font-bold text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(252, 129, 0,0.3)] cursor-pointer transition-all ${
                     canPublish
-                      ? "bg-[#FFBE32] hover:bg-[#FFA000] text-black"
-                      : "bg-[#FFBE32]/60 hover:bg-[#FFBE32] text-black"
+                      ? "bg-[#fc8100] hover:bg-[#e07200] text-black"
+                      : "bg-[#fc8100]/60 hover:bg-[#fc8100] text-black"
                   }`}
                   title={!canPublish ? "Review checklist before publishing" : "Ready to publish"}
                 >
@@ -2382,9 +2382,9 @@ export const AdminTournamentsPage: React.FC = () => {
       {/* ======================================================== */}
       {previewModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
-          <div className="relative w-full max-w-3xl rounded-2xl bg-[#0D0D12] border border-[#FFBE32]/50 p-6 space-y-4 max-h-[85vh] overflow-y-auto">
+          <div className="relative w-full max-w-3xl rounded-2xl bg-[#0D0D12] border border-[#fc8100]/50 p-6 space-y-4 max-h-[85vh] overflow-y-auto">
             <div className="flex items-center justify-between border-b border-white/10 pb-3">
-              <span className="text-xs font-heading font-bold uppercase tracking-wider text-[#FFBE32] flex items-center gap-2">
+              <span className="text-xs font-heading font-bold uppercase tracking-wider text-[#fc8100] flex items-center gap-2">
                 <Eye className="h-4 w-4" /> Public Website Preview
               </span>
               <button onClick={() => setPreviewModalOpen(false)} className="text-gray-400 hover:text-white">
@@ -2399,7 +2399,7 @@ export const AdminTournamentsPage: React.FC = () => {
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 space-y-1">
-                <span className="px-2 py-0.5 rounded bg-black/80 text-[#FFBE32] text-[10px] font-mono uppercase font-bold border border-[#FFBE32]/30">
+                <span className="px-2 py-0.5 rounded bg-black/80 text-[#fc8100] text-[10px] font-mono uppercase font-bold border border-[#fc8100]/30">
                   {formData.gameCategory}
                 </span>
                 <h2 className="font-display text-2xl uppercase text-white">{formData.title || "Untitled Tournament"}</h2>
@@ -2414,7 +2414,7 @@ export const AdminTournamentsPage: React.FC = () => {
                   <div key={idx} className="p-3 rounded-xl bg-black/60 border border-white/10 text-center">
                     <div className="text-2xl">{p.badge || "🎖️"}</div>
                     <div className="text-[10px] text-gray-400 uppercase font-mono mt-1">{p.place}</div>
-                    <div className="text-sm font-display font-bold text-[#FFBE32]">
+                    <div className="text-sm font-display font-bold text-[#fc8100]">
                       ₹{Number(p.amount || 0).toLocaleString("en-IN")}
                     </div>
                   </div>
@@ -2426,7 +2426,7 @@ export const AdminTournamentsPage: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setPreviewModalOpen(false)}
-                className="px-5 py-2 rounded-xl bg-[#FFBE32] text-black font-heading font-bold text-xs uppercase"
+                className="px-5 py-2 rounded-xl bg-[#fc8100] text-black font-heading font-bold text-xs uppercase"
               >
                 Close Preview
               </button>

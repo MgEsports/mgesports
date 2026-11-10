@@ -106,7 +106,7 @@ export const AdminLayout: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#060608] text-gray-200 flex flex-col font-body selection:bg-[#FFBE32] selection:text-black">
+    <div className="min-h-screen bg-[#060608] text-gray-200 flex flex-col font-body selection:bg-[#fc8100] selection:text-black">
       {/* Top Bar Header */}
       <header className="h-16 bg-[#0B0B0F]/95 backdrop-blur-md border-b border-white/10 sticky top-0 z-40 px-4 sm:px-6 flex items-center justify-between">
         {/* Left: Mobile Toggle & Brand */}
@@ -123,14 +123,14 @@ export const AdminLayout: React.FC = () => {
             <img
               src={logoImg}
               alt="MG Esports"
-              className="h-9 w-9 object-contain group-hover:scale-105 transition-transform drop-shadow-[0_0_8px_rgba(255,190,50,0.3)]"
+              className="h-9 w-9 object-contain group-hover:scale-105 transition-transform drop-shadow-[0_0_8px_rgba(252, 129, 0,0.3)]"
             />
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5">
                 <span className="font-display text-lg tracking-wider text-white uppercase leading-none">
-                  MG <span className="text-[#FFBE32]">ADMIN</span>
+                  MG <span className="text-[#fc8100]">ADMIN</span>
                 </span>
-                <span className="hidden sm:inline-block px-1.5 py-0.5 rounded bg-[#FFBE32]/10 border border-[#FFBE32]/30 text-[9px] font-heading font-bold uppercase tracking-wider text-[#FFBE32]">
+                <span className="hidden sm:inline-block px-1.5 py-0.5 rounded bg-[#fc8100]/10 border border-[#fc8100]/30 text-[9px] font-heading font-bold uppercase tracking-wider text-[#fc8100]">
                   PORTAL
                 </span>
               </div>
@@ -153,7 +153,7 @@ export const AdminLayout: React.FC = () => {
             to="/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-black/60 border border-white/10 hover:border-[#FFBE32]/50 text-xs font-heading font-bold text-gray-300 hover:text-[#FFBE32] transition-colors"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-black/60 border border-white/10 hover:border-[#fc8100]/50 text-xs font-heading font-bold text-gray-300 hover:text-[#fc8100] transition-colors"
           >
             <span>View Public Site</span>
             <ExternalLink className="h-3.5 w-3.5" />
@@ -161,14 +161,14 @@ export const AdminLayout: React.FC = () => {
 
           {/* User Profile Pill */}
           <div className="flex items-center gap-2.5 pl-2 border-l border-white/10">
-            <div className="h-8 w-8 rounded-lg bg-gradient-to-tr from-[#FFBE32] to-amber-600 flex items-center justify-center text-black font-display font-bold text-sm shadow-[0_0_10px_rgba(255,190,50,0.3)]">
+            <div className="h-8 w-8 rounded-lg bg-gradient-to-tr from-[#fc8100] to-amber-600 flex items-center justify-center text-black font-display font-bold text-sm shadow-[0_0_10px_rgba(252, 129, 0,0.3)]">
               {user?.fullName?.charAt(0) || user?.email?.charAt(0).toUpperCase() || "A"}
             </div>
             <div className="hidden lg:flex flex-col text-left">
               <span className="text-xs font-heading font-bold text-white leading-tight">
                 {user?.fullName || user?.ign || "Administrator"}
               </span>
-              <span className="text-[10px] font-mono text-[#FFBE32] tracking-wider uppercase">
+              <span className="text-[10px] font-mono text-[#fc8100] tracking-wider uppercase">
                 ADMIN
               </span>
             </div>
@@ -213,20 +213,20 @@ export const AdminLayout: React.FC = () => {
                         onClick={() => setMobileSidebarOpen(false)}
                         className={`flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-heading font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer ${
                           isActive
-                            ? "bg-[#FFBE32] text-black shadow-[0_0_15px_rgba(255,190,50,0.3)] font-extrabold"
+                            ? "bg-[#fc8100] text-black shadow-[0_0_15px_rgba(252, 129, 0,0.3)] font-extrabold"
                             : "text-gray-300 hover:text-white hover:bg-white/5"
                         }`}
                       >
                         <div className="flex items-center gap-3">
-                          <Icon className={`h-4 w-4 ${isActive ? "text-black" : "text-[#FFBE32]"}`} />
+                          <Icon className={`h-4 w-4 ${isActive ? "text-black" : "text-[#fc8100]"}`} />
                           <span>{item.name}</span>
                         </div>
                         {item.badge && (
                           <span
                             className={`px-1.5 py-0.5 rounded text-[9px] font-mono font-bold uppercase ${
                               isActive
-                                ? "bg-black text-[#FFBE32]"
-                                : "bg-[#FFBE32]/20 text-[#FFBE32] border border-[#FFBE32]/30"
+                                ? "bg-black text-[#fc8100]"
+                                : "bg-[#fc8100]/20 text-[#fc8100] border border-[#fc8100]/30"
                             }`}
                           >
                             {item.badge}
@@ -243,7 +243,7 @@ export const AdminLayout: React.FC = () => {
           {/* Sidebar Footer System Info */}
           <div className="p-3 border-t border-white/10 bg-[#070709] text-[11px] font-mono text-gray-300 flex items-center justify-between">
             <div className="flex items-center gap-1.5">
-              <Clock className="h-3.5 w-3.5 text-[#FFBE32]" />
+              <Clock className="h-3.5 w-3.5 text-[#fc8100]" />
               <span>v2.4 Production</span>
             </div>
             <span className="text-emerald-400 font-bold">API Online</span>
@@ -262,11 +262,11 @@ export const AdminLayout: React.FC = () => {
         <main className="flex-1 overflow-y-auto bg-[#050507] p-4 sm:p-6 lg:p-8">
           {/* Breadcrumb Header */}
           <div className="max-w-7xl mx-auto mb-6 flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-wider text-gray-300">
-            <Link to="/admin" className="hover:text-[#FFBE32] transition-colors">
+            <Link to="/admin" className="hover:text-[#fc8100] transition-colors">
               Admin Portal
             </Link>
             <ChevronRight className="h-3.5 w-3.5 text-gray-400" />
-            <span className="text-[#FFBE32] font-extrabold">{activeItemName}</span>
+            <span className="text-[#fc8100] font-extrabold">{activeItemName}</span>
           </div>
 
           {/* Outlet for Nested Pages */}

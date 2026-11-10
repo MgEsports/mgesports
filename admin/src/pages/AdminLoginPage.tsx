@@ -90,7 +90,7 @@ export const AdminLoginPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#050507] flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden font-body">
       {/* Background glow effects */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FFBE32]/10 blur-[160px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#fc8100]/10 blur-[160px] pointer-events-none rounded-full" />
       <div className="absolute bottom-10 left-10 w-80 h-80 bg-amber-700/10 blur-[130px] pointer-events-none rounded-full" />
 
       <div className="sm:mx-auto sm:w-full sm:max-w-md relative z-10 text-center">
@@ -98,11 +98,11 @@ export const AdminLoginPage: React.FC = () => {
           <img
             src={logoImg}
             alt="MG Esports"
-            className="h-16 w-16 object-contain group-hover:scale-105 transition-transform drop-shadow-[0_0_15px_rgba(255,190,50,0.4)]"
+            className="h-16 w-16 object-contain group-hover:scale-105 transition-transform drop-shadow-[0_0_15px_rgba(252, 129, 0,0.4)]"
           />
         </Link>
         <h2 className="font-display text-3xl sm:text-4xl uppercase tracking-wider text-white">
-          MG <span className="text-[#FFBE32]">ADMIN PORTAL</span>
+          MG <span className="text-[#fc8100]">ADMIN PORTAL</span>
         </h2>
         <p className="mt-2 text-xs sm:text-sm text-gray-400 font-heading uppercase tracking-widest">
           Authorized Esports Management Console
@@ -131,7 +131,7 @@ export const AdminLoginPage: React.FC = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="admin@mgesports.in"
-                  className="w-full rounded-xl border border-white/15 bg-black/60 pl-11 pr-4 py-3 text-sm text-white placeholder-gray-500 focus:border-[#FFBE32] focus:ring-1 focus:ring-[#FFBE32] focus:outline-none transition-all"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 pl-11 pr-4 py-3 text-sm text-white placeholder-gray-500 focus:border-[#fc8100] focus:ring-1 focus:ring-[#fc8100] focus:outline-none transition-all"
                 />
               </div>
             </div>
@@ -148,7 +148,7 @@ export const AdminLoginPage: React.FC = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••••••"
-                  className="w-full rounded-xl border border-white/15 bg-black/60 pl-11 pr-4 py-3 text-sm text-white placeholder-gray-500 focus:border-[#FFBE32] focus:ring-1 focus:ring-[#FFBE32] focus:outline-none transition-all"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 pl-11 pr-4 py-3 text-sm text-white placeholder-gray-500 focus:border-[#fc8100] focus:ring-1 focus:ring-[#fc8100] focus:outline-none transition-all"
                 />
               </div>
             </div>
@@ -157,7 +157,7 @@ export const AdminLoginPage: React.FC = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl font-heading text-xs font-bold uppercase tracking-widest text-black bg-gradient-to-r from-[#FFBE32] to-[#FFA000] hover:from-[#FFA000] hover:to-[#FFBE32] shadow-[0_0_20px_rgba(255,190,50,0.35)] hover:shadow-[0_0_30px_rgba(255,190,50,0.6)] transition-all duration-200 cursor-pointer disabled:opacity-50"
+                className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl font-heading text-xs font-bold uppercase tracking-widest text-black bg-gradient-to-r from-[#fc8100] to-[#e07200] hover:from-[#e07200] hover:to-[#fc8100] shadow-[0_0_20px_rgba(252, 129, 0,0.35)] hover:shadow-[0_0_30px_rgba(252, 129, 0,0.6)] transition-all duration-200 cursor-pointer disabled:opacity-50"
               >
                 {isSubmitting ? (
                   <>
@@ -183,7 +183,7 @@ export const AdminLoginPage: React.FC = () => {
             <button
               type="button"
               onClick={fillDemo}
-              className="w-full py-2.5 px-4 rounded-xl bg-white/5 hover:bg-white/10 border border-[#FFBE32]/30 text-xs font-mono font-bold text-[#FFBE32] text-center hover:border-[#FFBE32] transition-all cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.15)]"
+              className="w-full py-2.5 px-4 rounded-xl bg-white/5 hover:bg-white/10 border border-[#fc8100]/30 text-xs font-mono font-bold text-[#fc8100] text-center hover:border-[#fc8100] transition-all cursor-pointer shadow-[0_0_15px_rgba(252, 129, 0,0.15)]"
             >
               ⚡ Admin Demo (Instant Fill)
             </button>
@@ -194,7 +194,7 @@ export const AdminLoginPage: React.FC = () => {
         <div className="mt-6 text-center">
           <Link
             to="/"
-            className="text-xs font-heading uppercase tracking-wider text-gray-400 hover:text-[#FFBE32] transition-colors"
+            className="text-xs font-heading uppercase tracking-wider text-gray-400 hover:text-[#fc8100] transition-colors"
           >
             ← Back to MG Esports Public Site
           </Link>

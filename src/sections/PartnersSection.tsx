@@ -166,7 +166,7 @@ export const PartnersSection = ({
       className="relative py-24 sm:py-28 bg-[#050505] border-t border-white/5 overflow-hidden"
     >
       {/* Dynamic Background Atmosphere */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[850px] h-[350px] sm:h-[450px] bg-radial from-[#FFBE32]/8 via-transparent to-transparent blur-[90px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[850px] h-[350px] sm:h-[450px] bg-radial from-[#fc8100]/8 via-transparent to-transparent blur-[90px] pointer-events-none" />
       <div className="absolute bottom-10 left-10 w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] bg-amber-600/5 blur-[80px] pointer-events-none" />
       <div className="absolute top-1/2 right-0 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-purple-600/5 blur-[80px] pointer-events-none" />
 
@@ -182,9 +182,9 @@ export const PartnersSection = ({
               className="max-w-2xl"
             >
               {/* Tag pill with animated dot */}
-              <div className="inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-[#FFBE32]/10 border border-[#FFBE32]/30 mb-5">
-                <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#FFBE32] animate-ping" />
-                <span className="font-heading text-[10px] sm:text-xs font-bold tracking-[0.2em] sm:tracking-[0.22em] text-[#FFBE32] uppercase">
+              <div className="inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-[#fc8100]/10 border border-[#fc8100]/30 mb-5">
+                <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#fc8100] animate-ping" />
+                <span className="font-heading text-[10px] sm:text-xs font-bold tracking-[0.2em] sm:tracking-[0.22em] text-[#fc8100] uppercase">
                   PARTNERSHIPS &amp; BRAND ALLIANCES
                 </span>
               </div>
@@ -210,7 +210,7 @@ export const PartnersSection = ({
             >
               <button
                 onClick={onPartnerWithUs}
-                className="inline-flex items-center gap-2 sm:gap-2.5 font-heading text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#050505] bg-[#FFBE32] hover:bg-[#FFA000] py-3 sm:py-3.5 px-5 sm:px-7 rounded-xl transition-all duration-200 cursor-pointer shadow-[0_0_25px_rgba(255,190,50,0.35)] hover:shadow-[0_0_35px_rgba(255,190,50,0.5)] group"
+                className="inline-flex items-center gap-2 sm:gap-2.5 font-heading text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#050505] bg-[#fc8100] hover:bg-[#e07200] py-3 sm:py-3.5 px-5 sm:px-7 rounded-xl transition-all duration-200 cursor-pointer shadow-[0_0_25px_rgba(252, 129, 0,0.35)] hover:shadow-[0_0_35px_rgba(252, 129, 0,0.5)] group"
               >
                 <Handshake className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:scale-110" />
                 <span>PARTNER WITH US →</span>
@@ -225,7 +225,7 @@ export const PartnersSection = ({
         <div className="mb-14">
           <div className="flex items-center justify-between mb-5 px-1">
             <div className="flex items-center gap-2">
-              <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#FFBE32]" />
+              <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#fc8100]" />
               <span className="font-heading text-[10px] sm:text-xs font-bold uppercase tracking-widest text-gray-300">
                 OFFICIAL BRAND SHOWCASE • CONTINUOUS STREAM
               </span>
@@ -241,11 +241,11 @@ export const PartnersSection = ({
 
             {loading ? (
               <div className="py-12 flex justify-center items-center">
-                <div className="h-6 w-6 border-2 border-[#FFBE32] border-t-transparent rounded-full animate-spin" />
+                <div className="h-6 w-6 border-2 border-[#fc8100] border-t-transparent rounded-full animate-spin" />
               </div>
             ) : partnerList.length === 0 ? (
               <div className="py-12 text-center">
-                <Handshake className="h-10 w-10 text-[#FFBE32]/40 mx-auto mb-3" />
+                <Handshake className="h-10 w-10 text-[#fc8100]/40 mx-auto mb-3" />
                 <p className="text-gray-400 font-heading text-sm uppercase tracking-wider">
                   Partner announcements coming soon
                 </p>
@@ -281,7 +281,7 @@ export const PartnersSection = ({
                               e.currentTarget.src = fallback;
                             }
                           }}
-                          className="max-h-11 sm:max-h-16 max-w-full object-contain filter opacity-85 group-hover:opacity-100 group-hover:drop-shadow-[0_0_20px_rgba(255,190,50,0.45)] transition-all duration-300"
+                          className="max-h-11 sm:max-h-16 max-w-full object-contain filter opacity-85 group-hover:opacity-100 group-hover:drop-shadow-[0_0_20px_rgba(252, 129, 0,0.45)] transition-all duration-300"
                         />
                       ) : (
                         <span className="font-heading text-sm sm:text-base font-bold text-white/80 group-hover:text-white tracking-wider text-center transition-colors">
@@ -301,8 +301,8 @@ export const PartnersSection = ({
         {/* Bottom Banner Stats Strip */}
         <div className="mt-16 rounded-2xl bg-gradient-to-r from-[#0C0C10] via-[#111116] to-[#0C0C10] border border-white/10 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
           <div className="flex items-center gap-4 text-left">
-            <div className="w-12 h-12 rounded-xl bg-[#FFBE32]/10 border border-[#FFBE32]/30 flex items-center justify-center shrink-0">
-              <Handshake className="h-6 w-6 text-[#FFBE32]" />
+            <div className="w-12 h-12 rounded-xl bg-[#fc8100]/10 border border-[#fc8100]/30 flex items-center justify-center shrink-0">
+              <Handshake className="h-6 w-6 text-[#fc8100]" />
             </div>
             <div>
               <h4 className="font-display text-lg uppercase tracking-wider text-white">
@@ -316,7 +316,7 @@ export const PartnersSection = ({
 
           <button
             onClick={onPartnerWithUs}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#FFBE32] hover:bg-[#FFA000] text-black font-heading text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-[0_0_20px_rgba(255,190,50,0.3)] shrink-0"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#fc8100] hover:bg-[#e07200] text-black font-heading text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-[0_0_20px_rgba(252, 129, 0,0.3)] shrink-0"
           >
             <span>Request Brand Dossier</span>
             <ArrowUpRight className="h-4 w-4" />

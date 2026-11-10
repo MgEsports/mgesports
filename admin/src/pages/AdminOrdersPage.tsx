@@ -291,7 +291,7 @@ export const AdminOrdersPage: React.FC = () => {
             type="button"
             onClick={handleSyncAllDeliveries}
             disabled={isSyncingAll}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-amber-300 hover:text-black bg-amber-500/10 hover:bg-[#FFBE32] border border-amber-500/30 hover:border-[#FFBE32] transition-all cursor-pointer shadow-sm disabled:opacity-50"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-amber-300 hover:text-black bg-amber-500/10 hover:bg-[#fc8100] border border-amber-500/30 hover:border-[#fc8100] transition-all cursor-pointer shadow-sm disabled:opacity-50"
             title="Query AfterShip to automatically update delivery status for all in-transit shipments"
           >
             <RefreshCw className={`h-4 w-4 ${isSyncingAll ? "animate-spin" : ""}`} />
@@ -315,7 +315,7 @@ export const AdminOrdersPage: React.FC = () => {
       {syncAllNotice && (
         <div className="p-3.5 rounded-xl bg-gradient-to-r from-amber-500/20 via-[#0D0D12] to-black/60 border border-amber-500/40 text-amber-300 text-xs font-mono flex items-center justify-between gap-3 animate-fadeIn">
           <div className="flex items-center gap-2">
-            <Truck className="h-4 w-4 text-[#FFBE32] shrink-0" />
+            <Truck className="h-4 w-4 text-[#fc8100] shrink-0" />
             <span>{syncAllNotice}</span>
           </div>
           <button
@@ -337,7 +337,7 @@ export const AdminOrdersPage: React.FC = () => {
               onClick={() => setViewMode("LIST")}
               className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer ${
                 viewMode === "LIST"
-                  ? "bg-[#FFBE32] text-black shadow-[0_0_10px_rgba(255,190,50,0.3)]"
+                  ? "bg-[#fc8100] text-black shadow-[0_0_10px_rgba(252, 129, 0,0.3)]"
                   : "text-gray-400 hover:text-white hover:bg-white/5"
               }`}
             >
@@ -349,7 +349,7 @@ export const AdminOrdersPage: React.FC = () => {
               onClick={() => setViewMode("USERS")}
               className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer ${
                 viewMode === "USERS"
-                  ? "bg-[#FFBE32] text-black shadow-[0_0_10px_rgba(255,190,50,0.3)]"
+                  ? "bg-[#fc8100] text-black shadow-[0_0_10px_rgba(252, 129, 0,0.3)]"
                   : "text-gray-400 hover:text-white hover:bg-white/5"
               }`}
             >
@@ -362,7 +362,7 @@ export const AdminOrdersPage: React.FC = () => {
             <button
               type="button"
               onClick={() => setSearchQuery("")}
-              className="text-xs font-mono text-[#FFBE32] hover:underline flex items-center gap-1 cursor-pointer"
+              className="text-xs font-mono text-[#fc8100] hover:underline flex items-center gap-1 cursor-pointer"
             >
               <X className="h-3 w-3" /> Clear user filter ({searchQuery})
             </button>
@@ -377,7 +377,7 @@ export const AdminOrdersPage: React.FC = () => {
                 onClick={() => setStatusFilter(st)}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer ${
                   statusFilter === st
-                    ? "bg-[#FFBE32] text-black shadow-[0_0_10px_rgba(255,190,50,0.3)] font-extrabold"
+                    ? "bg-[#fc8100] text-black shadow-[0_0_10px_rgba(252, 129, 0,0.3)] font-extrabold"
                     : "bg-black/50 text-gray-400 hover:text-white border border-white/5"
                 }`}
               >
@@ -393,7 +393,7 @@ export const AdminOrdersPage: React.FC = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search order #, customer email, phone..."
-              className="w-full rounded-xl border border-white/10 bg-black/60 pl-9 pr-3 py-1.5 text-xs text-white placeholder-gray-500 focus:border-[#FFBE32] focus:outline-none font-body"
+              className="w-full rounded-xl border border-white/10 bg-black/60 pl-9 pr-3 py-1.5 text-xs text-white placeholder-gray-500 focus:border-[#fc8100] focus:outline-none font-body"
             />
           </div>
         </div>
@@ -425,26 +425,26 @@ export const AdminOrdersPage: React.FC = () => {
                   className="p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 cursor-pointer hover:bg-white/[0.02] transition-colors"
                 >
                   <div className="flex items-center gap-3.5">
-                    <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-[#FFBE32] to-[#FFE082] text-black font-display font-bold flex items-center justify-center text-lg shadow-md shrink-0">
+                    <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-[#fc8100] to-[#FFE082] text-black font-display font-bold flex items-center justify-center text-lg shadow-md shrink-0">
                       {grp.customerName.slice(0, 2).toUpperCase() || "CU"}
                     </div>
                     <div>
                       <h3 className="font-heading font-bold text-white uppercase text-base flex items-center gap-2">
                         {grp.customerName}
-                        <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#FFBE32]/10 text-[#FFBE32] border border-[#FFBE32]/30">
+                        <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#fc8100]/10 text-[#fc8100] border border-[#fc8100]/30">
                           {grp.orders.length} {grp.orders.length === 1 ? "Order" : "Orders"}
                         </span>
                       </h3>
                       <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-gray-400 mt-0.5">
                         {grp.customerEmail && (
                           <span className="flex items-center gap-1">
-                            <Mail className="h-3 w-3 text-[#FFBE32]" />
+                            <Mail className="h-3 w-3 text-[#fc8100]" />
                             {grp.customerEmail}
                           </span>
                         )}
                         {grp.customerPhone && (
                           <span className="flex items-center gap-1">
-                            <Phone className="h-3 w-3 text-[#FFBE32]" />
+                            <Phone className="h-3 w-3 text-[#fc8100]" />
                             {grp.customerPhone}
                           </span>
                         )}
@@ -480,7 +480,7 @@ export const AdminOrdersPage: React.FC = () => {
                       >
                         <div className="space-y-1">
                           <div className="flex items-center gap-3">
-                            <span className="font-mono text-xs font-bold text-[#FFBE32]">
+                            <span className="font-mono text-xs font-bold text-[#fc8100]">
                               {ord.orderNumber}
                             </span>
                             <span
@@ -534,7 +534,7 @@ export const AdminOrdersPage: React.FC = () => {
                               e.stopPropagation();
                               handleOpenTrackingModal(ord);
                             }}
-                            className="px-3 py-1.5 rounded-lg bg-[#FFBE32]/10 hover:bg-[#FFBE32] text-[#FFBE32] hover:text-black border border-[#FFBE32]/30 text-xs font-heading font-bold uppercase transition-all cursor-pointer flex items-center gap-1.5"
+                            className="px-3 py-1.5 rounded-lg bg-[#fc8100]/10 hover:bg-[#fc8100] text-[#fc8100] hover:text-black border border-[#fc8100]/30 text-xs font-heading font-bold uppercase transition-all cursor-pointer flex items-center gap-1.5"
                           >
                             <Edit3 className="h-3.5 w-3.5" />
                             <span>Update Tracking</span>
@@ -568,12 +568,12 @@ export const AdminOrdersPage: React.FC = () => {
             return (
               <div
                 key={ord.id}
-                className="p-5 rounded-2xl bg-[#0C0C10] border border-white/10 hover:border-[#FFBE32]/40 transition-all flex flex-col xl:flex-row xl:items-center justify-between gap-5 group shadow-[0_10px_25px_rgba(0,0,0,0.7)]"
+                className="p-5 rounded-2xl bg-[#0C0C10] border border-white/10 hover:border-[#fc8100]/40 transition-all flex flex-col xl:flex-row xl:items-center justify-between gap-5 group shadow-[0_10px_25px_rgba(0,0,0,0.7)]"
               >
                 {/* Order Identity & Customer Info */}
                 <div className="flex-1 space-y-2.5">
                   <div className="flex flex-wrap items-center gap-3">
-                    <span className="font-mono text-sm font-bold text-[#FFBE32] px-2.5 py-0.5 rounded bg-[#FFBE32]/10 border border-[#FFBE32]/30">
+                    <span className="font-mono text-sm font-bold text-[#fc8100] px-2.5 py-0.5 rounded bg-[#fc8100]/10 border border-[#fc8100]/30">
                       {ord.orderNumber}
                     </span>
                     <span className="font-heading font-bold text-white text-base">
@@ -614,7 +614,7 @@ export const AdminOrdersPage: React.FC = () => {
                     {ord.customIgn && (
                       <>
                         <span className="text-gray-400">|</span>
-                        <span className="text-[#FFBE32] flex items-center gap-1 font-bold">
+                        <span className="text-[#fc8100] flex items-center gap-1 font-bold">
                           <Sparkles className="h-3 w-3" />
                           IGN: {ord.customIgn} #{ord.customNumber || "00"}
                         </span>
@@ -640,7 +640,7 @@ export const AdminOrdersPage: React.FC = () => {
                     </span>
 
                     {ord.paymentMethod === "UPI" && ord.utrNumber ? (
-                      <span className="px-2.5 py-1 rounded-md bg-[#FFBE32]/10 border border-[#FFBE32]/30 text-[#FFBE32] flex items-center gap-2">
+                      <span className="px-2.5 py-1 rounded-md bg-[#fc8100]/10 border border-[#fc8100]/30 text-[#fc8100] flex items-center gap-2">
                         <span>UTR: <strong>{ord.utrNumber}</strong></span>
                         <button
                           type="button"
@@ -675,7 +675,7 @@ export const AdminOrdersPage: React.FC = () => {
                   {/* Shipping & Delivery Partner Status */}
                   <div className="flex flex-wrap items-center gap-4 text-xs text-gray-400 font-mono">
                     <div className="flex items-center gap-1.5">
-                      <Truck className="h-3.5 w-3.5 text-[#FFBE32]" />
+                      <Truck className="h-3.5 w-3.5 text-[#fc8100]" />
                       <span>
                         Courier:{" "}
                         <strong className="text-white">{ord.courierPartner || "Not assigned"}</strong>
@@ -685,7 +685,7 @@ export const AdminOrdersPage: React.FC = () => {
                     {ord.trackingNumber && (
                       <div className="flex items-center gap-2">
                         <span>AWB:</span>
-                        <strong className="text-[#FFBE32]">{ord.trackingNumber}</strong>
+                        <strong className="text-[#fc8100]">{ord.trackingNumber}</strong>
                         <button
                           type="button"
                           onClick={() => handleOpenLiveTracking(ord)}
@@ -734,7 +734,7 @@ export const AdminOrdersPage: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => handleOpenTrackingModal(ord)}
-                      className="px-4 py-2 rounded-xl bg-[#FFBE32] hover:bg-[#FFA000] text-black font-heading text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 cursor-pointer shadow-[0_0_12px_rgba(255,190,50,0.3)] flex-1 sm:flex-initial justify-center"
+                      className="px-4 py-2 rounded-xl bg-[#fc8100] hover:bg-[#e07200] text-black font-heading text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 cursor-pointer shadow-[0_0_12px_rgba(252, 129, 0,0.3)] flex-1 sm:flex-initial justify-center"
                     >
                       <Edit3 className="h-3.5 w-3.5" />
                       <span>Fulfill / Tracking</span>
@@ -753,7 +753,7 @@ export const AdminOrdersPage: React.FC = () => {
                   <select
                     value={ord.orderStatus}
                     onChange={(e) => handleQuickStatusChange(ord.id, e.target.value)}
-                    className="rounded-xl border border-white/15 bg-black px-3 py-2 text-xs font-heading font-bold text-white focus:border-[#FFBE32] focus:outline-none cursor-pointer w-full sm:w-auto"
+                    className="rounded-xl border border-white/15 bg-black px-3 py-2 text-xs font-heading font-bold text-white focus:border-[#fc8100] focus:outline-none cursor-pointer w-full sm:w-auto"
                   >
                     <option value="PENDING">PENDING</option>
                     <option value="PROCESSING">PROCESSING</option>
@@ -771,10 +771,10 @@ export const AdminOrdersPage: React.FC = () => {
       {/* Dispatch & Tracking Modal */}
       {trackingModalOrder && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md overflow-y-auto">
-          <div className="relative w-full max-w-lg rounded-2xl bg-[#0D0D12] border border-[#FFBE32]/40 p-6 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.95)] max-h-[92vh] overflow-y-auto">
+          <div className="relative w-full max-w-lg rounded-2xl bg-[#0D0D12] border border-[#fc8100]/40 p-6 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.95)] max-h-[92vh] overflow-y-auto">
             <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
               <div>
-                <span className="text-[10px] font-heading font-bold uppercase tracking-widest text-[#FFBE32]">
+                <span className="text-[10px] font-heading font-bold uppercase tracking-widest text-[#fc8100]">
                   ORDER DISPATCH &amp; SHIPPING
                 </span>
                 <h3 className="font-display text-2xl uppercase tracking-wider text-white mt-0.5">
@@ -798,7 +798,7 @@ export const AdminOrdersPage: React.FC = () => {
                 <select
                   value={trackingForm.orderStatus}
                   onChange={(e) => setTrackingForm({ ...trackingForm, orderStatus: e.target.value })}
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-heading font-bold"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none font-heading font-bold"
                 >
                   <option value="PENDING">PENDING (Order Placed)</option>
                   <option value="PROCESSING">PROCESSING (Printing / Customization)</option>
@@ -826,7 +826,7 @@ export const AdminOrdersPage: React.FC = () => {
                           courierPartner: match?.name || "India Post Domestic",
                         });
                       }}
-                      className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-body"
+                      className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none font-body"
                     >
                       <option value="india-post">🇮🇳 India Post Domestic (india-post) — Recommended</option>
                       <option value="india-post-int">🌍 India Post International (india-post-int)</option>
@@ -847,7 +847,7 @@ export const AdminOrdersPage: React.FC = () => {
                         value={trackingForm.courierPartner}
                         onChange={(e) => setTrackingForm({ ...trackingForm, courierPartner: e.target.value })}
                         placeholder="Enter courier name"
-                        className="mt-2 w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-xs text-white focus:border-[#FFBE32] focus:outline-none"
+                        className="mt-2 w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-xs text-white focus:border-[#fc8100] focus:outline-none"
                       />
                     )}
                   </div>
@@ -861,7 +861,7 @@ export const AdminOrdersPage: React.FC = () => {
                       value={trackingForm.trackingNumber}
                       onChange={(e) => setTrackingForm({ ...trackingForm, trackingNumber: e.target.value })}
                       placeholder="e.g. CL510579225IN or DEL-9988112"
-                      className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-mono tracking-wider font-bold"
+                      className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none font-mono tracking-wider font-bold"
                     />
                   </div>
                 </div>
@@ -892,7 +892,7 @@ export const AdminOrdersPage: React.FC = () => {
                       href={getAftershipTrackingUrl(selectedCourierSlug, trackingForm.trackingNumber)}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-[11px] text-[#FFBE32] hover:underline font-mono flex items-center gap-1"
+                      className="text-[11px] text-[#fc8100] hover:underline font-mono flex items-center gap-1"
                     >
                       <span>Preview Live Tracking URL</span>
                       <ExternalLink className="h-3 w-3" />
@@ -911,7 +911,7 @@ export const AdminOrdersPage: React.FC = () => {
                   value={trackingForm.expectedDeliveryDate}
                   onChange={(e) => setTrackingForm({ ...trackingForm, expectedDeliveryDate: e.target.value })}
                   placeholder="e.g. 26 Sep 2026 or 3-5 Business Days"
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-body"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none font-body"
                 />
                 <p className="text-[11px] text-gray-400 mt-1">
                   This date is displayed directly in the user's "Track My Order" section.
@@ -926,7 +926,7 @@ export const AdminOrdersPage: React.FC = () => {
                 <select
                   value={trackingForm.paymentStatus}
                   onChange={(e) => setTrackingForm({ ...trackingForm, paymentStatus: e.target.value })}
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-body"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none font-body"
                 >
                   <option value="PAID">PAID / VERIFIED</option>
                   <option value="PENDING_VERIFICATION">PENDING VERIFICATION (Check UTR)</option>
@@ -946,7 +946,7 @@ export const AdminOrdersPage: React.FC = () => {
                 </button>
                 <button
                   type="submit"
-                  className="px-7 py-2.5 rounded-xl bg-[#FFBE32] hover:bg-[#FFA000] text-black font-heading text-xs font-bold uppercase tracking-wider cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)]"
+                  className="px-7 py-2.5 rounded-xl bg-[#fc8100] hover:bg-[#e07200] text-black font-heading text-xs font-bold uppercase tracking-wider cursor-pointer shadow-[0_0_15px_rgba(252, 129, 0,0.3)]"
                 >
                   Update Order Tracking
                 </button>
@@ -959,11 +959,11 @@ export const AdminOrdersPage: React.FC = () => {
       {/* ================= LIVE COURIER CHECKPOINTS MODAL ================= */}
       {liveTrackingOrder && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
-          <div className="w-full max-w-xl rounded-2xl bg-[#0D0D12] border border-[#FFBE32]/40 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+          <div className="w-full max-w-xl rounded-2xl bg-[#0D0D12] border border-[#fc8100]/40 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
             {/* Modal Header */}
             <div className="flex items-center justify-between p-5 border-b border-white/10 bg-white/5">
               <div className="flex items-center gap-2.5">
-                <Truck className="h-5 w-5 text-[#FFBE32]" />
+                <Truck className="h-5 w-5 text-[#fc8100]" />
                 <div>
                   <h3 className="font-heading text-sm font-bold uppercase tracking-wider text-white">
                     Live Courier Tracking
@@ -985,7 +985,7 @@ export const AdminOrdersPage: React.FC = () => {
             <div className="p-5 overflow-y-auto space-y-5">
               {liveTrackingLoading ? (
                 <div className="flex flex-col items-center justify-center py-12 space-y-3">
-                  <RefreshCw className="h-8 w-8 text-[#FFBE32] animate-spin" />
+                  <RefreshCw className="h-8 w-8 text-[#fc8100] animate-spin" />
                   <p className="text-xs text-gray-400 font-mono">Fetching latest checkpoints from carrier...</p>
                 </div>
               ) : liveTrackingData ? (
@@ -1000,7 +1000,7 @@ export const AdminOrdersPage: React.FC = () => {
                         {liveTrackingData.subtagMessage || liveTrackingData.tag || "In Transit"}
                       </h4>
                       <p className="text-xs text-gray-300 font-mono mt-0.5">
-                        Courier: <strong className="text-[#FFBE32]">{liveTrackingData.courierName}</strong>
+                        Courier: <strong className="text-[#fc8100]">{liveTrackingData.courierName}</strong>
                       </p>
                     </div>
 
@@ -1041,7 +1041,7 @@ export const AdminOrdersPage: React.FC = () => {
                   {/* Checkpoints Timeline */}
                   <div className="space-y-3">
                     <h5 className="text-xs font-heading font-bold uppercase tracking-wider text-gray-300 flex items-center gap-1.5">
-                      <Clock className="h-3.5 w-3.5 text-[#FFBE32]" />
+                      <Clock className="h-3.5 w-3.5 text-[#fc8100]" />
                       <span>Shipment Journey ({liveTrackingData.checkpoints?.length || 0} Checkpoints)</span>
                     </h5>
 
@@ -1054,7 +1054,7 @@ export const AdminOrdersPage: React.FC = () => {
                             <div key={idx} className="relative">
                               <div
                                 className={`absolute -left-[23px] top-1 h-3 w-3 rounded-full border-2 border-black ${
-                                  idx === 0 ? "bg-[#FFBE32] ring-2 ring-[#FFBE32]/40" : "bg-gray-600"
+                                  idx === 0 ? "bg-[#fc8100] ring-2 ring-[#fc8100]/40" : "bg-gray-600"
                                 }`}
                               />
                               <div className="text-xs">
@@ -1063,7 +1063,7 @@ export const AdminOrdersPage: React.FC = () => {
                                 </span>
                                 <div className="text-[11px] text-gray-400 font-mono mt-0.5 flex flex-wrap items-center gap-2">
                                   {cp.location && (
-                                    <span className="flex items-center gap-1 text-[#FFBE32]">
+                                    <span className="flex items-center gap-1 text-[#fc8100]">
                                       <MapPin className="h-3 w-3" />
                                       {cp.location}
                                     </span>
@@ -1107,7 +1107,7 @@ export const AdminOrdersPage: React.FC = () => {
                 }
                 target="_blank"
                 rel="noreferrer"
-                className="px-4 py-2 rounded-xl bg-[#FFBE32] hover:bg-[#FFA000] text-black text-xs font-heading font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,190,50,0.3)] cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-[#fc8100] hover:bg-[#e07200] text-black text-xs font-heading font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-[0_0_15px_rgba(252, 129, 0,0.3)] cursor-pointer"
               >
                 <span>Carrier Website</span>
                 <ExternalLink className="h-3.5 w-3.5" />

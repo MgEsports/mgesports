@@ -64,7 +64,7 @@ export const AboutPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#050505] text-[#E0E0E0] selection:bg-[#FFBE32] selection:text-black w-full max-w-full overflow-x-hidden">
+    <div className="min-h-screen bg-[#050505] text-[#E0E0E0] selection:bg-[#fc8100] selection:text-black w-full max-w-full overflow-x-hidden">
       <SEO
         title="About MG ESPORTS | Organization History & Pro Athletes Roster"
         description="Explore the complete world of MG ESPORTS: Our competitive manifesto, the national champion athletes roster, and the operational leadership collective."
@@ -98,11 +98,11 @@ export const AboutPage = () => {
                   onClick={() => scrollToAnchor(anchor.id)}
                   className={`inline-flex items-center justify-center gap-1 sm:gap-2 px-2 xs:px-3 sm:px-4 py-2 sm:py-1.5 rounded-xl sm:rounded-full text-[10px] xs:text-[11px] sm:text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer min-w-0 w-full sm:w-auto ${
                     isActive
-                      ? "bg-[#FFBE32] text-black shadow-[0_0_15px_rgba(255,190,50,0.35)] border border-[#FFBE32]"
-                      : "bg-[#101014] text-gray-300 hover:text-white border border-white/10 hover:border-[#FFBE32]/40"
+                      ? "bg-[#fc8100] text-black shadow-[0_0_15px_rgba(252, 129, 0,0.35)] border border-[#fc8100]"
+                      : "bg-[#101014] text-gray-300 hover:text-white border border-white/10 hover:border-[#fc8100]/40"
                   }`}
                 >
-                  <Icon className={`h-3.5 w-3.5 shrink-0 ${isActive ? "text-black" : "text-[#FFBE32]"}`} />
+                  <Icon className={`h-3.5 w-3.5 shrink-0 ${isActive ? "text-black" : "text-[#fc8100]"}`} />
                   <span className="truncate">{anchor.label}</span>
                 </button>
               );

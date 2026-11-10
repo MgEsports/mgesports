@@ -190,9 +190,9 @@ export const VotingPage = () => {
     return {
       label: "Best Player Section",
       icon: Trophy,
-      chipColor: "bg-[#FFBE32]/20 text-[#FFBE32] border-[#FFBE32]/40",
-      activeBorder: "border-[#FFBE32]",
-      glow: "shadow-[0_0_20px_rgba(255,190,50,0.2)]",
+      chipColor: "bg-[#fc8100]/20 text-[#fc8100] border-[#fc8100]/40",
+      activeBorder: "border-[#fc8100]",
+      glow: "shadow-[0_0_20px_rgba(252, 129, 0,0.2)]",
     };
   };
 
@@ -206,19 +206,19 @@ export const VotingPage = () => {
       return <Users className="h-3.5 w-3.5 text-emerald-400" />;
     }
     if (r.includes("IGL") || r.includes("CAPTAIN")) {
-      return <Shield className="h-3.5 w-3.5 text-[#FFBE32]" />;
+      return <Shield className="h-3.5 w-3.5 text-[#fc8100]" />;
     }
     if (r.includes("RUSHER") || r.includes("FRAGGER")) {
-      return <Zap className="h-3.5 w-3.5 text-[#FFBE32]" />;
+      return <Zap className="h-3.5 w-3.5 text-[#fc8100]" />;
     }
     if (r.includes("SNIPER")) {
-      return <Crosshair className="h-3.5 w-3.5 text-[#FFBE32]" />;
+      return <Crosshair className="h-3.5 w-3.5 text-[#fc8100]" />;
     }
-    return <Target className="h-3.5 w-3.5 text-[#FFBE32]" />;
+    return <Target className="h-3.5 w-3.5 text-[#fc8100]" />;
   };
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white selection:bg-[#FFBE32] selection:text-black w-full max-w-full overflow-x-hidden">
+    <div className="min-h-screen bg-[#050505] text-white selection:bg-[#fc8100] selection:text-black w-full max-w-full overflow-x-hidden">
       <SEO
         title="MG ESPORTS Fan Awards Voting | Vote for MVP of the Season"
         description="Cast your vote for the MVP of the season, top fraggers, and community awards in official MG ESPORTS fan polls."
@@ -240,7 +240,7 @@ export const VotingPage = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
         {loading ? (
           <div className="flex flex-col items-center justify-center min-h-[50vh] space-y-4">
-            <Loader2 className="h-10 w-10 text-[#FFBE32] animate-spin" />
+            <Loader2 className="h-10 w-10 text-[#fc8100] animate-spin" />
             <p className="font-mono text-xs uppercase tracking-widest text-gray-400">
               Loading award categories and nominees...
             </p>
@@ -248,7 +248,7 @@ export const VotingPage = () => {
         ) : !events || events.length === 0 ? (
           /* Empty State */
           <div className="text-center py-20 bg-[#0C0C10] rounded-3xl border border-white/5 p-8 max-w-xl mx-auto space-y-4">
-            <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mx-auto text-[#FFBE32]">
+            <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mx-auto text-[#fc8100]">
               <Trophy className="h-8 w-8 stroke-[1.5]" />
             </div>
             <h3 className="font-display font-black text-2xl text-white uppercase tracking-wider">
@@ -266,7 +266,7 @@ export const VotingPage = () => {
             <div className="space-y-4">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-3">
                 <div>
-                  <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-[#FFBE32] block">
+                  <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-[#fc8100] block">
                     AWARD SECTIONS & CATEGORIES
                   </span>
                   <h2 className="font-display font-black text-2xl sm:text-3xl text-white uppercase tracking-wider">
@@ -303,7 +303,7 @@ export const VotingPage = () => {
                         <div className="flex items-center gap-2.5">
                           <div
                             className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 border ${
-                              isCurrent ? "bg-[#FFBE32] text-black border-[#FFBE32]" : "bg-white/5 text-gray-400 border-white/10 group-hover:text-white"
+                              isCurrent ? "bg-[#fc8100] text-black border-[#fc8100]" : "bg-white/5 text-gray-400 border-white/10 group-hover:text-white"
                             }`}
                           >
                             <Icon className="h-4 w-4" />
@@ -312,7 +312,7 @@ export const VotingPage = () => {
                             <span className={`inline-block text-[9px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full border mb-1 ${catInfo.chipColor}`}>
                               {catInfo.label}
                             </span>
-                            <h3 className="font-display font-black text-sm sm:text-base text-white uppercase tracking-wider line-clamp-1 group-hover:text-[#FFBE32] transition-colors">
+                            <h3 className="font-display font-black text-sm sm:text-base text-white uppercase tracking-wider line-clamp-1 group-hover:text-[#fc8100] transition-colors">
                               {ev.title}
                             </h3>
                           </div>
@@ -326,7 +326,7 @@ export const VotingPage = () => {
                               VOTED
                             </span>
                           ) : ev.isActive ? (
-                            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-heading font-black bg-[#FFBE32]/20 text-[#FFBE32] border border-[#FFBE32]/40 uppercase">
+                            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-heading font-black bg-[#fc8100]/20 text-[#fc8100] border border-[#fc8100]/40 uppercase">
                               OPEN
                             </span>
                           ) : (
@@ -339,7 +339,7 @@ export const VotingPage = () => {
 
                       <div className="flex items-center justify-between text-[11px] font-mono text-gray-400 mt-3 pt-2.5 border-t border-white/5">
                         <span>{ev.nominees.length} Nominees</span>
-                        <span className="flex items-center gap-1 text-[#FFBE32] group-hover:translate-x-0.5 transition-transform">
+                        <span className="flex items-center gap-1 text-[#fc8100] group-hover:translate-x-0.5 transition-transform">
                           {isCurrent ? "Active Section" : "Switch to Vote"}
                           <ChevronRight className="h-3 w-3" />
                         </span>
@@ -359,10 +359,10 @@ export const VotingPage = () => {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
-                className="relative rounded-3xl bg-gradient-to-r from-[#14141A] via-[#0E0E12] to-[#0A0A0E] border border-[#FFBE32]/35 p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.9),0_0_30px_rgba(255,190,50,0.1)] overflow-hidden"
+                className="relative rounded-3xl bg-gradient-to-r from-[#14141A] via-[#0E0E12] to-[#0A0A0E] border border-[#fc8100]/35 p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.9),0_0_30px_rgba(252, 129, 0,0.1)] overflow-hidden"
               >
                 {/* Gold neon top glow line */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FFBE32] to-transparent" />
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#fc8100] to-transparent" />
 
                 <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
                   {/* Left: Event Details */}
@@ -404,7 +404,7 @@ export const VotingPage = () => {
                   {/* Right: Real-time Countdown Timer */}
                   {activeEvent.isActive && (
                     <div className="bg-black/60 rounded-2xl border border-white/10 p-4 sm:p-5 backdrop-blur-md shrink-0">
-                      <span className="text-[10px] font-mono text-[#FFBE32] uppercase tracking-[0.2em] block mb-2 text-center">
+                      <span className="text-[10px] font-mono text-[#fc8100] uppercase tracking-[0.2em] block mb-2 text-center">
                         POLL CLOSES IN
                       </span>
                       <div className="grid grid-cols-4 gap-2 text-center">
@@ -427,7 +427,7 @@ export const VotingPage = () => {
                           <span className="text-[9px] font-mono text-gray-400 uppercase">MINS</span>
                         </div>
                         <div className="bg-[#141419] px-2.5 py-2 rounded-xl border border-white/5">
-                          <span className="font-display font-black text-xl sm:text-2xl text-[#FFBE32] block">
+                          <span className="font-display font-black text-xl sm:text-2xl text-[#fc8100] block">
                             {timeLeft.seconds.toString().padStart(2, "0")}
                           </span>
                           <span className="text-[9px] font-mono text-gray-400 uppercase">SECS</span>
@@ -471,15 +471,15 @@ export const VotingPage = () => {
               <motion.div
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-[#FFBE32]/15 via-[#131317] to-[#0A0A0D] border border-[#FFBE32]/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-[0_0_35px_rgba(255,190,50,0.15)]"
+                className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-[#fc8100]/15 via-[#131317] to-[#0A0A0D] border border-[#fc8100]/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-[0_0_35px_rgba(252, 129, 0,0.15)]"
               >
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#FFBE32] text-black flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(255,190,50,0.4)]">
+                  <div className="w-12 h-12 rounded-xl bg-[#fc8100] text-black flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(252, 129, 0,0.4)]">
                     <CheckCircle2 className="h-7 w-7 stroke-[2.5]" />
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono uppercase tracking-widest text-[#FFBE32]">
+                      <span className="text-xs font-mono uppercase tracking-widest text-[#fc8100]">
                         OFFICIALLY RECORDED IN THIS SECTION
                       </span>
                       <span className="px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-400 text-[10px] font-heading font-black uppercase">
@@ -499,7 +499,7 @@ export const VotingPage = () => {
                   <span className="text-[11px] font-mono text-gray-400 uppercase tracking-widest block">
                     Candidate Affiliation
                   </span>
-                  <span className="font-heading font-black text-sm text-[#FFBE32] uppercase">
+                  <span className="font-heading font-black text-sm text-[#fc8100] uppercase">
                     {votedNomineeCurrent.platform || votedNomineeCurrent.team || "MG ESPORTS"}
                   </span>
                 </div>
@@ -513,7 +513,7 @@ export const VotingPage = () => {
               <div className="space-y-6">
                 <div className="flex items-center justify-between border-b border-white/10 pb-4">
                   <div>
-                    <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#FFBE32] block">
+                    <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#fc8100] block">
                       OFFICIAL NOMINEES
                     </span>
                     <h3 className="font-display font-black text-xl sm:text-2xl text-white uppercase tracking-wider">
@@ -564,7 +564,7 @@ export const VotingPage = () => {
                         }}
                         className={`group relative flex flex-col justify-between rounded-2xl transition-all duration-300 p-4 sm:p-5 overflow-hidden cursor-pointer outline-none ${
                           isSelected
-                            ? "bg-gradient-to-b from-[#181822] via-[#0E0E14] to-[#07070A] border-2 border-[#FFBE32] shadow-[0_0_35px_rgba(255,190,50,0.35)]"
+                            ? "bg-gradient-to-b from-[#181822] via-[#0E0E14] to-[#07070A] border-2 border-[#fc8100] shadow-[0_0_35px_rgba(252, 129, 0,0.35)]"
                             : "bg-gradient-to-b from-[#141418] via-[#0C0C0E] to-[#070709] border border-white/10 hover:border-white/30 shadow-[0_15px_40px_rgba(0,0,0,0.8)]"
                         }`}
                       >
@@ -572,8 +572,8 @@ export const VotingPage = () => {
                         <div
                           className={`absolute top-0 left-0 right-0 h-1 transition-opacity ${
                             isSelected
-                              ? "bg-[#FFBE32] opacity-100 shadow-[0_0_12px_rgba(255,190,50,0.8)]"
-                              : "bg-gradient-to-r from-transparent via-[#FFBE32] to-transparent opacity-0 group-hover:opacity-60"
+                              ? "bg-[#fc8100] opacity-100 shadow-[0_0_12px_rgba(252, 129, 0,0.8)]"
+                              : "bg-gradient-to-r from-transparent via-[#fc8100] to-transparent opacity-0 group-hover:opacity-60"
                           }`}
                         />
 
@@ -589,7 +589,7 @@ export const VotingPage = () => {
                             <div
                               className={`w-6 h-6 rounded-full flex items-center justify-center transition-all border shrink-0 ${
                                 isSelected
-                                  ? "bg-[#FFBE32] border-[#FFBE32] text-black shadow-[0_0_12px_rgba(255,190,50,0.5)]"
+                                  ? "bg-[#fc8100] border-[#fc8100] text-black shadow-[0_0_12px_rgba(252, 129, 0,0.5)]"
                                   : "border-white/20 bg-black/50 text-transparent"
                               }`}
                             >
@@ -598,7 +598,7 @@ export const VotingPage = () => {
                           </div>
 
                           {/* Candidate Portrait Visual */}
-                          <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-black/70 border border-white/5 mb-4 group-hover:border-[#FFBE32]/40 transition-all shadow-inner">
+                          <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-black/70 border border-white/5 mb-4 group-hover:border-[#fc8100]/40 transition-all shadow-inner">
                             <img
                               src={imgUrl}
                               alt={`${candidateName} - Nominee`}
@@ -615,7 +615,7 @@ export const VotingPage = () => {
                                 YOUR CHOICE
                               </div>
                             ) : isSelected ? (
-                              <div className="absolute bottom-2.5 left-3 right-3 bg-[#FFBE32] text-black font-heading font-black text-[10px] uppercase tracking-wider py-1 rounded-md text-center shadow-lg">
+                              <div className="absolute bottom-2.5 left-3 right-3 bg-[#fc8100] text-black font-heading font-black text-[10px] uppercase tracking-wider py-1 rounded-md text-center shadow-lg">
                                 SELECTED
                               </div>
                             ) : null}
@@ -624,10 +624,10 @@ export const VotingPage = () => {
                           {/* Candidate Identity */}
                           <div className="space-y-1">
                             <div className="flex items-baseline justify-between gap-2">
-                              <h4 className="font-display font-black text-xl text-white uppercase tracking-wider group-hover:text-[#FFBE32] transition-colors line-clamp-1">
+                              <h4 className="font-display font-black text-xl text-white uppercase tracking-wider group-hover:text-[#fc8100] transition-colors line-clamp-1">
                                 {candidateName}
                               </h4>
-                              <span className="text-[10px] font-mono text-[#FFBE32] uppercase shrink-0">
+                              <span className="text-[10px] font-mono text-[#fc8100] uppercase shrink-0">
                                 {candidateOrg}
                               </span>
                             </div>
@@ -636,7 +636,7 @@ export const VotingPage = () => {
 
                           {/* Candidate Quote / Bio */}
                           {candidateBio && (
-                            <p className="mt-3 text-[11px] text-gray-400 font-body line-clamp-2 leading-relaxed italic border-l border-[#FFBE32]/40 pl-2">
+                            <p className="mt-3 text-[11px] text-gray-400 font-body line-clamp-2 leading-relaxed italic border-l border-[#fc8100]/40 pl-2">
                               "{candidateBio}"
                             </p>
                           )}
@@ -647,11 +647,11 @@ export const VotingPage = () => {
                           <div className="mt-4 pt-3 border-t border-white/10 space-y-1.5">
                             <div className="flex items-center justify-between text-[11px] font-mono">
                               <span className="text-gray-400">VOTE SHARE</span>
-                              <span className="font-bold text-[#FFBE32]">{nominee.percentage}%</span>
+                              <span className="font-bold text-[#fc8100]">{nominee.percentage}%</span>
                             </div>
                             <div className="w-full bg-black/60 rounded-full h-2 overflow-hidden border border-white/5">
                               <div
-                                className="bg-gradient-to-r from-[#FFBE32] to-[#FFA000] h-full rounded-full transition-all duration-700"
+                                className="bg-gradient-to-r from-[#fc8100] to-[#e07200] h-full rounded-full transition-all duration-700"
                                 style={{ width: `${nominee.percentage}%` }}
                               />
                             </div>
@@ -666,7 +666,7 @@ export const VotingPage = () => {
                 {/* 4. FLOATING STICKY VOTE ACTION HUD DOCK */}
                 {/* ======================================================== */}
                 <div className="sticky bottom-6 z-40 pt-4">
-                  <div className="max-w-4xl mx-auto p-4 sm:p-5 rounded-2xl bg-[#0B0B0F]/95 backdrop-blur-2xl border border-[#FFBE32]/40 shadow-[0_20px_50px_rgba(0,0,0,0.95),0_0_30px_rgba(255,190,50,0.15)] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="max-w-4xl mx-auto p-4 sm:p-5 rounded-2xl bg-[#0B0B0F]/95 backdrop-blur-2xl border border-[#fc8100]/40 shadow-[0_20px_50px_rgba(0,0,0,0.95),0_0_30px_rgba(252, 129, 0,0.15)] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     {/* Selected Candidate Preview */}
                     <div className="flex items-center gap-3.5">
                       <div className="w-12 h-12 rounded-xl bg-black border border-white/10 overflow-hidden shrink-0 flex items-center justify-center">
@@ -682,7 +682,7 @@ export const VotingPage = () => {
                             className="h-full w-full object-cover object-top"
                           />
                         ) : (
-                          <Vote className="h-6 w-6 text-[#FFBE32]" />
+                          <Vote className="h-6 w-6 text-[#fc8100]" />
                         )}
                       </div>
 
@@ -697,7 +697,7 @@ export const VotingPage = () => {
                               : "NO CANDIDATE SELECTED"}
                           </span>
                           {selectedNominee && (
-                            <span className="text-xs font-mono text-[#FFBE32]">
+                            <span className="text-xs font-mono text-[#fc8100]">
                               ({selectedNominee.role || "NOMINEE"})
                             </span>
                           )}
@@ -711,7 +711,7 @@ export const VotingPage = () => {
                         <button
                           type="button"
                           onClick={openLogin}
-                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#FFBE32] to-[#FFA000] text-black font-heading font-black text-xs uppercase tracking-wider hover:shadow-[0_0_25px_rgba(255,190,50,0.4)] transition-all cursor-pointer"
+                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#fc8100] to-[#e07200] text-black font-heading font-black text-xs uppercase tracking-wider hover:shadow-[0_0_25px_rgba(252, 129, 0,0.4)] transition-all cursor-pointer"
                         >
                           <Lock className="h-4 w-4" />
                           LOGIN TO VOTE
@@ -738,7 +738,7 @@ export const VotingPage = () => {
                           type="button"
                           onClick={handleCastVote}
                           disabled={!selectedNomineeId || submitting}
-                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-xl bg-gradient-to-r from-[#FFBE32] via-[#FFD54F] to-[#FFA000] text-black font-heading font-black text-xs uppercase tracking-wider hover:shadow-[0_0_30px_rgba(255,190,50,0.5)] transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-xl bg-gradient-to-r from-[#fc8100] via-[#FFD54F] to-[#e07200] text-black font-heading font-black text-xs uppercase tracking-wider hover:shadow-[0_0_30px_rgba(252, 129, 0,0.5)] transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
                         >
                           {submitting ? (
                             <>

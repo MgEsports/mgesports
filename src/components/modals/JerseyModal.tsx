@@ -62,7 +62,7 @@ export const JerseyModal = ({ isOpen, onClose }: JerseyModalProps) => {
       particleCount: 80,
       spread: 70,
       origin: { y: 0.6 },
-      colors: ["#FFBE32", "#FFFFFF", "#000000"],
+      colors: ["#fc8100", "#FFFFFF", "#000000"],
     });
     setOrdered(true);
   };
@@ -82,15 +82,15 @@ export const JerseyModal = ({ isOpen, onClose }: JerseyModalProps) => {
     >
       {ordered ? (
         <div className="py-8 text-center flex flex-col items-center">
-          <div className="h-16 w-16 rounded-full bg-[#FFBE32]/20 border border-[#FFBE32] flex items-center justify-center text-[#FFBE32] mb-4">
+          <div className="h-16 w-16 rounded-full bg-[#fc8100]/20 border border-[#fc8100] flex items-center justify-center text-[#fc8100] mb-4">
             <Check className="h-8 w-8" />
           </div>
           <h4 className="font-display text-3xl uppercase text-white">
             ORDER PRE-REGISTERED!
           </h4>
           <p className="mt-2 text-sm text-[#9CA3AF] max-w-sm">
-            Your customized MG Pro Jersey with IGN <strong className="text-[#FFBE32]">{customIgn.toUpperCase()} #{customNumber}</strong> (Size {selectedSize}) has been reserved for batch delivery.
-            {orderNumber && <span className="block mt-2 font-mono text-xs text-[#FFBE32]">Order Reference: {orderNumber}</span>}
+            Your customized MG Pro Jersey with IGN <strong className="text-[#fc8100]">{customIgn.toUpperCase()} #{customNumber}</strong> (Size {selectedSize}) has been reserved for batch delivery.
+            {orderNumber && <span className="block mt-2 font-mono text-xs text-[#fc8100]">Order Reference: {orderNumber}</span>}
           </p>
           <div className="mt-6 w-full">
             <GoldButton onClick={handleClose} className="w-full" showArrow={false}>
@@ -108,7 +108,7 @@ export const JerseyModal = ({ isOpen, onClose }: JerseyModalProps) => {
                 onClick={() => setPreviewSide("front")}
                 className={`px-3 py-1 text-xs font-heading font-bold uppercase rounded cursor-pointer transition-all ${
                   previewSide === "front"
-                    ? "bg-[#FFBE32] text-black"
+                    ? "bg-[#fc8100] text-black"
                     : "bg-neutral-800 text-gray-400 hover:text-white"
                 }`}
               >
@@ -119,7 +119,7 @@ export const JerseyModal = ({ isOpen, onClose }: JerseyModalProps) => {
                 onClick={() => setPreviewSide("back")}
                 className={`px-3 py-1 text-xs font-heading font-bold uppercase rounded cursor-pointer transition-all ${
                   previewSide === "back"
-                    ? "bg-[#FFBE32] text-black"
+                    ? "bg-[#fc8100] text-black"
                     : "bg-neutral-800 text-gray-400 hover:text-white"
                 }`}
               >
@@ -131,16 +131,16 @@ export const JerseyModal = ({ isOpen, onClose }: JerseyModalProps) => {
               <img
                 src={previewSide === "front" ? jerseyFrontImg : jerseyBackImg}
                 alt="MG Jersey Preview"
-                className="max-h-full max-w-full object-contain filter drop-shadow-[0_10px_25px_rgba(255,190,50,0.15)] transition-all duration-300"
+                className="max-h-full max-w-full object-contain filter drop-shadow-[0_10px_25px_rgba(252, 129, 0,0.15)] transition-all duration-300"
               />
             </div>
 
             <div className="w-full mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-gray-400">
-              <span className="flex items-center gap-1 text-[#FFBE32]">
+              <span className="flex items-center gap-1 text-[#fc8100]">
                 <Sparkles className="h-3.5 w-3.5" /> Breathable Poly-Dry
               </span>
               <span className="flex items-center gap-1 text-gray-300">
-                <ShieldCheck className="h-3.5 w-3.5 text-[#FFBE32]" /> 100% Authentic
+                <ShieldCheck className="h-3.5 w-3.5 text-[#fc8100]" /> 100% Authentic
               </span>
             </div>
           </div>
@@ -156,7 +156,7 @@ export const JerseyModal = ({ isOpen, onClose }: JerseyModalProps) => {
                   <div className="text-xs text-gray-400 font-body">Black & Gold • Temple Dravidian Edition</div>
                 </div>
                 <div className="text-right">
-                  <div className="text-2xl font-display text-[#FFBE32] font-bold">₹1,299</div>
+                  <div className="text-2xl font-display text-[#fc8100] font-bold">₹1,299</div>
                   <div className="text-[10px] text-emerald-400 uppercase">Free India Shipping</div>
                 </div>
               </div>
@@ -174,7 +174,7 @@ export const JerseyModal = ({ isOpen, onClose }: JerseyModalProps) => {
                       onClick={() => setSelectedSize(s)}
                       className={`flex-1 py-2 text-xs font-heading font-bold rounded border cursor-pointer transition-all ${
                         selectedSize === s
-                          ? "border-[#FFBE32] bg-[#FFBE32] text-black shadow-[0_0_12px_rgba(255,190,50,0.3)]"
+                          ? "border-[#fc8100] bg-[#fc8100] text-black shadow-[0_0_12px_rgba(252, 129, 0,0.3)]"
                           : "border-white/15 bg-black/40 text-gray-300 hover:border-white/30"
                       }`}
                     >
@@ -196,7 +196,7 @@ export const JerseyModal = ({ isOpen, onClose }: JerseyModalProps) => {
                     value={customerName}
                     onChange={(e) => setCustomerName(e.target.value)}
                     placeholder="e.g. Rahul"
-                    className="w-full rounded-lg border border-white/15 bg-black/60 px-3 py-1.5 text-xs text-white placeholder-gray-500 focus:border-[#FFBE32] focus:outline-none"
+                    className="w-full rounded-lg border border-white/15 bg-black/60 px-3 py-1.5 text-xs text-white placeholder-gray-500 focus:border-[#fc8100] focus:outline-none"
                   />
                 </div>
                 <div>
@@ -209,7 +209,7 @@ export const JerseyModal = ({ isOpen, onClose }: JerseyModalProps) => {
                     value={customerPhone}
                     onChange={(e) => setCustomerPhone(e.target.value)}
                     placeholder="+91 98765 43210"
-                    className="w-full rounded-lg border border-white/15 bg-black/60 px-3 py-1.5 text-xs text-white placeholder-gray-500 font-mono focus:border-[#FFBE32] focus:outline-none"
+                    className="w-full rounded-lg border border-white/15 bg-black/60 px-3 py-1.5 text-xs text-white placeholder-gray-500 font-mono focus:border-[#fc8100] focus:outline-none"
                   />
                 </div>
               </div>
@@ -225,7 +225,7 @@ export const JerseyModal = ({ isOpen, onClose }: JerseyModalProps) => {
                   value={customIgn}
                   onChange={(e) => setCustomIgn(e.target.value)}
                   placeholder="e.g. BEAST"
-                  className="w-full rounded-lg border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white placeholder-gray-500 uppercase font-display tracking-widest focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full rounded-lg border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white placeholder-gray-500 uppercase font-display tracking-widest focus:border-[#fc8100] focus:outline-none"
                 />
               </div>
 
@@ -240,7 +240,7 @@ export const JerseyModal = ({ isOpen, onClose }: JerseyModalProps) => {
                   value={customNumber}
                   onChange={(e) => setCustomNumber(e.target.value)}
                   placeholder="00"
-                  className="w-full rounded-lg border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white placeholder-gray-500 font-mono tracking-widest focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full rounded-lg border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white placeholder-gray-500 font-mono tracking-widest focus:border-[#fc8100] focus:outline-none"
                 />
               </div>
             </div>

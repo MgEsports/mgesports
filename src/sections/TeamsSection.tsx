@@ -41,34 +41,34 @@ export const TeamsSection = ({
                 transition={{ duration: 0.4, delay: index * 0.06 }}
                 className={`group relative rounded-xl p-6 transition-all duration-300 bg-[#0C0C0F] border ${
                   isMg
-                    ? "border-[#FFBE32]/40 shadow-[0_10px_30px_rgba(255,190,50,0.1)]"
-                    : "border-white/10 hover:border-[#FFBE32]/40"
-                } hover:-translate-y-1.5 hover:shadow-[0_15px_35px_rgba(255,190,50,0.18)]`}
+                    ? "border-[#fc8100]/40 shadow-[0_10px_30px_rgba(252, 129, 0,0.1)]"
+                    : "border-white/10 hover:border-[#fc8100]/40"
+                } hover:-translate-y-1.5 hover:shadow-[0_15px_35px_rgba(252, 129, 0,0.18)]`}
               >
                 {/* Gold rim accent on top */}
                 <div
                   className={`h-1 w-12 rounded-full mb-4 ${
-                    isMg ? "bg-[#FFBE32]" : "bg-white/20 group-hover:bg-[#FFBE32]"
+                    isMg ? "bg-[#fc8100]" : "bg-white/20 group-hover:bg-[#fc8100]"
                   } transition-colors`}
                 />
 
                 <div className="flex items-start justify-between gap-4">
                   {/* Team Logo / Crest */}
-                  <div className="h-16 w-16 rounded-xl bg-black/60 border border-white/10 group-hover:border-[#FFBE32]/50 p-2.5 flex items-center justify-center transition-all group-hover:scale-105 shadow-inner">
+                  <div className="h-16 w-16 rounded-xl bg-black/60 border border-white/10 group-hover:border-[#fc8100]/50 p-2.5 flex items-center justify-center transition-all group-hover:scale-105 shadow-inner">
                     {isMg ? (
                       <img
                         src={logoImg}
                         alt={team.name}
-                        className="h-full w-full object-contain drop-shadow-[0_0_8px_#FFBE32]"
+                        className="h-full w-full object-contain drop-shadow-[0_0_8px_#fc8100]"
                       />
                     ) : (
-                      <Shield className="h-8 w-8 text-gray-500 group-hover:text-[#FFBE32] transition-colors" />
+                      <Shield className="h-8 w-8 text-gray-500 group-hover:text-[#fc8100] transition-colors" />
                     )}
                   </div>
 
                   {/* Rank Badge */}
                   <div className="text-right">
-                    <span className="font-display text-2xl font-bold text-[#FFBE32]">
+                    <span className="font-display text-2xl font-bold text-[#fc8100]">
                       {team.rank}
                     </span>
                     <span className="block text-[10px] font-heading uppercase tracking-wider text-gray-400">
@@ -79,7 +79,7 @@ export const TeamsSection = ({
 
                 {/* Team Info */}
                 <div className="mt-4">
-                  <h3 className="font-display text-2xl uppercase tracking-wide text-white group-hover:text-[#FFBE32] transition-colors leading-snug">
+                  <h3 className="font-display text-2xl uppercase tracking-wide text-white group-hover:text-[#fc8100] transition-colors leading-snug">
                     {team.name}
                   </h3>
                   <div className="flex items-center gap-2 mt-1 text-xs text-gray-400 font-heading">
@@ -96,7 +96,7 @@ export const TeamsSection = ({
                     <span className="text-[10px] uppercase tracking-wider text-gray-500 font-heading">Points</span>
                   </div>
                   <div>
-                    <span className="block font-mono font-bold text-sm text-[#FFBE32]">{team.winRate}</span>
+                    <span className="block font-mono font-bold text-sm text-[#fc8100]">{team.winRate}</span>
                     <span className="text-[10px] uppercase tracking-wider text-gray-500 font-heading">Win Rate</span>
                   </div>
                   <div>
@@ -108,10 +108,10 @@ export const TeamsSection = ({
                 {/* Footer Tag */}
                 <div className="mt-4 flex items-center justify-between text-xs text-gray-400">
                   <span className="flex items-center gap-1">
-                    <Trophy className="h-3 w-3 text-[#FFBE32]" />
+                    <Trophy className="h-3 w-3 text-[#fc8100]" />
                     <span>{team.rosterCount} Athletes Vetted</span>
                   </span>
-                  <span className="text-[10px] font-heading font-bold uppercase tracking-wider text-[#FFBE32] group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                  <span className="text-[10px] font-heading font-bold uppercase tracking-wider text-[#fc8100] group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
                     VIEW SQUAD &rarr;
                   </span>
                 </div>
@@ -124,7 +124,7 @@ export const TeamsSection = ({
         <div className="mt-12 text-center">
           <button
             onClick={onExploreTeams}
-            className="inline-flex items-center gap-2 font-heading text-sm font-bold uppercase tracking-widest text-[#FFBE32] hover:text-[#FFCD59] transition-colors cursor-pointer group"
+            className="inline-flex items-center gap-2 font-heading text-sm font-bold uppercase tracking-widest text-[#fc8100] hover:text-[#ff9924] transition-colors cursor-pointer group"
           >
             <span>VIEW ALL REGISTERED TEAMS</span>
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1.5" />

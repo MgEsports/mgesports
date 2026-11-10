@@ -142,14 +142,14 @@ export const ManageTeamModal: React.FC<ManageTeamModalProps> = ({
           className={`p-4 rounded-xl border flex items-center justify-between gap-4 ${
             isRosterLocked
               ? "bg-red-500/10 border-red-500/30 text-red-300"
-              : "bg-[#FFBE32]/10 border-[#FFBE32]/30 text-[#FFBE32]"
+              : "bg-[#fc8100]/10 border-[#fc8100]/30 text-[#fc8100]"
           }`}
         >
           <div className="flex items-center gap-3">
             {isRosterLocked ? (
               <Lock className="h-5 w-5 text-red-400 shrink-0" />
             ) : (
-              <Users className="h-5 w-5 text-[#FFBE32] shrink-0" />
+              <Users className="h-5 w-5 text-[#fc8100] shrink-0" />
             )}
             <div>
               <h4 className="font-heading text-xs font-bold uppercase tracking-wider">
@@ -195,7 +195,7 @@ export const ManageTeamModal: React.FC<ManageTeamModalProps> = ({
           <div className="flex items-center justify-between text-xs font-heading font-bold uppercase tracking-wider text-gray-400">
             <span>Official Squad Roster ({currentTeam.members?.length || 1} Players)</span>
             {currentTeam.registration?.registrationNumber && (
-              <span className="text-[#FFBE32] font-mono">
+              <span className="text-[#fc8100] font-mono">
                 ID: {currentTeam.registration.registrationNumber}
               </span>
             )}
@@ -217,7 +217,7 @@ export const ManageTeamModal: React.FC<ManageTeamModalProps> = ({
                           {m.user?.ign || m.user?.username || `Player ${idx + 1}`}
                         </span>
                         {isLeader ? (
-                          <span className="px-1.5 py-0.2 rounded text-[8px] font-heading font-black bg-[#FFBE32]/20 text-[#FFBE32] border border-[#FFBE32]/30 uppercase">
+                          <span className="px-1.5 py-0.2 rounded text-[8px] font-heading font-black bg-[#fc8100]/20 text-[#fc8100] border border-[#fc8100]/30 uppercase">
                             LEADER (IGL)
                           </span>
                         ) : (
@@ -237,7 +237,7 @@ export const ManageTeamModal: React.FC<ManageTeamModalProps> = ({
                       const status = m.invitationStatus || (isLeader ? "ACCEPTED" : "ACCEPTED");
                       if (status === "PENDING") {
                         return (
-                          <span className="px-2 py-0.5 rounded text-[9px] font-mono font-bold text-[#FFBE32] bg-[#FFBE32]/10 border border-[#FFBE32]/30 animate-pulse">
+                          <span className="px-2 py-0.5 rounded text-[9px] font-mono font-bold text-[#fc8100] bg-[#fc8100]/10 border border-[#fc8100]/30 animate-pulse">
                             INVITED / PENDING
                           </span>
                         );
@@ -275,10 +275,10 @@ export const ManageTeamModal: React.FC<ManageTeamModalProps> = ({
           {/* Pending Invitations list */}
           {currentTeam.pendingInvitations && currentTeam.pendingInvitations.length > 0 && (
             <div className="space-y-2 pt-2">
-              <div className="text-[11px] font-heading font-bold uppercase tracking-wider text-[#FFBE32]">
+              <div className="text-[11px] font-heading font-bold uppercase tracking-wider text-[#fc8100]">
                 Pending Team Invitations ({currentTeam.pendingInvitations.length})
               </div>
-              <div className="divide-y divide-white/5 rounded-xl border border-[#FFBE32]/20 bg-[#FFBE32]/5 overflow-hidden">
+              <div className="divide-y divide-white/5 rounded-xl border border-[#fc8100]/20 bg-[#fc8100]/5 overflow-hidden">
                 {currentTeam.pendingInvitations.map((inv: any) => (
                   <div key={inv.id} className="p-3 flex items-center justify-between gap-3">
                     <div className="min-w-0">
@@ -289,7 +289,7 @@ export const ManageTeamModal: React.FC<ManageTeamModalProps> = ({
                         @{inv.invitedUser?.username} • Sent {new Date(inv.createdAt).toLocaleDateString()}
                       </p>
                     </div>
-                    <span className="px-2 py-0.5 rounded text-[9px] font-mono font-bold text-[#FFBE32] bg-[#FFBE32]/10 border border-[#FFBE32]/30 animate-pulse">
+                    <span className="px-2 py-0.5 rounded text-[9px] font-mono font-bold text-[#fc8100] bg-[#fc8100]/10 border border-[#fc8100]/30 animate-pulse">
                       PENDING ACCEPTANCE
                     </span>
                   </div>
@@ -303,7 +303,7 @@ export const ManageTeamModal: React.FC<ManageTeamModalProps> = ({
         {!isRosterLocked && (
           <div className="space-y-3 pt-2">
             <h4 className="text-xs font-heading font-bold uppercase tracking-wider text-gray-300 flex items-center gap-2">
-              <UserPlus className="h-4 w-4 text-[#FFBE32]" />
+              <UserPlus className="h-4 w-4 text-[#fc8100]" />
               Invite Teammates
             </h4>
 
@@ -314,10 +314,10 @@ export const ManageTeamModal: React.FC<ManageTeamModalProps> = ({
                 placeholder="Search players by username, IGN, or Game UID..."
                 value={searchQuery}
                 onChange={(e) => handleSearch(e.target.value)}
-                className="w-full bg-[#0D0D10] border border-white/15 rounded-xl pl-10 pr-10 py-2.5 text-xs text-white placeholder-gray-500 font-mono focus:outline-none focus:border-[#FFBE32] transition-colors"
+                className="w-full bg-[#0D0D10] border border-white/15 rounded-xl pl-10 pr-10 py-2.5 text-xs text-white placeholder-gray-500 font-mono focus:outline-none focus:border-[#fc8100] transition-colors"
               />
               {searching && (
-                <div className="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 border-2 border-[#FFBE32] border-t-transparent rounded-full animate-spin" />
+                <div className="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 border-2 border-[#fc8100] border-t-transparent rounded-full animate-spin" />
               )}
             </div>
 
@@ -356,7 +356,7 @@ export const ManageTeamModal: React.FC<ManageTeamModalProps> = ({
                           className={`px-3 py-1 rounded text-xs font-heading font-bold uppercase tracking-wider transition-all ${
                             disabled
                               ? "bg-gray-800 text-gray-500 cursor-not-allowed"
-                              : "bg-[#FFBE32] hover:bg-[#FFA000] text-black cursor-pointer shadow-[0_0_10px_rgba(255,190,50,0.3)]"
+                              : "bg-[#fc8100] hover:bg-[#e07200] text-black cursor-pointer shadow-[0_0_10px_rgba(252, 129, 0,0.3)]"
                           }`}
                         >
                           {isMember ? "In Squad" : isAlreadyInOther ? "In Other Team" : "Invite"}

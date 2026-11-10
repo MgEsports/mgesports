@@ -47,7 +47,7 @@ const MODULE_METADATA: Array<{
   color: string;
   desc: string;
 }> = [
-  { key: "settings", label: "Broadcast & Site Settings", icon: Sliders, color: "text-[#FFBE32]", desc: "Live ticker, social URLs, counters" },
+  { key: "settings", label: "Broadcast & Site Settings", icon: Sliders, color: "text-[#fc8100]", desc: "Live ticker, social URLs, counters" },
   { key: "tournaments", label: "Tournaments & Brackets", icon: Trophy, color: "text-amber-400", desc: "All tournament setups & schedules" },
   { key: "media", label: "Video Highlights", icon: Video, color: "text-red-400", desc: "Highlight reels & YouTube links" },
   { key: "news", label: "News & Editorial", icon: Newspaper, color: "text-blue-400", desc: "Articles, blogs & announcements" },
@@ -502,7 +502,7 @@ export const AdminSettingsPage: React.FC = () => {
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 pb-2 border-b border-white/10">
         <div>
           <div className="flex items-center gap-2">
-            <Sliders className="h-6 w-6 text-[#FFBE32]" />
+            <Sliders className="h-6 w-6 text-[#fc8100]" />
             <h1 className="font-display text-2xl sm:text-3xl uppercase tracking-wider text-white">
               BROADCAST &amp; SITE SETTINGS
             </h1>
@@ -521,7 +521,7 @@ export const AdminSettingsPage: React.FC = () => {
             title="Download current settings as JSON"
             className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-white bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 transition-all cursor-pointer shrink-0"
           >
-            <Download className="h-3.5 w-3.5 text-[#FFBE32]" />
+            <Download className="h-3.5 w-3.5 text-[#fc8100]" />
             <span>Export</span>
           </button>
 
@@ -550,9 +550,9 @@ export const AdminSettingsPage: React.FC = () => {
             type="button"
             onClick={() => setIsImportModalOpen(true)}
             title="Upload or paste settings JSON to import"
-            className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-white bg-white/5 hover:bg-white/10 border border-white/15 hover:border-[#FFBE32]/50 transition-all cursor-pointer shrink-0"
+            className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-white bg-white/5 hover:bg-white/10 border border-white/15 hover:border-[#fc8100]/50 transition-all cursor-pointer shrink-0"
           >
-            <Upload className="h-3.5 w-3.5 text-[#FFBE32]" />
+            <Upload className="h-3.5 w-3.5 text-[#fc8100]" />
             <span>Import</span>
           </button>
 
@@ -571,7 +571,7 @@ export const AdminSettingsPage: React.FC = () => {
           <button
             onClick={(e) => handleSave(e)}
             disabled={saving}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#FFBE32] hover:bg-[#FFA000] transition-all cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)] shrink-0 disabled:opacity-50"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#fc8100] hover:bg-[#e07200] transition-all cursor-pointer shadow-[0_0_15px_rgba(252, 129, 0,0.3)] shrink-0 disabled:opacity-50"
           >
             {saving ? (
               <>
@@ -594,12 +594,12 @@ export const AdminSettingsPage: React.FC = () => {
       </div>
 
       {/* Full System Disaster Recovery & Platform Backup Card */}
-      <div className="p-5 sm:p-6 rounded-2xl bg-[#0F0F14] border border-[#FFBE32]/30 shadow-[0_4px_30px_rgba(0,0,0,0.5)] relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-[#FFBE32]/10 via-transparent to-transparent pointer-events-none rounded-full blur-3xl -mr-20 -mt-20" />
+      <div className="p-5 sm:p-6 rounded-2xl bg-[#0F0F14] border border-[#fc8100]/30 shadow-[0_4px_30px_rgba(0,0,0,0.5)] relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-[#fc8100]/10 via-transparent to-transparent pointer-events-none rounded-full blur-3xl -mr-20 -mt-20" />
         
         <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-5">
           <div className="flex items-start gap-4">
-            <div className="h-12 w-12 rounded-2xl bg-[#FFBE32]/15 border border-[#FFBE32]/40 flex items-center justify-center shrink-0 text-[#FFBE32] shadow-[0_0_20px_rgba(255,190,50,0.15)]">
+            <div className="h-12 w-12 rounded-2xl bg-[#fc8100]/15 border border-[#fc8100]/40 flex items-center justify-center shrink-0 text-[#fc8100] shadow-[0_0_20px_rgba(252, 129, 0,0.15)]">
               <Database className="h-6 w-6" />
             </div>
             <div>
@@ -607,7 +607,7 @@ export const AdminSettingsPage: React.FC = () => {
                 <h2 className="text-base sm:text-lg font-heading font-bold uppercase tracking-wider text-white">
                   Entire Admin Side Data Backup &amp; Restore
                 </h2>
-                <span className="px-2.5 py-0.5 text-[10px] font-mono font-bold uppercase bg-[#FFBE32]/20 text-[#FFBE32] border border-[#FFBE32]/40 rounded-full">
+                <span className="px-2.5 py-0.5 text-[10px] font-mono font-bold uppercase bg-[#fc8100]/20 text-[#fc8100] border border-[#fc8100]/40 rounded-full">
                   Full Platform Snapshot
                 </span>
               </div>
@@ -623,7 +623,7 @@ export const AdminSettingsPage: React.FC = () => {
               type="button"
               onClick={handleExportFullBackup}
               disabled={isExportingFull}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#FFBE32] hover:bg-[#FFA000] shadow-[0_0_15px_rgba(255,190,50,0.3)] transition-all cursor-pointer disabled:opacity-50"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#fc8100] hover:bg-[#e07200] shadow-[0_0_15px_rgba(252, 129, 0,0.3)] transition-all cursor-pointer disabled:opacity-50"
             >
               {isExportingFull ? (
                 <>
@@ -645,9 +645,9 @@ export const AdminSettingsPage: React.FC = () => {
                 setIsFullBackupModalOpen(true);
                 resetFullImportModal();
               }}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-white bg-white/10 hover:bg-white/20 border border-white/20 hover:border-[#FFBE32]/60 transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-white bg-white/10 hover:bg-white/20 border border-white/20 hover:border-[#fc8100]/60 transition-all cursor-pointer"
             >
-              <Upload className="h-4 w-4 text-[#FFBE32]" />
+              <Upload className="h-4 w-4 text-[#fc8100]" />
               <span>Import Full Backup</span>
             </button>
           </div>
@@ -656,9 +656,9 @@ export const AdminSettingsPage: React.FC = () => {
 
       {/* Imported Notice / Revert Banner */}
       {importedNotice && (
-        <div className="flex items-center justify-between p-4 rounded-xl bg-[#FFBE32]/10 border border-[#FFBE32]/40 text-[#FFBE32] text-xs font-mono animate-fadeIn">
+        <div className="flex items-center justify-between p-4 rounded-xl bg-[#fc8100]/10 border border-[#fc8100]/40 text-[#fc8100] text-xs font-mono animate-fadeIn">
           <div className="flex items-center gap-2.5">
-            <Sparkles className="h-4 w-4 shrink-0 text-[#FFBE32]" />
+            <Sparkles className="h-4 w-4 shrink-0 text-[#fc8100]" />
             <span>{importedNotice}</span>
           </div>
           <button
@@ -697,7 +697,7 @@ export const AdminSettingsPage: React.FC = () => {
                 value={settings.liveTicker || ""}
                 onChange={(e) => handleChange("liveTicker", e.target.value)}
                 placeholder="🔥 FLAME OF GLORY S2 GRAND FINALS LIVE NOW • PRIZE POOL ₹50,000 • WATCH STREAM ON YOUTUBE"
-                className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-3 text-sm text-white font-mono focus:border-[#FFBE32] focus:outline-none"
+                className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-3 text-sm text-white font-mono focus:border-[#fc8100] focus:outline-none"
               />
             </div>
           </div>
@@ -706,7 +706,7 @@ export const AdminSettingsPage: React.FC = () => {
           <div className="p-6 rounded-2xl bg-[#0C0C10] border border-white/10 space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 text-white font-heading font-bold text-sm uppercase">
-                <Bell className="h-4 w-4 text-[#FFBE32]" />
+                <Bell className="h-4 w-4 text-[#fc8100]" />
                 <span>Championship Announcement Banner</span>
               </div>
               <label className="flex items-center gap-2 text-xs font-mono text-gray-300 cursor-pointer">
@@ -714,7 +714,7 @@ export const AdminSettingsPage: React.FC = () => {
                   type="checkbox"
                   checked={settings.emergencyBannerActive === "true"}
                   onChange={(e) => handleChange("emergencyBannerActive", e.target.checked ? "true" : "false")}
-                  className="rounded border-white/20 bg-black accent-[#FFBE32] h-4 w-4 cursor-pointer"
+                  className="rounded border-white/20 bg-black accent-[#fc8100] h-4 w-4 cursor-pointer"
                 />
                 <span>Banner Active</span>
               </label>
@@ -724,14 +724,14 @@ export const AdminSettingsPage: React.FC = () => {
               value={settings.emergencyBanner || ""}
               onChange={(e) => handleChange("emergencyBanner", e.target.value)}
               placeholder="OFFICIAL REGISTRATIONS OPEN FOR LORD CLUTCH CUP S1 (₹1,00,000 PRIZE POOL)"
-              className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-3 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+              className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-3 text-sm text-white focus:border-[#fc8100] focus:outline-none"
             />
           </div>
 
           {/* Organization Counter Statistics */}
           <div className="p-6 rounded-2xl bg-[#0C0C10] border border-white/10 space-y-4">
             <div className="flex items-center gap-2 text-white font-heading font-bold text-sm uppercase">
-              <BarChart className="h-4 w-4 text-[#FFBE32]" />
+              <BarChart className="h-4 w-4 text-[#fc8100]" />
               <span>Organization Viewport Counters</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -743,7 +743,7 @@ export const AdminSettingsPage: React.FC = () => {
                   type="text"
                   value={settings.tournamentsCount || "25+"}
                   onChange={(e) => handleChange("tournamentsCount", e.target.value)}
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white font-mono focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white font-mono focus:border-[#fc8100] focus:outline-none"
                 />
               </div>
               <div>
@@ -754,7 +754,7 @@ export const AdminSettingsPage: React.FC = () => {
                   type="text"
                   value={settings.playersCount || "500+"}
                   onChange={(e) => handleChange("playersCount", e.target.value)}
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white font-mono focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white font-mono focus:border-[#fc8100] focus:outline-none"
                 />
               </div>
               <div>
@@ -765,7 +765,7 @@ export const AdminSettingsPage: React.FC = () => {
                   type="text"
                   value={settings.teamsCount || "50+"}
                   onChange={(e) => handleChange("teamsCount", e.target.value)}
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white font-mono focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white font-mono focus:border-[#fc8100] focus:outline-none"
                 />
               </div>
               <div>
@@ -776,7 +776,7 @@ export const AdminSettingsPage: React.FC = () => {
                   type="text"
                   value={settings.prizePoolCount || "₹5L+"}
                   onChange={(e) => handleChange("prizePoolCount", e.target.value)}
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white font-mono focus:border-[#FFBE32] focus:outline-none text-[#FFBE32] font-bold"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white font-mono focus:border-[#fc8100] focus:outline-none text-[#fc8100] font-bold"
                 />
               </div>
             </div>
@@ -785,7 +785,7 @@ export const AdminSettingsPage: React.FC = () => {
           {/* Community & Social Links */}
           <div className="p-6 rounded-2xl bg-[#0C0C10] border border-white/10 space-y-4">
             <div className="flex items-center gap-2 text-white font-heading font-bold text-sm uppercase">
-              <Share2 className="h-4 w-4 text-[#FFBE32]" />
+              <Share2 className="h-4 w-4 text-[#fc8100]" />
               <span>Official Community &amp; Social Links</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -797,7 +797,7 @@ export const AdminSettingsPage: React.FC = () => {
                   type="url"
                   value={settings.discordUrl || ""}
                   onChange={(e) => handleChange("discordUrl", e.target.value)}
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                 />
               </div>
               <div>
@@ -808,7 +808,7 @@ export const AdminSettingsPage: React.FC = () => {
                   type="url"
                   value={settings.whatsappUrl || ""}
                   onChange={(e) => handleChange("whatsappUrl", e.target.value)}
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                 />
               </div>
               <div>
@@ -819,7 +819,7 @@ export const AdminSettingsPage: React.FC = () => {
                   type="url"
                   value={settings.whatsappScrimsUrl || ""}
                   onChange={(e) => handleChange("whatsappScrimsUrl", e.target.value)}
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                 />
               </div>
               <div>
@@ -830,7 +830,7 @@ export const AdminSettingsPage: React.FC = () => {
                   type="url"
                   value={settings.youtubeUrl || ""}
                   onChange={(e) => handleChange("youtubeUrl", e.target.value)}
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                 />
               </div>
               <div>
@@ -841,7 +841,7 @@ export const AdminSettingsPage: React.FC = () => {
                   type="url"
                   value={settings.instagramUrl || ""}
                   onChange={(e) => handleChange("instagramUrl", e.target.value)}
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                 />
               </div>
               <div>
@@ -853,7 +853,7 @@ export const AdminSettingsPage: React.FC = () => {
                   value={settings.twitterUrl || ""}
                   onChange={(e) => handleChange("twitterUrl", e.target.value)}
                   placeholder="https://x.com/mgesports"
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                 />
               </div>
               <div className="sm:col-span-2 lg:col-span-3">
@@ -864,7 +864,7 @@ export const AdminSettingsPage: React.FC = () => {
                   type="email"
                   value={settings.businessEmail || ""}
                   onChange={(e) => handleChange("businessEmail", e.target.value)}
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                 />
               </div>
             </div>
@@ -874,7 +874,7 @@ export const AdminSettingsPage: React.FC = () => {
           <div className="p-6 rounded-2xl bg-[#0D0D12] border border-white/10 space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-white/10">
               <div className="flex items-center gap-2 text-white font-heading font-bold text-sm uppercase">
-                <Banknote className="h-4 w-4 text-[#FFBE32]" />
+                <Banknote className="h-4 w-4 text-[#fc8100]" />
                 <span>Store Checkout &amp; Payment Options</span>
               </div>
               <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase border ${
@@ -927,7 +927,7 @@ export const AdminSettingsPage: React.FC = () => {
           <div className="rounded-2xl border border-white/10 bg-[#0E0E12] p-6 space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-4">
               <div className="flex items-center gap-2 text-white font-heading font-bold text-sm uppercase">
-                <Truck className="h-4 w-4 text-[#FFBE32]" />
+                <Truck className="h-4 w-4 text-[#fc8100]" />
                 <span>Courier &amp; AfterShip Live Tracking Configuration</span>
               </div>
               <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase border bg-amber-500/20 text-amber-300 border-amber-500/40">
@@ -951,7 +951,7 @@ export const AdminSettingsPage: React.FC = () => {
                     value={settings.aftershipApiKey || ""}
                     onChange={(e) => handleChange("aftershipApiKey", e.target.value)}
                     placeholder="asat_..."
-                    className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 pr-10 text-xs text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                    className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 pr-10 text-xs text-white focus:border-[#fc8100] focus:outline-none font-mono"
                   />
                   <button
                     type="button"
@@ -962,7 +962,7 @@ export const AdminSettingsPage: React.FC = () => {
                   </button>
                 </div>
                 <p className="text-[11px] text-gray-500">
-                  Header: <code className="text-[#FFBE32]">as-api-key</code>. Generated from your AfterShip Organization portal.
+                  Header: <code className="text-[#fc8100]">as-api-key</code>. Generated from your AfterShip Organization portal.
                 </p>
               </div>
 
@@ -974,7 +974,7 @@ export const AdminSettingsPage: React.FC = () => {
                 <select
                   value={settings.aftershipDefaultCourier || "india-post"}
                   onChange={(e) => handleChange("aftershipDefaultCourier", e.target.value)}
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-xs text-white focus:border-[#FFBE32] focus:outline-none font-body"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-xs text-white focus:border-[#fc8100] focus:outline-none font-body"
                 >
                   <option value="india-post">India Post Domestic (india-post) — Recommended</option>
                   <option value="india-post-int">India Post International (india-post-int)</option>
@@ -1051,11 +1051,11 @@ export const AdminSettingsPage: React.FC = () => {
             {/* ================= FULL PLATFORM BACKUP & RESTORE MODAL ================= */}
       {isFullBackupModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
-          <div className="w-full max-w-2xl rounded-2xl bg-[#0D0D12] border border-[#FFBE32]/40 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+          <div className="w-full max-w-2xl rounded-2xl bg-[#0D0D12] border border-[#fc8100]/40 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
             {/* Modal Header */}
             <div className="flex items-center justify-between p-5 border-b border-white/10 bg-white/5">
               <div className="flex items-center gap-2.5">
-                <Database className="h-5 w-5 text-[#FFBE32]" />
+                <Database className="h-5 w-5 text-[#fc8100]" />
                 <div>
                   <h3 className="font-heading font-bold text-base uppercase text-white tracking-wider">
                     Restore Entire Platform Backup
@@ -1086,7 +1086,7 @@ export const AdminSettingsPage: React.FC = () => {
                   onClick={() => setFullImportTab("file")}
                   className={`flex-1 py-2 rounded-lg text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer ${
                     fullImportTab === "file"
-                      ? "bg-[#FFBE32] text-black shadow-md"
+                      ? "bg-[#fc8100] text-black shadow-md"
                       : "text-gray-400 hover:text-white"
                   }`}
                 >
@@ -1097,7 +1097,7 @@ export const AdminSettingsPage: React.FC = () => {
                   onClick={() => setFullImportTab("paste")}
                   className={`flex-1 py-2 rounded-lg text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer ${
                     fullImportTab === "paste"
-                      ? "bg-[#FFBE32] text-black shadow-md"
+                      ? "bg-[#fc8100] text-black shadow-md"
                       : "text-gray-400 hover:text-white"
                   }`}
                 >
@@ -1111,7 +1111,7 @@ export const AdminSettingsPage: React.FC = () => {
                   onDragOver={(e) => e.preventDefault()}
                   onDrop={handleFullBackupDrop}
                   onClick={() => fullBackupFileRef.current?.click()}
-                  className="border-2 border-dashed border-white/20 hover:border-[#FFBE32] rounded-2xl p-8 text-center cursor-pointer bg-white/[0.02] hover:bg-[#FFBE32]/5 transition-all group"
+                  className="border-2 border-dashed border-white/20 hover:border-[#fc8100] rounded-2xl p-8 text-center cursor-pointer bg-white/[0.02] hover:bg-[#fc8100]/5 transition-all group"
                 >
                   <input
                     ref={fullBackupFileRef}
@@ -1121,7 +1121,7 @@ export const AdminSettingsPage: React.FC = () => {
                     className="hidden"
                   />
                   <div className="flex flex-col items-center justify-center gap-3">
-                    <div className="h-12 w-12 rounded-2xl bg-white/5 group-hover:bg-[#FFBE32]/10 border border-white/10 group-hover:border-[#FFBE32]/40 flex items-center justify-center text-gray-400 group-hover:text-[#FFBE32] transition-colors">
+                    <div className="h-12 w-12 rounded-2xl bg-white/5 group-hover:bg-[#fc8100]/10 border border-white/10 group-hover:border-[#fc8100]/40 flex items-center justify-center text-gray-400 group-hover:text-[#fc8100] transition-colors">
                       <HardDrive className="h-6 w-6" />
                     </div>
                     <div>
@@ -1148,7 +1148,7 @@ export const AdminSettingsPage: React.FC = () => {
                       parseFullBackupJson(e.target.value);
                     }}
                     placeholder={`{\n  "version": "2.0",\n  "data": {\n    "settings": { ... },\n    "tournaments": [ ... ],\n    "media": [ ... ],\n    "news": [ ... ]\n  }\n}`}
-                    className="w-full rounded-xl border border-white/15 bg-black/80 px-4 py-3 text-xs font-mono text-white focus:border-[#FFBE32] focus:outline-none"
+                    className="w-full rounded-xl border border-white/15 bg-black/80 px-4 py-3 text-xs font-mono text-white focus:border-[#fc8100] focus:outline-none"
                   />
                 </div>
               )}
@@ -1225,13 +1225,13 @@ export const AdminSettingsPage: React.FC = () => {
                             !isFound
                               ? "opacity-35 bg-white/[0.02] border-white/5 cursor-not-allowed"
                               : isChecked
-                              ? "bg-[#FFBE32]/10 border-[#FFBE32]/50 cursor-pointer"
+                              ? "bg-[#fc8100]/10 border-[#fc8100]/50 cursor-pointer"
                               : "bg-white/[0.03] border-white/10 hover:border-white/25 cursor-pointer"
                           }`}
                         >
                           <div className="flex items-center gap-2.5 min-w-0">
                             {isFound && isChecked ? (
-                              <CheckSquare className="h-4 w-4 text-[#FFBE32] shrink-0" />
+                              <CheckSquare className="h-4 w-4 text-[#fc8100] shrink-0" />
                             ) : isFound ? (
                               <Square className="h-4 w-4 text-gray-500 shrink-0" />
                             ) : (
@@ -1268,7 +1268,7 @@ export const AdminSettingsPage: React.FC = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                       <label className={`p-2.5 rounded-xl border flex items-start gap-2.5 cursor-pointer transition-all ${
                         fullImportMode === "merge"
-                          ? "bg-[#FFBE32]/10 border-[#FFBE32]/50 text-white"
+                          ? "bg-[#fc8100]/10 border-[#fc8100]/50 text-white"
                           : "bg-white/[0.02] border-white/10 text-gray-400 hover:border-white/20"
                       }`}>
                         <input
@@ -1276,7 +1276,7 @@ export const AdminSettingsPage: React.FC = () => {
                           name="importMode"
                           checked={fullImportMode === "merge"}
                           onChange={() => setFullImportMode("merge")}
-                          className="mt-0.5 accent-[#FFBE32]"
+                          className="mt-0.5 accent-[#fc8100]"
                         />
                         <div>
                           <p className="font-heading font-bold uppercase text-[11px] text-white">Merge &amp; Upsert (Safe)</p>
@@ -1328,7 +1328,7 @@ export const AdminSettingsPage: React.FC = () => {
                 type="button"
                 disabled={!parsedFullBackup || isRestoringFull}
                 onClick={handleExecuteFullRestore}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-xs font-heading font-bold uppercase tracking-wider text-black bg-[#FFBE32] hover:bg-[#FFA000] shadow-[0_0_15px_rgba(255,190,50,0.3)] transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-xs font-heading font-bold uppercase tracking-wider text-black bg-[#fc8100] hover:bg-[#e07200] shadow-[0_0_15px_rgba(252, 129, 0,0.3)] transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 {isRestoringFull ? (
                   <>
@@ -1354,7 +1354,7 @@ export const AdminSettingsPage: React.FC = () => {
             {/* Modal Header */}
             <div className="flex items-center justify-between p-5 border-b border-white/10">
               <div className="flex items-center gap-2.5">
-                <div className="h-9 w-9 rounded-xl bg-[#FFBE32]/10 border border-[#FFBE32]/30 flex items-center justify-center text-[#FFBE32]">
+                <div className="h-9 w-9 rounded-xl bg-[#fc8100]/10 border border-[#fc8100]/30 flex items-center justify-center text-[#fc8100]">
                   <Upload className="h-5 w-5" />
                 </div>
                 <div>
@@ -1387,7 +1387,7 @@ export const AdminSettingsPage: React.FC = () => {
                   onClick={() => setImportTab("file")}
                   className={`flex-1 py-2 text-xs font-heading font-bold uppercase tracking-wider rounded-lg transition-all cursor-pointer flex items-center justify-center gap-2 ${
                     importTab === "file"
-                      ? "bg-[#FFBE32] text-black shadow-sm"
+                      ? "bg-[#fc8100] text-black shadow-sm"
                       : "text-gray-400 hover:text-white"
                   }`}
                 >
@@ -1399,7 +1399,7 @@ export const AdminSettingsPage: React.FC = () => {
                   onClick={() => setImportTab("paste")}
                   className={`flex-1 py-2 text-xs font-heading font-bold uppercase tracking-wider rounded-lg transition-all cursor-pointer flex items-center justify-center gap-2 ${
                     importTab === "paste"
-                      ? "bg-[#FFBE32] text-black shadow-sm"
+                      ? "bg-[#fc8100] text-black shadow-sm"
                       : "text-gray-400 hover:text-white"
                   }`}
                 >
@@ -1414,7 +1414,7 @@ export const AdminSettingsPage: React.FC = () => {
                   onDragOver={(e) => e.preventDefault()}
                   onDrop={handleDrop}
                   onClick={() => fileInputRef.current?.click()}
-                  className="border-2 border-dashed border-white/20 hover:border-[#FFBE32]/60 rounded-2xl p-8 text-center cursor-pointer transition-all bg-black/40 hover:bg-black/60 group"
+                  className="border-2 border-dashed border-white/20 hover:border-[#fc8100]/60 rounded-2xl p-8 text-center cursor-pointer transition-all bg-black/40 hover:bg-black/60 group"
                 >
                   <input
                     ref={fileInputRef}
@@ -1424,7 +1424,7 @@ export const AdminSettingsPage: React.FC = () => {
                     className="hidden"
                   />
                   <div className="flex flex-col items-center justify-center gap-3">
-                    <div className="h-12 w-12 rounded-2xl bg-white/5 group-hover:bg-[#FFBE32]/10 border border-white/10 group-hover:border-[#FFBE32]/40 flex items-center justify-center text-gray-400 group-hover:text-[#FFBE32] transition-colors">
+                    <div className="h-12 w-12 rounded-2xl bg-white/5 group-hover:bg-[#fc8100]/10 border border-white/10 group-hover:border-[#fc8100]/40 flex items-center justify-center text-gray-400 group-hover:text-[#fc8100] transition-colors">
                       <FileJson className="h-6 w-6" />
                     </div>
                     <div>
@@ -1451,7 +1451,7 @@ export const AdminSettingsPage: React.FC = () => {
                       parseAndValidateJson(e.target.value);
                     }}
                     placeholder={`{\n  "liveTicker": "🔥 GRAND FINALS LIVE NOW...",\n  "tournamentsCount": "25+",\n  "discordUrl": "https://discord.gg/..."\n}`}
-                    className="w-full rounded-xl border border-white/15 bg-black/80 px-4 py-3 text-xs font-mono text-white focus:border-[#FFBE32] focus:outline-none"
+                    className="w-full rounded-xl border border-white/15 bg-black/80 px-4 py-3 text-xs font-mono text-white focus:border-[#fc8100] focus:outline-none"
                   />
                 </div>
               )}
@@ -1518,7 +1518,7 @@ export const AdminSettingsPage: React.FC = () => {
                   type="button"
                   disabled={!parsedImportSettings || saving}
                   onClick={() => handleApplyImportedSettings(true)}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-heading font-bold uppercase tracking-wider text-black bg-[#FFBE32] hover:bg-[#FFA000] shadow-[0_0_15px_rgba(255,190,50,0.3)] transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-heading font-bold uppercase tracking-wider text-black bg-[#fc8100] hover:bg-[#e07200] shadow-[0_0_15px_rgba(252, 129, 0,0.3)] transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   {saving ? (
                     <>

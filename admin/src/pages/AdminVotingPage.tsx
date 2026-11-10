@@ -403,7 +403,7 @@ export const AdminVotingPage: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6">
         <div>
           <div className="flex items-center gap-3 mb-1">
-            <div className="p-2 rounded-xl bg-[#FFBE32]/10 border border-[#FFBE32]/30 text-[#FFBE32]">
+            <div className="p-2 rounded-xl bg-[#fc8100]/10 border border-[#fc8100]/30 text-[#fc8100]">
               <Vote className="h-6 w-6" />
             </div>
             <h1 className="text-2xl sm:text-3xl font-display font-black text-white uppercase tracking-wider">
@@ -417,7 +417,7 @@ export const AdminVotingPage: React.FC = () => {
 
         <button
           onClick={handleOpenCreate}
-          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#FFBE32] to-[#FFA000] text-black font-heading font-black text-xs uppercase tracking-wider hover:shadow-[0_0_25px_rgba(255,190,50,0.4)] transition-all cursor-pointer"
+          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#fc8100] to-[#e07200] text-black font-heading font-black text-xs uppercase tracking-wider hover:shadow-[0_0_25px_rgba(252, 129, 0,0.4)] transition-all cursor-pointer"
         >
           <Plus className="h-4 w-4 stroke-[3]" />
           <span>Create Award Section</span>
@@ -446,10 +446,10 @@ export const AdminVotingPage: React.FC = () => {
 
         <div className="bg-[#0C0C10] border border-white/10 rounded-2xl p-5 shadow-lg relative overflow-hidden">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-mono uppercase tracking-wider text-[#FFBE32]">Total Fan Votes</span>
-            <Users className="h-5 w-5 text-[#FFBE32]" />
+            <span className="text-xs font-mono uppercase tracking-wider text-[#fc8100]">Total Fan Votes</span>
+            <Users className="h-5 w-5 text-[#fc8100]" />
           </div>
-          <p className="text-3xl font-display font-black text-[#FFBE32] mt-2">
+          <p className="text-3xl font-display font-black text-[#fc8100] mt-2">
             {totalVotesAcrossAll.toLocaleString()}
           </p>
           <span className="text-[11px] text-gray-500 font-body">Verified fan submissions recorded</span>
@@ -466,7 +466,7 @@ export const AdminVotingPage: React.FC = () => {
               placeholder="Search sections by title or description..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 bg-[#121217] border border-white/10 rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#FFBE32]"
+              className="w-full pl-10 pr-4 py-2 bg-[#121217] border border-white/10 rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#fc8100]"
             />
           </div>
 
@@ -478,7 +478,7 @@ export const AdminVotingPage: React.FC = () => {
                 onClick={() => setStatusFilter(status)}
                 className={`px-3 py-1.5 rounded-xl text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
                   statusFilter === status
-                    ? "bg-[#FFBE32] text-black shadow-[0_0_15px_rgba(255,190,50,0.3)]"
+                    ? "bg-[#fc8100] text-black shadow-[0_0_15px_rgba(252, 129, 0,0.3)]"
                     : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
                 }`}
               >
@@ -517,12 +517,12 @@ export const AdminVotingPage: React.FC = () => {
       {/* Events Table / Card List */}
       {loading ? (
         <div className="flex flex-col items-center justify-center py-20 text-gray-400">
-          <Loader2 className="h-8 w-8 text-[#FFBE32] animate-spin mb-3" />
+          <Loader2 className="h-8 w-8 text-[#fc8100] animate-spin mb-3" />
           <span className="text-xs font-mono uppercase tracking-widest">Loading voting events...</span>
         </div>
       ) : filteredEvents.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-20 bg-[#0C0C10] border border-white/10 rounded-2xl text-center p-6 space-y-4">
-          <div className="w-16 h-16 rounded-2xl bg-[#FFBE32]/10 border border-[#FFBE32]/25 flex items-center justify-center text-[#FFBE32]">
+          <div className="w-16 h-16 rounded-2xl bg-[#fc8100]/10 border border-[#fc8100]/25 flex items-center justify-center text-[#fc8100]">
             <Vote className="h-8 w-8" />
           </div>
           <div className="space-y-1">
@@ -538,7 +538,7 @@ export const AdminVotingPage: React.FC = () => {
           {!searchQuery && statusFilter === "ALL" && (
             <button
               onClick={handleOpenCreate}
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-[#FFBE32] text-black font-heading font-black text-xs uppercase tracking-wider"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-[#fc8100] text-black font-heading font-black text-xs uppercase tracking-wider"
             >
               <Plus className="h-4 w-4 stroke-[3]" />
               <span>Create Event Now</span>
@@ -569,7 +569,7 @@ export const AdminVotingPage: React.FC = () => {
                 key={event.id}
                 className={`group p-5 rounded-2xl border transition-all duration-300 ${
                   isLive
-                    ? "bg-gradient-to-r from-[#FFBE32]/5 via-[#0D0D12] to-[#0A0A0D] border-[#FFBE32]/40 hover:border-[#FFBE32] shadow-[0_0_20px_rgba(255,190,50,0.08)]"
+                    ? "bg-gradient-to-r from-[#fc8100]/5 via-[#0D0D12] to-[#0A0A0D] border-[#fc8100]/40 hover:border-[#fc8100] shadow-[0_0_20px_rgba(252, 129, 0,0.08)]"
                     : "bg-[#0C0C10] border-white/10 hover:border-white/20"
                 }`}
               >
@@ -594,7 +594,7 @@ export const AdminVotingPage: React.FC = () => {
                           RISING STAR
                         </span>
                       ) : (
-                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-heading font-black bg-[#FFBE32]/20 text-[#FFBE32] border border-[#FFBE32]/40 uppercase tracking-wider">
+                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-heading font-black bg-[#fc8100]/20 text-[#fc8100] border border-[#fc8100]/40 uppercase tracking-wider">
                           <Trophy className="h-3 w-3" />
                           PLAYER AWARD
                         </span>
@@ -632,7 +632,7 @@ export const AdminVotingPage: React.FC = () => {
                       )}
                     </div>
 
-                    <h3 className="font-display font-black text-lg sm:text-xl text-white uppercase tracking-wider group-hover:text-[#FFBE32] transition-colors">
+                    <h3 className="font-display font-black text-lg sm:text-xl text-white uppercase tracking-wider group-hover:text-[#fc8100] transition-colors">
                       {event.title}
                     </h3>
 
@@ -673,7 +673,7 @@ export const AdminVotingPage: React.FC = () => {
                       <span className="text-[10px] font-mono uppercase tracking-widest text-gray-500 block">
                         TOTAL VOTES
                       </span>
-                      <span className="font-display font-black text-2xl text-[#FFBE32]">
+                      <span className="font-display font-black text-2xl text-[#fc8100]">
                         {(event.totalVotes || 0).toLocaleString()}
                       </span>
                     </div>
@@ -686,7 +686,7 @@ export const AdminVotingPage: React.FC = () => {
                       className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-white font-heading font-bold text-xs uppercase tracking-wider transition-colors"
                       title="View Live Standings & Vote Analytics"
                     >
-                      <BarChart3 className="h-3.5 w-3.5 text-[#FFBE32]" />
+                      <BarChart3 className="h-3.5 w-3.5 text-[#fc8100]" />
                       <span>Analytics</span>
                     </Link>
 
@@ -702,7 +702,7 @@ export const AdminVotingPage: React.FC = () => {
                     <select
                       value={event.status}
                       onChange={(e) => handleStatusChange(event.id, e.target.value as any)}
-                      className="px-3 py-1.5 bg-[#14141A] border border-white/15 rounded-xl text-xs text-white focus:outline-none focus:border-[#FFBE32] cursor-pointer"
+                      className="px-3 py-1.5 bg-[#14141A] border border-white/15 rounded-xl text-xs text-white focus:outline-none focus:border-[#fc8100] cursor-pointer"
                     >
                       <option value="DRAFT">DRAFT</option>
                       <option value="PUBLISHED">PUBLISH</option>
@@ -732,7 +732,7 @@ export const AdminVotingPage: React.FC = () => {
             {/* Modal Header */}
             <div className="flex items-center justify-between p-5 border-b border-white/10 bg-[#121218]">
               <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-[#FFBE32]/10 border border-[#FFBE32]/30 text-[#FFBE32]">
+                <div className="p-2 rounded-xl bg-[#fc8100]/10 border border-[#fc8100]/30 text-[#fc8100]">
                   <Vote className="h-5 w-5" />
                 </div>
                 <h3 className="font-display font-black text-lg text-white uppercase tracking-wider">
@@ -759,7 +759,7 @@ export const AdminVotingPage: React.FC = () => {
               {/* Event Title */}
               <div>
                 <label className="block text-xs font-mono uppercase tracking-wider text-gray-300 mb-1.5">
-                  Award Section / Title <span className="text-[#FFBE32]">*</span>
+                  Award Section / Title <span className="text-[#fc8100]">*</span>
                 </label>
                 <input
                   type="text"
@@ -767,14 +767,14 @@ export const AdminVotingPage: React.FC = () => {
                   placeholder="e.g. BEST CREATOR AWARD 2026 or BEST PLAYER OF THE YEAR"
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  className="w-full px-3.5 py-2.5 bg-[#14141A] border border-white/10 rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#FFBE32]"
+                  className="w-full px-3.5 py-2.5 bg-[#14141A] border border-white/10 rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#fc8100]"
                 />
               </div>
 
               {/* Award Section / Category Selector */}
               <div>
                 <label className="block text-xs font-mono uppercase tracking-wider text-gray-300 mb-1.5">
-                  Category Type <span className="text-[#FFBE32]">*</span>
+                  Category Type <span className="text-[#fc8100]">*</span>
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                   {[
@@ -789,7 +789,7 @@ export const AdminVotingPage: React.FC = () => {
                       onClick={() => setFormData({ ...formData, category: cat.id })}
                       className={`flex items-center justify-center gap-1.5 p-2.5 rounded-xl border text-xs font-heading font-bold uppercase transition-all cursor-pointer ${
                         formData.category === cat.id
-                          ? "bg-[#FFBE32] text-black border-[#FFBE32] shadow-[0_0_15px_rgba(255,190,50,0.3)]"
+                          ? "bg-[#fc8100] text-black border-[#fc8100] shadow-[0_0_15px_rgba(252, 129, 0,0.3)]"
                           : "bg-[#14141A] text-gray-400 border-white/10 hover:border-white/20"
                       }`}
                     >
@@ -810,7 +810,7 @@ export const AdminVotingPage: React.FC = () => {
                   placeholder="Vote for the champion athlete, viral content creator, or community pillar."
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                  className="w-full px-3.5 py-2 bg-[#14141A] border border-white/10 rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#FFBE32]"
+                  className="w-full px-3.5 py-2 bg-[#14141A] border border-white/10 rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#fc8100]"
                 />
               </div>
 
@@ -825,13 +825,13 @@ export const AdminVotingPage: React.FC = () => {
                     placeholder="https://... or upload banner image"
                     value={formData.bannerImage}
                     onChange={(e) => setFormData({ ...formData, bannerImage: e.target.value })}
-                    className="flex-1 px-3.5 py-2 bg-[#14141A] border border-white/10 rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#FFBE32]"
+                    className="flex-1 px-3.5 py-2 bg-[#14141A] border border-white/10 rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#fc8100]"
                   />
                   <label className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 hover:text-white text-xs font-heading font-bold uppercase cursor-pointer shrink-0 transition-colors">
                     {uploadingBanner ? (
                       <Loader2 className="h-3.5 w-3.5 animate-spin" />
                     ) : (
-                      <Upload className="h-3.5 w-3.5 text-[#FFBE32]" />
+                      <Upload className="h-3.5 w-3.5 text-[#fc8100]" />
                     )}
                     <span>{uploadingBanner ? "Uploading..." : "Upload Banner"}</span>
                     <input
@@ -851,26 +851,26 @@ export const AdminVotingPage: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-mono uppercase tracking-wider text-gray-300 mb-1.5">
-                    Start Date & Time <span className="text-[#FFBE32]">*</span>
+                    Start Date & Time <span className="text-[#fc8100]">*</span>
                   </label>
                   <input
                     type="datetime-local"
                     required
                     value={formData.startDate}
                     onChange={(e) => setFormData({ ...formData, startDate: e.target.value })}
-                    className="w-full px-3.5 py-2.5 bg-[#14141A] border border-white/10 rounded-xl text-xs text-white focus:outline-none focus:border-[#FFBE32]"
+                    className="w-full px-3.5 py-2.5 bg-[#14141A] border border-white/10 rounded-xl text-xs text-white focus:outline-none focus:border-[#fc8100]"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-mono uppercase tracking-wider text-gray-300 mb-1.5">
-                    End Date & Time <span className="text-[#FFBE32]">*</span>
+                    End Date & Time <span className="text-[#fc8100]">*</span>
                   </label>
                   <input
                     type="datetime-local"
                     required
                     value={formData.endDate}
                     onChange={(e) => setFormData({ ...formData, endDate: e.target.value })}
-                    className="w-full px-3.5 py-2.5 bg-[#14141A] border border-white/10 rounded-xl text-xs text-white focus:outline-none focus:border-[#FFBE32]"
+                    className="w-full px-3.5 py-2.5 bg-[#14141A] border border-white/10 rounded-xl text-xs text-white focus:outline-none focus:border-[#fc8100]"
                   />
                 </div>
               </div>
@@ -884,7 +884,7 @@ export const AdminVotingPage: React.FC = () => {
                   <select
                     value={formData.status}
                     onChange={(e) => setFormData({ ...formData, status: e.target.value as any })}
-                    className="w-full px-3.5 py-2.5 bg-[#14141A] border border-white/10 rounded-xl text-xs text-white focus:outline-none focus:border-[#FFBE32]"
+                    className="w-full px-3.5 py-2.5 bg-[#14141A] border border-white/10 rounded-xl text-xs text-white focus:outline-none focus:border-[#fc8100]"
                   >
                     <option value="DRAFT">DRAFT (Hidden from Public)</option>
                     <option value="PUBLISHED">PUBLISHED (Active & Live)</option>
@@ -899,7 +899,7 @@ export const AdminVotingPage: React.FC = () => {
                       type="checkbox"
                       checked={formData.isLiveResults}
                       onChange={(e) => setFormData({ ...formData, isLiveResults: e.target.checked })}
-                      className="rounded border-white/20 bg-black text-[#FFBE32] focus:ring-0 focus:ring-offset-0 h-4 w-4"
+                      className="rounded border-white/20 bg-black text-[#fc8100] focus:ring-0 focus:ring-offset-0 h-4 w-4"
                     />
                     <div className="flex flex-col">
                       <span className="text-xs font-heading font-bold text-white uppercase tracking-wider">
@@ -919,9 +919,9 @@ export const AdminVotingPage: React.FC = () => {
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="text-xs font-mono uppercase tracking-wider text-white font-bold block">
-                        Nominees & Candidates (All Roles) <span className="text-[#FFBE32]">*</span>
+                        Nominees & Candidates (All Roles) <span className="text-[#fc8100]">*</span>
                       </span>
-                      <span className="px-2 py-0.5 rounded bg-[#FFBE32]/10 text-[#FFBE32] text-[10px] font-mono border border-[#FFBE32]/30">
+                      <span className="px-2 py-0.5 rounded bg-[#fc8100]/10 text-[#fc8100] text-[10px] font-mono border border-[#fc8100]/30">
                         Open for All
                       </span>
                     </div>
@@ -933,7 +933,7 @@ export const AdminVotingPage: React.FC = () => {
                   <button
                     type="button"
                     onClick={handleAddCandidate}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#FFBE32]/15 hover:bg-[#FFBE32] text-[#FFBE32] hover:text-black font-heading font-bold text-xs uppercase tracking-wider transition-all cursor-pointer border border-[#FFBE32]/30"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#fc8100]/15 hover:bg-[#fc8100] text-[#fc8100] hover:text-black font-heading font-bold text-xs uppercase tracking-wider transition-all cursor-pointer border border-[#fc8100]/30"
                   >
                     <UserPlus className="h-3.5 w-3.5" />
                     <span>+ Add Candidate</span>
@@ -953,7 +953,7 @@ export const AdminVotingPage: React.FC = () => {
                         {/* Header: Candidate Index & Delete Button */}
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-2">
-                            <span className="w-6 h-6 rounded-lg bg-[#FFBE32] text-black font-display font-black text-xs flex items-center justify-center">
+                            <span className="w-6 h-6 rounded-lg bg-[#fc8100] text-black font-display font-black text-xs flex items-center justify-center">
                               #{idx + 1}
                             </span>
                             <span className="text-xs font-heading font-bold text-white uppercase tracking-wider">
@@ -991,7 +991,7 @@ export const AdminVotingPage: React.FC = () => {
 
                               {isUploadingThis && (
                                 <div className="absolute inset-0 bg-black/70 flex items-center justify-center">
-                                  <Loader2 className="h-5 w-5 text-[#FFBE32] animate-spin" />
+                                  <Loader2 className="h-5 w-5 text-[#fc8100] animate-spin" />
                                 </div>
                               )}
                             </div>
@@ -1003,7 +1003,7 @@ export const AdminVotingPage: React.FC = () => {
                                 disabled={isUploadingThis}
                                 className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/15 text-gray-200 text-[11px] font-heading font-bold uppercase transition-colors cursor-pointer border border-white/10"
                               >
-                                <Upload className="h-3 w-3 text-[#FFBE32]" />
+                                <Upload className="h-3 w-3 text-[#fc8100]" />
                                 <span>Upload</span>
                               </button>
                               <input
@@ -1026,7 +1026,7 @@ export const AdminVotingPage: React.FC = () => {
                           <div className="md:col-span-9 grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                             <div>
                               <label className="block text-[10px] font-mono uppercase text-gray-400 mb-1">
-                                Candidate Name / Handle <span className="text-[#FFBE32]">*</span>
+                                Candidate Name / Handle <span className="text-[#fc8100]">*</span>
                               </label>
                               <input
                                 type="text"
@@ -1034,7 +1034,7 @@ export const AdminVotingPage: React.FC = () => {
                                 placeholder="e.g. Frost Gaming / Beast"
                                 value={candidate.name}
                                 onChange={(e) => handleCandidateChange(idx, "name", e.target.value)}
-                                className="w-full px-3 py-1.5 bg-[#171720] border border-white/10 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#FFBE32]"
+                                className="w-full px-3 py-1.5 bg-[#171720] border border-white/10 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#fc8100]"
                               />
                             </div>
 
@@ -1047,7 +1047,7 @@ export const AdminVotingPage: React.FC = () => {
                                 placeholder="e.g. YouTube Creator / Sniper"
                                 value={candidate.role}
                                 onChange={(e) => handleCandidateChange(idx, "role", e.target.value)}
-                                className="w-full px-3 py-1.5 bg-[#171720] border border-white/10 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#FFBE32]"
+                                className="w-full px-3 py-1.5 bg-[#171720] border border-white/10 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#fc8100]"
                               />
                             </div>
 
@@ -1063,7 +1063,7 @@ export const AdminVotingPage: React.FC = () => {
                                   handleCandidateChange(idx, "platform", e.target.value);
                                   handleCandidateChange(idx, "team", e.target.value);
                                 }}
-                                className="w-full px-3 py-1.5 bg-[#171720] border border-white/10 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#FFBE32]"
+                                className="w-full px-3 py-1.5 bg-[#171720] border border-white/10 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#fc8100]"
                               />
                             </div>
                           </div>
@@ -1077,7 +1077,7 @@ export const AdminVotingPage: React.FC = () => {
                               placeholder="Or paste Image URL (https://...)"
                               value={candidate.imageUrl}
                               onChange={(e) => handleCandidateChange(idx, "imageUrl", e.target.value)}
-                              className="w-full px-3 py-1.5 bg-[#171720] border border-white/10 rounded-lg text-[11px] text-gray-300 placeholder-gray-500 focus:outline-none focus:border-[#FFBE32]"
+                              className="w-full px-3 py-1.5 bg-[#171720] border border-white/10 rounded-lg text-[11px] text-gray-300 placeholder-gray-500 focus:outline-none focus:border-[#fc8100]"
                             />
                           </div>
                           <div>
@@ -1086,7 +1086,7 @@ export const AdminVotingPage: React.FC = () => {
                               placeholder="Candidate bio / notable achievement (optional)"
                               value={candidate.bio}
                               onChange={(e) => handleCandidateChange(idx, "bio", e.target.value)}
-                              className="w-full px-3 py-1.5 bg-[#171720] border border-white/10 rounded-lg text-[11px] text-gray-300 placeholder-gray-500 focus:outline-none focus:border-[#FFBE32]"
+                              className="w-full px-3 py-1.5 bg-[#171720] border border-white/10 rounded-lg text-[11px] text-gray-300 placeholder-gray-500 focus:outline-none focus:border-[#fc8100]"
                             />
                           </div>
                         </div>
@@ -1099,7 +1099,7 @@ export const AdminVotingPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleAddCandidate}
-                  className="w-full py-2.5 rounded-xl border border-dashed border-white/20 hover:border-[#FFBE32]/60 bg-white/5 hover:bg-[#FFBE32]/5 text-gray-300 hover:text-[#FFBE32] text-xs font-heading font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  className="w-full py-2.5 rounded-xl border border-dashed border-white/20 hover:border-[#fc8100]/60 bg-white/5 hover:bg-[#fc8100]/5 text-gray-300 hover:text-[#fc8100] text-xs font-heading font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer"
                 >
                   <Plus className="h-4 w-4" />
                   <span>Add Another Candidate (Creator / Player / Community)</span>
@@ -1118,7 +1118,7 @@ export const AdminVotingPage: React.FC = () => {
                 <button
                   type="submit"
                   disabled={saving}
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#FFBE32] to-[#FFA000] text-black font-heading font-black text-xs uppercase tracking-wider hover:shadow-[0_0_20px_rgba(255,190,50,0.35)] transition-all cursor-pointer disabled:opacity-50"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#fc8100] to-[#e07200] text-black font-heading font-black text-xs uppercase tracking-wider hover:shadow-[0_0_20px_rgba(252, 129, 0,0.35)] transition-all cursor-pointer disabled:opacity-50"
                 >
                   {saving ? (
                     <>

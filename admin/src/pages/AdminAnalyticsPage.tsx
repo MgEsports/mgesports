@@ -80,7 +80,7 @@ export const AdminAnalyticsPage: React.FC = () => {
 
         <button
           onClick={handleExportCSV}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#FFBE32] hover:bg-[#FFA000] transition-all cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)] shrink-0"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#fc8100] hover:bg-[#e07200] transition-all cursor-pointer shadow-[0_0_15px_rgba(252, 129, 0,0.3)] shrink-0"
         >
           <FileSpreadsheet className="h-4 w-4" />
           <span>Export CSV Report</span>
@@ -105,11 +105,11 @@ export const AdminAnalyticsPage: React.FC = () => {
                   <div key={item.game || idx}>
                     <div className="flex justify-between mb-1">
                       <span className="text-white font-bold truncate max-w-[190px]">{item.game}</span>
-                      <span className="text-[#FFBE32]">{item.percentage}% ({item.count} {item.count === 1 ? 'Squad' : 'Squads'})</span>
+                      <span className="text-[#fc8100]">{item.percentage}% ({item.count} {item.count === 1 ? 'Squad' : 'Squads'})</span>
                     </div>
                     <div className="w-full h-2 rounded-full bg-white/5 overflow-hidden">
                       <div
-                        className="h-full bg-[#FFBE32] rounded-full transition-all duration-500"
+                        className="h-full bg-[#fc8100] rounded-full transition-all duration-500"
                         style={{ width: `${Math.min(Math.max(item.percentage, 5), 100)}%` }}
                       />
                     </div>
@@ -175,7 +175,7 @@ export const AdminAnalyticsPage: React.FC = () => {
 
           <span className="mt-6 pt-3 border-t border-white/5 text-[11px] font-mono text-gray-500 flex items-center justify-between">
             <span>Razorpay + Online Dispatches</span>
-            <span className="text-[#FFBE32] font-bold">Total: ₹{(metrics?.kpis?.totalRevenue ?? 0).toLocaleString("en-IN")}</span>
+            <span className="text-[#fc8100] font-bold">Total: ₹{(metrics?.kpis?.totalRevenue ?? 0).toLocaleString("en-IN")}</span>
           </span>
         </div>
 
@@ -204,7 +204,7 @@ export const AdminAnalyticsPage: React.FC = () => {
               </div>
               <div className="p-3 rounded-xl bg-black/50 border border-white/5 flex items-center justify-between">
                 <span className="text-gray-400">Uptime SLA:</span>
-                <span className="text-[#FFBE32] font-bold">
+                <span className="text-[#fc8100] font-bold">
                   {metrics?.systemHealth?.uptime || "99.98%"}
                 </span>
               </div>
@@ -235,7 +235,7 @@ export const AdminAnalyticsPage: React.FC = () => {
                 className="p-3 rounded-xl bg-black/40 border border-white/5 flex items-center justify-between text-xs font-mono"
               >
                 <div className="flex items-center gap-3">
-                  <span className="px-2 py-0.5 rounded bg-white/5 text-[#FFBE32] text-[10px] font-bold">
+                  <span className="px-2 py-0.5 rounded bg-white/5 text-[#fc8100] text-[10px] font-bold">
                     {log.action}
                   </span>
                   <span className="text-white">{log.details}</span>

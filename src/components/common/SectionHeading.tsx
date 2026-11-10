@@ -24,11 +24,11 @@ export const SectionHeading = ({
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className={`inline-flex items-center gap-2 px-3 py-1 mb-3 rounded border border-[#FFBE32]/30 bg-[#FFBE32]/10 text-xs font-heading font-semibold uppercase tracking-[0.2em] text-[#FFBE32] ${
+          className={`inline-flex items-center gap-2 px-3 py-1 mb-3 rounded border border-[#fc8100]/30 bg-[#fc8100]/10 text-xs font-heading font-semibold uppercase tracking-[0.2em] text-[#fc8100] ${
             isCenter ? "justify-center" : ""
           }`}
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-[#FFBE32] animate-ping" />
+          <span className="h-1.5 w-1.5 rounded-full bg-[#fc8100] animate-ping" />
           {badge}
         </motion.div>
       )}
@@ -57,7 +57,7 @@ export const SectionHeading = ({
 
       {/* Subtle Gold Accent Divider */}
       <div
-        className={`h-[2px] w-16 bg-gradient-to-r from-transparent via-[#FFBE32] to-transparent mt-4 ${
+        className={`h-[2px] w-16 bg-gradient-to-r from-transparent via-[#fc8100] to-transparent mt-4 ${
           isCenter ? "mx-auto" : ""
         }`}
       />

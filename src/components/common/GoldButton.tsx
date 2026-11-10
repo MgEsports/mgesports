@@ -23,7 +23,7 @@ export const GoldButton = ({
 
   return (
     <button
-      className={`group relative inline-flex items-center justify-center font-heading font-bold uppercase tracking-wider text-black bg-[#FFBE32] hover:bg-[#FFCD59] active:scale-[0.98] transition-all duration-200 clip-chamfer shadow-[0_4px_20px_rgba(255,190,50,0.25)] hover:shadow-[0_6px_28px_rgba(255,190,50,0.4)] disabled:opacity-50 disabled:pointer-events-none cursor-pointer ${sizeClasses[size]} ${className}`}
+      className={`group relative inline-flex items-center justify-center font-heading font-bold uppercase tracking-wider text-black bg-[#fc8100] hover:bg-[#ff9924] active:scale-[0.98] transition-all duration-200 clip-chamfer shadow-[0_4px_20px_rgba(252, 129, 0,0.25)] hover:shadow-[0_6px_28px_rgba(252, 129, 0,0.4)] disabled:opacity-50 disabled:pointer-events-none cursor-pointer ${sizeClasses[size]} ${className}`}
       {...props}
     >
       <span className="relative z-10 flex items-center gap-2">

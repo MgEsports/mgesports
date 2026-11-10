@@ -16,7 +16,7 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
   if (isLoading) {
     return (
       <div className="min-h-screen bg-[#070709] flex flex-col items-center justify-center text-white">
-        <Loader2 className="h-10 w-10 text-[#FFBE32] animate-spin mb-4" />
+        <Loader2 className="h-10 w-10 text-[#fc8100] animate-spin mb-4" />
         <span className="font-heading text-xs uppercase tracking-widest text-gray-400">
           Verifying Admin Credentials...
         </span>

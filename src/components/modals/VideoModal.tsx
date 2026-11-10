@@ -41,7 +41,7 @@ export const VideoModal = ({
     >
       <div className="space-y-4">
         {/* Cinematic Video Player Container with Real YouTube Player */}
-        <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-[#FFBE32]/40 bg-black shadow-[0_15px_40px_rgba(0,0,0,0.9)]">
+        <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-[#fc8100]/40 bg-black shadow-[0_15px_40px_rgba(0,0,0,0.9)]">
           {cleanId && isOpen ? (
             <iframe
               src={`https://www.youtube-nocookie.com/embed/${cleanId}?autoplay=1&rel=0&modestbranding=1`}
@@ -53,7 +53,7 @@ export const VideoModal = ({
           ) : (
             /* Fallback Graphic if no video link loaded */
             <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-[#070709]">
-              <div className="mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-[#FFBE32]/20 border border-[#FFBE32] text-[#FFBE32]">
+              <div className="mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-[#fc8100]/20 border border-[#fc8100] text-[#fc8100]">
                 <Play className="h-7 w-7 fill-current ml-1" />
               </div>
               <h4 className="font-display text-xl uppercase tracking-wider text-white">
@@ -69,7 +69,7 @@ export const VideoModal = ({
         {/* Video Info and Controls Footer */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2 text-xs border-t border-white/10">
           <div className="flex items-center gap-2 text-gray-300">
-            <Flame className="h-4 w-4 text-[#FFBE32]" />
+            <Flame className="h-4 w-4 text-[#fc8100]" />
             <span className="font-heading font-semibold text-white uppercase tracking-wider">
               {title}
             </span>

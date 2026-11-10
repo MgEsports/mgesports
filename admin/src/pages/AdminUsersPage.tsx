@@ -107,7 +107,7 @@ export const AdminUsersPage: React.FC = () => {
 
         <button
           onClick={() => setModalOpen(true)}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#FFBE32] hover:bg-[#FFA000] transition-all cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)] shrink-0"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#fc8100] hover:bg-[#e07200] transition-all cursor-pointer shadow-[0_0_15px_rgba(252, 129, 0,0.3)] shrink-0"
         >
           <Plus className="h-4 w-4" />
           <span>Invite / Add Admin</span>
@@ -145,7 +145,7 @@ export const AdminUsersPage: React.FC = () => {
                     {a.email}
                   </td>
                   <td className="py-4 px-4">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[10px] font-heading font-bold uppercase bg-[#FFBE32]/20 text-[#FFBE32] border border-[#FFBE32]/40">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[10px] font-heading font-bold uppercase bg-[#fc8100]/20 text-[#fc8100] border border-[#fc8100]/40">
                       <Shield className="h-3 w-3" />
                       <span>ADMIN</span>
                     </span>
@@ -183,7 +183,7 @@ export const AdminUsersPage: React.FC = () => {
       {/* Modal */}
       {modalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md overflow-y-auto">
-          <div className="relative w-full max-w-lg rounded-2xl bg-[#0D0D12] border border-[#FFBE32]/40 p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.9)] max-h-[90vh] overflow-y-auto">
+          <div className="relative w-full max-w-lg rounded-2xl bg-[#0D0D12] border border-[#fc8100]/40 p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.9)] max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
               <h3 className="font-display text-2xl uppercase tracking-wider text-white">
                 Create Admin User
@@ -207,7 +207,7 @@ export const AdminUsersPage: React.FC = () => {
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                   placeholder="Karthik Raja"
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                 />
               </div>
 
@@ -221,7 +221,7 @@ export const AdminUsersPage: React.FC = () => {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="name@lordz.gg"
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                 />
               </div>
 
@@ -236,7 +236,7 @@ export const AdminUsersPage: React.FC = () => {
                   value={formData.password}
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                   placeholder="Minimum 8 characters"
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                 />
               </div>
 
@@ -244,8 +244,8 @@ export const AdminUsersPage: React.FC = () => {
                 <label className="block text-xs font-heading font-bold uppercase text-gray-300 mb-1">
                   Role Assignment
                 </label>
-                <div className="w-full rounded-xl border border-[#FFBE32]/30 bg-black/60 px-3.5 py-2.5 text-xs text-[#FFBE32] font-heading font-bold uppercase flex items-center gap-2">
-                  <Shield className="h-3.5 w-3.5 text-[#FFBE32]" />
+                <div className="w-full rounded-xl border border-[#fc8100]/30 bg-black/60 px-3.5 py-2.5 text-xs text-[#fc8100] font-heading font-bold uppercase flex items-center gap-2">
+                  <Shield className="h-3.5 w-3.5 text-[#fc8100]" />
                   <span>ADMIN (Full Management Access)</span>
                 </div>
               </div>
@@ -260,7 +260,7 @@ export const AdminUsersPage: React.FC = () => {
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2 rounded-xl bg-[#FFBE32] text-black font-heading text-xs font-bold uppercase tracking-wider"
+                  className="px-6 py-2 rounded-xl bg-[#fc8100] text-black font-heading text-xs font-bold uppercase tracking-wider"
                 >
                   Create Admin
                 </button>

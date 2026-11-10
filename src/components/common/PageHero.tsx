@@ -24,7 +24,7 @@ export const PageHero = ({
       <TemplePattern className="opacity-[0.04] scale-125 -translate-y-12" />
 
       {/* Atmospheric Gold Radiance */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#FFBE32]/8 blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#fc8100]/8 blur-[140px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto z-10 text-center">
         {/* Eyebrow Badge */}
@@ -32,10 +32,10 @@ export const PageHero = ({
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#FFBE32]/35 bg-[#FFBE32]/10 backdrop-blur-md mb-3 sm:mb-4"
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#fc8100]/35 bg-[#fc8100]/10 backdrop-blur-md mb-3 sm:mb-4"
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-[#FFBE32] animate-pulse" />
-          <span className="font-heading text-xs font-bold uppercase tracking-[0.25em] text-[#FFBE32]">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#fc8100] animate-pulse" />
+          <span className="font-heading text-xs font-bold uppercase tracking-[0.25em] text-[#fc8100]">
             {badge}
           </span>
         </motion.div>

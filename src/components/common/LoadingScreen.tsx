@@ -28,7 +28,7 @@ export const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
           className="fixed inset-0 z-[10000] flex flex-col items-center justify-center bg-[#050505]"
         >
           {/* Subtle Ambient Gold Radiance */}
-          <div className="absolute h-64 w-64 rounded-full bg-[#FFBE32]/10 blur-[90px] pointer-events-none" />
+          <div className="absolute h-64 w-64 rounded-full bg-[#fc8100]/10 blur-[90px] pointer-events-none" />
 
           {/* Logo with entrance & pulse */}
           <motion.div
@@ -40,7 +40,7 @@ export const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
             <img
               src={logoImg}
               alt="MG ESPORTS Logo"
-              className="h-28 w-28 object-contain drop-shadow-[0_0_25px_rgba(255,190,50,0.45)]"
+              className="h-28 w-28 object-contain drop-shadow-[0_0_25px_rgba(252, 129, 0,0.45)]"
             />
           </motion.div>
 
@@ -52,9 +52,9 @@ export const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
             className="mt-6 flex flex-col items-center gap-1"
           >
             <h1 className="font-display text-3xl md:text-4xl tracking-[0.25em] text-white">
-              MG <span className="text-[#FFBE32]">ESPORTS</span>
+              MG <span className="text-[#fc8100]">ESPORTS</span>
             </h1>
-            <div className="h-[2px] w-12 bg-gradient-to-r from-transparent via-[#FFBE32] to-transparent mt-1" />
+            <div className="h-[2px] w-12 bg-gradient-to-r from-transparent via-[#fc8100] to-transparent mt-1" />
             <span className="font-heading text-xs tracking-[0.3em] text-[#9CA3AF] mt-1">
               INDIAN ESPORTS SUPREMACY
             </span>

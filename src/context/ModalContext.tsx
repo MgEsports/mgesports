@@ -224,7 +224,7 @@ export const ModalProvider = ({ children }: { children: ReactNode }) => {
 
           {/* Excerpt Summary */}
           {selectedArticle?.excerpt && (
-            <p className="text-base sm:text-lg leading-relaxed text-white font-semibold border-l-2 border-[#FFBE32] pl-3 py-0.5">
+            <p className="text-base sm:text-lg leading-relaxed text-white font-semibold border-l-2 border-[#fc8100] pl-3 py-0.5">
               {selectedArticle.excerpt}
             </p>
           )}
@@ -249,7 +249,7 @@ export const ModalProvider = ({ children }: { children: ReactNode }) => {
               Desk: <strong className="text-white">{selectedArticle?.author || "Lord Editorial"}</strong>
             </span>
             <span>
-              Date: <strong className="text-[#FFBE32]">{selectedArticle?.date}</strong>
+              Date: <strong className="text-[#fc8100]">{selectedArticle?.date}</strong>
             </span>
           </div>
         </div>
@@ -270,7 +270,7 @@ export const ModalProvider = ({ children }: { children: ReactNode }) => {
           <div className="p-4 rounded-lg bg-black/60 border border-white/10 text-xs space-y-2 font-mono">
             <div className="flex justify-between">
               <span className="text-gray-400">Commercial Desk:</span>
-              <a href="mailto:lordesportz75@gmail.com" className="text-[#FFBE32] hover:underline font-mono">conatct@mgesport.live</a>
+              <a href="mailto:lordesportz75@gmail.com" className="text-[#fc8100] hover:underline font-mono">conatct@mgesport.live</a>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-400">Headquarters:</span>
@@ -279,7 +279,7 @@ export const ModalProvider = ({ children }: { children: ReactNode }) => {
           </div>
           <button
             onClick={closePartner}
-            className="w-full py-2.5 rounded font-heading text-xs font-bold uppercase tracking-wider bg-[#FFBE32] text-black hover:bg-[#FFCD59] transition-all cursor-pointer"
+            className="w-full py-2.5 rounded font-heading text-xs font-bold uppercase tracking-wider bg-[#fc8100] text-black hover:bg-[#ff9924] transition-all cursor-pointer"
           >
             REQUEST PARTNERSHIP PROSPECTUS
           </button>

@@ -295,7 +295,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
           particleCount: 100,
           spread: 70,
           origin: { y: 0.6 },
-          colors: ["#FFBE32", "#22C55E", "#FFFFFF"],
+          colors: ["#fc8100", "#22C55E", "#FFFFFF"],
         });
       }
 
@@ -340,14 +340,14 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                     isCompleted
                       ? "bg-[#22C55E]"
                       : isCurrent
-                      ? "bg-[#FFBE32]"
+                      ? "bg-[#fc8100]"
                       : "bg-white/10"
                   }`}
                 />
                 <span
                   className={`text-[9px] font-heading font-bold uppercase tracking-wider block mt-1.5 truncate ${
                     isCurrent
-                      ? "text-[#FFBE32]"
+                      ? "text-[#fc8100]"
                       : isCompleted
                       ? "text-gray-300"
                       : "text-gray-600"
@@ -373,7 +373,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
           <div className="space-y-6">
             <div className="p-5 rounded-2xl bg-gradient-to-b from-[#111115] to-black border border-white/10 space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <span className="px-3 py-1 rounded-md text-[10px] font-heading font-black tracking-wider uppercase bg-[#FFBE32]/20 text-[#FFBE32] border border-[#FFBE32]/30">
+                <span className="px-3 py-1 rounded-md text-[10px] font-heading font-black tracking-wider uppercase bg-[#fc8100]/20 text-[#fc8100] border border-[#fc8100]/30">
                   {tournament.game}
                 </span>
                 <span className="text-xs font-mono text-gray-400">
@@ -394,7 +394,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 border-t border-white/10">
                 <div className="p-2.5 rounded-xl bg-black/40 border border-white/5">
                   <span className="text-[10px] font-mono text-gray-500 uppercase block">Prize Pool</span>
-                  <strong className="text-sm font-display text-[#FFBE32] uppercase">{tournament.prizePool}</strong>
+                  <strong className="text-sm font-display text-[#fc8100] uppercase">{tournament.prizePool}</strong>
                 </div>
                 <div className="p-2.5 rounded-xl bg-black/40 border border-white/5">
                   <span className="text-[10px] font-mono text-gray-500 uppercase block">Entry Fee</span>
@@ -417,8 +417,8 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
 
             {/* Guest Authentication Gate */}
             {!isAuthenticated ? (
-              <div className="p-6 rounded-2xl bg-amber-950/30 border-2 border-[#FFBE32]/40 text-center space-y-4">
-                <div className="w-12 h-12 rounded-full bg-[#FFBE32]/20 border border-[#FFBE32] flex items-center justify-center text-[#FFBE32] mx-auto">
+              <div className="p-6 rounded-2xl bg-amber-950/30 border-2 border-[#fc8100]/40 text-center space-y-4">
+                <div className="w-12 h-12 rounded-full bg-[#fc8100]/20 border border-[#fc8100] flex items-center justify-center text-[#fc8100] mx-auto">
                   <Lock className="h-6 w-6" />
                 </div>
                 <div className="space-y-1">
@@ -433,7 +433,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                   <button
                     type="button"
                     onClick={() => openLogin()}
-                    className="px-6 py-2.5 rounded-xl text-xs font-heading font-extrabold uppercase tracking-wider bg-[#FFBE32] hover:bg-[#FFA000] text-black shadow-[0_0_15px_rgba(255,190,50,0.3)] transition-all cursor-pointer"
+                    className="px-6 py-2.5 rounded-xl text-xs font-heading font-extrabold uppercase tracking-wider bg-[#fc8100] hover:bg-[#e07200] text-black shadow-[0_0_15px_rgba(252, 129, 0,0.3)] transition-all cursor-pointer"
                   >
                     Login to Continue
                   </button>
@@ -458,10 +458,10 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
             ) : (
               <div className="space-y-4 pt-2">
                 {isWaitlisting && (
-                  <div className="p-4 rounded-xl bg-amber-500/15 border border-[#FFBE32]/40 flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-[#FFBE32] shrink-0 mt-0.5" />
+                  <div className="p-4 rounded-xl bg-amber-500/15 border border-[#fc8100]/40 flex items-start gap-3">
+                    <Clock className="w-5 h-5 text-[#fc8100] shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-xs font-heading font-black uppercase text-[#FFBE32] tracking-wider">
+                      <p className="text-xs font-heading font-black uppercase text-[#fc8100] tracking-wider">
                         CHAMPIONSHIP SLOTS FULL — PRIORITY WAITLIST OPEN
                       </p>
                       <p className="text-[11px] font-mono text-gray-300 mt-1">
@@ -474,7 +474,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                   <button
                     type="button"
                     onClick={() => setStep(2)}
-                    className="px-6 py-3 rounded-xl text-xs font-heading font-extrabold uppercase tracking-wider bg-[#FFBE32] hover:bg-[#FFA000] text-black shadow-[0_0_15px_rgba(255,190,50,0.3)] flex items-center gap-2 cursor-pointer transition-all"
+                    className="px-6 py-3 rounded-xl text-xs font-heading font-extrabold uppercase tracking-wider bg-[#fc8100] hover:bg-[#e07200] text-black shadow-[0_0_15px_rgba(252, 129, 0,0.3)] flex items-center gap-2 cursor-pointer transition-all"
                   >
                     <span>{isWaitlisting ? "Join Priority Waitlist" : "Continue to Team Details"}</span>
                     <ArrowRight className="h-4 w-4" />
@@ -490,7 +490,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
           <div className="space-y-6">
             <div className="space-y-4">
               <h3 className="text-sm font-heading font-bold uppercase tracking-wider text-white flex items-center gap-2">
-                <Shield className="h-4 w-4 text-[#FFBE32]" />
+                <Shield className="h-4 w-4 text-[#fc8100]" />
                 Step 2: Team & Clan Details
               </h3>
 
@@ -505,7 +505,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                     placeholder="e.g. MG WARRIORS"
                     value={teamName}
                     onChange={(e) => setTeamName(e.target.value)}
-                    className="w-full bg-[#0D0D10] border border-white/15 rounded-xl px-4 py-2.5 text-xs text-white uppercase font-heading font-bold focus:outline-none focus:border-[#FFBE32] transition-colors"
+                    className="w-full bg-[#0D0D10] border border-white/15 rounded-xl px-4 py-2.5 text-xs text-white uppercase font-heading font-bold focus:outline-none focus:border-[#fc8100] transition-colors"
                   />
                 </div>
 
@@ -518,7 +518,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                     placeholder="e.g. LZ"
                     value={teamTag}
                     onChange={(e) => setTeamTag(e.target.value.toUpperCase())}
-                    className="w-full bg-[#0D0D10] border border-white/15 rounded-xl px-4 py-2.5 text-xs text-white uppercase font-heading font-bold focus:outline-none focus:border-[#FFBE32] transition-colors"
+                    className="w-full bg-[#0D0D10] border border-white/15 rounded-xl px-4 py-2.5 text-xs text-white uppercase font-heading font-bold focus:outline-none focus:border-[#fc8100] transition-colors"
                   />
                 </div>
 
@@ -531,7 +531,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                     placeholder="https://example.com/logo.png"
                     value={teamLogo}
                     onChange={(e) => setTeamLogo(e.target.value)}
-                    className="w-full bg-[#0D0D10] border border-white/15 rounded-xl px-4 py-2.5 text-xs text-white font-mono focus:outline-none focus:border-[#FFBE32] transition-colors"
+                    className="w-full bg-[#0D0D10] border border-white/15 rounded-xl px-4 py-2.5 text-xs text-white font-mono focus:outline-none focus:border-[#fc8100] transition-colors"
                   />
                 </div>
 
@@ -545,7 +545,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                     placeholder="+91 98765 43210"
                     value={whatsapp}
                     onChange={(e) => setWhatsapp(e.target.value)}
-                    className="w-full bg-[#0D0D10] border border-white/15 rounded-xl px-4 py-2.5 text-xs text-white font-mono focus:outline-none focus:border-[#FFBE32] transition-colors"
+                    className="w-full bg-[#0D0D10] border border-white/15 rounded-xl px-4 py-2.5 text-xs text-white font-mono focus:outline-none focus:border-[#fc8100] transition-colors"
                   />
                 </div>
 
@@ -558,7 +558,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                     placeholder="e.g. player#1234"
                     value={discordTag}
                     onChange={(e) => setDiscordTag(e.target.value)}
-                    className="w-full bg-[#0D0D10] border border-white/15 rounded-xl px-4 py-2.5 text-xs text-white font-mono focus:outline-none focus:border-[#FFBE32] transition-colors"
+                    className="w-full bg-[#0D0D10] border border-white/15 rounded-xl px-4 py-2.5 text-xs text-white font-mono focus:outline-none focus:border-[#fc8100] transition-colors"
                   />
                 </div>
               </div>
@@ -566,7 +566,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
               {/* Pre-filled Leader Profile Card */}
               <div className="p-4 rounded-xl bg-black/50 border border-white/10 space-y-2 mt-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono font-bold text-[#FFBE32] uppercase tracking-widest">
+                  <span className="text-[10px] font-mono font-bold text-[#fc8100] uppercase tracking-widest">
                     DESIGNATED TEAM LEADER (AUTOFILLED FROM PROFILE)
                   </span>
                   <span className="px-2 py-0.5 rounded text-[9px] font-mono bg-[#22C55E]/20 text-[#22C55E]">
@@ -580,7 +580,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                   </div>
                   <div>
                     <span className="text-gray-500 text-[10px] block">IGN:</span>
-                    <strong className="text-[#FFBE32]">{user?.ign || user?.username}</strong>
+                    <strong className="text-[#fc8100]">{user?.ign || user?.username}</strong>
                   </div>
                   <div>
                     <span className="text-gray-500 text-[10px] block">Game UID:</span>
@@ -607,7 +607,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                 type="button"
                 disabled={!teamName.trim() || !whatsapp.trim()}
                 onClick={() => setStep(3)}
-                className="px-6 py-2.5 rounded-xl text-xs font-heading font-extrabold uppercase tracking-wider bg-[#FFBE32] hover:bg-[#FFA000] text-black disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2 cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)] transition-all"
+                className="px-6 py-2.5 rounded-xl text-xs font-heading font-extrabold uppercase tracking-wider bg-[#fc8100] hover:bg-[#e07200] text-black disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2 cursor-pointer shadow-[0_0_15px_rgba(252, 129, 0,0.3)] transition-all"
               >
                 <span>Continue to Roster</span>
                 <ArrowRight className="h-4 w-4" />
@@ -623,7 +623,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-sm font-heading font-bold uppercase tracking-wider text-white flex items-center gap-2">
-                    <Users className="h-4 w-4 text-[#FFBE32]" />
+                    <Users className="h-4 w-4 text-[#fc8100]" />
                     Team Roster ({players.length} / {teamSize} Players)
                   </h3>
                   <p className="text-[11px] font-mono text-gray-400 mt-0.5">
@@ -635,7 +635,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                   className={`px-3 py-1 rounded-md text-[10px] font-mono font-bold uppercase ${
                     players.length >= teamSize
                       ? "bg-[#22C55E]/20 text-[#22C55E] border border-[#22C55E]/40"
-                      : "bg-[#FFBE32]/20 text-[#FFBE32] border border-[#FFBE32]/40"
+                      : "bg-[#fc8100]/20 text-[#fc8100] border border-[#fc8100]/40"
                   }`}
                 >
                   {players.length >= teamSize ? "ROSTER COMPLETE" : `${teamSize - players.length} MORE NEEDED`}
@@ -652,10 +652,10 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                       placeholder="Search athletes by username, IGN, or Game UID..."
                       value={searchQuery}
                       onChange={(e) => handleSearchPlayers(e.target.value)}
-                      className="w-full bg-[#0D0D10] border border-white/15 rounded-xl pl-10 pr-10 py-2.5 text-xs text-white placeholder-gray-500 font-mono focus:outline-none focus:border-[#FFBE32] transition-colors"
+                      className="w-full bg-[#0D0D10] border border-white/15 rounded-xl pl-10 pr-10 py-2.5 text-xs text-white placeholder-gray-500 font-mono focus:outline-none focus:border-[#fc8100] transition-colors"
                     />
                     {searching && (
-                      <div className="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 border-2 border-[#FFBE32] border-t-transparent rounded-full animate-spin" />
+                      <div className="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 border-2 border-[#fc8100] border-t-transparent rounded-full animate-spin" />
                     )}
                   </div>
 
@@ -684,7 +684,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                                   ? "bg-gray-800 text-gray-500 cursor-not-allowed"
                                   : p.isRegisteredInTournament
                                   ? "bg-red-500/20 text-red-400 border border-red-500/30 cursor-not-allowed"
-                                  : "bg-[#FFBE32] hover:bg-[#FFA000] text-black cursor-pointer shadow-[0_0_10px_rgba(255,190,50,0.3)]"
+                                  : "bg-[#fc8100] hover:bg-[#e07200] text-black cursor-pointer shadow-[0_0_10px_rgba(252, 129, 0,0.3)]"
                               }`}
                             >
                               {alreadyAdded ? "Added" : p.isRegisteredInTournament ? "Already in Team" : "Add Player"}
@@ -709,7 +709,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                         <div className="flex items-center gap-2">
                           <span className="text-xs font-heading font-bold text-white uppercase">{p.ign}</span>
                           {idx === 0 ? (
-                            <span className="px-1.5 py-0.2 rounded text-[8px] font-heading font-black bg-[#FFBE32]/20 text-[#FFBE32] border border-[#FFBE32]/30 uppercase">
+                            <span className="px-1.5 py-0.2 rounded text-[8px] font-heading font-black bg-[#fc8100]/20 text-[#fc8100] border border-[#fc8100]/30 uppercase">
                               TEAM LEADER
                             </span>
                           ) : (
@@ -754,7 +754,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                 type="button"
                 disabled={players.length < teamSize}
                 onClick={() => setStep(isFree ? 5 : 4)}
-                className="px-6 py-2.5 rounded-xl text-xs font-heading font-extrabold uppercase tracking-wider bg-[#FFBE32] hover:bg-[#FFA000] text-black disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2 cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)] transition-all"
+                className="px-6 py-2.5 rounded-xl text-xs font-heading font-extrabold uppercase tracking-wider bg-[#fc8100] hover:bg-[#e07200] text-black disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2 cursor-pointer shadow-[0_0_15px_rgba(252, 129, 0,0.3)] transition-all"
               >
                 <span>{isFree ? "Proceed to Review" : "Proceed to Payment"}</span>
                 <ArrowRight className="h-4 w-4" />
@@ -768,22 +768,22 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
           <div className="space-y-6">
             <div className="space-y-4">
               <h3 className="text-sm font-heading font-bold uppercase tracking-wider text-white flex items-center gap-2">
-                <CreditCard className="h-4 w-4 text-[#FFBE32]" />
+                <CreditCard className="h-4 w-4 text-[#fc8100]" />
                 Step 4: Tournament Entry Payment
               </h3>
 
               {/* UPI Card */}
-              <div className="p-5 rounded-2xl bg-gradient-to-b from-[#171720] to-black border border-[#FFBE32]/30 space-y-4 shadow-[0_0_30px_rgba(255,190,50,0.1)]">
+              <div className="p-5 rounded-2xl bg-gradient-to-b from-[#171720] to-black border border-[#fc8100]/30 space-y-4 shadow-[0_0_30px_rgba(252, 129, 0,0.1)]">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-white/10 pb-4">
                   <div>
                     <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wider">
                       Tournament Entry Fee {isPerPlayer ? "(Per Player)" : "(Per Squad)"}
                     </span>
-                    <div className="font-display text-3xl font-black text-[#FFBE32]">
+                    <div className="font-display text-3xl font-black text-[#fc8100]">
                       {formatCurrency(feeAmount)}
                     </div>
                     {isPerPlayer ? (
-                      <span className="text-[10px] font-mono text-[#FFBE32] block mt-0.5">
+                      <span className="text-[10px] font-mono text-[#fc8100] block mt-0.5">
                         {formatCurrency(baseFee)} × {startersCount} Starter Athletes = {formatCurrency(feeAmount)}
                       </span>
                     ) : (
@@ -802,7 +802,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                     <button
                       type="button"
                       onClick={handleCopyUpi}
-                      className="p-2 rounded-lg bg-[#FFBE32]/20 hover:bg-[#FFBE32] text-[#FFBE32] hover:text-black transition-colors cursor-pointer"
+                      className="p-2 rounded-lg bg-[#fc8100]/20 hover:bg-[#fc8100] text-[#fc8100] hover:text-black transition-colors cursor-pointer"
                       title="Copy UPI ID"
                     >
                       {copiedUpi ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
@@ -842,7 +842,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                     <p className="font-heading font-bold text-white uppercase text-xs">Payment Steps:</p>
                     <ol className="list-decimal pl-4 space-y-1 text-[11px] text-gray-400">
                       <li>Scan the official QR code using GPay, PhonePe, Paytm or BHIM.</li>
-                      <li>Pay the exact entry fee of <strong className="text-[#FFBE32]">{formatCurrency(feeAmount)}</strong>.</li>
+                      <li>Pay the exact entry fee of <strong className="text-[#fc8100]">{formatCurrency(feeAmount)}</strong>.</li>
                       <li>Copy the 12-digit UTR or Transaction Reference number.</li>
                       <li>Enter the UTR number and upload the screenshot proof below.</li>
                     </ol>
@@ -862,7 +862,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                     placeholder="e.g. 408512345678"
                     value={utrNumber}
                     onChange={(e) => setUtrNumber(e.target.value.trim().toUpperCase())}
-                    className="w-full bg-[#0D0D10] border border-white/15 rounded-xl px-4 py-2.5 text-xs text-white font-mono focus:outline-none focus:border-[#FFBE32] transition-colors uppercase"
+                    className="w-full bg-[#0D0D10] border border-white/15 rounded-xl px-4 py-2.5 text-xs text-white font-mono focus:outline-none focus:border-[#fc8100] transition-colors uppercase"
                   />
                 </div>
 
@@ -875,7 +875,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                     placeholder="Name shown on payment app"
                     value={payerName}
                     onChange={(e) => setPayerName(e.target.value)}
-                    className="w-full bg-[#0D0D10] border border-white/15 rounded-xl px-4 py-2.5 text-xs text-white font-mono focus:outline-none focus:border-[#FFBE32] transition-colors"
+                    className="w-full bg-[#0D0D10] border border-white/15 rounded-xl px-4 py-2.5 text-xs text-white font-mono focus:outline-none focus:border-[#fc8100] transition-colors"
                   />
                 </div>
               </div>
@@ -885,7 +885,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                 <label className="text-[11px] font-mono text-gray-400 uppercase block">
                   Payment Screenshot (Recommended for instant verification)
                 </label>
-                <div className="border-2 border-dashed border-white/15 rounded-xl p-4 text-center hover:border-[#FFBE32]/50 transition-colors bg-black/30">
+                <div className="border-2 border-dashed border-white/15 rounded-xl p-4 text-center hover:border-[#fc8100]/50 transition-colors bg-black/30">
                   {paymentScreenshot ? (
                     <div className="flex items-center justify-between gap-3">
                       <img src={paymentScreenshot} alt="Screenshot" className="h-12 w-12 object-cover rounded-lg border border-white/20" />
@@ -903,7 +903,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                   ) : (
                     <label className="cursor-pointer block space-y-1">
                       <Upload className="h-6 w-6 text-gray-400 mx-auto mb-1" />
-                      <span className="text-xs font-heading font-bold uppercase text-[#FFBE32]">
+                      <span className="text-xs font-heading font-bold uppercase text-[#fc8100]">
                         {uploadingScreenshot ? "Uploading..." : "Click to upload screenshot"}
                       </span>
                       <p className="text-[10px] font-mono text-gray-500">PNG, JPG or WEBP up to 5MB</p>
@@ -932,7 +932,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                 type="button"
                 disabled={!utrNumber.trim()}
                 onClick={() => setStep(5)}
-                className="px-6 py-2.5 rounded-xl text-xs font-heading font-extrabold uppercase tracking-wider bg-[#FFBE32] hover:bg-[#FFA000] text-black disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2 cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)] transition-all"
+                className="px-6 py-2.5 rounded-xl text-xs font-heading font-extrabold uppercase tracking-wider bg-[#fc8100] hover:bg-[#e07200] text-black disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2 cursor-pointer shadow-[0_0_15px_rgba(252, 129, 0,0.3)] transition-all"
               >
                 <span>Continue to Review</span>
                 <ArrowRight className="h-4 w-4" />
@@ -946,7 +946,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
           <div className="space-y-6">
             <div className="space-y-4">
               <h3 className="text-sm font-heading font-bold uppercase tracking-wider text-white flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-[#FFBE32]" />
+                <CheckCircle2 className="h-4 w-4 text-[#fc8100]" />
                 Step 5: Review & Confirm Entry
               </h3>
 
@@ -959,7 +959,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
 
                 <div className="flex justify-between items-center py-2">
                   <span className="text-xs font-mono text-gray-400">Team Name</span>
-                  <strong className="text-sm font-heading font-bold uppercase text-[#FFBE32]">{teamName}</strong>
+                  <strong className="text-sm font-heading font-bold uppercase text-[#fc8100]">{teamName}</strong>
                 </div>
 
                 <div className="flex justify-between items-center py-2">
@@ -983,7 +983,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
 
                 <div className="flex justify-between items-center pt-2">
                   <span className="text-xs font-mono text-gray-400">Entry Fee</span>
-                  <strong className="text-base font-display text-[#FFBE32]">{isFree ? "FREE ENTRY" : `₹${feeAmount}`}</strong>
+                  <strong className="text-base font-display text-[#fc8100]">{isFree ? "FREE ENTRY" : `₹${feeAmount}`}</strong>
                 </div>
 
                 {!isFree && (
@@ -1000,7 +1000,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                   type="checkbox"
                   checked={agreedToRules}
                   onChange={(e) => setAgreedToRules(e.target.checked)}
-                  className="mt-0.5 h-4 w-4 rounded accent-[#FFBE32] cursor-pointer"
+                  className="mt-0.5 h-4 w-4 rounded accent-[#fc8100] cursor-pointer"
                 />
                 <span className="text-xs font-body text-gray-300 leading-relaxed group-hover:text-white transition-colors">
                   I confirm that all information provided is correct and I agree to the tournament rules, anti-cheat policy, and competitive code of conduct.
@@ -1021,7 +1021,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                 type="button"
                 disabled={!agreedToRules || submitting}
                 onClick={handleFinalSubmit}
-                className="px-8 py-3 rounded-xl text-xs font-heading font-black uppercase tracking-wider bg-[#FFBE32] hover:bg-[#FFA000] text-black disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2 cursor-pointer shadow-[0_0_20px_rgba(255,190,50,0.4)] transition-all"
+                className="px-8 py-3 rounded-xl text-xs font-heading font-black uppercase tracking-wider bg-[#fc8100] hover:bg-[#e07200] text-black disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2 cursor-pointer shadow-[0_0_20px_rgba(252, 129, 0,0.4)] transition-all"
               >
                 {submitting ? (
                   <>
@@ -1044,11 +1044,11 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
           <div className="py-6 text-center space-y-6">
             {registrationResult?.isWaitlisted || registrationResult?.status === "WAITLISTED" ? (
               <div className="space-y-4">
-                <div className="w-16 h-16 rounded-full bg-amber-500/20 border-2 border-[#FFBE32] flex items-center justify-center text-[#FFBE32] mx-auto shadow-[0_0_30px_rgba(255,190,50,0.3)]">
+                <div className="w-16 h-16 rounded-full bg-amber-500/20 border-2 border-[#fc8100] flex items-center justify-center text-[#fc8100] mx-auto shadow-[0_0_30px_rgba(252, 129, 0,0.3)]">
                   <Clock className="h-8 w-8" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono font-black uppercase tracking-widest text-[#FFBE32] bg-[#FFBE32]/10 px-3 py-1 rounded-full border border-[#FFBE32]/30">
+                  <span className="text-[10px] font-mono font-black uppercase tracking-widest text-[#fc8100] bg-[#fc8100]/10 px-3 py-1 rounded-full border border-[#fc8100]/30">
                     SLOT FULL • ADDED TO PRIORITY WAITLIST (POSITION #{registrationResult?.waitlistPriority || 1})
                   </span>
                   <h3 className="font-display text-3xl uppercase tracking-wider text-white mt-3">
@@ -1078,11 +1078,11 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
               </div>
             ) : (
               <div className="space-y-4">
-                <div className="w-16 h-16 rounded-full bg-[#FFBE32]/20 border-2 border-[#FFBE32] flex items-center justify-center text-[#FFBE32] mx-auto shadow-[0_0_30px_rgba(255,190,50,0.3)]">
+                <div className="w-16 h-16 rounded-full bg-[#fc8100]/20 border-2 border-[#fc8100] flex items-center justify-center text-[#fc8100] mx-auto shadow-[0_0_30px_rgba(252, 129, 0,0.3)]">
                   <Clock className="h-8 w-8" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono font-black uppercase tracking-widest text-[#FFBE32] bg-[#FFBE32]/10 px-3 py-1 rounded-full border border-[#FFBE32]/30">
+                  <span className="text-[10px] font-mono font-black uppercase tracking-widest text-[#fc8100] bg-[#fc8100]/10 px-3 py-1 rounded-full border border-[#fc8100]/30">
                     PAYMENT SUBMITTED • VERIFICATION PENDING
                   </span>
                   <h3 className="font-display text-2xl uppercase tracking-wider text-white mt-3">
@@ -1099,7 +1099,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
             <div className="p-5 rounded-2xl bg-black/60 border border-white/15 max-w-lg mx-auto text-left space-y-3 font-mono text-xs">
               <div className="flex justify-between border-b border-white/10 pb-2">
                 <span className="text-gray-400">REGISTRATION ID:</span>
-                <strong className="text-[#FFBE32] text-sm font-black">
+                <strong className="text-[#fc8100] text-sm font-black">
                   {registrationResult?.registrationNumber || registrationResult?.id || "REG-2026-CONFIRMED"}
                 </strong>
               </div>
@@ -1119,7 +1119,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                 <span className="text-gray-400">Status:</span>
                 <span
                   className={`font-bold uppercase ${
-                    (registrationResult?.status === "CONFIRMED" || registrationResult?.status === "APPROVED") ? "text-[#22C55E]" : "text-[#FFBE32]"
+                    (registrationResult?.status === "CONFIRMED" || registrationResult?.status === "APPROVED") ? "text-[#22C55E]" : "text-[#fc8100]"
                   }`}
                 >
                   {registrationResult?.status || "CONFIRMED"}
@@ -1135,7 +1135,7 @@ export const TournamentRegistrationStepper: React.FC<RegistrationStepperProps> =
                   onClose();
                   navigate("/my-tournaments");
                 }}
-                className="px-6 py-3 rounded-xl text-xs font-heading font-black uppercase tracking-wider bg-[#FFBE32] hover:bg-[#FFA000] text-black shadow-[0_0_20px_rgba(255,190,50,0.3)] transition-all cursor-pointer"
+                className="px-6 py-3 rounded-xl text-xs font-heading font-black uppercase tracking-wider bg-[#fc8100] hover:bg-[#e07200] text-black shadow-[0_0_20px_rgba(252, 129, 0,0.3)] transition-all cursor-pointer"
               >
                 View My Tournaments
               </button>

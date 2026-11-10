@@ -96,7 +96,7 @@ export const CommunitySection = ({ showHeader = true }: CommunitySectionProps) =
     <section id="community" className={`relative ${showHeader ? "py-24" : "py-10 sm:py-14"} px-4 sm:px-6 lg:px-8 bg-[#070709] overflow-hidden`}>
       {/* Background Gold Wave Grid */}
       <div className="absolute inset-0 bg-esports-grid opacity-20 pointer-events-none" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-[#FFBE32]/8 blur-[160px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-[#fc8100]/8 blur-[160px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto z-10">
         {showHeader && (
@@ -105,9 +105,9 @@ export const CommunitySection = ({ showHeader = true }: CommunitySectionProps) =
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#FFBE32]/10 border border-[#FFBE32]/30 text-xs font-heading font-bold uppercase tracking-[0.2em] text-[#FFBE32] mb-3"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#fc8100]/10 border border-[#fc8100]/30 text-xs font-heading font-bold uppercase tracking-[0.2em] text-[#fc8100] mb-3"
             >
-              <Flame className="h-3.5 w-3.5 text-[#FFBE32]" />
+              <Flame className="h-3.5 w-3.5 text-[#fc8100]" />
               <span>OFFICIAL CHANNELS &amp; HUBS</span>
             </motion.div>
 
@@ -155,7 +155,7 @@ export const CommunitySection = ({ showHeader = true }: CommunitySectionProps) =
                       <Icon className="h-5 w-5" />
                     </div>
 
-                    <span className="font-mono text-[10px] px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[#FFBE32] font-semibold tracking-wider uppercase">
+                    <span className="font-mono text-[10px] px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[#fc8100] font-semibold tracking-wider uppercase">
                       {ch.badge}
                     </span>
                   </div>
@@ -164,7 +164,7 @@ export const CommunitySection = ({ showHeader = true }: CommunitySectionProps) =
                     {ch.name}
                   </h3>
 
-                  <p className="font-heading text-xs text-[#FFBE32] font-semibold tracking-wide mt-0.5">
+                  <p className="font-heading text-xs text-[#fc8100] font-semibold tracking-wide mt-0.5">
                     {ch.title}
                   </p>
 
@@ -178,7 +178,7 @@ export const CommunitySection = ({ showHeader = true }: CommunitySectionProps) =
                     href={ch.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-2.5 px-3 rounded font-heading text-[11px] font-bold uppercase tracking-wider bg-[#141418] hover:bg-[#FFBE32] text-gray-200 hover:text-black border border-white/10 hover:border-[#FFBE32] flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+                    className="w-full py-2.5 px-3 rounded font-heading text-[11px] font-bold uppercase tracking-wider bg-[#141418] hover:bg-[#fc8100] text-gray-200 hover:text-black border border-white/10 hover:border-[#fc8100] flex items-center justify-center gap-1.5 transition-all cursor-pointer"
                   >
                     <span>{ch.btnText}</span>
                     <ArrowRight className="h-3 w-3" />
@@ -194,23 +194,23 @@ export const CommunitySection = ({ showHeader = true }: CommunitySectionProps) =
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-8 rounded-2xl bg-gradient-to-r from-[#0E0E12] via-[#14120D] to-[#0E0E12] border border-[#FFBE32]/30 p-6 sm:p-8 shadow-[0_10px_35px_rgba(255,190,50,0.08)]"
+          className="mt-8 rounded-2xl bg-gradient-to-r from-[#0E0E12] via-[#14120D] to-[#0E0E12] border border-[#fc8100]/30 p-6 sm:p-8 shadow-[0_10px_35px_rgba(252, 129, 0,0.08)]"
         >
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="space-y-2 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#FFBE32]/10 border border-[#FFBE32]/30 text-[11px] font-heading font-bold uppercase tracking-widest text-[#FFBE32]">
+              <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#fc8100]/10 border border-[#fc8100]/30 text-[11px] font-heading font-bold uppercase tracking-widest text-[#fc8100]">
                 <Briefcase className="h-3.5 w-3.5" />
                 <span>COMMERCIAL DESK</span>
               </div>
               <h3 className="font-display text-2xl sm:text-3xl uppercase tracking-wider text-white">
-                MG ESPORTS <span className="text-[#FFBE32]">BUSINESS &amp; PARTNERSHIP ENQUIRIES</span>
+                MG ESPORTS <span className="text-[#fc8100]">BUSINESS &amp; PARTNERSHIP ENQUIRIES</span>
               </h3>
               <p className="text-sm text-gray-300 font-body">
                 Interested in brand collaborations, tournament sponsorships, merchandise partnerships, or esports integrations? Contact our commercial team directly.
               </p>
               <div className="flex items-center gap-2 pt-1">
-                <Mail className="h-4 w-4 text-[#FFBE32]" />
-                <span className="font-mono text-sm text-white font-semibold selection:bg-[#FFBE32] selection:text-black">
+                <Mail className="h-4 w-4 text-[#fc8100]" />
+                <span className="font-mono text-sm text-white font-semibold selection:bg-[#fc8100] selection:text-black">
                   {businessEmail}
                 </span>
               </div>
@@ -236,7 +236,7 @@ export const CommunitySection = ({ showHeader = true }: CommunitySectionProps) =
 
               <a
                 href={`mailto:${businessEmail}?subject=MG%20Esports%20Business%20%26%20Partnership%20Enquiry`}
-                className="py-3 px-6 rounded-xl bg-[#FFBE32] hover:bg-[#FFCD59] text-black font-heading text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(255,190,50,0.3)] cursor-pointer"
+                className="py-3 px-6 rounded-xl bg-[#fc8100] hover:bg-[#ff9924] text-black font-heading text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(252, 129, 0,0.3)] cursor-pointer"
               >
                 <Mail className="h-4 w-4" />
                 <span>SEND EMAIL NOW</span>

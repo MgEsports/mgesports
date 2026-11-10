@@ -208,7 +208,7 @@ export const TournamentsSection = ({
       className={`relative ${showHeader ? "py-24" : "py-8 sm:py-12 lg:py-16"} px-4 sm:px-6 lg:px-8 bg-[#050505] overflow-hidden w-full max-w-full`}
     >
       {/* Subtle Background Glow */}
-      <div className="absolute top-1/3 left-0 w-96 h-96 bg-[#FFBE32]/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/3 left-0 w-96 h-96 bg-[#fc8100]/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
         {showHeader && (
@@ -229,7 +229,7 @@ export const TournamentsSection = ({
                 onClick={() => setSelectedGame(game)}
                 className={`px-3 sm:px-4 py-1.5 text-xs font-heading font-bold uppercase tracking-wider rounded transition-all cursor-pointer ${
                   selectedGame === game
-                    ? "bg-[#FFBE32] text-black shadow-[0_0_15px_rgba(255,190,50,0.3)]"
+                    ? "bg-[#fc8100] text-black shadow-[0_0_15px_rgba(252, 129, 0,0.3)]"
                     : "bg-[#111113] text-gray-400 hover:text-white hover:bg-[#1A1A1D] border border-white/5"
                 }`}
               >
@@ -291,7 +291,7 @@ export const TournamentsSection = ({
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.4, delay: index * 0.05 }}
-                    className="group relative flex flex-col justify-between rounded-xl bg-[#0C0C0E] border border-white/10 hover:border-[#FFBE32]/60 hover:-translate-y-1.5 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_15px_35px_rgba(255,190,50,0.15)] overflow-hidden"
+                    className="group relative flex flex-col justify-between rounded-xl bg-[#0C0C0E] border border-white/10 hover:border-[#fc8100]/60 hover:-translate-y-1.5 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_15px_35px_rgba(252, 129, 0,0.15)] overflow-hidden"
                   >
                     {/* Top Banner Image / Accent */}
                     <div className="relative h-40 w-full overflow-hidden bg-gradient-to-br from-[#121218] via-[#1a1a24] to-black">
@@ -311,7 +311,7 @@ export const TournamentsSection = ({
                       {/* Top Badges */}
                       <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
                         <span className="flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[10px] font-heading font-bold uppercase tracking-widest bg-black/80 border border-white/10 text-gray-300 backdrop-blur-md">
-                          <Shield className="h-3 w-3 text-[#FFBE32]" />
+                          <Shield className="h-3 w-3 text-[#fc8100]" />
                           {t.game}
                         </span>
 
@@ -358,7 +358,7 @@ export const TournamentsSection = ({
                       </div>
 
                       {/* Live Dynamic Registration Count Banner */}
-                      <div className="absolute bottom-2 left-3 px-2.5 py-1 rounded bg-black/80 border border-[#FFBE32]/40 text-[#FFBE32] font-heading font-extrabold text-[10px] uppercase tracking-wider backdrop-blur-md flex items-center gap-1.5">
+                      <div className="absolute bottom-2 left-3 px-2.5 py-1 rounded bg-black/80 border border-[#fc8100]/40 text-[#fc8100] font-heading font-extrabold text-[10px] uppercase tracking-wider backdrop-blur-md flex items-center gap-1.5">
                         <span>
                           {t.confirmedTeams ?? t.registeredTeams ?? 0} / {t.totalTeams || 32} TEAMS REGISTERED
                         </span>
@@ -373,7 +373,7 @@ export const TournamentsSection = ({
                     <div className="p-6 pt-4">
                       {/* Title */}
                       <Link to={`/tournaments/${t.slug || t.id}`}>
-                        <h3 className="font-display text-2xl tracking-wide uppercase text-white group-hover:text-[#FFBE32] transition-colors leading-tight">
+                        <h3 className="font-display text-2xl tracking-wide uppercase text-white group-hover:text-[#fc8100] transition-colors leading-tight">
                           {t.title}
                         </h3>
                       </Link>
@@ -384,12 +384,12 @@ export const TournamentsSection = ({
                       {/* Prize Pool Spotlight */}
                       <div className="mt-4 p-3 rounded-lg bg-black/50 border border-white/5 flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <Trophy className="h-5 w-5 text-[#FFBE32]" />
+                          <Trophy className="h-5 w-5 text-[#fc8100]" />
                           <span className="text-xs text-gray-400 font-heading uppercase tracking-wider">
                             Prize Pool
                           </span>
                         </div>
-                        <span className="font-display text-2xl font-bold text-[#FFBE32] tracking-wider">
+                        <span className="font-display text-2xl font-bold text-[#fc8100] tracking-wider">
                           {formatCurrency(t.prizePool)}
                         </span>
                       </div>
@@ -401,7 +401,7 @@ export const TournamentsSection = ({
                           <span className="truncate">{formatDate(t.date || t.startDate)}</span>
                         </div>
                         <div className="flex items-center gap-1.5 justify-end">
-                          <span className="text-[#FFBE32] font-bold">
+                          <span className="text-[#fc8100] font-bold">
                             {formatCurrency(t.feeAmount ?? t.entryFee)}
                           </span>
                         </div>
@@ -417,7 +417,7 @@ export const TournamentsSection = ({
                               to={`/tournaments/${t.slug || t.id}`}
                               className="flex-1 py-2.5 px-3 rounded font-heading text-xs font-bold uppercase tracking-wider bg-zinc-800 hover:bg-zinc-700 text-white border border-white/10 text-center transition-all duration-200 flex items-center justify-center gap-1.5 shadow-[0_0_10px_rgba(0,0,0,0.5)]"
                             >
-                              <Trophy className="h-3.5 w-3.5 text-[#FFBE32]" />
+                              <Trophy className="h-3.5 w-3.5 text-[#fc8100]" />
                               <span>VIEW RESULTS</span>
                             </Link>
                           );
@@ -477,7 +477,7 @@ export const TournamentsSection = ({
                         return (
                           <button
                             onClick={() => onSelectTournament(t)}
-                            className="flex-1 py-2.5 px-3 rounded font-heading text-xs font-bold uppercase tracking-wider bg-[#FFBE32] hover:bg-[#FFA000] text-black text-center transition-all duration-200 cursor-pointer shadow-[0_0_12px_rgba(255,190,50,0.25)] font-black"
+                            className="flex-1 py-2.5 px-3 rounded font-heading text-xs font-bold uppercase tracking-wider bg-[#fc8100] hover:bg-[#e07200] text-black text-center transition-all duration-200 cursor-pointer shadow-[0_0_12px_rgba(252, 129, 0,0.25)] font-black"
                           >
                             JOIN / REGISTER
                           </button>
@@ -497,7 +497,7 @@ export const TournamentsSection = ({
               })
             ) : nonDraftTournaments.length === 0 ? (
               <div className="col-span-full py-20 px-6 rounded-2xl bg-[#0D0D10]/80 border border-white/10 text-center max-w-lg mx-auto shadow-2xl backdrop-blur-md">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-[#FFBE32]/10 border border-[#FFBE32]/30 flex items-center justify-center text-[#FFBE32]">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-[#fc8100]/10 border border-[#fc8100]/30 flex items-center justify-center text-[#fc8100]">
                   <Trophy className="w-8 h-8 opacity-70" />
                 </div>
                 <h3 className="font-display text-xl uppercase tracking-wider text-white">
@@ -509,7 +509,7 @@ export const TournamentsSection = ({
               </div>
             ) : (
               <div className="col-span-full py-16 px-6 text-center max-w-md mx-auto">
-                <Trophy className="h-12 w-12 mx-auto mb-3 opacity-30 text-[#FFBE32]" />
+                <Trophy className="h-12 w-12 mx-auto mb-3 opacity-30 text-[#fc8100]" />
                 <h4 className="font-heading text-base font-bold uppercase tracking-wider text-white">
                   {emptyTabInfo.title}
                 </h4>
@@ -521,7 +521,7 @@ export const TournamentsSection = ({
                     setSelectedGame("ALL");
                     setSelectedStatus("ALL");
                   }}
-                  className="mt-4 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-xs text-[#FFBE32] border border-white/10 cursor-pointer font-heading uppercase tracking-wider transition-colors inline-block"
+                  className="mt-4 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-xs text-[#fc8100] border border-white/10 cursor-pointer font-heading uppercase tracking-wider transition-colors inline-block"
                 >
                   Reset filters
                 </button>

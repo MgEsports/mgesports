@@ -23,7 +23,7 @@ export const OutlineButton = ({
 
   return (
     <button
-      className={`group relative inline-flex items-center justify-center font-heading font-bold uppercase tracking-wider text-[#FFBE32] hover:text-black bg-transparent hover:bg-[#FFBE32] border border-[#FFBE32]/60 hover:border-[#FFBE32] active:scale-[0.98] transition-all duration-200 clip-chamfer cursor-pointer ${sizeClasses[size]} ${className}`}
+      className={`group relative inline-flex items-center justify-center font-heading font-bold uppercase tracking-wider text-[#fc8100] hover:text-black bg-transparent hover:bg-[#fc8100] border border-[#fc8100]/60 hover:border-[#fc8100] active:scale-[0.98] transition-all duration-200 clip-chamfer cursor-pointer ${sizeClasses[size]} ${className}`}
       {...props}
     >
       <span className="relative z-10 flex items-center gap-2">

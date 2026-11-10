@@ -35,7 +35,7 @@ export const LazyProductImage: React.FC<LazyProductImageProps> = ({
       {/* Loading Skeleton Indicator */}
       {!isLoaded && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/40 animate-pulse">
-          <Loader2 className="h-6 w-6 text-[#FFBE32]/60 animate-spin" />
+          <Loader2 className="h-6 w-6 text-[#fc8100]/60 animate-spin" />
         </div>
       )}
 

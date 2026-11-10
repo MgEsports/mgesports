@@ -21,7 +21,7 @@ export const NotFoundPage = () => {
       <TemplePattern className="opacity-[0.05] scale-150" />
 
       {/* Atmospheric Gold Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-[#FFBE32]/10 blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-[#fc8100]/10 blur-[150px] pointer-events-none" />
 
       <div className="relative z-10 max-w-lg mx-auto text-center">
         {/* Emblem */}
@@ -29,14 +29,14 @@ export const NotFoundPage = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-[#0D0D10] border border-[#FFBE32]/30 p-3 shadow-[0_0_30px_rgba(255,190,50,0.2)]"
+          className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-[#0D0D10] border border-[#fc8100]/30 p-3 shadow-[0_0_30px_rgba(252, 129, 0,0.2)]"
         >
           <img
             src={logoImg}
             alt="MG ESPORTS Emblem"
             width={56}
             height={56}
-            className="h-full w-full object-contain drop-shadow-[0_0_10px_#FFBE32]"
+            className="h-full w-full object-contain drop-shadow-[0_0_10px_#fc8100]"
           />
         </motion.div>
 
@@ -88,20 +88,20 @@ export const NotFoundPage = () => {
 
         {/* Quick Nav Recovery Links */}
         <div className="mt-10 pt-6 border-t border-white/10 flex flex-wrap justify-center gap-3 text-xs font-heading uppercase text-gray-400">
-          <Link to="/tournaments" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 hover:text-[#FFBE32] transition-colors">
-            <Trophy className="h-3.5 w-3.5 text-[#FFBE32]" />
+          <Link to="/tournaments" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 hover:text-[#fc8100] transition-colors">
+            <Trophy className="h-3.5 w-3.5 text-[#fc8100]" />
             <span>Tournaments</span>
           </Link>
-          <Link to="/players" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 hover:text-[#FFBE32] transition-colors">
-            <Users className="h-3.5 w-3.5 text-[#FFBE32]" />
+          <Link to="/players" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 hover:text-[#fc8100] transition-colors">
+            <Users className="h-3.5 w-3.5 text-[#fc8100]" />
             <span>Players</span>
           </Link>
-          <Link to="/products" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 hover:text-[#FFBE32] transition-colors">
-            <ShoppingBag className="h-3.5 w-3.5 text-[#FFBE32]" />
+          <Link to="/products" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 hover:text-[#fc8100] transition-colors">
+            <ShoppingBag className="h-3.5 w-3.5 text-[#fc8100]" />
             <span>Merchandise</span>
           </Link>
-          <Link to="/news" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 hover:text-[#FFBE32] transition-colors">
-            <Newspaper className="h-3.5 w-3.5 text-[#FFBE32]" />
+          <Link to="/news" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 hover:text-[#fc8100] transition-colors">
+            <Newspaper className="h-3.5 w-3.5 text-[#fc8100]" />
             <span>News</span>
           </Link>
         </div>

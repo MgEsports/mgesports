@@ -208,13 +208,13 @@ export const AdminPlayersPage: React.FC = () => {
   const getRoleIcon = (role: string) => {
     switch (role) {
       case "IGL":
-        return <Shield className="h-3.5 w-3.5 text-[#FFBE32]" />;
+        return <Shield className="h-3.5 w-3.5 text-[#fc8100]" />;
       case "RUSHER":
-        return <Zap className="h-3.5 w-3.5 text-[#FFBE32]" />;
+        return <Zap className="h-3.5 w-3.5 text-[#fc8100]" />;
       case "SNIPER":
-        return <Crosshair className="h-3.5 w-3.5 text-[#FFBE32]" />;
+        return <Crosshair className="h-3.5 w-3.5 text-[#fc8100]" />;
       default:
-        return <Target className="h-3.5 w-3.5 text-[#FFBE32]" />;
+        return <Target className="h-3.5 w-3.5 text-[#fc8100]" />;
     }
   };
 
@@ -232,7 +232,7 @@ export const AdminPlayersPage: React.FC = () => {
 
         <button
           onClick={handleOpenCreate}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#FFBE32] hover:bg-[#FFA000] transition-all cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)] shrink-0"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#fc8100] hover:bg-[#e07200] transition-all cursor-pointer shadow-[0_0_15px_rgba(252, 129, 0,0.3)] shrink-0"
         >
           <Plus className="h-4 w-4" />
           <span>Add Pro Athlete</span>
@@ -251,7 +251,7 @@ export const AdminPlayersPage: React.FC = () => {
             return (
               <div
                 key={p.id}
-                className="p-5 rounded-2xl bg-[#0C0C10] border border-white/10 hover:border-[#FFBE32]/60 transition-all flex flex-col justify-between group shadow-[0_10px_25px_rgba(0,0,0,0.7)]"
+                className="p-5 rounded-2xl bg-[#0C0C10] border border-white/10 hover:border-[#fc8100]/60 transition-all flex flex-col justify-between group shadow-[0_10px_25px_rgba(0,0,0,0.7)]"
               >
                 <div>
                   {/* Header Badge */}
@@ -283,7 +283,7 @@ export const AdminPlayersPage: React.FC = () => {
                       </div>
                     )}
                     {p.isCaptain && (
-                      <span className="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-[#FFBE32] text-black text-[9px] font-mono font-extrabold uppercase shadow">
+                      <span className="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-[#fc8100] text-black text-[9px] font-mono font-extrabold uppercase shadow">
                         CAPTAIN / IGL
                       </span>
                     )}
@@ -291,7 +291,7 @@ export const AdminPlayersPage: React.FC = () => {
 
                   {/* Player Name */}
                   <div className="mt-3">
-                    <h3 className="font-display text-2xl uppercase tracking-wider text-white group-hover:text-[#FFBE32] transition-colors">
+                    <h3 className="font-display text-2xl uppercase tracking-wider text-white group-hover:text-[#fc8100] transition-colors">
                       {p.ign}
                     </h3>
                     <span className="text-xs text-gray-400 font-body">{p.realName}</span>
@@ -299,7 +299,7 @@ export const AdminPlayersPage: React.FC = () => {
 
                   {/* About Bio */}
                   <div className="mt-3 p-2.5 rounded-xl bg-black/50 border border-white/5">
-                    <span className="block text-[9px] font-heading font-bold uppercase text-[#FFBE32] mb-1">
+                    <span className="block text-[9px] font-heading font-bold uppercase text-[#fc8100] mb-1">
                       ABOUT
                     </span>
                     <p className="text-[11px] text-gray-300 font-body line-clamp-3 leading-relaxed">
@@ -321,7 +321,7 @@ export const AdminPlayersPage: React.FC = () => {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => handleOpenEdit(p)}
-                      className="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-[#FFBE32] cursor-pointer"
+                      className="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-[#fc8100] cursor-pointer"
                       title="Edit Player"
                     >
                       <Edit className="h-4 w-4" />
@@ -344,7 +344,7 @@ export const AdminPlayersPage: React.FC = () => {
       {/* Create / Edit Modal */}
       {modalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md overflow-y-auto">
-          <div className="relative w-full max-w-lg rounded-2xl bg-[#0D0D12] border border-[#FFBE32]/40 p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.9)] max-h-[90vh] overflow-y-auto">
+          <div className="relative w-full max-w-lg rounded-2xl bg-[#0D0D12] border border-[#fc8100]/40 p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.9)] max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
               <h3 className="font-display text-2xl uppercase tracking-wider text-white">
                 {editingPlayer ? "Edit Pro Athlete" : "Add Pro Athlete"}
@@ -369,7 +369,7 @@ export const AdminPlayersPage: React.FC = () => {
                     value={formData.ign}
                     onChange={(e) => setFormData({ ...formData, ign: e.target.value })}
                     placeholder="BEAST"
-                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white uppercase focus:border-[#FFBE32] focus:outline-none"
+                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white uppercase focus:border-[#fc8100] focus:outline-none"
                   />
                 </div>
                 <div>
@@ -382,7 +382,7 @@ export const AdminPlayersPage: React.FC = () => {
                     value={formData.realName}
                     onChange={(e) => setFormData({ ...formData, realName: e.target.value })}
                     placeholder="Akash Sharma"
-                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                   />
                 </div>
               </div>
@@ -394,7 +394,7 @@ export const AdminPlayersPage: React.FC = () => {
                 <select
                   value={formData.role}
                   onChange={(e) => setFormData({ ...formData, role: e.target.value as any })}
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                 >
                   <option value="IGL">IGL (In-Game Leader)</option>
                   <option value="RUSHER">RUSHER</option>
@@ -432,16 +432,16 @@ export const AdminPlayersPage: React.FC = () => {
                       type="button"
                       onClick={() => fileInputRef.current?.click()}
                       disabled={uploading}
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#FFBE32]/20 via-[#FFBE32]/10 to-transparent hover:from-[#FFBE32]/30 hover:to-[#FFBE32]/20 border border-[#FFBE32]/50 hover:border-[#FFBE32] text-[#FFBE32] text-xs font-heading font-bold uppercase tracking-wider cursor-pointer transition-all disabled:opacity-50 shadow-sm"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#fc8100]/20 via-[#fc8100]/10 to-transparent hover:from-[#fc8100]/30 hover:to-[#fc8100]/20 border border-[#fc8100]/50 hover:border-[#fc8100] text-[#fc8100] text-xs font-heading font-bold uppercase tracking-wider cursor-pointer transition-all disabled:opacity-50 shadow-sm"
                     >
                       {uploading ? (
                         <>
-                          <Loader2 className="h-4 w-4 animate-spin text-[#FFBE32]" />
+                          <Loader2 className="h-4 w-4 animate-spin text-[#fc8100]" />
                           <span>Uploading to Cloudinary...</span>
                         </>
                       ) : (
                         <>
-                          <Upload className="h-4 w-4 text-[#FFBE32]" />
+                          <Upload className="h-4 w-4 text-[#fc8100]" />
                           <span>Upload from Computer Device</span>
                         </>
                       )}
@@ -469,7 +469,7 @@ export const AdminPlayersPage: React.FC = () => {
                           })
                         }
                         placeholder="Upload file above or paste image URL (e.g. Cloudinary link)"
-                        className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white font-mono focus:border-[#FFBE32] focus:outline-none"
+                        className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white font-mono focus:border-[#fc8100] focus:outline-none"
                       />
                       <span className="block text-[10px] text-gray-500 mt-1 font-body">
                         Stores online in Cloudinary. You can also paste an online link or local preset (e.g. /players/player-beast.jpg).
@@ -477,7 +477,7 @@ export const AdminPlayersPage: React.FC = () => {
                     </div>
 
                     {(formData.image || formData.avatarUrl) && (
-                      <div className="h-14 w-12 rounded-lg border border-[#FFBE32]/40 overflow-hidden bg-black shrink-0 shadow-md">
+                      <div className="h-14 w-12 rounded-lg border border-[#fc8100]/40 overflow-hidden bg-black shrink-0 shadow-md">
                         <img
                           src={formData.image || formData.avatarUrl}
                           alt="Preview"
@@ -506,7 +506,7 @@ export const AdminPlayersPage: React.FC = () => {
                     value={formData.instagram}
                     onChange={(e) => setFormData({ ...formData, instagram: e.target.value })}
                     placeholder="@lordz_player or https://instagram.com/..."
-                    className="w-full rounded-xl border border-white/15 bg-black/60 pl-9 pr-3.5 py-2 text-sm text-white font-mono focus:border-[#FFBE32] focus:outline-none"
+                    className="w-full rounded-xl border border-white/15 bg-black/60 pl-9 pr-3.5 py-2 text-sm text-white font-mono focus:border-[#fc8100] focus:outline-none"
                   />
                 </div>
               </div>
@@ -528,7 +528,7 @@ export const AdminPlayersPage: React.FC = () => {
                     })
                   }
                   placeholder="Describe the player's playstyle, background, achievements, and impact on MG Esports..."
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none leading-relaxed"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none leading-relaxed"
                 />
               </div>
 
@@ -538,7 +538,7 @@ export const AdminPlayersPage: React.FC = () => {
                   id="isCaptain"
                   checked={formData.isCaptain}
                   onChange={(e) => setFormData({ ...formData, isCaptain: e.target.checked })}
-                  className="rounded border-white/20 bg-black accent-[#FFBE32] h-4 w-4 cursor-pointer"
+                  className="rounded border-white/20 bg-black accent-[#fc8100] h-4 w-4 cursor-pointer"
                 />
                 <label htmlFor="isCaptain" className="text-xs font-heading uppercase text-gray-300 cursor-pointer">
                   Team Captain / IGL Badge
@@ -555,7 +555,7 @@ export const AdminPlayersPage: React.FC = () => {
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2 rounded-xl bg-[#FFBE32] hover:bg-[#FFA000] text-black font-heading text-xs font-bold uppercase tracking-wider cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)]"
+                  className="px-6 py-2 rounded-xl bg-[#fc8100] hover:bg-[#e07200] text-black font-heading text-xs font-bold uppercase tracking-wider cursor-pointer shadow-[0_0_15px_rgba(252, 129, 0,0.3)]"
                 >
                   Save Athlete
                 </button>

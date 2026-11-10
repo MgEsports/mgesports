@@ -311,7 +311,7 @@ export const AdminMerchandisePage: React.FC = () => {
 
           <button
             onClick={handleOpenCreate}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#FFBE32] hover:bg-[#FFA000] transition-all cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)] shrink-0"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#fc8100] hover:bg-[#e07200] transition-all cursor-pointer shadow-[0_0_15px_rgba(252, 129, 0,0.3)] shrink-0"
           >
             <Plus className="h-4 w-4" />
             <span>Add New Product</span>
@@ -394,7 +394,7 @@ export const AdminMerchandisePage: React.FC = () => {
               onClick={() => setCategoryFilter(cat)}
               className={`px-3.5 py-1.5 rounded-lg text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer ${
                 categoryFilter === cat
-                  ? "bg-[#FFBE32] text-black shadow-[0_0_10px_rgba(255,190,50,0.3)] font-extrabold"
+                  ? "bg-[#fc8100] text-black shadow-[0_0_10px_rgba(252, 129, 0,0.3)] font-extrabold"
                   : "bg-black/50 text-gray-400 hover:text-white border border-white/5"
               }`}
             >
@@ -410,7 +410,7 @@ export const AdminMerchandisePage: React.FC = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search product name, category..."
-            className="w-full rounded-xl border border-white/10 bg-black/60 pl-9 pr-3 py-1.5 text-xs text-white placeholder-gray-500 focus:border-[#FFBE32] focus:outline-none"
+            className="w-full rounded-xl border border-white/10 bg-black/60 pl-9 pr-3 py-1.5 text-xs text-white placeholder-gray-500 focus:border-[#fc8100] focus:outline-none"
           />
         </div>
       </div>
@@ -438,7 +438,7 @@ export const AdminMerchandisePage: React.FC = () => {
           {products.length === 0 && (
             <button
               onClick={handleOpenCreate}
-              className="mt-2 inline-flex items-center gap-2 px-4 py-2 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#FFBE32] hover:bg-[#FFA000] transition-all cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)]"
+              className="mt-2 inline-flex items-center gap-2 px-4 py-2 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#fc8100] hover:bg-[#e07200] transition-all cursor-pointer shadow-[0_0_15px_rgba(252, 129, 0,0.3)]"
             >
               <Plus className="h-4 w-4" />
               <span>Add New Product</span>
@@ -456,7 +456,7 @@ export const AdminMerchandisePage: React.FC = () => {
             return (
               <div
                 key={p.id}
-                className="rounded-2xl bg-[#0C0C10] border border-white/10 hover:border-[#FFBE32]/60 transition-all flex flex-col justify-between group shadow-[0_10px_25px_rgba(0,0,0,0.7)] overflow-hidden"
+                className="rounded-2xl bg-[#0C0C10] border border-white/10 hover:border-[#fc8100]/60 transition-all flex flex-col justify-between group shadow-[0_10px_25px_rgba(0,0,0,0.7)] overflow-hidden"
               >
                 <div>
                   {/* Product Image Banner */}
@@ -480,11 +480,11 @@ export const AdminMerchandisePage: React.FC = () => {
 
                     {/* Top Badges */}
                     <div className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 flex-wrap">
-                      <span className="px-2.5 py-0.5 rounded-lg bg-black/80 border border-white/15 text-[10px] font-heading font-bold text-[#FFBE32] uppercase backdrop-blur-md">
+                      <span className="px-2.5 py-0.5 rounded-lg bg-black/80 border border-white/15 text-[10px] font-heading font-bold text-[#fc8100] uppercase backdrop-blur-md">
                         {p.category}
                       </span>
                       {p.tag && (
-                        <span className="px-2 py-0.5 rounded-lg bg-[#FFBE32]/20 border border-[#FFBE32]/40 text-[#FFBE32] text-[9px] font-heading font-bold uppercase tracking-wider backdrop-blur-md">
+                        <span className="px-2 py-0.5 rounded-lg bg-[#fc8100]/20 border border-[#fc8100]/40 text-[#fc8100] text-[9px] font-heading font-bold uppercase tracking-wider backdrop-blur-md">
                           {p.tag}
                         </span>
                       )}
@@ -502,7 +502,7 @@ export const AdminMerchandisePage: React.FC = () => {
                   {/* Body Info */}
                   <div className="p-4 space-y-3">
                     <div>
-                      <h3 className="font-display text-lg uppercase tracking-wider text-white group-hover:text-[#FFBE32] transition-colors leading-snug line-clamp-1 font-bold">
+                      <h3 className="font-display text-lg uppercase tracking-wider text-white group-hover:text-[#fc8100] transition-colors leading-snug line-clamp-1 font-bold">
                         {p.name}
                       </h3>
                       <p className="text-xs text-gray-400 font-body mt-1 line-clamp-2">
@@ -513,7 +513,7 @@ export const AdminMerchandisePage: React.FC = () => {
                     {/* Price Box */}
                     <div className="p-3 rounded-xl bg-black/60 border border-white/5 flex items-baseline justify-between font-mono">
                       <div>
-                        <span className="text-xl font-bold text-[#FFBE32]">₹{p.price.toLocaleString("en-IN")}</span>
+                        <span className="text-xl font-bold text-[#fc8100]">₹{p.price.toLocaleString("en-IN")}</span>
                         {p.originalPrice && (
                           <span className="ml-2 text-xs text-gray-500 line-through">
                             ₹{p.originalPrice.toLocaleString("en-IN")}
@@ -533,7 +533,7 @@ export const AdminMerchandisePage: React.FC = () => {
                         </span>
                       )}
                       {p.hasCustomIgn && (
-                        <span className="px-2 py-0.5 rounded bg-[#FFBE32]/10 border border-[#FFBE32]/30 text-[#FFBE32]">
+                        <span className="px-2 py-0.5 rounded bg-[#fc8100]/10 border border-[#fc8100]/30 text-[#fc8100]">
                           ★ Custom IGN
                         </span>
                       )}
@@ -552,7 +552,7 @@ export const AdminMerchandisePage: React.FC = () => {
                   <div className="flex items-center gap-1.5 shrink-0">
                     <button
                       onClick={() => handleOpenEdit(p)}
-                      className="p-2 rounded-lg bg-white/5 hover:bg-white/15 text-gray-300 hover:text-[#FFBE32] cursor-pointer transition-colors"
+                      className="p-2 rounded-lg bg-white/5 hover:bg-white/15 text-gray-300 hover:text-[#fc8100] cursor-pointer transition-colors"
                       title="Edit Product"
                     >
                       <Edit className="h-4 w-4" />
@@ -575,10 +575,10 @@ export const AdminMerchandisePage: React.FC = () => {
       {/* Add / Edit Modal */}
       {modalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md overflow-y-auto">
-          <div className="relative w-full max-w-2xl rounded-2xl bg-[#0D0D12] border border-[#FFBE32]/40 p-6 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.95)] max-h-[92vh] overflow-y-auto">
+          <div className="relative w-full max-w-2xl rounded-2xl bg-[#0D0D12] border border-[#fc8100]/40 p-6 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.95)] max-h-[92vh] overflow-y-auto">
             <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
               <div>
-                <span className="text-[10px] font-heading font-bold uppercase tracking-widest text-[#FFBE32]">
+                <span className="text-[10px] font-heading font-bold uppercase tracking-widest text-[#fc8100]">
                   STORE INVENTORY SETUP
                 </span>
                 <h3 className="font-display text-2xl uppercase tracking-wider text-white mt-0.5">
@@ -605,7 +605,7 @@ export const AdminMerchandisePage: React.FC = () => {
                   value={formData.name || ""}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="MG PRO COMBAT JERSEY 2026"
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                 />
               </div>
 
@@ -618,7 +618,7 @@ export const AdminMerchandisePage: React.FC = () => {
                   <select
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                   >
                     {CATEGORIES.map((cat) => (
                       <option key={cat} value={cat}>
@@ -637,7 +637,7 @@ export const AdminMerchandisePage: React.FC = () => {
                     value={formData.tag || ""}
                     onChange={(e) => setFormData({ ...formData, tag: e.target.value })}
                     placeholder="OFFICIAL ATHLETE SPEC"
-                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                   />
                 </div>
               </div>
@@ -654,7 +654,7 @@ export const AdminMerchandisePage: React.FC = () => {
                     value={formData.price || ""}
                     onChange={(e) => setFormData({ ...formData, price: Number(e.target.value) })}
                     placeholder="1299"
-                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none font-mono"
                   />
                 </div>
                 <div>
@@ -666,7 +666,7 @@ export const AdminMerchandisePage: React.FC = () => {
                     value={formData.originalPrice || ""}
                     onChange={(e) => setFormData({ ...formData, originalPrice: Number(e.target.value) })}
                     placeholder="1999"
-                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none font-mono"
                   />
                 </div>
                 <div>
@@ -679,7 +679,7 @@ export const AdminMerchandisePage: React.FC = () => {
                     value={formData.stock ?? 100}
                     onChange={(e) => setFormData({ ...formData, stock: Number(e.target.value) })}
                     placeholder="100"
-                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none font-mono"
                   />
                 </div>
               </div>
@@ -688,14 +688,14 @@ export const AdminMerchandisePage: React.FC = () => {
               <div className="p-3.5 rounded-xl bg-black/60 border border-white/15 space-y-2">
                 <div className="flex items-center justify-between">
                   <label className="text-xs font-heading font-bold uppercase text-white flex items-center gap-1.5">
-                    <ImageIcon className="h-4 w-4 text-[#FFBE32]" />
+                    <ImageIcon className="h-4 w-4 text-[#fc8100]" />
                     <span>Product Image</span>
                   </label>
                   <button
                     type="button"
                     onClick={() => imageInputRef.current?.click()}
                     disabled={uploadingImage}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-xs text-[#FFBE32] font-mono cursor-pointer transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-xs text-[#fc8100] font-mono cursor-pointer transition-colors"
                   >
                     <Upload className="h-3.5 w-3.5" />
                     <span>{uploadingImage ? "Uploading..." : "Upload File"}</span>
@@ -714,7 +714,7 @@ export const AdminMerchandisePage: React.FC = () => {
                   value={formData.frontImage || ""}
                   onChange={(e) => setFormData({ ...formData, frontImage: e.target.value })}
                   placeholder="https://... or /uploads/..."
-                  className="w-full rounded-lg border border-white/10 bg-black/70 px-3 py-1.5 text-xs text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                  className="w-full rounded-lg border border-white/10 bg-black/70 px-3 py-1.5 text-xs text-white focus:border-[#fc8100] focus:outline-none font-mono"
                 />
 
                 {formData.frontImage && (
@@ -749,7 +749,7 @@ export const AdminMerchandisePage: React.FC = () => {
                         onClick={() => handleToggleSize(sz)}
                         className={`px-3.5 py-1.5 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${
                           isSelected
-                            ? "bg-[#FFBE32] text-black shadow-[0_0_10px_rgba(255,190,50,0.3)] font-extrabold"
+                            ? "bg-[#fc8100] text-black shadow-[0_0_10px_rgba(252, 129, 0,0.3)] font-extrabold"
                             : "bg-white/5 text-gray-400 hover:text-white border border-white/10"
                         }`}
                       >
@@ -764,7 +764,7 @@ export const AdminMerchandisePage: React.FC = () => {
               <div className="p-3.5 rounded-xl bg-black/60 border border-white/15 flex items-center justify-between gap-4">
                 <div>
                   <div className="flex items-center gap-2">
-                    <Sparkles className={`h-4 w-4 ${formData.hasCustomIgn ? "text-[#FFBE32]" : "text-gray-400"}`} />
+                    <Sparkles className={`h-4 w-4 ${formData.hasCustomIgn ? "text-[#fc8100]" : "text-gray-400"}`} />
                     <span className="text-xs font-heading font-bold uppercase text-white">
                       Custom Athlete IGN Print
                     </span>
@@ -781,17 +781,17 @@ export const AdminMerchandisePage: React.FC = () => {
                     onChange={(e) => setFormData({ ...formData, hasCustomIgn: e.target.checked })}
                     className="sr-only peer"
                   />
-                  <div className="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#FFBE32] peer-checked:after:bg-black"></div>
+                  <div className="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#fc8100] peer-checked:after:bg-black"></div>
                 </label>
               </div>
 
               {/* ======================================================== */}
               {/* UPI PAYMENT & QR CODE SETUP */}
               {/* ======================================================== */}
-              <div className="p-4 rounded-xl bg-gradient-to-br from-[#0C0C14] to-black border border-[#FFBE32]/35 space-y-3">
+              <div className="p-4 rounded-xl bg-gradient-to-br from-[#0C0C14] to-black border border-[#fc8100]/35 space-y-3">
                 <div className="flex items-center justify-between border-b border-white/10 pb-2">
                   <div className="flex items-center gap-2">
-                    <QrCode className="h-4 w-4 text-[#FFBE32]" />
+                    <QrCode className="h-4 w-4 text-[#fc8100]" />
                     <span className="text-xs font-heading font-bold uppercase text-white">
                       UPI Payment &amp; QR Settings
                     </span>
@@ -812,7 +812,7 @@ export const AdminMerchandisePage: React.FC = () => {
                       value={formData.upiId || "mgesports@upi"}
                       onChange={(e) => setFormData({ ...formData, upiId: e.target.value })}
                       placeholder="e.g. lordzesports@okaxis"
-                      className="w-full rounded-lg border border-white/15 bg-black/70 px-3 py-2 text-xs text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                      className="w-full rounded-lg border border-white/15 bg-black/70 px-3 py-2 text-xs text-white focus:border-[#fc8100] focus:outline-none font-mono"
                     />
                     <p className="text-[10px] text-gray-500 mt-1">
                       Shown to buyers in checkout with 1-click copy button.
@@ -828,7 +828,7 @@ export const AdminMerchandisePage: React.FC = () => {
                         type="button"
                         onClick={() => qrInputRef.current?.click()}
                         disabled={uploadingQr}
-                        className="text-[10px] text-[#FFBE32] hover:underline cursor-pointer"
+                        className="text-[10px] text-[#fc8100] hover:underline cursor-pointer"
                       >
                         {uploadingQr ? "Uploading..." : "Upload QR"}
                       </button>
@@ -845,7 +845,7 @@ export const AdminMerchandisePage: React.FC = () => {
                       value={formData.upiQrImage || ""}
                       onChange={(e) => setFormData({ ...formData, upiQrImage: e.target.value })}
                       placeholder="Optional custom QR image URL"
-                      className="w-full rounded-lg border border-white/15 bg-black/70 px-3 py-2 text-xs text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                      className="w-full rounded-lg border border-white/15 bg-black/70 px-3 py-2 text-xs text-white focus:border-[#fc8100] focus:outline-none font-mono"
                     />
                     <p className="text-[10px] text-gray-500 mt-1">
                       Leave blank to auto-generate scan QR from UPI ID.
@@ -885,7 +885,7 @@ export const AdminMerchandisePage: React.FC = () => {
                   value={formData.subtitle || ""}
                   onChange={(e) => setFormData({ ...formData, subtitle: e.target.value })}
                   placeholder="Official 2026-27 Athlete Edition • Black & Gold Temple Dravidian Edition"
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-body"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none font-body"
                 />
               </div>
 
@@ -898,7 +898,7 @@ export const AdminMerchandisePage: React.FC = () => {
                   value={formData.description || ""}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                   placeholder="High-performance esports gear crafted with breathable micro-poly..."
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-xs text-white focus:border-[#FFBE32] focus:outline-none font-body resize-none"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-xs text-white focus:border-[#fc8100] focus:outline-none font-body resize-none"
                 />
               </div>
 
@@ -912,7 +912,7 @@ export const AdminMerchandisePage: React.FC = () => {
                 </button>
                 <button
                   type="submit"
-                  className="px-7 py-2.5 rounded-xl bg-[#FFBE32] hover:bg-[#FFA000] text-black font-heading text-xs font-bold uppercase tracking-wider cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)]"
+                  className="px-7 py-2.5 rounded-xl bg-[#fc8100] hover:bg-[#e07200] text-black font-heading text-xs font-bold uppercase tracking-wider cursor-pointer shadow-[0_0_15px_rgba(252, 129, 0,0.3)]"
                 >
                   Save Product
                 </button>

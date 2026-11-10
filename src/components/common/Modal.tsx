@@ -64,10 +64,10 @@ export const Modal = ({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 15 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className={`relative w-full ${maxWidthClasses[maxWidth]} overflow-hidden rounded-xl border border-[#FFBE32]/30 bg-[#0D0D0F] p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_30px_rgba(255,190,50,0.1)] z-10`}
+            className={`relative w-full ${maxWidthClasses[maxWidth]} overflow-hidden rounded-xl border border-[#fc8100]/30 bg-[#0D0D0F] p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_30px_rgba(252, 129, 0,0.1)] z-10`}
           >
             {/* Top gold accent line */}
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#FFBE32] to-transparent" />
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#fc8100] to-transparent" />
 
             {/* Header */}
             <div className="flex items-start justify-between pb-4 border-b border-white/10">

@@ -10,11 +10,11 @@
   --color-lordz-dark: #0A0A0A;
   --color-lordz-card: #0D0D0E;
   --color-lordz-card-hover: #141416;
-  --color-lordz-gold: #FFBE32;
-  --color-lordz-gold-bright: #FFCD59;
-  --color-lordz-gold-dim: #D4981C;
-  --color-lordz-gold-glow: rgba(255, 190, 50, 0.18);
-  --color-lordz-border: rgba(255, 190, 50, 0.15);
+  --color-lordz-gold: #fc8100;
+  --color-lordz-gold-bright: #ff9924;
+  --color-lordz-gold-dim: #d96b00;
+  --color-lordz-gold-glow: rgba(252, 129, 0, 0.18);
+  --color-lordz-border: rgba(252, 129, 0, 0.15);
   --color-lordz-border-subtle: rgba(255, 255, 255, 0.08);
 }
 
@@ -77,14 +77,14 @@ body {
 
 /* Subtle Gold Text Gradient */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #FFF0C2 0%, #FFBE32 50%, #D4981C 100%);
+  background: linear-gradient(135deg, #FFE0B2 0%, #fc8100 50%, #d96b00 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gold-silver {
-  background: linear-gradient(135deg, #FFFFFF 0%, #FFD778 60%, #FFBE32 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #ffaa4d 60%, #fc8100 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -94,14 +94,14 @@ body {
 .gold-glow-card {
   position: relative;
   background: #0D0D0E;
-  border: 1px solid rgba(255, 190, 50, 0.15);
+  border: 1px solid rgba(252, 129, 0, 0.15);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
   will-change: transform;
 }
 
 .gold-glow-card:hover {
-  border-color: rgba(255, 190, 50, 0.5);
-  box-shadow: 0 10px 30px -10px rgba(255, 190, 50, 0.2);
+  border-color: rgba(252, 129, 0, 0.5);
+  box-shadow: 0 10px 30px -10px rgba(252, 129, 0, 0.2);
   transform: translateY(-4px);
 }
 
@@ -117,11 +117,11 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #222222;
   border-radius: 4px;
-  border: 1px solid rgba(255, 190, 50, 0.15);
+  border: 1px solid rgba(252, 129, 0, 0.15);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #FFBE32;
+  background: #fc8100;
 }
 
 /* Diagonal Cut / Esports Chamfer Accent */
@@ -141,8 +141,8 @@ body {
 .bg-esports-grid {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(255, 190, 50, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 190, 50, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(252, 129, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(252, 129, 0, 0.03) 1px, transparent 1px);
 }
 
 /* Shimmer Light Sweep Keyframe */
@@ -214,6 +214,6 @@ body {
 }
 
 .esports-glass-card:hover {
-  border-color: rgba(255, 190, 50, 0.5);
-  box-shadow: 0 12px 35px -10px rgba(255, 190, 50, 0.3);
+  border-color: rgba(252, 129, 0, 0.5);
+  box-shadow: 0 12px 35px -10px rgba(252, 129, 0, 0.3);
 }

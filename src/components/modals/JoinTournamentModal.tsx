@@ -82,7 +82,7 @@ export const JoinTournamentModal = ({
         particleCount: 80,
         spread: 60,
         origin: { y: 0.6 },
-        colors: ["#FFBE32", "#FFD700", "#FFFFFF"],
+        colors: ["#fc8100", "#FFD700", "#FFFFFF"],
       });
 
       setRegResult({
@@ -117,17 +117,17 @@ export const JoinTournamentModal = ({
     >
       {submitted ? (
         <div className="py-8 text-center flex flex-col items-center">
-          <div className="h-16 w-16 rounded-full bg-[#FFBE32]/20 border border-[#FFBE32] flex items-center justify-center text-[#FFBE32] mb-4">
+          <div className="h-16 w-16 rounded-full bg-[#fc8100]/20 border border-[#fc8100] flex items-center justify-center text-[#fc8100] mb-4">
             <CheckCircle2 className="h-8 w-8" />
           </div>
           <h4 className="font-display text-3xl uppercase text-white">PRE-ENTRY RESERVED!</h4>
           <p className="mt-2 text-sm text-[#9CA3AF] max-w-sm">
-            Squad <span className="text-[#FFBE32] font-semibold">{teamName}</span> has been pre-registered for {tournamentTitle}. The MG ESPORTS Admin desk has been notified!
+            Squad <span className="text-[#fc8100] font-semibold">{teamName}</span> has been pre-registered for {tournamentTitle}. The MG ESPORTS Admin desk has been notified!
           </p>
           <div className="mt-4 p-3.5 rounded-xl border border-white/10 bg-black/60 text-xs text-left w-full space-y-1.5 font-mono">
             <div className="flex justify-between">
               <span className="text-gray-400">Registration ID:</span>
-              <span className="text-[#FFBE32] font-bold">{regResult?.number}</span>
+              <span className="text-[#fc8100] font-bold">{regResult?.number}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-400">Status:</span>
@@ -156,7 +156,7 @@ export const JoinTournamentModal = ({
           {/* Tournament Quick Spec */}
           <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-lg bg-[#FFBE32]/10 border border-[#FFBE32]/30 flex items-center justify-center text-[#FFBE32]">
+              <div className="h-10 w-10 rounded-lg bg-[#fc8100]/10 border border-[#fc8100]/30 flex items-center justify-center text-[#fc8100]">
                 <Trophy className="h-5 w-5" />
               </div>
               <div>
@@ -168,15 +168,15 @@ export const JoinTournamentModal = ({
             </div>
             <div className="text-right">
               <span className="text-[10px] text-gray-400 uppercase block font-mono">Prize Pool</span>
-              <span className="font-display text-base text-[#FFBE32] font-bold">{prizePool}</span>
+              <span className="font-display text-base text-[#fc8100] font-bold">{prizePool}</span>
             </div>
           </div>
 
           {/* Free Pre-Entry Badge */}
-          <div className="p-3 rounded-xl bg-[#0D0D12] border border-[#FFBE32]/30 flex items-center justify-between">
+          <div className="p-3 rounded-xl bg-[#0D0D12] border border-[#fc8100]/30 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Zap className="h-4 w-4 text-[#FFBE32]" />
-              <span className="font-heading font-bold text-[#FFBE32] text-xs uppercase">
+              <Zap className="h-4 w-4 text-[#fc8100]" />
+              <span className="font-heading font-bold text-[#fc8100] text-xs uppercase">
                 {entryFee || "FREE PRE-ENTRY"}
               </span>
             </div>
@@ -297,9 +297,9 @@ export const JoinTournamentModal = ({
           </div>
 
           {/* Pre-Entry Reservation Perks Info */}
-          <div className="p-3.5 rounded-xl bg-gradient-to-r from-[#FFBE32]/10 via-transparent to-white/[0.02] border border-[#FFBE32]/25 space-y-1.5">
-            <span className="font-heading uppercase font-bold text-[#FFBE32] flex items-center gap-1.5 text-[11px]">
-              <Shield className="h-3.5 w-3.5 text-[#FFBE32]" /> PRE-ENTRY SQUAD HOLD
+          <div className="p-3.5 rounded-xl bg-gradient-to-r from-[#fc8100]/10 via-transparent to-white/[0.02] border border-[#fc8100]/25 space-y-1.5">
+            <span className="font-heading uppercase font-bold text-[#fc8100] flex items-center gap-1.5 text-[11px]">
+              <Shield className="h-3.5 w-3.5 text-[#fc8100]" /> PRE-ENTRY SQUAD HOLD
             </span>
             <p className="text-[11px] text-gray-300 leading-relaxed font-body">
               Your registration locks an instant pre-entry slot. The MG ESPORTS Admin desk will review your roster and send room lobby access credentials via WhatsApp prior to kickoff.

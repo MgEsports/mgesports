@@ -59,7 +59,7 @@ export const AdminVotingDetailPage: React.FC = () => {
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh]">
-        <Loader2 className="h-8 w-8 text-[#FFBE32] animate-spin mb-3" />
+        <Loader2 className="h-8 w-8 text-[#fc8100] animate-spin mb-3" />
         <span className="text-xs font-mono uppercase tracking-widest text-gray-400">
           Loading voting event analytics...
         </span>
@@ -73,7 +73,7 @@ export const AdminVotingDetailPage: React.FC = () => {
         <h2 className="text-xl font-display text-white uppercase">Voting Event Not Found</h2>
         <Link
           to="/admin/voting"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#FFBE32] text-black text-xs font-heading font-black uppercase"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#fc8100] text-black text-xs font-heading font-black uppercase"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Voting Management
@@ -116,11 +116,11 @@ export const AdminVotingDetailPage: React.FC = () => {
             <div className="flex items-center gap-2 text-[11px] font-mono text-gray-400 uppercase tracking-widest mb-0.5">
               <span>Voting Management</span>
               <span>/</span>
-              <span className="text-[#FFBE32]">Event Analytics</span>
+              <span className="text-[#fc8100]">Event Analytics</span>
               {eventData.category && (
                 <>
                   <span>/</span>
-                  <span className="px-2 py-0.5 rounded-full text-[10px] font-heading font-black bg-[#FFBE32]/15 text-[#FFBE32] border border-[#FFBE32]/30">
+                  <span className="px-2 py-0.5 rounded-full text-[10px] font-heading font-black bg-[#fc8100]/15 text-[#fc8100] border border-[#fc8100]/30">
                     {eventData.category.replace("_", " ")}
                   </span>
                 </>
@@ -169,7 +169,7 @@ export const AdminVotingDetailPage: React.FC = () => {
             href="/voting"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#FFBE32]/10 hover:bg-[#FFBE32] text-[#FFBE32] hover:text-black font-heading font-bold text-xs uppercase tracking-wider transition-all border border-[#FFBE32]/30"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#fc8100]/10 hover:bg-[#fc8100] text-[#fc8100] hover:text-black font-heading font-bold text-xs uppercase tracking-wider transition-all border border-[#fc8100]/30"
           >
             <span>Public Page</span>
             <ExternalLink className="h-3.5 w-3.5" />
@@ -214,7 +214,7 @@ export const AdminVotingDetailPage: React.FC = () => {
           <span className="text-xs font-mono uppercase tracking-wider text-gray-400 block mb-1">
             Total Community Votes
           </span>
-          <p className="text-3xl font-display font-black text-[#FFBE32]">
+          <p className="text-3xl font-display font-black text-[#fc8100]">
             {totalVotes.toLocaleString()}
           </p>
           <span className="text-[11px] text-gray-500 font-body">Authenticated fan submissions</span>
@@ -251,7 +251,7 @@ export const AdminVotingDetailPage: React.FC = () => {
       <div className="bg-[#0D0D12] rounded-2xl border border-white/10 p-6 shadow-2xl">
         <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-xl bg-[#FFBE32]/10 border border-[#FFBE32]/25 text-[#FFBE32]">
+            <div className="p-2 rounded-xl bg-[#fc8100]/10 border border-[#fc8100]/25 text-[#fc8100]">
               <Trophy className="h-5 w-5" />
             </div>
             <div>
@@ -300,7 +300,7 @@ export const AdminVotingDetailPage: React.FC = () => {
                   key={entry.nomineeId}
                   className={`p-4 rounded-2xl border transition-all ${
                     isWinner
-                      ? "bg-gradient-to-r from-[#FFBE32]/15 via-[#121216] to-[#0A0A0D] border-[#FFBE32]/60 shadow-[0_0_25px_rgba(255,190,50,0.15)]"
+                      ? "bg-gradient-to-r from-[#fc8100]/15 via-[#121216] to-[#0A0A0D] border-[#fc8100]/60 shadow-[0_0_25px_rgba(252, 129, 0,0.15)]"
                       : "bg-[#121217] border-white/5 hover:border-white/15"
                   }`}
                 >
@@ -311,7 +311,7 @@ export const AdminVotingDetailPage: React.FC = () => {
                       <div
                         className={`w-9 h-9 rounded-xl font-display font-black text-sm flex items-center justify-center shrink-0 ${
                           entry.rank === 1
-                            ? "bg-[#FFBE32] text-black shadow-[0_0_15px_rgba(255,190,50,0.4)]"
+                            ? "bg-[#fc8100] text-black shadow-[0_0_15px_rgba(252, 129, 0,0.4)]"
                             : entry.rank === 2
                             ? "bg-gray-300 text-black"
                             : entry.rank === 3
@@ -341,14 +341,14 @@ export const AdminVotingDetailPage: React.FC = () => {
                             {displayName}
                           </h4>
                           {isWinner && (
-                            <span className="px-2 py-0.5 rounded-full text-[9px] font-heading font-black bg-[#FFBE32] text-black uppercase tracking-wider flex items-center gap-1">
+                            <span className="px-2 py-0.5 rounded-full text-[9px] font-heading font-black bg-[#fc8100] text-black uppercase tracking-wider flex items-center gap-1">
                               <Flame className="h-2.5 w-2.5 fill-black" />
                               LEADER
                             </span>
                           )}
                         </div>
                         <p className="text-[11px] text-gray-400 font-mono">
-                          {platformOrTeam} • <span className="text-[#FFBE32]">{roleName}</span>
+                          {platformOrTeam} • <span className="text-[#fc8100]">{roleName}</span>
                         </p>
                       </div>
                     </div>
@@ -360,7 +360,7 @@ export const AdminVotingDetailPage: React.FC = () => {
                           {entry.votes.toLocaleString()}
                         </span>
                         <span className="text-xs text-gray-400 font-mono uppercase">votes</span>
-                        <span className="text-sm font-black text-[#FFBE32] ml-1">
+                        <span className="text-sm font-black text-[#fc8100] ml-1">
                           ({entry.percentage}%)
                         </span>
                       </div>
@@ -372,7 +372,7 @@ export const AdminVotingDetailPage: React.FC = () => {
                     <div
                       className={`h-full rounded-full transition-all duration-700 ${
                         isWinner
-                          ? "bg-gradient-to-r from-[#FFA000] via-[#FFBE32] to-[#FFE082] shadow-[0_0_12px_rgba(255,190,50,0.8)]"
+                          ? "bg-gradient-to-r from-[#e07200] via-[#fc8100] to-[#FFE082] shadow-[0_0_12px_rgba(252, 129, 0,0.8)]"
                           : "bg-gradient-to-r from-gray-600 to-gray-400"
                       }`}
                       style={{ width: `${Math.max(entry.percentage, entry.votes > 0 ? 2 : 0)}%` }}

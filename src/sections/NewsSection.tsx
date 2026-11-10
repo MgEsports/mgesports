@@ -81,7 +81,7 @@ export const NewsSection = ({
         <div className="flex flex-wrap items-center justify-between gap-4 mb-10 pb-4 border-b border-white/10">
           <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
             <div className="flex items-center gap-1.5 text-xs font-mono uppercase text-gray-500 mr-2 shrink-0">
-              <Filter className="h-3.5 w-3.5 text-[#FFBE32]" />
+              <Filter className="h-3.5 w-3.5 text-[#fc8100]" />
               <span>Filter:</span>
             </div>
             {CATEGORIES.map((cat) => {
@@ -96,7 +96,7 @@ export const NewsSection = ({
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-4 py-2 rounded-xl text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer shrink-0 flex items-center gap-2 ${
                     selectedCategory === cat
-                      ? "bg-[#FFBE32] text-black shadow-[0_0_15px_rgba(255,190,50,0.4)]"
+                      ? "bg-[#fc8100] text-black shadow-[0_0_15px_rgba(252, 129, 0,0.4)]"
                       : "bg-[#0C0C10] text-gray-400 border border-white/10 hover:border-white/30 hover:text-white"
                   }`}
                 >
@@ -127,7 +127,7 @@ export const NewsSection = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             onClick={() => onSelectArticle && onSelectArticle(featuredArticle)}
-            className="group relative w-full mb-14 rounded-3xl bg-[#0C0C10] border border-[#FFBE32]/40 hover:border-[#FFBE32] overflow-hidden cursor-pointer transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.8)] hover:shadow-[0_25px_60px_rgba(255,190,50,0.2)]"
+            className="group relative w-full mb-14 rounded-3xl bg-[#0C0C10] border border-[#fc8100]/40 hover:border-[#fc8100] overflow-hidden cursor-pointer transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.8)] hover:shadow-[0_25px_60px_rgba(252, 129, 0,0.2)]"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[440px]">
               {/* Left/Banner Section (7 cols) */}
@@ -148,7 +148,7 @@ export const NewsSection = ({
 
                 {/* Floating Badges */}
                 <div className="absolute top-4 left-4 sm:top-6 sm:left-6 flex flex-wrap items-center gap-2.5">
-                  <span className="px-3 py-1 rounded-full text-[10px] font-heading font-black tracking-widest uppercase bg-[#FFBE32] text-black shadow-lg flex items-center gap-1.5">
+                  <span className="px-3 py-1 rounded-full text-[10px] font-heading font-black tracking-widest uppercase bg-[#fc8100] text-black shadow-lg flex items-center gap-1.5">
                     <Sparkles className="h-3 w-3" /> SPOTLIGHT ANNOUNCEMENT
                   </span>
                   <span
@@ -161,7 +161,7 @@ export const NewsSection = ({
                 </div>
 
                 <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 flex items-center gap-2 text-xs font-mono text-gray-300 bg-black/80 px-3 py-1.5 rounded-xl backdrop-blur-sm border border-white/10">
-                  <Clock className="h-3.5 w-3.5 text-[#FFBE32]" />
+                  <Clock className="h-3.5 w-3.5 text-[#fc8100]" />
                   <span>{featuredArticle.readTime}</span>
                   <span>•</span>
                   <span>By {featuredArticle.author}</span>
@@ -172,13 +172,13 @@ export const NewsSection = ({
               <div className="lg:col-span-5 p-6 sm:p-10 flex flex-col justify-between bg-gradient-to-br from-[#0C0C10] to-[#08080C]">
                 <div>
                   <div className="flex items-center gap-2 text-xs font-mono text-gray-400 mb-4">
-                    <Calendar className="h-4 w-4 text-[#FFBE32]" />
+                    <Calendar className="h-4 w-4 text-[#fc8100]" />
                     <span>{featuredArticle.date}</span>
                     <span>•</span>
-                    <span className="text-[#FFBE32] uppercase tracking-wider font-bold">Official Editorial</span>
+                    <span className="text-[#fc8100] uppercase tracking-wider font-bold">Official Editorial</span>
                   </div>
 
-                  <h2 className="font-display text-2xl sm:text-3xl xl:text-4xl uppercase tracking-wide text-white group-hover:text-[#FFBE32] transition-colors leading-tight">
+                  <h2 className="font-display text-2xl sm:text-3xl xl:text-4xl uppercase tracking-wide text-white group-hover:text-[#fc8100] transition-colors leading-tight">
                     {featuredArticle.title}
                   </h2>
 
@@ -191,7 +191,7 @@ export const NewsSection = ({
                   <span className="text-xs font-mono text-gray-500 hidden sm:inline">
                     Click to view full press briefing
                   </span>
-                  <div className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#FFBE32] text-black font-heading text-xs font-black uppercase tracking-wider group-hover:bg-[#FFA000] transition-all shadow-[0_0_20px_rgba(255,190,50,0.3)]">
+                  <div className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#fc8100] text-black font-heading text-xs font-black uppercase tracking-wider group-hover:bg-[#e07200] transition-all shadow-[0_0_20px_rgba(252, 129, 0,0.3)]">
                     <span>READ FULL ANNOUNCEMENT</span>
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </div>
@@ -232,7 +232,7 @@ export const NewsSection = ({
                       ease: [0.16, 1, 0.3, 1],
                     }}
                     onClick={() => onSelectArticle && onSelectArticle(article)}
-                    className="group relative w-full rounded-2xl bg-[#0C0C0E] border border-white/10 hover:border-[#FFBE32]/70 overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1 shadow-[0_12px_35px_rgba(0,0,0,0.7)] hover:shadow-[0_15px_40px_rgba(255,190,50,0.12)]"
+                    className="group relative w-full rounded-2xl bg-[#0C0C0E] border border-white/10 hover:border-[#fc8100]/70 overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1 shadow-[0_12px_35px_rgba(0,0,0,0.7)] hover:shadow-[0_15px_40px_rgba(252, 129, 0,0.12)]"
                   >
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
                       {/* Left: Image Banner (4 columns) */}
@@ -258,7 +258,7 @@ export const NewsSection = ({
 
                         {/* Read time on mobile */}
                         <div className="absolute bottom-2.5 right-3 md:hidden flex items-center gap-1 text-[11px] text-gray-300 font-mono bg-black/70 px-2 py-0.5 rounded backdrop-blur-sm border border-white/10">
-                          <Clock className="h-3 w-3 text-[#FFBE32]" />
+                          <Clock className="h-3 w-3 text-[#fc8100]" />
                           {article.readTime}
                         </div>
                       </div>
@@ -269,7 +269,7 @@ export const NewsSection = ({
                           {/* Header metadata */}
                           <div className="flex items-center justify-between text-xs font-mono text-gray-400 mb-2.5">
                             <span className="flex items-center gap-1.5">
-                              <Calendar className="h-3.5 w-3.5 text-[#FFBE32]" />
+                              <Calendar className="h-3.5 w-3.5 text-[#fc8100]" />
                               {article.date}
                             </span>
                             <span className="hidden md:flex items-center gap-1.5 text-gray-400">
@@ -279,7 +279,7 @@ export const NewsSection = ({
                           </div>
 
                           {/* Headline Title */}
-                          <h3 className="font-display text-xl sm:text-2xl uppercase tracking-wide text-white group-hover:text-[#FFBE32] transition-colors leading-snug">
+                          <h3 className="font-display text-xl sm:text-2xl uppercase tracking-wide text-white group-hover:text-[#fc8100] transition-colors leading-snug">
                             {article.title}
                           </h3>
 
@@ -295,7 +295,7 @@ export const NewsSection = ({
                             Official MG ESPORTS Release
                           </span>
 
-                          <span className="font-heading font-bold uppercase tracking-wider text-[#FFBE32] group-hover:translate-x-1.5 transition-transform inline-flex items-center gap-1.5">
+                          <span className="font-heading font-bold uppercase tracking-wider text-[#fc8100] group-hover:translate-x-1.5 transition-transform inline-flex items-center gap-1.5">
                             <span>READ FULL DISPATCH</span>
                             <ArrowRight className="h-4 w-4" />
                           </span>

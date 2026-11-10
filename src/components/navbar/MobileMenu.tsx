@@ -49,15 +49,15 @@ export const MobileMenu = ({
           className="fixed inset-0 z-[8000] xl:hidden bg-[#050505]/98 backdrop-blur-2xl flex flex-col justify-between p-4 sm:p-6 pb-6 overflow-y-auto"
         >
           {/* Header */}
-          <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-[#FFBE32]/20 shrink-0">
+          <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-[#fc8100]/20 shrink-0">
             <Link to="/" onClick={onClose} className="flex items-center gap-2.5 sm:gap-3">
               <img
                 src={logoImg}
                 alt="MG ESPORTS"
-                className="h-8 w-8 sm:h-10 sm:w-10 object-contain drop-shadow-[0_0_12px_#FFBE32]"
+                className="h-8 w-8 sm:h-10 sm:w-10 object-contain drop-shadow-[0_0_12px_#fc8100]"
               />
               <span className="font-display text-xl sm:text-2xl uppercase tracking-widest text-white">
-                MG <span className="text-[#FFBE32]">ESPORTS</span>
+                MG <span className="text-[#fc8100]">ESPORTS</span>
               </span>
             </Link>
             <button
@@ -65,7 +65,7 @@ export const MobileMenu = ({
               className="p-1.5 sm:p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 cursor-pointer"
               aria-label="Close menu"
             >
-              <X className="h-5 w-5 sm:h-6 sm:w-6 text-[#FFBE32]" />
+              <X className="h-5 w-5 sm:h-6 sm:w-6 text-[#fc8100]" />
             </button>
           </div>
 
@@ -90,15 +90,15 @@ export const MobileMenu = ({
                     onClick={onClose}
                     className={`flex items-center justify-between py-2 sm:py-2.5 px-3 sm:px-3.5 rounded-lg font-heading text-xs sm:text-sm tracking-wider uppercase transition-all ${
                       isActive
-                        ? "text-[#FFBE32] bg-[#FFBE32]/12 border border-[#FFBE32]/30 font-bold shadow-[0_0_15px_rgba(255,190,50,0.1)]"
+                        ? "text-[#fc8100] bg-[#fc8100]/12 border border-[#fc8100]/30 font-bold shadow-[0_0_15px_rgba(252, 129, 0,0.1)]"
                         : "text-gray-300 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     <div className="flex items-center gap-2.5 sm:gap-3">
-                      <Icon className={`h-3.5 w-3.5 sm:h-4 sm:w-4 ${isActive ? "text-[#FFBE32]" : "text-gray-400"}`} />
+                      <Icon className={`h-3.5 w-3.5 sm:h-4 sm:w-4 ${isActive ? "text-[#fc8100]" : "text-gray-400"}`} />
                       <span>{link.name}</span>
                     </div>
-                    {isActive && <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-[#FFBE32] animate-pulse" />}
+                    {isActive && <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-[#fc8100] animate-pulse" />}
                   </Link>
                 </motion.div>
               );

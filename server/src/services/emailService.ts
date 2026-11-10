@@ -69,16 +69,16 @@ export async function sendPasswordResetOtpEmail(
   <style>
     body { margin: 0; padding: 0; background-color: #050507; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #FFFFFF; }
     .container { max-width: 580px; margin: 0 auto; background-color: #0C0C10; border: 1px solid #22222A; border-radius: 16px; overflow: hidden; }
-    .header { padding: 32px 24px; text-align: center; background: linear-gradient(180deg, #181820 0%, #0C0C10 100%); border-bottom: 1px solid #FFBE32/20; }
-    .badge { display: inline-block; padding: 4px 12px; background: rgba(255, 190, 50, 0.15); border: 1px solid #FFBE32; border-radius: 20px; color: #FFBE32; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+    .header { padding: 32px 24px; text-align: center; background: linear-gradient(180deg, #181820 0%, #0C0C10 100%); border-bottom: 1px solid #fc8100/20; }
+    .badge { display: inline-block; padding: 4px 12px; background: rgba(252, 129, 0, 0.15); border: 1px solid #fc8100; border-radius: 20px; color: #fc8100; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
     .title { margin: 0; font-size: 24px; font-weight: 800; color: #FFFFFF; letter-spacing: 1px; text-transform: uppercase; }
     .content { padding: 32px 28px; line-height: 1.6; }
     .greeting { font-size: 16px; font-weight: 600; color: #E5E7EB; margin-bottom: 16px; }
     .desc { font-size: 14px; color: #9CA3AF; margin-bottom: 24px; }
-    .otp-box { background: #14141C; border: 2px dashed #FFBE32; border-radius: 12px; padding: 24px; text-align: center; margin: 24px 0; }
-    .otp-code { font-family: 'Courier New', Courier, monospace; font-size: 38px; font-weight: 900; letter-spacing: 10px; color: #FFBE32; margin: 0; }
+    .otp-box { background: #14141C; border: 2px dashed #fc8100; border-radius: 12px; padding: 24px; text-align: center; margin: 24px 0; }
+    .otp-code { font-family: 'Courier New', Courier, monospace; font-size: 38px; font-weight: 900; letter-spacing: 10px; color: #fc8100; margin: 0; }
     .otp-expiry { font-size: 12px; color: #9CA3AF; margin-top: 8px; }
-    .security-note { font-size: 12px; color: #6B7280; background: #08080A; border-radius: 8px; padding: 14px; margin-top: 24px; border-left: 3px solid #FFBE32; }
+    .security-note { font-size: 12px; color: #6B7280; background: #08080A; border-radius: 8px; padding: 14px; margin-top: 24px; border-left: 3px solid #fc8100; }
     .footer { padding: 24px; text-align: center; font-size: 11px; color: #4B5563; border-top: 1px solid #181820; }
   </style>
 </head>
@@ -201,14 +201,14 @@ export async function sendWelcomeEmail(
       
       <!-- HEADER WITH OFFICIAL LOGO & GLOW -->
       <tr>
-        <td style="padding: 40px 24px 30px; text-align: center; background: linear-gradient(180deg, #161622 0%, #0C0C10 100%); border-bottom: 2px solid rgba(255, 190, 50, 0.25);">
+        <td style="padding: 40px 24px 30px; text-align: center; background: linear-gradient(180deg, #161622 0%, #0C0C10 100%); border-bottom: 2px solid rgba(252, 129, 0, 0.25);">
           <!-- Logo Image -->
           <div style="display: inline-block; margin-bottom: 18px;">
-            <img src="${logoUrl}" alt="MG ESPORTS" width="90" height="90" style="display: block; width: 90px; height: 90px; border-radius: 20px; border: 2px solid #FFBE32; box-shadow: 0 0 30px rgba(255, 190, 50, 0.5); object-fit: contain; background-color: #070709;" />
+            <img src="${logoUrl}" alt="MG ESPORTS" width="90" height="90" style="display: block; width: 90px; height: 90px; border-radius: 20px; border: 2px solid #fc8100; box-shadow: 0 0 30px rgba(252, 129, 0, 0.5); object-fit: contain; background-color: #070709;" />
           </div>
           
           <div style="margin-bottom: 10px;">
-            <span style="display: inline-block; padding: 5px 16px; background: rgba(255, 190, 50, 0.15); border: 1px solid #FFBE32; border-radius: 24px; color: #FFBE32; font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">
+            <span style="display: inline-block; padding: 5px 16px; background: rgba(252, 129, 0, 0.15); border: 1px solid #fc8100; border-radius: 24px; color: #fc8100; font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">
               ⚡ OFFICIAL ATHLETE ONBOARDING
             </span>
           </div>
@@ -227,20 +227,20 @@ export async function sendWelcomeEmail(
         <td style="padding: 32px 30px 20px;">
           <!-- Salutation -->
           <p style="margin: 0 0 16px 0; font-size: 18px; font-weight: 700; color: #FFFFFF;">
-            Greetings <span style="color: #FFBE32;">${athleteName}</span>,
+            Greetings <span style="color: #fc8100;">${athleteName}</span>,
           </p>
           <p style="margin: 0 0 24px 0; font-size: 14px; line-height: 1.7; color: #D1D5DB;">
             Welcome to the frontlines of Indian competitive esports! Your official <strong>MG ESPORTS Athlete Passport</strong> has been verified and registered on our portal. You now have unrestricted access to our national tournament brackets, live scrims, verified stats, and official clan operations.
           </p>
 
           <!-- ATHLETE PASSPORT CREDENTIAL CARD -->
-          <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin: 20px 0 28px; background: linear-gradient(135deg, #14141E 0%, #0A0A0E 100%); border: 1.5px solid #FFBE32; border-radius: 16px; box-shadow: 0 4px 20px rgba(255, 190, 50, 0.15);">
+          <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin: 20px 0 28px; background: linear-gradient(135deg, #14141E 0%, #0A0A0E 100%); border: 1.5px solid #fc8100; border-radius: 16px; box-shadow: 0 4px 20px rgba(252, 129, 0, 0.15);">
             <tr>
-              <td style="padding: 16px 20px; border-bottom: 1px solid rgba(255, 190, 50, 0.2);">
+              <td style="padding: 16px 20px; border-bottom: 1px solid rgba(252, 129, 0, 0.2);">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                   <tr>
                     <td align="left">
-                      <span style="font-size: 11px; font-weight: 900; color: #FFBE32; letter-spacing: 2px; text-transform: uppercase;">
+                      <span style="font-size: 11px; font-weight: 900; color: #fc8100; letter-spacing: 2px; text-transform: uppercase;">
                         ⚡ ATHLETE PASSPORT CREDENTIALS
                       </span>
                     </td>
@@ -262,7 +262,7 @@ export async function sendWelcomeEmail(
                   </tr>
                   <tr>
                     <td style="padding: 7px 0; font-size: 12px; color: #9CA3AF; text-transform: uppercase; font-family: monospace;">Clan Username:</td>
-                    <td align="right" style="padding: 7px 0; font-size: 13px; font-weight: 700; color: #FFBE32; font-family: monospace;">@${athleteUsername}</td>
+                    <td align="right" style="padding: 7px 0; font-size: 13px; font-weight: 700; color: #fc8100; font-family: monospace;">@${athleteUsername}</td>
                   </tr>
                   <tr>
                     <td style="padding: 7px 0; font-size: 12px; color: #9CA3AF; text-transform: uppercase; font-family: monospace;">Primary Title:</td>
@@ -323,15 +323,15 @@ export async function sendWelcomeEmail(
 
           <!-- CALL TO ACTION BUTTON -->
           <div style="text-align: center; margin: 34px 0 28px 0;">
-            <a href="${clientUrl}" target="_blank" style="display: inline-block; padding: 16px 36px; background: linear-gradient(135deg, #FFBE32 0%, #FFA000 100%); color: #000000; font-size: 13px; font-weight: 900; text-decoration: none; border-radius: 12px; letter-spacing: 2px; text-transform: uppercase; box-shadow: 0 6px 25px rgba(255, 190, 50, 0.45);">
+            <a href="${clientUrl}" target="_blank" style="display: inline-block; padding: 16px 36px; background: linear-gradient(135deg, #fc8100 0%, #e07200 100%); color: #000000; font-size: 13px; font-weight: 900; text-decoration: none; border-radius: 12px; letter-spacing: 2px; text-transform: uppercase; box-shadow: 0 6px 25px rgba(252, 129, 0, 0.45);">
               ENTER TOURNAMENT ARENA →
             </a>
           </div>
 
           <!-- COMMUNITY CALLOUT -->
-          <div style="background-color: #08080C; border-left: 3px solid #FFBE32; border-radius: 8px; padding: 14px 18px; margin-top: 10px;">
+          <div style="background-color: #08080C; border-left: 3px solid #fc8100; border-radius: 8px; padding: 14px 18px; margin-top: 10px;">
             <p style="margin: 0; font-size: 12px; color: #9CA3AF; line-height: 1.6;">
-              <strong style="color: #FFFFFF;">Need Squad Assistance or Have Questions?</strong> Connect with our clan coordinators on our official portal or email <a href="mailto:lordesportz75@gmail.com" style="color: #FFBE32; text-decoration: none;">lordesportz75@gmail.com</a>.
+              <strong style="color: #FFFFFF;">Need Squad Assistance or Have Questions?</strong> Connect with our clan coordinators on our official portal or email <a href="mailto:lordesportz75@gmail.com" style="color: #fc8100; text-decoration: none;">lordesportz75@gmail.com</a>.
             </p>
           </div>
         </td>
@@ -433,15 +433,15 @@ export async function sendRoomCredentialsEmail(
     <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px; background-color: #0C0C12; border: 1px solid #262635; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.8);">
       <!-- HEADER -->
       <tr>
-        <td style="padding: 36px 32px 24px 32px; background: linear-gradient(180deg, #181824 0%, #0C0C12 100%); text-align: center; border-bottom: 2px solid #FFBE32;">
-          <div style="display: inline-block; padding: 6px 14px; border-radius: 30px; background: rgba(255, 190, 50, 0.15); border: 1px solid rgba(255, 190, 50, 0.4); margin-bottom: 16px;">
-            <span style="font-size: 11px; font-weight: 800; letter-spacing: 2px; color: #FFBE32; text-transform: uppercase;">OFFICIAL MATCH ROOM DISPATCH</span>
+        <td style="padding: 36px 32px 24px 32px; background: linear-gradient(180deg, #181824 0%, #0C0C12 100%); text-align: center; border-bottom: 2px solid #fc8100;">
+          <div style="display: inline-block; padding: 6px 14px; border-radius: 30px; background: rgba(252, 129, 0, 0.15); border: 1px solid rgba(252, 129, 0, 0.4); margin-bottom: 16px;">
+            <span style="font-size: 11px; font-weight: 800; letter-spacing: 2px; color: #fc8100; text-transform: uppercase;">OFFICIAL MATCH ROOM DISPATCH</span>
           </div>
           <h1 style="margin: 0 0 8px 0; font-size: 26px; font-weight: 900; letter-spacing: 1px; color: #FFFFFF; text-transform: uppercase;">
             ROOM CREDENTIALS ARE LIVE! 🎮
           </h1>
           <p style="margin: 0; font-size: 14px; color: #9CA3AF;">
-            ${data.tournamentTitle} • <strong style="color: #FFBE32;">${data.roundName}</strong>
+            ${data.tournamentTitle} • <strong style="color: #fc8100;">${data.roundName}</strong>
           </p>
         </td>
       </tr>
@@ -453,11 +453,11 @@ export async function sendRoomCredentialsEmail(
             Greetings Captain <strong style="color: #FFFFFF;">${data.leaderName}</strong>,
           </p>
           <p style="margin: 0 0 24px 0; font-size: 14px; line-height: 1.6; color: #9CA3AF;">
-            The custom match lobby for squad <strong style="color: #FFBE32;">${data.teamName}</strong> is now open. Below are your official Free Fire custom room credentials. Please ensure your squad is joined and seated before the match timer expires.
+            The custom match lobby for squad <strong style="color: #fc8100;">${data.teamName}</strong> is now open. Below are your official Free Fire custom room credentials. Please ensure your squad is joined and seated before the match timer expires.
           </p>
 
           <!-- CREDENTIALS BOX -->
-          <table width="100%" cellpadding="0" cellspacing="0" style="background: linear-gradient(135deg, rgba(255, 190, 50, 0.1) 0%, rgba(20, 20, 30, 0.8) 100%); border: 2px solid #FFBE32; border-radius: 16px; margin: 0 0 24px 0; overflow: hidden;">
+          <table width="100%" cellpadding="0" cellspacing="0" style="background: linear-gradient(135deg, rgba(252, 129, 0, 0.1) 0%, rgba(20, 20, 30, 0.8) 100%); border: 2px solid #fc8100; border-radius: 16px; margin: 0 0 24px 0; overflow: hidden;">
             <tr>
               <td style="padding: 20px 24px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
                 <div style="font-size: 11px; font-weight: 800; letter-spacing: 1.5px; color: #9CA3AF; text-transform: uppercase; margin-bottom: 6px;">ASSIGNED SQUAD SLOT</div>
@@ -477,7 +477,7 @@ export async function sendRoomCredentialsEmail(
                     <td width="50%" style="padding-left: 12px; vertical-align: top;">
                       <div style="background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 16px; text-align: center;">
                         <span style="font-size: 11px; font-weight: 700; color: #9CA3AF; letter-spacing: 1px; text-transform: uppercase; display: block; margin-bottom: 8px;">PASSWORD</span>
-                        <span style="font-size: 24px; font-weight: 900; letter-spacing: 2px; color: #FFBE32; font-family: monospace;">${data.roomPassword}</span>
+                        <span style="font-size: 24px; font-weight: 900; letter-spacing: 2px; color: #fc8100; font-family: monospace;">${data.roomPassword}</span>
                       </div>
                     </td>
                   </tr>
@@ -489,7 +489,7 @@ export async function sendRoomCredentialsEmail(
                 <table width="100%" cellpadding="0" cellspacing="0">
                   <tr>
                     <td style="font-size: 12px; color: #9CA3AF; font-family: monospace;">
-                      MAP: <strong style="color: #FFBE32; text-transform: uppercase;">${data.map || "BERMUDA"}</strong>
+                      MAP: <strong style="color: #fc8100; text-transform: uppercase;">${data.map || "BERMUDA"}</strong>
                     </td>
                     <td align="right" style="font-size: 12px; color: #9CA3AF; font-family: monospace;">
                       TIME: <strong style="color: #FFFFFF;">${data.roomTime || "AS SCHEDULED"}</strong>
@@ -501,9 +501,9 @@ export async function sendRoomCredentialsEmail(
           </table>
 
           ${data.customNotes ? `
-          <div style="background: rgba(255, 255, 255, 0.04); border-left: 3px solid #FFBE32; border-radius: 6px; padding: 14px 18px; margin-bottom: 24px;">
+          <div style="background: rgba(255, 255, 255, 0.04); border-left: 3px solid #fc8100; border-radius: 6px; padding: 14px 18px; margin-bottom: 24px;">
             <p style="margin: 0; font-size: 12px; color: #E5E7EB; line-height: 1.6;">
-              📌 <strong style="color: #FFBE32;">Special Instructions:</strong> ${data.customNotes}
+              📌 <strong style="color: #fc8100;">Special Instructions:</strong> ${data.customNotes}
             </p>
           </div>
           ` : ""}
@@ -518,7 +518,7 @@ export async function sendRoomCredentialsEmail(
           <table width="100%" cellpadding="0" cellspacing="0">
             <tr>
               <td align="center">
-                <a href="https://lordesportz.com/my-tournaments" target="_blank" style="display: inline-block; background-color: #FFBE32; color: #000000; font-size: 13px; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; padding: 16px 36px; border-radius: 12px; box-shadow: 0 4px 20px rgba(255, 190, 50, 0.4);">
+                <a href="https://lordesportz.com/my-tournaments" target="_blank" style="display: inline-block; background-color: #fc8100; color: #000000; font-size: 13px; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; padding: 16px 36px; border-radius: 12px; box-shadow: 0 4px 20px rgba(252, 129, 0, 0.4);">
                   VIEW ON ATHLETE DASHBOARD →
                 </a>
               </td>

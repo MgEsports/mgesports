@@ -7,7 +7,7 @@ export const TemplePattern = ({ className = "opacity-10" }: { className?: string
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g stroke="#FFBE32" strokeWidth="1.2" strokeOpacity="0.45">
+        <g stroke="#fc8100" strokeWidth="1.2" strokeOpacity="0.45">
           {/* Temple Gopuram Tiered Outline */}
           <path d="M600 80 L620 120 L580 120 Z" />
           <path d="M570 120 H630 V160 H570 Z" />

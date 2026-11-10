@@ -320,7 +320,7 @@ export const AdminMediaPage: React.FC = () => {
 
         <button
           onClick={handleOpenCreate}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#FFBE32] hover:bg-[#FFA000] transition-all cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)] shrink-0"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#fc8100] hover:bg-[#e07200] transition-all cursor-pointer shadow-[0_0_15px_rgba(252, 129, 0,0.3)] shrink-0"
         >
           <Plus className="h-4 w-4" />
           <span>Add Media Item</span>
@@ -335,7 +335,7 @@ export const AdminMediaPage: React.FC = () => {
             onClick={() => setTypeFilter(tf)}
             className={`px-4 py-1.5 rounded-lg text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer ${
               typeFilter === tf
-                ? "bg-[#FFBE32] text-black shadow-[0_0_10px_rgba(255,190,50,0.3)] font-extrabold"
+                ? "bg-[#fc8100] text-black shadow-[0_0_10px_rgba(252, 129, 0,0.3)] font-extrabold"
                 : "bg-black/50 text-gray-400 hover:text-white border border-white/5"
             }`}
           >
@@ -354,7 +354,7 @@ export const AdminMediaPage: React.FC = () => {
           {filteredMedia.map((m) => (
             <div
               key={m.id}
-              className="rounded-2xl bg-[#0C0C10] border border-white/10 hover:border-[#FFBE32]/60 transition-all flex flex-col group shadow-[0_10px_25px_rgba(0,0,0,0.7)] overflow-hidden"
+              className="rounded-2xl bg-[#0C0C10] border border-white/10 hover:border-[#fc8100]/60 transition-all flex flex-col group shadow-[0_10px_25px_rgba(0,0,0,0.7)] overflow-hidden"
             >
               {/* Video Thumbnail */}
               <div className="aspect-video w-full bg-black relative overflow-hidden">
@@ -368,14 +368,14 @@ export const AdminMediaPage: React.FC = () => {
 
                 {/* Vignette & play button */}
                 <div className="absolute inset-0 bg-black/25 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                  <div className="h-10 w-10 rounded-full bg-[#FFBE32] text-black flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <div className="h-10 w-10 rounded-full bg-[#fc8100] text-black flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                     <Play className="h-4 w-4 fill-current ml-0.5" />
                   </div>
                 </div>
 
                 {/* Floating Top Left Badges: Type + Big Premiere */}
                 <div className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 flex-wrap">
-                  <span className="px-2.5 py-0.5 rounded-lg bg-black/80 border border-white/15 text-[10px] font-heading font-bold text-[#FFBE32] uppercase backdrop-blur-md">
+                  <span className="px-2.5 py-0.5 rounded-lg bg-black/80 border border-white/15 text-[10px] font-heading font-bold text-[#fc8100] uppercase backdrop-blur-md">
                     {m.type}
                   </span>
                   {m.tag === "PREMIERE" && (
@@ -411,7 +411,7 @@ export const AdminMediaPage: React.FC = () => {
                     }}
                     className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10px] font-heading font-bold uppercase tracking-wider transition-all cursor-pointer backdrop-blur-md ${
                       m.featured
-                        ? "bg-[#FFBE32] text-black shadow-[0_0_12px_rgba(255,190,50,0.45)]"
+                        ? "bg-[#fc8100] text-black shadow-[0_0_12px_rgba(252, 129, 0,0.45)]"
                         : "bg-black/80 border border-white/20 text-gray-300 hover:text-white hover:border-white/40"
                     }`}
                     title={m.featured ? "Click to remove from main website" : "Click to display on main website"}
@@ -431,14 +431,14 @@ export const AdminMediaPage: React.FC = () => {
 
               {/* Title & Actions Only - Tight & Snug without Empty Space or Description */}
               <div className="p-4 flex items-center justify-between gap-3 bg-[#0C0C10]">
-                <h3 className="font-display text-base uppercase tracking-wider text-white group-hover:text-[#FFBE32] transition-colors line-clamp-2 leading-snug font-bold flex-1">
+                <h3 className="font-display text-base uppercase tracking-wider text-white group-hover:text-[#fc8100] transition-colors line-clamp-2 leading-snug font-bold flex-1">
                   {m.title}
                 </h3>
 
                 <div className="flex items-center gap-1.5 shrink-0">
                   <button
                     onClick={() => handleOpenEdit(m)}
-                    className="p-2 rounded-lg bg-white/5 hover:bg-white/15 text-gray-300 hover:text-[#FFBE32] cursor-pointer transition-colors"
+                    className="p-2 rounded-lg bg-white/5 hover:bg-white/15 text-gray-300 hover:text-[#fc8100] cursor-pointer transition-colors"
                     title="Edit Media"
                   >
                     <Edit className="h-4 w-4" />
@@ -460,7 +460,7 @@ export const AdminMediaPage: React.FC = () => {
       {/* Modal */}
       {modalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md overflow-y-auto">
-          <div className="relative w-full max-w-lg rounded-2xl bg-[#0D0D12] border border-[#FFBE32]/40 p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.9)] max-h-[90vh] overflow-y-auto">
+          <div className="relative w-full max-w-lg rounded-2xl bg-[#0D0D12] border border-[#fc8100]/40 p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.9)] max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
               <h3 className="font-display text-2xl uppercase tracking-wider text-white">
                 {editingItem ? "Edit Media Item" : "Add Media Video / Clip"}
@@ -484,7 +484,7 @@ export const AdminMediaPage: React.FC = () => {
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                   placeholder="FLAME OF GLORY S2 • OFFICIAL TRAILER"
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                 />
               </div>
 
@@ -495,7 +495,7 @@ export const AdminMediaPage: React.FC = () => {
                 <select
                   value={formData.type}
                   onChange={(e) => setFormData({ ...formData, type: e.target.value as any })}
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                 >
                   <option value="VIDEOS">VIDEOS</option>
                   <option value="HIGHLIGHTS">HIGHLIGHTS</option>
@@ -515,7 +515,7 @@ export const AdminMediaPage: React.FC = () => {
                   value={formData.youtubeId || ""}
                   onChange={(e) => setFormData({ ...formData, youtubeId: e.target.value })}
                   placeholder="https://www.youtube.com/watch?v=... or https://youtu.be/... or ID"
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none font-mono"
                 />
                 <p className="text-[11px] text-gray-400 mt-1">
                   Paste any YouTube URL (Watch link, Shorts link, Share link, or direct Video ID).
@@ -523,7 +523,7 @@ export const AdminMediaPage: React.FC = () => {
 
                 {/* Live Video Preview in Modal */}
                 {previewId ? (
-                  <div className="mt-3 p-3 rounded-xl bg-black/70 border border-[#FFBE32]/35 flex items-center gap-3">
+                  <div className="mt-3 p-3 rounded-xl bg-black/70 border border-[#fc8100]/35 flex items-center gap-3">
                     <div className="relative w-28 aspect-video rounded-lg overflow-hidden bg-black shrink-0 border border-white/10">
                       <img
                         src={`https://img.youtube.com/vi/${previewId}/hqdefault.jpg`}
@@ -531,7 +531,7 @@ export const AdminMediaPage: React.FC = () => {
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute inset-0 flex items-center justify-center bg-black/25">
-                        <Play className="h-4 w-4 text-[#FFBE32] fill-current" />
+                        <Play className="h-4 w-4 text-[#fc8100] fill-current" />
                       </div>
                     </div>
                     <div className="min-w-0 flex-1">
@@ -540,7 +540,7 @@ export const AdminMediaPage: React.FC = () => {
                         <span>Connected to YouTube</span>
                       </div>
                       <p className="font-mono text-[11px] text-gray-300 truncate mt-0.5">
-                        Video ID: <span className="text-[#FFBE32] font-bold">{previewId}</span>
+                        Video ID: <span className="text-[#fc8100] font-bold">{previewId}</span>
                       </p>
                       <p className="text-[10px] text-gray-400 mt-0.5">
                         Will stream in 1080p directly on the website
@@ -563,7 +563,7 @@ export const AdminMediaPage: React.FC = () => {
                   value={formData.duration || ""}
                   onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
                   placeholder="02:45"
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none font-mono"
                 />
               </div>
 
@@ -571,7 +571,7 @@ export const AdminMediaPage: React.FC = () => {
               <div className="p-3.5 rounded-xl bg-black/60 border border-white/15 flex items-center justify-between gap-4">
                 <div>
                   <div className="flex items-center gap-2">
-                    <Star className={`h-4 w-4 ${formData.featured ? "text-[#FFBE32] fill-current" : "text-gray-400"}`} />
+                    <Star className={`h-4 w-4 ${formData.featured ? "text-[#fc8100] fill-current" : "text-gray-400"}`} />
                     <span className="text-xs font-heading font-bold uppercase text-white">
                       Display on Main Website
                     </span>
@@ -588,7 +588,7 @@ export const AdminMediaPage: React.FC = () => {
                     onChange={(e) => setFormData({ ...formData, featured: e.target.checked })}
                     className="sr-only peer"
                   />
-                  <div className="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#FFBE32] peer-checked:after:bg-black"></div>
+                  <div className="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#fc8100] peer-checked:after:bg-black"></div>
                 </label>
               </div>
 
@@ -627,7 +627,7 @@ export const AdminMediaPage: React.FC = () => {
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2 rounded-xl bg-[#FFBE32] text-black font-heading text-xs font-bold uppercase tracking-wider"
+                  className="px-6 py-2 rounded-xl bg-[#fc8100] text-black font-heading text-xs font-bold uppercase tracking-wider"
                 >
                   Save Media
                 </button>

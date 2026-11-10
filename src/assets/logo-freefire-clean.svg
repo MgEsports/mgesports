@@ -2,7 +2,7 @@
   <defs>
     <linearGradient id="ffGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stopColor="#FFF2B2" />
-      <stop offset="40%" stopColor="#FFBE32" />
+      <stop offset="40%" stopColor="#fc8100" />
       <stop offset="100%" stopColor="#FF7A00" />
     </linearGradient>
     <filter id="ffGlow" x="-20%" y="-20%" width="140%" height="140%">
@@ -16,7 +16,7 @@
     </text>
   </g>
   <!-- MAX Badge -->
-  <rect x="195" y="16" width="56" height="24" rx="4" fill="#FFBE32" />
+  <rect x="195" y="16" width="56" height="24" rx="4" fill="#fc8100" />
   <text x="223" y="33" fill="#000000" font-family="'Arial Black', sans-serif" font-weight="900" font-style="italic" font-size="14" text-anchor="middle" letter-spacing="1px">
     MAX
   </text>

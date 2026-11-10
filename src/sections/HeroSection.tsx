@@ -59,7 +59,7 @@ export const HeroSection = ({
           x: lightBlobX,
           y: lightBlobY,
         }}
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[450px] w-[450px] sm:h-[600px] sm:w-[600px] rounded-full bg-[#FFBE32]/10 blur-[90px] pointer-events-none will-change-transform"
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[450px] w-[450px] sm:h-[600px] sm:w-[600px] rounded-full bg-[#fc8100]/10 blur-[90px] pointer-events-none will-change-transform"
       />
 
       {/* MAIN CONTENT */}
@@ -74,17 +74,17 @@ export const HeroSection = ({
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-[#FFBE32]/35 bg-[#FFBE32]/10 backdrop-blur-md mb-6"
+              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-[#fc8100]/35 bg-[#fc8100]/10 backdrop-blur-md mb-6"
             >
               <img
                 src={logoImg}
                 alt="MG ESPORTS Official Crest"
                 width={16}
                 height={16}
-                className="h-4 w-4 object-contain drop-shadow-[0_0_8px_#FFBE32]"
+                className="h-4 w-4 object-contain drop-shadow-[0_0_8px_#fc8100]"
               />
 
-              <span className="font-heading text-xs font-bold uppercase tracking-[0.25em] text-[#FFBE32]">
+              <span className="font-heading text-xs font-bold uppercase tracking-[0.25em] text-[#fc8100]">
                 MG ESPORTS
               </span>
 
@@ -132,12 +132,12 @@ export const HeroSection = ({
               className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-xs font-heading font-semibold text-gray-300 tracking-wider"
             >
               <div className="flex items-center gap-1.5">
-                <Trophy className="h-4 w-4 text-[#FFBE32]" />
+                <Trophy className="h-4 w-4 text-[#fc8100]" />
                 <span>WORLD CHAMPIONSHIP GOLDEN TICKET</span>
               </div>
 
               <div className="flex items-center gap-1.5">
-                <Sparkles className="h-4 w-4 text-[#FFBE32]" />
+                <Sparkles className="h-4 w-4 text-[#fc8100]" />
                 <span>TOP 8 WORLDWIDE RANKING</span>
               </div>
             </motion.div>
@@ -182,7 +182,7 @@ export const HeroSection = ({
           <div className="lg:col-span-5 flex justify-center items-center relative min-h-[300px] sm:min-h-[400px] lg:min-h-[660px]">
 
             {/* GOLD AND AMBER GLOW */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-80 w-80 sm:h-[460px] sm:w-[460px] rounded-full bg-gradient-to-tr from-[#FFBE32]/15 via-orange-500/20 to-red-500/10 blur-[120px] pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-80 w-80 sm:h-[460px] sm:w-[460px] rounded-full bg-gradient-to-tr from-[#fc8100]/15 via-orange-500/20 to-red-500/10 blur-[120px] pointer-events-none" />
 
             {/* DIAGONAL ENERGY BEAM */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
@@ -199,8 +199,8 @@ export const HeroSection = ({
                     x2="100%"
                     y2="100%"
                   >
-                    <stop offset="0%" stopColor="#FFBE32" stopOpacity="0" />
-                    <stop offset="35%" stopColor="#FFBE32" stopOpacity="0.9" />
+                    <stop offset="0%" stopColor="#fc8100" stopOpacity="0" />
+                    <stop offset="35%" stopColor="#fc8100" stopOpacity="0.9" />
                     <stop offset="65%" stopColor="#f97316" stopOpacity="0.85" />
                     <stop offset="100%" stopColor="#ef4444" stopOpacity="0" />
                   </linearGradient>
@@ -265,13 +265,13 @@ export const HeroSection = ({
       {/* SCROLL INDICATOR */}
       <a
         href="#jersey"
-        className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-gray-400 hover:text-[#FFBE32] transition-colors z-20 group"
+        className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-gray-400 hover:text-[#fc8100] transition-colors z-20 group"
       >
-        <span className="font-heading text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] uppercase text-gray-500 group-hover:text-[#FFBE32]">
+        <span className="font-heading text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] uppercase text-gray-500 group-hover:text-[#fc8100]">
           SCROLL
         </span>
 
-        <ChevronDown className="h-3.5 w-3.5 sm:h-4 sm:w-4 animate-bounce text-[#FFBE32]" />
+        <ChevronDown className="h-3.5 w-3.5 sm:h-4 sm:w-4 animate-bounce text-[#fc8100]" />
       </a>
     </section>
   );

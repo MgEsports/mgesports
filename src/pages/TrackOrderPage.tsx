@@ -191,23 +191,23 @@ export const TrackOrderPage = () => {
 
       <div className="relative min-h-screen bg-[#050505] text-white pt-24 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Background glow effects */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[900px] h-[350px] bg-[#FFBE32]/8 blur-[140px] pointer-events-none rounded-full" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[900px] h-[350px] bg-[#fc8100]/8 blur-[140px] pointer-events-none rounded-full" />
         <div className="absolute top-1/2 right-0 w-[400px] h-[300px] bg-amber-500/5 blur-[120px] pointer-events-none" />
 
         <div className="relative max-w-5xl mx-auto space-y-8">
           {/* Header & Breadcrumb */}
           <div className="text-center space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-[#FFBE32] uppercase tracking-wider">
-              <Truck className="h-3.5 w-3.5 text-[#FFBE32]" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-[#fc8100] uppercase tracking-wider">
+              <Truck className="h-3.5 w-3.5 text-[#fc8100]" />
               <span>Real-Time Courier Tracking • India Post &amp; Global</span>
             </div>
 
             <h1 className="font-display text-3xl sm:text-5xl uppercase tracking-wider text-white">
-              TRACK YOUR <span className="text-[#FFBE32]">ORDER</span>
+              TRACK YOUR <span className="text-[#fc8100]">ORDER</span>
             </h1>
 
             <p className="text-xs sm:text-sm text-gray-400 font-body max-w-2xl mx-auto">
-              Look up your MG Esports combat jersey, apparel, and merchandise dispatches. Enter your Order Number (<code className="text-[#FFBE32]">MG-2026-XXXX</code>), registered mobile number, or email.
+              Look up your MG Esports combat jersey, apparel, and merchandise dispatches. Enter your Order Number (<code className="text-[#fc8100]">MG-2026-XXXX</code>), registered mobile number, or email.
             </p>
           </div>
 
@@ -219,7 +219,7 @@ export const TrackOrderPage = () => {
                 onClick={() => setActiveTab("SEARCH")}
                 className={`px-4 py-2 rounded-xl text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer ${
                   activeTab === "SEARCH"
-                    ? "bg-[#FFBE32] text-black shadow-[0_0_15px_rgba(255,190,50,0.3)]"
+                    ? "bg-[#fc8100] text-black shadow-[0_0_15px_rgba(252, 129, 0,0.3)]"
                     : "bg-white/5 text-gray-400 hover:text-white border border-white/10"
                 }`}
               >
@@ -230,7 +230,7 @@ export const TrackOrderPage = () => {
                 onClick={() => setActiveTab("MY_ACCOUNT")}
                 className={`px-4 py-2 rounded-xl text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1.5 ${
                   activeTab === "MY_ACCOUNT"
-                    ? "bg-[#FFBE32] text-black shadow-[0_0_15px_rgba(255,190,50,0.3)]"
+                    ? "bg-[#fc8100] text-black shadow-[0_0_15px_rgba(252, 129, 0,0.3)]"
                     : "bg-white/5 text-gray-400 hover:text-white border border-white/10"
                 }`}
               >
@@ -252,14 +252,14 @@ export const TrackOrderPage = () => {
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       placeholder="Enter Order # (e.g. MG-2026-1042), Mobile Number, or Email..."
-                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-10 pr-4 py-3 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-10 pr-4 py-3 text-sm text-white focus:border-[#fc8100] focus:outline-none font-mono"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full sm:w-auto px-8 py-3 rounded-xl bg-[#FFBE32] hover:bg-[#FFA000] text-black font-heading text-xs font-bold uppercase tracking-wider cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)] shrink-0 disabled:opacity-50 transition-all"
+                    className="w-full sm:w-auto px-8 py-3 rounded-xl bg-[#fc8100] hover:bg-[#e07200] text-black font-heading text-xs font-bold uppercase tracking-wider cursor-pointer shadow-[0_0_15px_rgba(252, 129, 0,0.3)] shrink-0 disabled:opacity-50 transition-all"
                   >
                     {loading ? "Searching..." : "Track Shipment"}
                   </button>
@@ -274,7 +274,7 @@ export const TrackOrderPage = () => {
                       setSearchQuery("MG-2026-1042");
                       executeSearch("MG-2026-1042");
                     }}
-                    className="text-[#FFBE32] hover:underline cursor-pointer"
+                    className="text-[#fc8100] hover:underline cursor-pointer"
                   >
                     MG-2026-1042
                   </button>
@@ -285,7 +285,7 @@ export const TrackOrderPage = () => {
                       setSearchQuery("CL510579225IN");
                       executeSearch("CL510579225IN");
                     }}
-                    className="text-[#FFBE32] hover:underline cursor-pointer"
+                    className="text-[#fc8100] hover:underline cursor-pointer"
                   >
                     CL510579225IN (India Post)
                   </button>
@@ -296,7 +296,7 @@ export const TrackOrderPage = () => {
                       setSearchQuery("rahul.v@gmail.com");
                       executeSearch("rahul.v@gmail.com");
                     }}
-                    className="text-[#FFBE32] hover:underline cursor-pointer"
+                    className="text-[#fc8100] hover:underline cursor-pointer"
                   >
                     rahul.v@gmail.com
                   </button>
@@ -308,7 +308,7 @@ export const TrackOrderPage = () => {
           {/* Loading Indicator */}
           {(loading || loadingMyOrders) && (
             <div className="py-16 text-center space-y-3">
-              <div className="h-8 w-8 border-2 border-[#FFBE32] border-t-transparent rounded-full animate-spin mx-auto" />
+              <div className="h-8 w-8 border-2 border-[#fc8100] border-t-transparent rounded-full animate-spin mx-auto" />
               <p className="text-xs text-gray-400 font-mono">Querying MG Esports shipment database...</p>
             </div>
           )}
@@ -374,7 +374,7 @@ export const TrackOrderPage = () => {
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="font-mono text-base font-bold text-[#FFBE32]">
+                          <span className="font-mono text-base font-bold text-[#fc8100]">
                             {ord.orderNumber}
                           </span>
                           <button
@@ -422,7 +422,7 @@ export const TrackOrderPage = () => {
                           {/* Progress Line */}
                           <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-white/10 -translate-y-1/2" />
                           <div
-                            className="absolute top-1/2 left-0 h-0.5 bg-[#FFBE32] -translate-y-1/2 transition-all duration-700"
+                            className="absolute top-1/2 left-0 h-0.5 bg-[#fc8100] -translate-y-1/2 transition-all duration-700"
                             style={{
                               width: isDelivered
                                 ? "100%"
@@ -438,7 +438,7 @@ export const TrackOrderPage = () => {
                           <div className="relative flex justify-between">
                             {/* Step 1: Placed */}
                             <div className="flex flex-col items-center">
-                              <div className="h-8 w-8 rounded-full bg-[#FFBE32] text-black flex items-center justify-center font-bold text-xs shadow-[0_0_10px_rgba(255,190,50,0.5)]">
+                              <div className="h-8 w-8 rounded-full bg-[#fc8100] text-black flex items-center justify-center font-bold text-xs shadow-[0_0_10px_rgba(252, 129, 0,0.5)]">
                                 <Check className="h-4 w-4" />
                               </div>
                               <span className="text-[11px] font-heading font-bold text-white uppercase mt-2">
@@ -451,7 +451,7 @@ export const TrackOrderPage = () => {
                               <div
                                 className={`h-8 w-8 rounded-full flex items-center justify-center font-bold text-xs transition-all ${
                                   isProcessing
-                                    ? "bg-[#FFBE32] text-black shadow-[0_0_10px_rgba(255,190,50,0.5)]"
+                                    ? "bg-[#fc8100] text-black shadow-[0_0_10px_rgba(252, 129, 0,0.5)]"
                                     : "bg-black/80 border border-white/20 text-gray-500"
                                 }`}
                               >
@@ -471,7 +471,7 @@ export const TrackOrderPage = () => {
                               <div
                                 className={`h-8 w-8 rounded-full flex items-center justify-center font-bold text-xs transition-all ${
                                   isShipped
-                                    ? "bg-[#FFBE32] text-black shadow-[0_0_10px_rgba(255,190,50,0.5)]"
+                                    ? "bg-[#fc8100] text-black shadow-[0_0_10px_rgba(252, 129, 0,0.5)]"
                                     : "bg-black/80 border border-white/20 text-gray-500"
                                 }`}
                               >
@@ -525,14 +525,14 @@ export const TrackOrderPage = () => {
                       <div>
                         <div className="flex items-center gap-2 text-white font-bold font-heading">
                           <Calendar
-                            className={`h-4 w-4 ${isDelivered ? "text-emerald-400" : "text-[#FFBE32]"}`}
+                            className={`h-4 w-4 ${isDelivered ? "text-emerald-400" : "text-[#fc8100]"}`}
                           />
                           <span>{isDelivered ? "DELIVERY CONFIRMED:" : "EXPECTED DELIVERY:"}</span>
                           <span
                             className={
                               isDelivered
                                 ? "text-emerald-400 text-sm font-bold"
-                                : "text-[#FFBE32] text-sm"
+                                : "text-[#fc8100] text-sm"
                             }
                           >
                             {isDelivered
@@ -577,7 +577,7 @@ export const TrackOrderPage = () => {
                           Status: <strong className="text-emerald-400">{ord.paymentStatus}</strong>
                         </span>
                         {ord.utrNumber && (
-                          <p className="text-[#FFBE32] text-[11px]">UTR: {ord.utrNumber}</p>
+                          <p className="text-[#fc8100] text-[11px]">UTR: {ord.utrNumber}</p>
                         )}
                       </div>
                     </div>
@@ -587,7 +587,7 @@ export const TrackOrderPage = () => {
                       <div className="p-4 rounded-xl bg-black/60 border border-white/10 space-y-4">
                         <div className="flex items-center justify-between border-b border-white/5 pb-3">
                           <div className="flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-wider text-white">
-                            <Clock className="h-4 w-4 text-[#FFBE32]" />
+                            <Clock className="h-4 w-4 text-[#fc8100]" />
                             <span>Live Carrier Checkpoints (AfterShip Integration)</span>
                           </div>
 
@@ -597,7 +597,7 @@ export const TrackOrderPage = () => {
                               fetchLiveTracking(ord.id, ord.trackingNumber!, ord.courierPartner)
                             }
                             disabled={isLoadingTracking}
-                            className="text-[11px] font-mono text-gray-400 hover:text-[#FFBE32] flex items-center gap-1 cursor-pointer"
+                            className="text-[11px] font-mono text-gray-400 hover:text-[#fc8100] flex items-center gap-1 cursor-pointer"
                           >
                             <RotateCcw className={`h-3 w-3 ${isLoadingTracking ? "animate-spin" : ""}`} />
                             <span>Refresh</span>
@@ -640,7 +640,7 @@ export const TrackOrderPage = () => {
                                       <div
                                         className={`absolute -left-[23px] top-1 h-3 w-3 rounded-full border-2 border-black ${
                                           idx === 0
-                                            ? "bg-[#FFBE32] ring-2 ring-[#FFBE32]/40"
+                                            ? "bg-[#fc8100] ring-2 ring-[#fc8100]/40"
                                             : "bg-gray-600"
                                         }`}
                                       />
@@ -650,7 +650,7 @@ export const TrackOrderPage = () => {
                                         </span>
                                         <div className="text-[11px] text-gray-400 font-mono mt-0.5 flex flex-wrap items-center gap-2">
                                           {cp.location && (
-                                            <span className="flex items-center gap-1 text-[#FFBE32]">
+                                            <span className="flex items-center gap-1 text-[#fc8100]">
                                               <MapPin className="h-3 w-3" />
                                               {cp.location}
                                             </span>
@@ -683,7 +683,7 @@ export const TrackOrderPage = () => {
                                 }
                                 target="_blank"
                                 rel="noreferrer"
-                                className="px-3.5 py-1.5 rounded-lg bg-[#FFBE32] hover:bg-[#FFA000] text-black font-bold uppercase tracking-wider flex items-center gap-1"
+                                className="px-3.5 py-1.5 rounded-lg bg-[#fc8100] hover:bg-[#e07200] text-black font-bold uppercase tracking-wider flex items-center gap-1"
                               >
                                 <span>Carrier Website</span>
                                 <ExternalLink className="h-3 w-3" />
@@ -709,7 +709,7 @@ export const TrackOrderPage = () => {
                               href={getCourierDirectUrl(courierSlug, ord.trackingNumber)}
                               target="_blank"
                               rel="noreferrer"
-                              className="text-[#FFBE32] hover:underline flex items-center gap-1"
+                              className="text-[#fc8100] hover:underline flex items-center gap-1"
                             >
                               <span>Track on Carrier Website</span>
                               <ExternalLink className="h-3 w-3" />
@@ -730,7 +730,7 @@ export const TrackOrderPage = () => {
                         {ord.customIgn && (
                           <>
                             <span className="text-gray-400">•</span>
-                            <span className="text-[#FFBE32] font-bold flex items-center gap-1">
+                            <span className="text-[#fc8100] font-bold flex items-center gap-1">
                               <Sparkles className="h-3 w-3" />
                               IGN: {ord.customIgn} #{ord.customNumber || "00"}
                             </span>
@@ -752,7 +752,7 @@ export const TrackOrderPage = () => {
                         href={`https://wa.me/919876543210?text=Hello%20MG%20Esports,%20I%20have%20an%20inquiry%20regarding%20my%20order%20${ord.orderNumber}:`}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-[#FFBE32] hover:underline inline-flex items-center gap-1 self-start sm:self-auto"
+                        className="text-[#fc8100] hover:underline inline-flex items-center gap-1 self-start sm:self-auto"
                       >
                         <Phone className="h-3 w-3" />
                         <span>Clan Support WhatsApp</span>
@@ -784,7 +784,7 @@ export const TrackOrderPage = () => {
               </a>
               <Link
                 to="/products"
-                className="px-4 py-2 rounded-xl bg-[#FFBE32] hover:bg-[#FFA000] text-black font-heading font-bold uppercase text-xs shadow-[0_0_15px_rgba(255,190,50,0.3)]"
+                className="px-4 py-2 rounded-xl bg-[#fc8100] hover:bg-[#e07200] text-black font-heading font-bold uppercase text-xs shadow-[0_0_15px_rgba(252, 129, 0,0.3)]"
               >
                 Store Armory
               </Link>

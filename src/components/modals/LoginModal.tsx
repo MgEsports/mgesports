@@ -334,13 +334,13 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
       {isAuthenticated && user ? (
         <div className="space-y-6 py-2">
           {/* Athlete Header Card */}
-          <div className="relative overflow-hidden rounded-2xl border border-[#FFBE32]/30 bg-gradient-to-br from-[#121214] to-[#0A0A0B] p-5">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[#FFBE32]/10 rounded-full blur-2xl pointer-events-none" />
+          <div className="relative overflow-hidden rounded-2xl border border-[#fc8100]/30 bg-gradient-to-br from-[#121214] to-[#0A0A0B] p-5">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#fc8100]/10 rounded-full blur-2xl pointer-events-none" />
 
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
               <div className="relative shrink-0">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-[#FFBE32] to-[#FFE082] p-0.5 flex items-center justify-center shadow-[0_0_20px_rgba(255,190,50,0.3)]">
-                  <div className="w-full h-full bg-[#070708] rounded-2xl flex items-center justify-center font-display text-2xl font-bold text-[#FFBE32]">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-[#fc8100] to-[#FFE082] p-0.5 flex items-center justify-center shadow-[0_0_20px_rgba(252, 129, 0,0.3)]">
+                  <div className="w-full h-full bg-[#070708] rounded-2xl flex items-center justify-center font-display text-2xl font-bold text-[#fc8100]">
                     {user.ign?.slice(0, 2).toUpperCase() || user.username?.slice(0, 2).toUpperCase() || "LZ"}
                   </div>
                 </div>
@@ -354,7 +354,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                   <h3 className="font-display text-2xl sm:text-3xl text-white uppercase tracking-wider truncate">
                     {user.ign || user.username}
                   </h3>
-                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-heading font-black tracking-widest bg-[#FFBE32]/20 text-[#FFBE32] border border-[#FFBE32]/40 uppercase">
+                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-heading font-black tracking-widest bg-[#fc8100]/20 text-[#fc8100] border border-[#fc8100]/40 uppercase">
                     PRO ATHLETE
                   </span>
                 </div>
@@ -373,7 +373,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
               onClick={() => setAthleteTab("passport")}
               className={`flex-1 py-2 rounded-lg text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-2 ${
                 athleteTab === "passport"
-                  ? "bg-[#FFBE32] text-black shadow-[0_0_10px_rgba(255,190,50,0.3)]"
+                  ? "bg-[#fc8100] text-black shadow-[0_0_10px_rgba(252, 129, 0,0.3)]"
                   : "text-gray-400 hover:text-white hover:bg-white/5"
               }`}
             >
@@ -385,7 +385,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
               onClick={() => setAthleteTab("orders")}
               className={`flex-1 py-2 rounded-lg text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-2 ${
                 athleteTab === "orders"
-                  ? "bg-[#FFBE32] text-black shadow-[0_0_10px_rgba(255,190,50,0.3)]"
+                  ? "bg-[#fc8100] text-black shadow-[0_0_10px_rgba(252, 129, 0,0.3)]"
                   : "text-gray-400 hover:text-white hover:bg-white/5"
               }`}
             >
@@ -399,7 +399,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               <div className="bg-black/40 rounded-xl p-3 border border-white/5">
                 <span className="text-[10px] font-mono text-gray-400 uppercase block mb-1 flex items-center gap-1">
-                  <Mail className="h-3 w-3 text-[#FFBE32]" /> Email
+                  <Mail className="h-3 w-3 text-[#fc8100]" /> Email
                 </span>
                 <span className="text-xs text-white font-medium truncate block" title={user.email}>
                   {user.email}
@@ -408,23 +408,23 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
 
               <div className="bg-black/40 rounded-xl p-3 border border-white/5">
                 <span className="text-[10px] font-mono text-gray-400 uppercase block mb-1 flex items-center gap-1">
-                  <Phone className="h-3 w-3 text-[#FFBE32]" /> Mobile
+                  <Phone className="h-3 w-3 text-[#fc8100]" /> Mobile
                 </span>
                 <span className="text-xs text-white font-medium block">
                   {user.phone || "Not set"}
                 </span>
               </div>
 
-              <div className="bg-black/50 rounded-xl p-3 border border-[#FFBE32]/30 relative transition-all">
+              <div className="bg-black/50 rounded-xl p-3 border border-[#fc8100]/30 relative transition-all">
                 <div className="flex items-center justify-between mb-1">
                   <span className="text-[10px] font-mono text-gray-400 uppercase flex items-center gap-1">
-                    <Trophy className="h-3 w-3 text-[#FFBE32]" /> Experience Tier
+                    <Trophy className="h-3 w-3 text-[#fc8100]" /> Experience Tier
                   </span>
                   {!isEditingTier && (
                     <button
                       type="button"
                       onClick={() => setIsEditingTier(true)}
-                      className="text-[10px] font-mono text-[#FFBE32] hover:text-[#FFE082] hover:underline flex items-center gap-1 cursor-pointer transition-colors"
+                      className="text-[10px] font-mono text-[#fc8100] hover:text-[#FFE082] hover:underline flex items-center gap-1 cursor-pointer transition-colors"
                       title="Edit Experience Tier"
                     >
                       <Pencil className="h-2.5 w-2.5" /> Edit
@@ -437,7 +437,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                     <select
                       value={selectedTier}
                       onChange={(e) => setSelectedTier(e.target.value)}
-                      className="w-full rounded-lg border border-[#FFBE32] bg-[#0A0A0C] px-2 py-1 text-xs text-white focus:outline-none cursor-pointer"
+                      className="w-full rounded-lg border border-[#fc8100] bg-[#0A0A0C] px-2 py-1 text-xs text-white focus:outline-none cursor-pointer"
                     >
                       <option value="< 1 Year (Rookie / Beginner)" className="bg-[#0A0A0C]">
                         &lt; 1 Year (Rookie / Beginner)
@@ -457,7 +457,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                         type="button"
                         disabled={isSavingTier}
                         onClick={handleSaveTier}
-                        className="px-2.5 py-1 rounded-md bg-[#FFBE32] hover:bg-[#FFE082] text-black text-[10px] font-heading font-bold uppercase cursor-pointer transition-colors flex items-center gap-1"
+                        className="px-2.5 py-1 rounded-md bg-[#fc8100] hover:bg-[#FFE082] text-black text-[10px] font-heading font-bold uppercase cursor-pointer transition-colors flex items-center gap-1"
                       >
                         <Check className="h-2.5 w-2.5" />
                         {isSavingTier ? "SAVING..." : "SAVE TIER"}
@@ -476,7 +476,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                   </div>
                 ) : (
                   <div>
-                    <span className="text-xs text-[#FFBE32] font-bold block truncate">
+                    <span className="text-xs text-[#fc8100] font-bold block truncate">
                       {user.gamingExperience || "1-2 Years (Semi-Pro)"}
                     </span>
                     {tierUpdateFeedback && (
@@ -490,7 +490,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
 
               <div className="bg-black/40 rounded-xl p-3 border border-white/5">
                 <span className="text-[10px] font-mono text-gray-400 uppercase block mb-1 flex items-center gap-1">
-                  <Gamepad2 className="h-3 w-3 text-[#FFBE32]" /> Primary Game
+                  <Gamepad2 className="h-3 w-3 text-[#fc8100]" /> Primary Game
                 </span>
                 <span className="text-xs text-white font-medium block">
                   {user.primaryGame || "FREE FIRE MAX"}
@@ -499,7 +499,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
 
               <div className="bg-black/40 rounded-xl p-3 border border-white/5">
                 <span className="text-[10px] font-mono text-gray-400 uppercase block mb-1 flex items-center gap-1">
-                  <Smartphone className="h-3 w-3 text-[#FFBE32]" /> Device
+                  <Smartphone className="h-3 w-3 text-[#fc8100]" /> Device
                 </span>
                 <span className="text-xs text-white font-medium block">
                   {user.device || "Mobile"}
@@ -508,7 +508,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
 
               <div className="bg-black/40 rounded-xl p-3 border border-white/5">
                 <span className="text-[10px] font-mono text-gray-400 uppercase block mb-1 flex items-center gap-1">
-                  <Calendar className="h-3 w-3 text-[#FFBE32]" /> Joined
+                  <Calendar className="h-3 w-3 text-[#fc8100]" /> Joined
                 </span>
                 <span className="text-xs text-gray-300 block">
                   {user.createdAt ? new Date(user.createdAt).toLocaleDateString() : "Active Clan"}
@@ -522,7 +522,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
             <div className="space-y-4 max-h-[50vh] overflow-y-auto pr-1">
               {loadingOrders ? (
                 <div className="py-12 text-center text-gray-400 font-mono text-xs flex flex-col items-center justify-center gap-2">
-                  <Loader2 className="h-5 w-5 animate-spin text-[#FFBE32]" />
+                  <Loader2 className="h-5 w-5 animate-spin text-[#fc8100]" />
                   <span>Loading your orders from database...</span>
                 </div>
               ) : userOrders.length === 0 ? (
@@ -533,7 +533,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                   <a
                     href="/products"
                     onClick={handleClose}
-                    className="inline-block mt-2 px-4 py-1.5 rounded-lg bg-[#FFBE32] text-black font-heading text-xs font-bold uppercase"
+                    className="inline-block mt-2 px-4 py-1.5 rounded-lg bg-[#fc8100] text-black font-heading text-xs font-bold uppercase"
                   >
                     View Official Clan Store
                   </a>
@@ -548,11 +548,11 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                     return (
                       <div
                         key={ord.id}
-                        className="p-4 rounded-xl bg-black/60 border border-white/10 hover:border-[#FFBE32]/40 transition-all space-y-3"
+                        className="p-4 rounded-xl bg-black/60 border border-white/10 hover:border-[#fc8100]/40 transition-all space-y-3"
                       >
                         <div className="flex flex-wrap items-center justify-between gap-2">
                           <div className="flex items-center gap-2">
-                            <span className="font-mono text-xs font-bold text-[#FFBE32]">
+                            <span className="font-mono text-xs font-bold text-[#fc8100]">
                               {ord.orderNumber}
                             </span>
                             <span className="text-[11px] font-mono text-gray-400">
@@ -581,7 +581,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                         {/* Visual 4-Stage Mini Progress */}
                         <div className="grid grid-cols-4 gap-1 text-center font-mono text-[9px] py-1">
                           <div>
-                            <div className="w-5 h-5 rounded-full mx-auto mb-1 flex items-center justify-center font-bold bg-[#FFBE32] text-black">
+                            <div className="w-5 h-5 rounded-full mx-auto mb-1 flex items-center justify-center font-bold bg-[#fc8100] text-black">
                               ✓
                             </div>
                             <span className="text-white">Placed</span>
@@ -589,7 +589,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                           <div>
                             <div
                               className={`w-5 h-5 rounded-full mx-auto mb-1 flex items-center justify-center font-bold ${
-                                isProcessing ? "bg-[#FFBE32] text-black" : "bg-white/10 text-gray-400"
+                                isProcessing ? "bg-[#fc8100] text-black" : "bg-white/10 text-gray-400"
                               }`}
                             >
                               {isProcessing ? "✓" : "2"}
@@ -624,12 +624,12 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                             <span className="text-white font-bold">{ord.productName}</span>
                             <span className="text-gray-400 ml-2">Size: {ord.size}</span>
                             {ord.customIgn && (
-                              <span className="text-[#FFBE32] ml-2">
+                              <span className="text-[#fc8100] ml-2">
                                 (IGN: {ord.customIgn} #{ord.customNumber || "00"})
                               </span>
                             )}
                           </div>
-                          <span className="text-[#FFBE32] font-bold">₹{ord.totalAmount}</span>
+                          <span className="text-[#fc8100] font-bold">₹{ord.totalAmount}</span>
                         </div>
 
                         {/* Courier / Delivery Info */}
@@ -660,7 +660,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                                       )}
                                       target="_blank"
                                       rel="noreferrer"
-                                      className="ml-1.5 text-[#FFBE32] hover:underline inline-flex items-center gap-0.5"
+                                      className="ml-1.5 text-[#fc8100] hover:underline inline-flex items-center gap-0.5"
                                       title="Track on AfterShip"
                                     >
                                       <span>Track</span>
@@ -671,7 +671,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                               </span>
                             )}
                             {ord.expectedDeliveryDate && (
-                              <span className="text-[#FFBE32]">
+                              <span className="text-[#fc8100]">
                                 Expected: {ord.expectedDeliveryDate}
                               </span>
                             )}
@@ -710,7 +710,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
             <img
               src={logoImg}
               alt="MG ESPORTS"
-              className="h-12 w-12 object-contain drop-shadow-[0_0_12px_rgba(255,190,50,0.3)] mb-3"
+              className="h-12 w-12 object-contain drop-shadow-[0_0_12px_rgba(252, 129, 0,0.3)] mb-3"
             />
 
             {activeTab === "forgot" ? (
@@ -722,7 +722,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                     setErrorMessage(null);
                     setSuccessMessage(null);
                   }}
-                  className="flex items-center gap-1.5 text-xs font-heading font-bold uppercase tracking-wider text-[#FFBE32] hover:text-white transition-colors cursor-pointer"
+                  className="flex items-center gap-1.5 text-xs font-heading font-bold uppercase tracking-wider text-[#fc8100] hover:text-white transition-colors cursor-pointer"
                 >
                   <ArrowLeft className="h-3.5 w-3.5" />
                   <span>Back to Sign In</span>
@@ -741,7 +741,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                   }}
                   className={`py-2 text-xs font-heading font-bold uppercase tracking-wider rounded-lg transition-all cursor-pointer ${
                     activeTab === "login"
-                      ? "bg-[#FFBE32] text-black shadow-[0_0_12px_rgba(255,190,50,0.4)]"
+                      ? "bg-[#fc8100] text-black shadow-[0_0_12px_rgba(252, 129, 0,0.4)]"
                       : "text-gray-400 hover:text-white"
                   }`}
                 >
@@ -755,7 +755,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                   }}
                   className={`py-2 text-xs font-heading font-bold uppercase tracking-wider rounded-lg transition-all cursor-pointer ${
                     activeTab === "register"
-                      ? "bg-[#FFBE32] text-black shadow-[0_0_12px_rgba(255,190,50,0.4)]"
+                      ? "bg-[#fc8100] text-black shadow-[0_0_12px_rgba(252, 129, 0,0.4)]"
                       : "text-gray-400 hover:text-white"
                   }`}
                 >
@@ -796,7 +796,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                       value={loginIdentifier}
                       onChange={(e) => setLoginIdentifier(e.target.value)}
                       placeholder="e.g. shadow_lord or athlete@gmail.com"
-                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-10 pr-4 py-2.5 text-xs sm:text-sm text-white placeholder-gray-500 focus:border-[#FFBE32] focus:outline-none transition-colors"
+                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-10 pr-4 py-2.5 text-xs sm:text-sm text-white placeholder-gray-500 focus:border-[#fc8100] focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -817,7 +817,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                         setForgotStep("EMAIL");
                         setActiveTab("forgot");
                       }}
-                      className="text-[11px] text-[#FFBE32] hover:text-[#FFA000] hover:underline font-mono font-bold transition-colors cursor-pointer"
+                      className="text-[11px] text-[#fc8100] hover:text-[#e07200] hover:underline font-mono font-bold transition-colors cursor-pointer"
                     >
                       Forgot Password?
                     </button>
@@ -830,7 +830,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                       value={loginPassword}
                       onChange={(e) => setLoginPassword(e.target.value)}
                       placeholder="••••••••"
-                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-10 pr-4 py-2.5 text-xs sm:text-sm text-white placeholder-gray-500 focus:border-[#FFBE32] focus:outline-none transition-colors"
+                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-10 pr-4 py-2.5 text-xs sm:text-sm text-white placeholder-gray-500 focus:border-[#fc8100] focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -841,7 +841,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                     <button
                       type="button"
                       onClick={() => setActiveTab("register")}
-                      className="text-[#FFBE32] hover:underline cursor-pointer font-bold"
+                      className="text-[#fc8100] hover:underline cursor-pointer font-bold"
                     >
                       Register here
                     </button>
@@ -877,7 +877,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                       placeholder="e.g. viper_beast"
                       pattern="^[a-zA-Z0-9_]{3,30}$"
                       title="3-30 letters, numbers, underscores"
-                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-9 pr-3 py-2 text-xs text-white placeholder-gray-500 focus:border-[#FFBE32] focus:outline-none"
+                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-9 pr-3 py-2 text-xs text-white placeholder-gray-500 focus:border-[#fc8100] focus:outline-none"
                     />
                   </div>
                   <span className="text-[10px] text-gray-400 font-mono mt-0.5 block">
@@ -898,7 +898,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                       value={regFullName}
                       onChange={(e) => setRegFullName(e.target.value)}
                       placeholder="e.g. Arjun Sharma"
-                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-9 pr-3 py-2 text-xs text-white placeholder-gray-500 focus:border-[#FFBE32] focus:outline-none"
+                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-9 pr-3 py-2 text-xs text-white placeholder-gray-500 focus:border-[#fc8100] focus:outline-none"
                     />
                   </div>
                 </div>
@@ -916,7 +916,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                       value={regEmail}
                       onChange={(e) => setRegEmail(e.target.value)}
                       placeholder="athlete@gmail.com"
-                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-9 pr-3 py-2 text-xs text-white placeholder-gray-500 focus:border-[#FFBE32] focus:outline-none"
+                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-9 pr-3 py-2 text-xs text-white placeholder-gray-500 focus:border-[#fc8100] focus:outline-none"
                     />
                   </div>
                 </div>
@@ -934,7 +934,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                       value={regPhone}
                       onChange={(e) => setRegPhone(e.target.value)}
                       placeholder="+91 98765 43210"
-                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-9 pr-3 py-2 text-xs text-white placeholder-gray-500 focus:border-[#FFBE32] focus:outline-none"
+                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-9 pr-3 py-2 text-xs text-white placeholder-gray-500 focus:border-[#fc8100] focus:outline-none"
                     />
                   </div>
                   <span className="text-[10px] text-gray-400 font-mono mt-0.5 block">
@@ -956,7 +956,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                       value={regPassword}
                       onChange={(e) => setRegPassword(e.target.value)}
                       placeholder="Min 6 characters"
-                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-9 pr-3 py-2 text-xs text-white placeholder-gray-500 focus:border-[#FFBE32] focus:outline-none"
+                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-9 pr-3 py-2 text-xs text-white placeholder-gray-500 focus:border-[#fc8100] focus:outline-none"
                     />
                   </div>
                 </div>
@@ -973,7 +973,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                       value={regIgn}
                       onChange={(e) => setRegIgn(e.target.value)}
                       placeholder="e.g. LZ・VIPER"
-                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-9 pr-3 py-2 text-xs text-white placeholder-gray-500 focus:border-[#FFBE32] focus:outline-none"
+                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-9 pr-3 py-2 text-xs text-white placeholder-gray-500 focus:border-[#fc8100] focus:outline-none"
                     />
                   </div>
                   <span className="text-[10px] text-gray-400 font-mono mt-0.5 block">
@@ -994,7 +994,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                       value={regDiscord}
                       onChange={(e) => setRegDiscord(e.target.value)}
                       placeholder="e.g. shadow#1234 or @handle"
-                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-9 pr-3 py-2 text-xs text-white placeholder-gray-500 focus:border-[#FFBE32] focus:outline-none"
+                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-9 pr-3 py-2 text-xs text-white placeholder-gray-500 focus:border-[#fc8100] focus:outline-none"
                     />
                   </div>
                 </div>
@@ -1011,7 +1011,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                 <button
                   type="button"
                   onClick={() => setActiveTab("login")}
-                  className="text-[#FFBE32] hover:underline cursor-pointer font-bold"
+                  className="text-[#fc8100] hover:underline cursor-pointer font-bold"
                 >
                   Sign in here
                 </button>
@@ -1026,8 +1026,8 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
               {forgotStep === "EMAIL" ? (
                 /* Step 1: Input registered email to receive OTP */
                 <form onSubmit={handleRequestOtp} className="space-y-4">
-                  <div className="rounded-xl border border-[#FFBE32]/20 bg-[#FFBE32]/5 p-3.5 text-xs text-gray-300 flex items-start gap-2.5">
-                    <KeyRound className="h-4 w-4 text-[#FFBE32] shrink-0 mt-0.5" />
+                  <div className="rounded-xl border border-[#fc8100]/20 bg-[#fc8100]/5 p-3.5 text-xs text-gray-300 flex items-start gap-2.5">
+                    <KeyRound className="h-4 w-4 text-[#fc8100] shrink-0 mt-0.5" />
                     <div>
                       <p className="font-bold text-white mb-0.5">Reset Your Athlete Password</p>
                       <p className="text-gray-400 text-[11px] leading-relaxed">
@@ -1048,7 +1048,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                         value={forgotEmail}
                         onChange={(e) => setForgotEmail(e.target.value)}
                         placeholder="athlete@example.com"
-                        className="w-full rounded-xl border border-white/15 bg-black/60 pl-10 pr-4 py-2.5 text-xs sm:text-sm text-white placeholder-gray-500 focus:border-[#FFBE32] focus:outline-none transition-colors"
+                        className="w-full rounded-xl border border-white/15 bg-black/60 pl-10 pr-4 py-2.5 text-xs sm:text-sm text-white placeholder-gray-500 focus:border-[#fc8100] focus:outline-none transition-colors"
                       />
                     </div>
                   </div>
@@ -1101,7 +1101,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                         setForgotOtp("");
                         setErrorMessage(null);
                       }}
-                      className="text-[#FFBE32] hover:underline text-[11px] font-mono shrink-0 cursor-pointer"
+                      className="text-[#fc8100] hover:underline text-[11px] font-mono shrink-0 cursor-pointer"
                     >
                       Change
                     </button>
@@ -1116,7 +1116,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                         type="button"
                         onClick={handleResendOtp}
                         disabled={forgotOtpCountdown > 0 || forgotLoading}
-                        className="text-[11px] font-mono text-[#FFBE32] hover:underline disabled:text-gray-500 disabled:no-underline cursor-pointer disabled:cursor-not-allowed flex items-center gap-1"
+                        className="text-[11px] font-mono text-[#fc8100] hover:underline disabled:text-gray-500 disabled:no-underline cursor-pointer disabled:cursor-not-allowed flex items-center gap-1"
                       >
                         <RefreshCw className={`h-3 w-3 ${forgotLoading ? "animate-spin" : ""}`} />
                         <span>{forgotOtpCountdown > 0 ? `Resend in ${forgotOtpCountdown}s` : "Resend OTP"}</span>
@@ -1129,7 +1129,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                       value={forgotOtp}
                       onChange={(e) => setForgotOtp(e.target.value.replace(/\D/g, "").slice(0, 6))}
                       placeholder="• • • • • •"
-                      className="w-full text-center tracking-[0.5em] text-lg font-mono font-black rounded-xl border border-white/20 bg-black/80 py-2.5 text-[#FFBE32] placeholder-gray-600 focus:border-[#FFBE32] focus:ring-1 focus:ring-[#FFBE32] focus:outline-none transition-all"
+                      className="w-full text-center tracking-[0.5em] text-lg font-mono font-black rounded-xl border border-white/20 bg-black/80 py-2.5 text-[#fc8100] placeholder-gray-600 focus:border-[#fc8100] focus:ring-1 focus:ring-[#fc8100] focus:outline-none transition-all"
                     />
                   </div>
 
@@ -1146,7 +1146,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                         value={forgotNewPassword}
                         onChange={(e) => setForgotNewPassword(e.target.value)}
                         placeholder="At least 6 characters"
-                        className="w-full rounded-xl border border-white/15 bg-black/60 pl-10 pr-4 py-2.5 text-xs sm:text-sm text-white placeholder-gray-500 focus:border-[#FFBE32] focus:outline-none transition-colors"
+                        className="w-full rounded-xl border border-white/15 bg-black/60 pl-10 pr-4 py-2.5 text-xs sm:text-sm text-white placeholder-gray-500 focus:border-[#fc8100] focus:outline-none transition-colors"
                       />
                     </div>
                   </div>
@@ -1164,7 +1164,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                         value={forgotConfirmPassword}
                         onChange={(e) => setForgotConfirmPassword(e.target.value)}
                         placeholder="Re-enter new password"
-                        className="w-full rounded-xl border border-white/15 bg-black/60 pl-10 pr-4 py-2.5 text-xs sm:text-sm text-white placeholder-gray-500 focus:border-[#FFBE32] focus:outline-none transition-colors"
+                        className="w-full rounded-xl border border-white/15 bg-black/60 pl-10 pr-4 py-2.5 text-xs sm:text-sm text-white placeholder-gray-500 focus:border-[#fc8100] focus:outline-none transition-colors"
                       />
                     </div>
                   </div>

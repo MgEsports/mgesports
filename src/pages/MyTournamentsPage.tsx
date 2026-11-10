@@ -320,18 +320,18 @@ export const MyTournamentsPage: React.FC = () => {
     return (
       <div className="min-h-screen pt-32 pb-20 px-4 flex flex-col items-center justify-center text-center">
         <SEO title="My Tournaments | MG ESPORTS Player Hub" noindex nofollow />
-        <div className="w-16 h-16 rounded-2xl bg-[#FFBE32]/10 border border-[#FFBE32]/30 flex items-center justify-center mb-6 text-[#FFBE32] shadow-[0_0_20px_rgba(255,190,50,0.2)]">
+        <div className="w-16 h-16 rounded-2xl bg-[#fc8100]/10 border border-[#fc8100]/30 flex items-center justify-center mb-6 text-[#fc8100] shadow-[0_0_20px_rgba(252, 129, 0,0.2)]">
           <Trophy className="w-8 h-8" />
         </div>
         <h1 className="font-display text-3xl sm:text-4xl text-white uppercase tracking-wider mb-3">
-          MY <span className="text-[#FFBE32]">TOURNAMENTS</span>
+          MY <span className="text-[#fc8100]">TOURNAMENTS</span>
         </h1>
         <p className="text-gray-400 max-w-md mb-8 text-sm sm:text-base">
           Sign in with your MG Athlete profile to view your registered tournaments, manage team rosters, track payment verifications, and view match schedules.
         </p>
         <button
           onClick={openLogin}
-          className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#FFBE32] to-[#FFA000] text-black font-heading font-black tracking-widest text-sm uppercase shadow-[0_0_25px_rgba(255,190,50,0.35)] hover:scale-105 transition-all cursor-pointer"
+          className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#fc8100] to-[#e07200] text-black font-heading font-black tracking-widest text-sm uppercase shadow-[0_0_25px_rgba(252, 129, 0,0.35)] hover:scale-105 transition-all cursor-pointer"
         >
           LOGIN TO ATHLETE PASSPORT
         </button>
@@ -345,12 +345,12 @@ export const MyTournamentsPage: React.FC = () => {
       {/* Top Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-white/10">
         <div>
-          <div className="flex items-center gap-2 text-xs font-mono text-[#FFBE32] uppercase tracking-widest mb-1.5">
+          <div className="flex items-center gap-2 text-xs font-mono text-[#fc8100] uppercase tracking-widest mb-1.5">
             <Trophy className="w-4 h-4" />
             <span>PLAYER ATHLETE DASHBOARD</span>
           </div>
           <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl text-white uppercase tracking-wider">
-            MY <span className="text-[#FFBE32]">TOURNAMENTS</span>
+            MY <span className="text-[#fc8100]">TOURNAMENTS</span>
           </h1>
           <p className="text-gray-400 text-xs sm:text-sm mt-1 max-w-xl">
             Track squad rosters, entry confirmations, UPI payment verification status, and room credentials for all registered tournaments.
@@ -363,12 +363,12 @@ export const MyTournamentsPage: React.FC = () => {
             disabled={refreshing}
             className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 hover:text-white font-heading text-xs tracking-wider uppercase transition-colors cursor-pointer"
           >
-            <RefreshCw className={`w-3.5 h-3.5 ${refreshing ? "animate-spin text-[#FFBE32]" : ""}`} />
+            <RefreshCw className={`w-3.5 h-3.5 ${refreshing ? "animate-spin text-[#fc8100]" : ""}`} />
             <span>{refreshing ? "REFRESHING..." : "REFRESH STATUS"}</span>
           </button>
           <Link
             to="/tournaments"
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#FFBE32] hover:bg-[#FFE082] text-black font-heading font-black text-xs tracking-wider uppercase transition-all shadow-[0_0_15px_rgba(255,190,50,0.25)]"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#fc8100] hover:bg-[#FFE082] text-black font-heading font-black text-xs tracking-wider uppercase transition-all shadow-[0_0_15px_rgba(252, 129, 0,0.25)]"
           >
             <span>EXPLORE TOURNAMENTS</span>
           </Link>
@@ -378,7 +378,7 @@ export const MyTournamentsPage: React.FC = () => {
       {/* Content */}
       {loading ? (
         <div className="py-24 text-center">
-          <div className="w-12 h-12 border-2 border-[#FFBE32] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <div className="w-12 h-12 border-2 border-[#fc8100] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
           <p className="font-mono text-sm text-gray-400 uppercase tracking-widest">LOADING TOURNAMENT DATA...</p>
         </div>
       ) : registrations.length === 0 ? (
@@ -394,7 +394,7 @@ export const MyTournamentsPage: React.FC = () => {
           </p>
           <Link
             to="/tournaments"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#FFBE32] text-black font-heading font-bold text-xs uppercase tracking-wider hover:bg-[#FFE082] transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#fc8100] text-black font-heading font-bold text-xs uppercase tracking-wider hover:bg-[#FFE082] transition-colors"
           >
             <span>BROWSE UPCOMING EVENTS</span>
           </Link>
@@ -505,27 +505,27 @@ export const MyTournamentsPage: React.FC = () => {
                 key={item.id}
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="rounded-2xl border border-white/10 bg-[#0C0C0F]/90 backdrop-blur-xl overflow-hidden hover:border-[#FFBE32]/40 transition-all duration-300 shadow-xl"
+                className="rounded-2xl border border-white/10 bg-[#0C0C0F]/90 backdrop-blur-xl overflow-hidden hover:border-[#fc8100]/40 transition-all duration-300 shadow-xl"
               >
                 {/* Status Bar */}
                 <div
                   className={`px-5 py-2.5 flex flex-wrap items-center justify-between gap-3 border-b ${
                     isInvitationPending
-                      ? "bg-[#FFBE32]/15 border-[#FFBE32]/30 text-[#FFBE32]"
+                      ? "bg-[#fc8100]/15 border-[#fc8100]/30 text-[#fc8100]"
                       : isWaitlisted
-                      ? "bg-amber-500/15 border-amber-500/30 text-[#FFBE32]"
+                      ? "bg-amber-500/15 border-amber-500/30 text-[#fc8100]"
                       : isConfirmed
                       ? "bg-[#22C55E]/10 border-[#22C55E]/30 text-[#22C55E]"
                       : isPaymentUnderReview
-                      ? "bg-[#FFBE32]/10 border-[#FFBE32]/30 text-[#FFBE32]"
+                      ? "bg-[#fc8100]/10 border-[#fc8100]/30 text-[#fc8100]"
                       : isRejected
                       ? "bg-red-500/10 border-red-500/30 text-red-400"
                       : "bg-blue-500/10 border-blue-500/30 text-blue-400"
                   }`}
                 >
                   <div className="flex items-center gap-2 font-heading font-bold text-xs uppercase tracking-wider">
-                    {isInvitationPending && <UserPlus className="w-4 h-4 shrink-0 animate-pulse text-[#FFBE32]" />}
-                    {isWaitlisted && <Clock className="w-4 h-4 shrink-0 text-[#FFBE32]" />}
+                    {isInvitationPending && <UserPlus className="w-4 h-4 shrink-0 animate-pulse text-[#fc8100]" />}
+                    {isWaitlisted && <Clock className="w-4 h-4 shrink-0 text-[#fc8100]" />}
                     {!isWaitlisted && isConfirmed && <CheckCircle2 className="w-4 h-4 shrink-0 text-[#22C55E]" />}
                     {isPaymentUnderReview && <Clock className="w-4 h-4 shrink-0 animate-pulse" />}
                     {isRejected && <XCircle className="w-4 h-4 shrink-0" />}
@@ -556,14 +556,14 @@ export const MyTournamentsPage: React.FC = () => {
 
                 {/* Team Invitation Pending Action Bar */}
                 {isInvitationPending && invitationId && (
-                  <div className="px-5 py-4 bg-[#FFBE32]/10 border-b border-[#FFBE32]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div className="px-5 py-4 bg-[#fc8100]/10 border-b border-[#fc8100]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
-                        <span className="px-2 py-0.5 rounded bg-[#FFBE32] text-black font-heading font-black text-[10px] uppercase tracking-wider">
+                        <span className="px-2 py-0.5 rounded bg-[#fc8100] text-black font-heading font-black text-[10px] uppercase tracking-wider">
                           INVITED TO SQUAD
                         </span>
                         <p className="font-heading font-bold text-sm text-white">
-                          {leaderName} invited you to join <span className="text-[#FFBE32]">{squadName}</span>
+                          {leaderName} invited you to join <span className="text-[#fc8100]">{squadName}</span>
                         </p>
                       </div>
                       <p className="text-xs text-gray-300">
@@ -606,7 +606,7 @@ export const MyTournamentsPage: React.FC = () => {
                           <span className="px-2 py-0.5 rounded bg-white/10 text-gray-300 font-mono text-[10px] uppercase font-bold">
                             {tournament.game || "ESPORTS"}
                           </span>
-                          <span className="px-2 py-0.5 rounded bg-[#FFBE32]/20 border border-[#FFBE32]/30 text-[#FFBE32] font-mono text-[10px] uppercase font-bold">
+                          <span className="px-2 py-0.5 rounded bg-[#fc8100]/20 border border-[#fc8100]/30 text-[#fc8100] font-mono text-[10px] uppercase font-bold">
                             {tournament.gameMode || "SQUAD"}
                           </span>
                           <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-gray-400 font-mono text-[10px] uppercase font-bold">
@@ -620,7 +620,7 @@ export const MyTournamentsPage: React.FC = () => {
 
                       <Link
                         to={`/tournaments/${tournament.slug || tournament.id}`}
-                        className="inline-flex items-center gap-1.5 text-xs font-heading font-bold text-[#FFBE32] hover:text-[#FFE082] uppercase transition-colors shrink-0"
+                        className="inline-flex items-center gap-1.5 text-xs font-heading font-bold text-[#fc8100] hover:text-[#FFE082] uppercase transition-colors shrink-0"
                       >
                         <span>TOURNAMENT DETAILS</span>
                         <ExternalLink className="w-3.5 h-3.5" />
@@ -631,7 +631,7 @@ export const MyTournamentsPage: React.FC = () => {
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                       <div className="bg-black/40 rounded-xl p-3 border border-white/5">
                         <div className="flex items-center gap-1.5 text-gray-400 text-[10px] font-mono uppercase mb-1">
-                          <Calendar className="w-3 h-3 text-[#FFBE32]" />
+                          <Calendar className="w-3 h-3 text-[#fc8100]" />
                           <span>START DATE</span>
                         </div>
                         <p className="font-heading font-bold text-xs text-white">
@@ -641,7 +641,7 @@ export const MyTournamentsPage: React.FC = () => {
 
                       <div className="bg-black/40 rounded-xl p-3 border border-white/5">
                         <div className="flex items-center gap-1.5 text-gray-400 text-[10px] font-mono uppercase mb-1">
-                          <CreditCard className="w-3 h-3 text-[#FFBE32]" />
+                          <CreditCard className="w-3 h-3 text-[#fc8100]" />
                           <span>ENTRY FEE</span>
                         </div>
                         <p className="font-heading font-bold text-xs text-white">
@@ -651,10 +651,10 @@ export const MyTournamentsPage: React.FC = () => {
 
                       <div className="bg-black/40 rounded-xl p-3 border border-white/5 col-span-2 sm:col-span-1">
                         <div className="flex items-center gap-1.5 text-gray-400 text-[10px] font-mono uppercase mb-1">
-                          <Trophy className="w-3 h-3 text-[#FFBE32]" />
+                          <Trophy className="w-3 h-3 text-[#fc8100]" />
                           <span>PRIZE POOL</span>
                         </div>
-                        <p className="font-heading font-bold text-xs text-[#FFBE32]">
+                        <p className="font-heading font-bold text-xs text-[#fc8100]">
                           {displayPrizePool}
                         </p>
                       </div>
@@ -664,9 +664,9 @@ export const MyTournamentsPage: React.FC = () => {
                     <div className="bg-black/50 rounded-xl p-4 border border-white/10">
                       <div className="flex items-center justify-between gap-3 mb-3">
                         <div className="flex items-center gap-2">
-                          <Users className="w-4 h-4 text-[#FFBE32]" />
+                          <Users className="w-4 h-4 text-[#fc8100]" />
                           <span className="font-heading font-bold text-xs text-white uppercase tracking-wider">
-                            SQUAD: <span className="text-[#FFBE32]">{squadName}</span>
+                            SQUAD: <span className="text-[#fc8100]">{squadName}</span>
                           </span>
                           {squadTag && (
                             <span className="text-[10px] font-mono text-gray-400">[{squadTag}]</span>
@@ -686,7 +686,7 @@ export const MyTournamentsPage: React.FC = () => {
                                 maxPlayers: 6,
                               })
                             }
-                            className="text-[11px] font-heading font-bold text-[#FFBE32] hover:text-[#FFE082] uppercase flex items-center gap-1 cursor-pointer transition-colors bg-[#FFBE32]/10 px-2.5 py-1 rounded-lg border border-[#FFBE32]/30"
+                            className="text-[11px] font-heading font-bold text-[#fc8100] hover:text-[#FFE082] uppercase flex items-center gap-1 cursor-pointer transition-colors bg-[#fc8100]/10 px-2.5 py-1 rounded-lg border border-[#fc8100]/30"
                           >
                             <UserPlus className="w-3 h-3" />
                             <span>{isRosterLocked ? "VIEW ROSTER" : "MANAGE ROSTER"}</span>
@@ -707,7 +707,7 @@ export const MyTournamentsPage: React.FC = () => {
                               className="flex items-center justify-between p-2 rounded-lg bg-white/5 border border-white/5"
                             >
                               <div className="flex items-center gap-2 min-w-0">
-                                <div className="w-7 h-7 rounded-md bg-[#FFBE32]/10 border border-[#FFBE32]/20 flex items-center justify-center font-display text-xs text-[#FFBE32] shrink-0">
+                                <div className="w-7 h-7 rounded-md bg-[#fc8100]/10 border border-[#fc8100]/20 flex items-center justify-center font-display text-xs text-[#fc8100] shrink-0">
                                   {ign.slice(0, 2).toUpperCase()}
                                 </div>
                                 <div className="min-w-0">
@@ -726,7 +726,7 @@ export const MyTournamentsPage: React.FC = () => {
                                 <span
                                   className={`text-[9px] font-mono uppercase px-1.5 py-0.5 rounded ${
                                     m.role === "LEADER"
-                                      ? "bg-[#FFBE32]/20 text-[#FFBE32] border border-[#FFBE32]/30 font-bold"
+                                      ? "bg-[#fc8100]/20 text-[#fc8100] border border-[#fc8100]/30 font-bold"
                                       : "bg-white/10 text-gray-400"
                                   }`}
                                 >
@@ -768,12 +768,12 @@ export const MyTournamentsPage: React.FC = () => {
                   {/* Right Column: Room info & Status Callouts */}
                   <div className="lg:col-span-4 bg-black/60 rounded-2xl p-5 border border-white/10 space-y-4">
                     <h4 className="font-display text-base text-white uppercase tracking-wider flex items-center gap-2">
-                      <Shield className="w-4 h-4 text-[#FFBE32]" />
+                      <Shield className="w-4 h-4 text-[#fc8100]" />
                       <span>MATCH ACCESS</span>
                     </h4>
 
                     {isInvitationPending ? (
-                      <div className="p-3 rounded-xl bg-[#FFBE32]/10 border border-[#FFBE32]/20 text-xs text-[#FFBE32] space-y-1">
+                      <div className="p-3 rounded-xl bg-[#fc8100]/10 border border-[#fc8100]/20 text-xs text-[#fc8100] space-y-1">
                         <p className="font-bold uppercase tracking-wider flex items-center gap-1.5">
                           <UserPlus className="w-3.5 h-3.5" /> SQUAD INVITATION
                         </p>
@@ -782,7 +782,7 @@ export const MyTournamentsPage: React.FC = () => {
                         </p>
                       </div>
                     ) : isWaitlisted ? (
-                      <div className="p-4 rounded-xl bg-amber-500/10 border border-[#FFBE32]/30 text-xs text-[#FFBE32] space-y-2">
+                      <div className="p-4 rounded-xl bg-amber-500/10 border border-[#fc8100]/30 text-xs text-[#fc8100] space-y-2">
                         <p className="font-bold uppercase tracking-wider flex items-center gap-1.5">
                           <Clock className="w-4 h-4" /> PRIORITY WAITLIST #{waitlistPriority}
                         </p>
@@ -798,7 +798,7 @@ export const MyTournamentsPage: React.FC = () => {
                             isCheckedIn
                               ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-400"
                               : isCheckInActive
-                              ? "bg-[#FFBE32]/10 border-[#FFBE32]/30 text-[#FFBE32]"
+                              ? "bg-[#fc8100]/10 border-[#fc8100]/30 text-[#fc8100]"
                               : "bg-white/5 border-white/10 text-gray-400"
                           }`}>
                             <div className="flex items-center justify-between">
@@ -810,7 +810,7 @@ export const MyTournamentsPage: React.FC = () => {
                                   </>
                                 ) : isCheckInActive ? (
                                   <>
-                                    <Clock className="w-4 h-4 text-[#FFBE32] animate-pulse" />
+                                    <Clock className="w-4 h-4 text-[#fc8100] animate-pulse" />
                                     CHECK-IN WINDOW ACTIVE
                                   </>
                                 ) : (
@@ -825,7 +825,7 @@ export const MyTournamentsPage: React.FC = () => {
                                   type="button"
                                   disabled={checkingInTeamId === teamId}
                                   onClick={() => handleCheckIn(tournament.id, teamId)}
-                                  className="px-3 py-1.5 rounded-lg bg-[#FFBE32] hover:bg-[#FFA000] text-black font-heading font-black text-[10px] uppercase tracking-wider shadow-[0_0_10px_rgba(255,190,50,0.3)] transition-all cursor-pointer disabled:opacity-50"
+                                  className="px-3 py-1.5 rounded-lg bg-[#fc8100] hover:bg-[#e07200] text-black font-heading font-black text-[10px] uppercase tracking-wider shadow-[0_0_10px_rgba(252, 129, 0,0.3)] transition-all cursor-pointer disabled:opacity-50"
                                 >
                                   {checkingInTeamId === teamId ? "CHECKING IN..." : "CHECK IN SQUAD"}
                                 </button>
@@ -858,14 +858,14 @@ export const MyTournamentsPage: React.FC = () => {
                                     type="button"
                                     onClick={() => handleLoadMatches(tournament.id || tournament.slug || item.id)}
                                     disabled={fetchingMatches[tournament.id]}
-                                    className="text-[10px] font-heading font-bold text-[#FFBE32] hover:underline uppercase flex items-center gap-1 cursor-pointer"
+                                    className="text-[10px] font-heading font-bold text-[#fc8100] hover:underline uppercase flex items-center gap-1 cursor-pointer"
                                   >
                                     <RefreshCw className={`w-3 h-3 ${fetchingMatches[tournament.id] ? "animate-spin" : ""}`} />
                                     <span>{fetchingMatches[tournament.id] ? "Checking..." : "Refresh"}</span>
                                   </button>
                                 </div>
                                 <div className="text-center py-2">
-                                  <p className="font-mono font-bold text-xs text-[#FFBE32] tracking-widest">
+                                  <p className="font-mono font-bold text-xs text-[#fc8100] tracking-widest">
                                     REVEALING 15 MINS BEFORE START
                                   </p>
                                   <p className="text-[10px] font-mono text-gray-400 mt-1">
@@ -924,7 +924,7 @@ export const MyTournamentsPage: React.FC = () => {
                                         }
                                         className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold transition-all cursor-pointer flex items-center gap-1 ${
                                           isSel
-                                            ? "bg-[#FFBE32] text-black font-black"
+                                            ? "bg-[#fc8100] text-black font-black"
                                             : isElim
                                             ? "bg-red-950/40 text-red-300 border border-red-500/20"
                                             : "bg-white/10 text-gray-300 hover:bg-white/20"
@@ -956,9 +956,9 @@ export const MyTournamentsPage: React.FC = () => {
                                   </p>
                                 </div>
                               ) : hasRoomCredentials ? (
-                                <div className="p-4 rounded-xl bg-gradient-to-b from-[#FFBE32]/15 via-black/80 to-black border-2 border-[#FFBE32]/60 shadow-[0_0_25px_rgba(255,190,50,0.15)] space-y-3">
+                                <div className="p-4 rounded-xl bg-gradient-to-b from-[#fc8100]/15 via-black/80 to-black border-2 border-[#fc8100]/60 shadow-[0_0_25px_rgba(252, 129, 0,0.15)] space-y-3">
                                   <div className="flex items-center justify-between pb-1 border-b border-white/10">
-                                    <div className="flex items-center gap-1.5 text-[#FFBE32] font-heading font-black text-xs uppercase tracking-wider">
+                                    <div className="flex items-center gap-1.5 text-[#fc8100] font-heading font-black text-xs uppercase tracking-wider">
                                       <Key className="w-3.5 h-3.5" />
                                       <span>{currentRound.roundName || "ROUND 1"}</span>
                                     </div>
@@ -967,7 +967,7 @@ export const MyTournamentsPage: React.FC = () => {
                                         type="button"
                                         onClick={() => handleLoadMatches(tournament.id)}
                                         disabled={fetchingMatches[tournament.id]}
-                                        className="text-[10px] font-heading font-bold text-[#FFBE32] hover:underline uppercase flex items-center gap-1 cursor-pointer"
+                                        className="text-[10px] font-heading font-bold text-[#fc8100] hover:underline uppercase flex items-center gap-1 cursor-pointer"
                                         title="Refresh Room Credentials"
                                       >
                                         <RefreshCw className={`w-3 h-3 ${fetchingMatches[tournament.id] ? "animate-spin" : ""}`} />
@@ -979,9 +979,9 @@ export const MyTournamentsPage: React.FC = () => {
                                     </div>
                                   </div>
 
-                                  <div className="p-2 rounded-lg bg-black/80 border border-[#FFBE32]/40 flex items-center justify-between text-xs font-mono">
+                                  <div className="p-2 rounded-lg bg-black/80 border border-[#fc8100]/40 flex items-center justify-between text-xs font-mono">
                                     <span className="text-gray-400 uppercase text-[10px]">ASSIGNED SQUAD SLOT:</span>
-                                    <span className="px-2 py-0.5 rounded bg-[#FFBE32] text-black font-black text-xs font-mono">
+                                    <span className="px-2 py-0.5 rounded bg-[#fc8100] text-black font-black text-xs font-mono">
                                       SLOT #{currentRound.slotNumber}
                                     </span>
                                   </div>
@@ -994,7 +994,7 @@ export const MyTournamentsPage: React.FC = () => {
                                         <button
                                           type="button"
                                           onClick={() => handleCopy(`room_${tournament.id}`, currentRound.roomId)}
-                                          className="p-1 rounded bg-[#FFBE32]/10 hover:bg-[#FFBE32] text-[#FFBE32] hover:text-black transition-colors cursor-pointer"
+                                          className="p-1 rounded bg-[#fc8100]/10 hover:bg-[#fc8100] text-[#fc8100] hover:text-black transition-colors cursor-pointer"
                                           title="Copy Room ID"
                                         >
                                           {copiedKey === `room_${tournament.id}` ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
@@ -1009,7 +1009,7 @@ export const MyTournamentsPage: React.FC = () => {
                                         <button
                                           type="button"
                                           onClick={() => handleCopy(`pass_${tournament.id}`, currentRound.roomPassword)}
-                                          className="p-1 rounded bg-[#FFBE32]/10 hover:bg-[#FFBE32] text-[#FFBE32] hover:text-black transition-colors cursor-pointer"
+                                          className="p-1 rounded bg-[#fc8100]/10 hover:bg-[#fc8100] text-[#fc8100] hover:text-black transition-colors cursor-pointer"
                                           title="Copy Password"
                                         >
                                           {copiedKey === `pass_${tournament.id}` ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
@@ -1019,7 +1019,7 @@ export const MyTournamentsPage: React.FC = () => {
                                   </div>
 
                                   <div className="flex items-center justify-between text-[10px] font-mono text-gray-300 pt-1 border-t border-white/10">
-                                    <span>MAP: <strong className="text-[#FFBE32] uppercase">{currentRound.map || "BERMUDA"}</strong></span>
+                                    <span>MAP: <strong className="text-[#fc8100] uppercase">{currentRound.map || "BERMUDA"}</strong></span>
                                     <span>TIME: <strong className="text-white">{currentRound.roomTime || "AS SCHEDULED"}</strong></span>
                                   </div>
 
@@ -1036,14 +1036,14 @@ export const MyTournamentsPage: React.FC = () => {
                                       <Clock className="w-3.5 h-3.5" />
                                       <span>{currentRound.roundName}</span>
                                     </span>
-                                    <span className="px-1.5 py-0.5 rounded bg-black/60 font-mono text-[9px] text-[#FFBE32] font-bold border border-[#FFBE32]/30">
+                                    <span className="px-1.5 py-0.5 rounded bg-black/60 font-mono text-[9px] text-[#fc8100] font-bold border border-[#fc8100]/30">
                                       SLOT #{currentRound.slotNumber}
                                     </span>
                                   </div>
                                   <p className="text-[11px] text-gray-300 leading-relaxed font-body">
                                     Your squad is assigned to <strong>{currentRound.roundName}</strong> at <strong>Slot #{currentRound.slotNumber}</strong>. Map: {currentRound.map || "BERMUDA"}.
                                   </p>
-                                  <div className="p-2 rounded-lg bg-black/40 border border-white/5 text-[10px] font-mono text-[#FFBE32] text-center">
+                                  <div className="p-2 rounded-lg bg-black/40 border border-white/5 text-[10px] font-mono text-[#fc8100] text-center">
                                     🔒 Room credentials reveal 15 minutes before the match start time.
                                   </div>
                                 </div>
@@ -1055,14 +1055,14 @@ export const MyTournamentsPage: React.FC = () => {
                                       type="button"
                                       onClick={() => handleLoadMatches(tournament.id)}
                                       disabled={fetchingMatches[tournament.id]}
-                                      className="text-[10px] font-heading font-bold text-[#FFBE32] hover:underline uppercase flex items-center gap-1 cursor-pointer"
+                                      className="text-[10px] font-heading font-bold text-[#fc8100] hover:underline uppercase flex items-center gap-1 cursor-pointer"
                                     >
                                       <RefreshCw className={`w-3 h-3 ${fetchingMatches[tournament.id] ? "animate-spin" : ""}`} />
                                       <span>{fetchingMatches[tournament.id] ? "Checking..." : "Refresh"}</span>
                                     </button>
                                   </div>
                                   <div className="text-center py-2">
-                                    <p className="font-mono font-bold text-xs text-[#FFBE32] tracking-widest">
+                                    <p className="font-mono font-bold text-xs text-[#fc8100] tracking-widest">
                                       REVEALING 15 MINS BEFORE START
                                     </p>
                                     <p className="text-[10px] font-mono text-gray-400 mt-1">
@@ -1076,7 +1076,7 @@ export const MyTournamentsPage: React.FC = () => {
                         })()}
                       </div>
                     ) : isPaymentUnderReview ? (
-                      <div className="p-3 rounded-xl bg-[#FFBE32]/10 border border-[#FFBE32]/20 text-xs text-[#FFBE32] space-y-2">
+                      <div className="p-3 rounded-xl bg-[#fc8100]/10 border border-[#fc8100]/20 text-xs text-[#fc8100] space-y-2">
                         <p className="font-bold uppercase tracking-wider flex items-center gap-1.5">
                           <Clock className="w-3.5 h-3.5 animate-spin" /> VERIFICATION IN PROGRESS
                         </p>
@@ -1138,7 +1138,7 @@ export const MyTournamentsPage: React.FC = () => {
             </h3>
             <p className="text-xs text-gray-400 mb-4">
               Enter the 12-digit UPI Reference / UTR number for your transaction of{" "}
-              <span className="text-[#FFBE32] font-bold">
+              <span className="text-[#fc8100] font-bold">
                 {formatCurrency(
                   resubmitReg.tournament.feeAmount ?? resubmitReg.tournament.entryFee
                 )}
@@ -1169,7 +1169,7 @@ export const MyTournamentsPage: React.FC = () => {
                   value={utrInput}
                   onChange={(e) => setUtrInput(e.target.value)}
                   placeholder="e.g. 428190348291"
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-black border border-white/20 text-white font-mono text-sm focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-black border border-white/20 text-white font-mono text-sm focus:border-[#fc8100] focus:outline-none"
                 />
               </div>
 
@@ -1184,7 +1184,7 @@ export const MyTournamentsPage: React.FC = () => {
                 <button
                   type="submit"
                   disabled={submittingPayment || !utrInput.trim()}
-                  className="px-5 py-2.5 rounded-xl bg-[#FFBE32] hover:bg-[#FFE082] text-black text-xs font-heading font-black uppercase cursor-pointer disabled:opacity-50"
+                  className="px-5 py-2.5 rounded-xl bg-[#fc8100] hover:bg-[#FFE082] text-black text-xs font-heading font-black uppercase cursor-pointer disabled:opacity-50"
                 >
                   {submittingPayment ? "SUBMITTING..." : "SUBMIT UTR"}
                 </button>

@@ -97,7 +97,7 @@ export const MediaSection = ({
           <div className="mb-12">
             <div
               onClick={() => onPlayMedia(featuredVideo)}
-              className="group relative w-full rounded-2xl border border-[#FFBE32]/35 bg-black overflow-hidden cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_30px_rgba(255,190,50,0.15)] hover:border-[#FFBE32]/70 aspect-[16/10] sm:aspect-[16/9] lg:aspect-[21/9] min-h-[250px] sm:min-h-[340px] lg:min-h-[420px] flex flex-col justify-between p-4 xs:p-5 sm:p-8 lg:p-10 transition-colors"
+              className="group relative w-full rounded-2xl border border-[#fc8100]/35 bg-black overflow-hidden cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_30px_rgba(252, 129, 0,0.15)] hover:border-[#fc8100]/70 aspect-[16/10] sm:aspect-[16/9] lg:aspect-[21/9] min-h-[250px] sm:min-h-[340px] lg:min-h-[420px] flex flex-col justify-between p-4 xs:p-5 sm:p-8 lg:p-10 transition-colors"
             >
               {/* Background Graphic Preview */}
               <div className="absolute inset-0 z-0">
@@ -130,20 +130,20 @@ export const MediaSection = ({
 
               {/* Play Button Center Overlay - Responsively sized to prevent obstruction */}
               <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-                <div className="flex h-12 w-12 xs:h-14 xs:w-14 sm:h-18 sm:w-18 md:h-20 md:w-20 items-center justify-center rounded-full bg-[#FFBE32] text-black shadow-[0_0_25px_rgba(255,190,50,0.5)] group-hover:scale-110 group-hover:shadow-[0_0_35px_rgba(255,190,50,0.8)] transition-all duration-300">
+                <div className="flex h-12 w-12 xs:h-14 xs:w-14 sm:h-18 sm:w-18 md:h-20 md:w-20 items-center justify-center rounded-full bg-[#fc8100] text-black shadow-[0_0_25px_rgba(252, 129, 0,0.5)] group-hover:scale-110 group-hover:shadow-[0_0_35px_rgba(252, 129, 0,0.8)] transition-all duration-300">
                   <Play className="h-5 w-5 xs:h-6 xs:w-6 sm:h-8 sm:w-8 md:h-9 md:w-9 fill-current ml-0.5 sm:ml-1" />
                 </div>
               </div>
 
               {/* Bottom Info Overlay - Sized and clamped to prevent overlap with play button */}
               <div className="relative z-20 w-full max-w-3xl mt-auto">
-                <h3 className="font-display text-base xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl uppercase tracking-wider text-white group-hover:text-[#FFBE32] transition-colors leading-snug line-clamp-2 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+                <h3 className="font-display text-base xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl uppercase tracking-wider text-white group-hover:text-[#fc8100] transition-colors leading-snug line-clamp-2 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
                   {featuredVideo.title}
                 </h3>
                 <div className="mt-1.5 sm:mt-2.5 flex flex-wrap items-center gap-2 sm:gap-3 text-[10px] xs:text-[11px] sm:text-xs font-mono text-gray-300 drop-shadow">
                   <span>{featuredVideo.date}</span>
                   <span>•</span>
-                  <span className="text-[#FFBE32] font-semibold">{featuredVideo.game}</span>
+                  <span className="text-[#fc8100] font-semibold">{featuredVideo.game}</span>
                   {featuredVideo.views && (
                     <>
                       <span>•</span>
@@ -165,7 +165,7 @@ export const MediaSection = ({
                 onClick={() => setSelectedTab(tab)}
                 className={`px-4 sm:px-5 py-2 rounded-lg font-heading text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                   selectedTab === tab
-                    ? "bg-[#FFBE32] text-black shadow-[0_0_15px_rgba(255,190,50,0.3)]"
+                    ? "bg-[#fc8100] text-black shadow-[0_0_15px_rgba(252, 129, 0,0.3)]"
                     : "text-gray-400 hover:text-white"
                 }`}
               >
@@ -186,7 +186,7 @@ export const MediaSection = ({
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 onClick={() => onPlayMedia(item)}
-                className="group relative rounded-xl bg-[#0C0C0E] border border-white/10 hover:border-[#FFBE32]/60 overflow-hidden cursor-pointer shadow-[0_10px_25px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-1"
+                className="group relative rounded-xl bg-[#0C0C0E] border border-white/10 hover:border-[#fc8100]/60 overflow-hidden cursor-pointer shadow-[0_10px_25px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-1"
               >
                 {/* Real YouTube Video Thumbnail */}
                 <div className="relative aspect-video w-full bg-neutral-900 overflow-hidden flex items-center justify-center">
@@ -203,7 +203,7 @@ export const MediaSection = ({
 
                   {/* Play badge */}
                   <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
-                    <div className="h-12 w-12 rounded-full bg-black/80 border border-[#FFBE32]/40 text-[#FFBE32] flex items-center justify-center group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(255,190,50,0.4)]">
+                    <div className="h-12 w-12 rounded-full bg-black/80 border border-[#fc8100]/40 text-[#fc8100] flex items-center justify-center group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(252, 129, 0,0.4)]">
                       <Play className="h-5 w-5 fill-current ml-0.5" />
                     </div>
                   </div>
@@ -214,18 +214,18 @@ export const MediaSection = ({
                     </div>
                   )}
 
-                  <div className="absolute top-2 left-2 px-2 py-0.5 rounded bg-[#FFBE32] text-black font-heading text-[10px] font-bold uppercase tracking-wider">
+                  <div className="absolute top-2 left-2 px-2 py-0.5 rounded bg-[#fc8100] text-black font-heading text-[10px] font-bold uppercase tracking-wider">
                     {item.type}
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-4 sm:p-5">
-                  <h4 className="font-display text-lg sm:text-xl uppercase tracking-wider text-white group-hover:text-[#FFBE32] transition-colors leading-snug line-clamp-2">
+                  <h4 className="font-display text-lg sm:text-xl uppercase tracking-wider text-white group-hover:text-[#fc8100] transition-colors leading-snug line-clamp-2">
                     {item.title}
                   </h4>
                   <div className="mt-3 flex items-center justify-between text-xs text-gray-400 font-mono">
-                    <span className="text-[#FFBE32] font-semibold">{item.game}</span>
+                    <span className="text-[#fc8100] font-semibold">{item.game}</span>
                     <span>{item.date}</span>
                   </div>
                 </div>

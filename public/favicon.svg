@@ -2,12 +2,12 @@
   <defs>
     <linearGradient id="leGold" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#FFE066"/>
-      <stop offset="40%" stop-color="#FFBE32"/>
+      <stop offset="40%" stop-color="#fc8100"/>
       <stop offset="85%" stop-color="#E59B00"/>
       <stop offset="100%" stop-color="#B87700"/>
     </linearGradient>
     <filter id="glow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#FFBE32" flood-opacity="0.35"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#fc8100" flood-opacity="0.35"/>
     </filter>
   </defs>
   <rect width="1024" height="1024" rx="220" fill="#0A0A0C"/>

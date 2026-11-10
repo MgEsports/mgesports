@@ -32,7 +32,7 @@ const AdminPortalRoutes = lazy(() => import("../admin/src/AdminPortalRoutes").th
  */
 function PublicLayout() {
   return (
-    <div className="min-h-screen bg-[#050505] text-white selection:bg-[#FFBE32] selection:text-black relative flex flex-col justify-between w-full max-w-full overflow-x-clip">
+    <div className="min-h-screen bg-[#050505] text-white selection:bg-[#fc8100] selection:text-black relative flex flex-col justify-between w-full max-w-full overflow-x-clip">
       <ScrollToTop />
       <LoadingScreen />
       <CustomCursor />
@@ -41,7 +41,7 @@ function PublicLayout() {
         <Suspense
           fallback={
             <div className="min-h-[60vh] flex items-center justify-center">
-              <div className="h-8 w-8 border-2 border-[#FFBE32] border-t-transparent rounded-full animate-spin" />
+              <div className="h-8 w-8 border-2 border-[#fc8100] border-t-transparent rounded-full animate-spin" />
             </div>
           }
         >
@@ -66,7 +66,7 @@ export function App() {
                 <Suspense
                   fallback={
                     <div className="min-h-screen bg-[#070709] flex flex-col items-center justify-center text-white">
-                      <div className="h-10 w-10 border-2 border-[#FFBE32] border-t-transparent rounded-full animate-spin mb-4" />
+                      <div className="h-10 w-10 border-2 border-[#fc8100] border-t-transparent rounded-full animate-spin mb-4" />
                       <span className="font-heading text-xs uppercase tracking-widest text-gray-400">
                         Loading Admin Portal...
                       </span>

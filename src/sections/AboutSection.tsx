@@ -46,13 +46,13 @@ const LinkedInIcon = ({ className = "h-3.5 w-3.5" }: { className?: string }) => 
 const getRoleIcon = (role: string) => {
   switch (role) {
     case "IGL":
-      return <Shield className="h-3.5 w-3.5 text-[#FFBE32]" />;
+      return <Shield className="h-3.5 w-3.5 text-[#fc8100]" />;
     case "RUSHER":
-      return <Zap className="h-3.5 w-3.5 text-[#FFBE32]" />;
+      return <Zap className="h-3.5 w-3.5 text-[#fc8100]" />;
     case "SNIPER":
-      return <Crosshair className="h-3.5 w-3.5 text-[#FFBE32]" />;
+      return <Crosshair className="h-3.5 w-3.5 text-[#fc8100]" />;
     default:
-      return <Target className="h-3.5 w-3.5 text-[#FFBE32]" />;
+      return <Target className="h-3.5 w-3.5 text-[#fc8100]" />;
   }
 };
 
@@ -100,7 +100,7 @@ export const AboutSection = ({
       <TemplePattern className="opacity-[0.04] scale-150" />
 
       {/* Atmospheric center gold & cyan glow */}
-      <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[600px] h-[250px] sm:h-[400px] bg-[#FFBE32]/8 blur-[90px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[600px] h-[250px] sm:h-[400px] bg-[#fc8100]/8 blur-[90px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto z-10">
         {showHeader && (
@@ -117,7 +117,7 @@ export const AboutSection = ({
                 alt="MG ESPORTS Official Crest"
                 width={56}
                 height={56}
-                className="h-full w-full object-contain drop-shadow-[0_0_20px_rgba(255,190,50,0.35)]"
+                className="h-full w-full object-contain drop-shadow-[0_0_20px_rgba(252, 129, 0,0.35)]"
               />
             </motion.div>
 
@@ -126,9 +126,9 @@ export const AboutSection = ({
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-[#FFBE32]/10 border border-[#FFBE32]/30 text-[10px] sm:text-xs font-heading font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#FFBE32] mb-3"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-[#fc8100]/10 border border-[#fc8100]/30 text-[10px] sm:text-xs font-heading font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#fc8100] mb-3"
             >
-              <Sparkles className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-[#FFBE32]" />
+              <Sparkles className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-[#fc8100]" />
               <span>ORGANIZATION HUB</span>
             </motion.div>
 
@@ -142,8 +142,8 @@ export const AboutSection = ({
                 type="button"
                 onClick={() => setActiveTab("manifesto")}
                 className={`px-4 py-2 rounded-xl text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer ${activeTab === "manifesto"
-                    ? "bg-[#FFBE32] text-black shadow-[0_0_20px_rgba(255,190,50,0.3)] scale-105"
-                    : "bg-[#121217] text-gray-400 hover:text-white border border-white/10 hover:border-[#FFBE32]/30"
+                    ? "bg-[#fc8100] text-black shadow-[0_0_20px_rgba(252, 129, 0,0.3)] scale-105"
+                    : "bg-[#121217] text-gray-400 hover:text-white border border-white/10 hover:border-[#fc8100]/30"
                   }`}
               >
                 🏛️ Manifesto & Story
@@ -153,8 +153,8 @@ export const AboutSection = ({
                 type="button"
                 onClick={() => setActiveTab("players")}
                 className={`px-4 py-2 rounded-xl text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer ${activeTab === "players"
-                    ? "bg-[#FFBE32] text-black shadow-[0_0_20px_rgba(255,190,50,0.3)] scale-105"
-                    : "bg-[#121217] text-gray-400 hover:text-white border border-white/10 hover:border-[#FFBE32]/30"
+                    ? "bg-[#fc8100] text-black shadow-[0_0_20px_rgba(252, 129, 0,0.3)] scale-105"
+                    : "bg-[#121217] text-gray-400 hover:text-white border border-white/10 hover:border-[#fc8100]/30"
                   }`}
               >
                 ⚡ Pro Athletes (Roster)
@@ -164,8 +164,8 @@ export const AboutSection = ({
                 type="button"
                 onClick={() => setActiveTab("teams")}
                 className={`px-4 py-2 rounded-xl text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer ${activeTab === "teams"
-                    ? "bg-[#FFBE32] text-black shadow-[0_0_20px_rgba(255,190,50,0.3)] scale-105"
-                    : "bg-[#121217] text-gray-400 hover:text-white border border-white/10 hover:border-[#FFBE32]/30"
+                    ? "bg-[#fc8100] text-black shadow-[0_0_20px_rgba(252, 129, 0,0.3)] scale-105"
+                    : "bg-[#121217] text-gray-400 hover:text-white border border-white/10 hover:border-[#fc8100]/30"
                   }`}
               >
                 🛡️ The Collective & Teams
@@ -188,9 +188,9 @@ export const AboutSection = ({
               {/* LEFT: Champion Team Image Presentation (lg:col-span-6) */}
               <div className="lg:col-span-6 relative">
                 {/* Ambient Backlight */}
-                <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#FFBE32]/15 via-transparent to-cyan-500/10 blur-2xl pointer-events-none" />
+                <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#fc8100]/15 via-transparent to-cyan-500/10 blur-2xl pointer-events-none" />
 
-                <div className="relative rounded-2xl overflow-hidden border border-[#FFBE32]/35 bg-black/60 shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_35px_rgba(255,190,50,0.15)] group">
+                <div className="relative rounded-2xl overflow-hidden border border-[#fc8100]/35 bg-black/60 shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_35px_rgba(252, 129, 0,0.15)] group">
                   <div className="aspect-[4/3] w-full overflow-hFidden relative">
                     <img
                       src={aboutTeam}
@@ -205,9 +205,9 @@ export const AboutSection = ({
                     <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
 
                     {/* Top Badge */}
-                    <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1 rounded-full bg-black/75 border border-[#FFBE32]/40 backdrop-blur-md">
-                      <Trophy className="h-3.5 w-3.5 text-[#FFBE32]" />
-                      <span className="font-heading text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#FFBE32]">
+                    <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1 rounded-full bg-black/75 border border-[#fc8100]/40 backdrop-blur-md">
+                      <Trophy className="h-3.5 w-3.5 text-[#fc8100]" />
+                      <span className="font-heading text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#fc8100]">
                         GOLDEN TICKET WINNERS
                       </span>
                     </div>
@@ -222,7 +222,7 @@ export const AboutSection = ({
                           World Championship Finals Stage
                         </p>
                       </div>
-                      <span className="font-mono text-xs text-[#FFBE32] bg-black/80 px-2.5 py-1 rounded border border-[#FFBE32]/30">
+                      <span className="font-mono text-xs text-[#fc8100] bg-black/80 px-2.5 py-1 rounded border border-[#fc8100]/30">
                         TOP 8 WORLD
                       </span>
                     </div>
@@ -266,7 +266,7 @@ export const AboutSection = ({
                         key={s.label}
                         className="p-2.5 sm:p-3 rounded-xl bg-[#0B0B0E] border border-white/5 flex flex-col justify-between"
                       >
-                        <IconComponent className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#FFBE32] mb-1.5 sm:mb-2" />
+                        <IconComponent className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#fc8100] mb-1.5 sm:mb-2" />
                         <span className="font-display text-lg sm:text-2xl font-bold text-white">
                           {s.value}
                         </span>
@@ -282,14 +282,14 @@ export const AboutSection = ({
                 <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
                   <Link
                     to="/about#players"
-                    className="inline-flex items-center gap-2 font-heading text-[11px] sm:text-xs font-bold uppercase tracking-wider bg-[#FFBE32] text-black hover:bg-[#FFCD59] py-2 sm:py-2.5 px-4 sm:px-5 rounded-lg transition-all shadow-[0_0_20px_rgba(255,190,50,0.2)]"
+                    className="inline-flex items-center gap-2 font-heading text-[11px] sm:text-xs font-bold uppercase tracking-wider bg-[#fc8100] text-black hover:bg-[#ff9924] py-2 sm:py-2.5 px-4 sm:px-5 rounded-lg transition-all shadow-[0_0_20px_rgba(252, 129, 0,0.2)]"
                   >
                     <span>MEET THE ATHLETES</span>
                     <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                   <Link
                     to="/about#teams"
-                    className="inline-flex items-center gap-1.5 font-heading text-[11px] sm:text-xs font-bold uppercase tracking-wider text-gray-300 hover:text-[#FFBE32] py-2 sm:py-2.5 px-3 transition-colors border border-white/10 hover:border-[#FFBE32]/40 rounded-lg"
+                    className="inline-flex items-center gap-1.5 font-heading text-[11px] sm:text-xs font-bold uppercase tracking-wider text-gray-300 hover:text-[#fc8100] py-2 sm:py-2.5 px-3 transition-colors border border-white/10 hover:border-[#fc8100]/40 rounded-lg"
                   >
                     <span>OPERATIONAL TEAM</span>
                     <ArrowRight className="h-3.5 w-3.5" />
@@ -322,10 +322,10 @@ export const AboutSection = ({
                   return (
                     <div
                       key={player.id}
-                      className="group relative rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#141418] via-[#0C0C0E] to-[#070709] border border-white/10 hover:border-[#FFBE32]/70 p-2.5 xs:p-3 sm:p-4 shadow-[0_15px_40px_rgba(0,0,0,0.8)] hover:shadow-[0_20px_45px_rgba(255,190,50,0.2)] transition-all flex flex-col justify-between overflow-hidden"
+                      className="group relative rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#141418] via-[#0C0C0E] to-[#070709] border border-white/10 hover:border-[#fc8100]/70 p-2.5 xs:p-3 sm:p-4 shadow-[0_15px_40px_rgba(0,0,0,0.8)] hover:shadow-[0_20px_45px_rgba(252, 129, 0,0.2)] transition-all flex flex-col justify-between overflow-hidden"
                     >
                       {/* Gold Strip */}
-                      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FFBE32] to-transparent opacity-40 group-hover:opacity-100 transition-opacity" />
+                      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#fc8100] to-transparent opacity-40 group-hover:opacity-100 transition-opacity" />
 
                       <div>
                         {/* Athlete Role & Team */}
@@ -334,7 +334,7 @@ export const AboutSection = ({
                             {getRoleIcon(player.role)}
                             {player.role}
                           </span>
-                          <span className="font-mono text-[#FFBE32] bg-[#FFBE32]/10 px-1.5 xs:px-2 py-0.5 rounded border border-[#FFBE32]/25">
+                          <span className="font-mono text-[#fc8100] bg-[#fc8100]/10 px-1.5 xs:px-2 py-0.5 rounded border border-[#fc8100]/25">
                             #{player.jerseyNumber || "00"}
                           </span>
                         </div>
@@ -354,12 +354,12 @@ export const AboutSection = ({
                             />
                           ) : (
                             <div className="w-full h-full flex flex-col items-center justify-center p-2 sm:p-4 text-center bg-gradient-to-b from-neutral-900 to-black">
-                              <span className="font-display text-xl sm:text-3xl font-bold text-[#FFBE32]">{cleanIgn.slice(0, 2) || "LZ"}</span>
+                              <span className="font-display text-xl sm:text-3xl font-bold text-[#fc8100]">{cleanIgn.slice(0, 2) || "LZ"}</span>
                             </div>
                           )}
                           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
                           <div className="absolute bottom-1.5 left-1.5 right-1.5 sm:bottom-2.5 sm:left-2.5 sm:right-2.5 flex items-center justify-between pointer-events-none">
-                            <span className="font-display text-sm sm:text-lg uppercase tracking-wider text-white group-hover:text-[#FFBE32] transition-colors truncate">
+                            <span className="font-display text-sm sm:text-lg uppercase tracking-wider text-white group-hover:text-[#fc8100] transition-colors truncate">
                               {cleanIgn}
                             </span>
                             <span className="text-[9px] sm:text-[10px] font-heading uppercase text-gray-400 shrink-0 hidden xs:inline">
@@ -382,7 +382,7 @@ export const AboutSection = ({
                             href={instaUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] text-[#FFBE32] hover:underline truncate max-w-[110px] sm:max-w-[150px]"
+                            className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] text-[#fc8100] hover:underline truncate max-w-[110px] sm:max-w-[150px]"
                             title={`Follow ${cleanIgn} on Instagram`}
                           >
                             <InstagramIcon className="h-2.5 w-2.5 sm:h-3 sm:w-3 shrink-0" />
@@ -401,7 +401,7 @@ export const AboutSection = ({
               <div className="text-center pt-2">
                 <Link
                   to="/about#players"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#FFBE32] text-black font-heading font-bold text-xs uppercase tracking-wider hover:bg-[#FFCD59] transition-all shadow-[0_0_20px_rgba(255,190,50,0.25)]"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#fc8100] text-black font-heading font-bold text-xs uppercase tracking-wider hover:bg-[#ff9924] transition-all shadow-[0_0_20px_rgba(252, 129, 0,0.25)]"
                 >
                   <span>EXPLORE FULL ROSTER IN ABOUT</span>
                   <ArrowRight className="h-3.5 w-3.5" />
@@ -424,10 +424,10 @@ export const AboutSection = ({
                 {collectiveMembers.slice(0, 4).map((member) => (
                   <div
                     key={member.id}
-                    className="group relative rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#141418] via-[#0C0C0E] to-[#070709] border border-white/10 hover:border-[#FFBE32]/70 p-2.5 xs:p-3 sm:p-4 shadow-[0_15px_40px_rgba(0,0,0,0.8)] hover:shadow-[0_20px_45px_rgba(255,190,50,0.2)] transition-all flex flex-col justify-between overflow-hidden"
+                    className="group relative rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#141418] via-[#0C0C0E] to-[#070709] border border-white/10 hover:border-[#fc8100]/70 p-2.5 xs:p-3 sm:p-4 shadow-[0_15px_40px_rgba(0,0,0,0.8)] hover:shadow-[0_20px_45px_rgba(252, 129, 0,0.2)] transition-all flex flex-col justify-between overflow-hidden"
                   >
                     {/* Gold Strip */}
-                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FFBE32] to-transparent opacity-40 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#fc8100] to-transparent opacity-40 group-hover:opacity-100 transition-opacity" />
 
                     <div>
                       {/* Photo / Portrait */}
@@ -452,11 +452,11 @@ export const AboutSection = ({
                           <span className="px-1.5 xs:px-2 py-0.5 rounded bg-black/80 border border-white/10 text-gray-300 truncate max-w-full">
                             //{member.handle}
                           </span>
-                          <span className="text-[#FFBE32] hidden xs:inline">{member.divisions[0]}</span>
+                          <span className="text-[#fc8100] hidden xs:inline">{member.divisions[0]}</span>
                         </div>
                       </div>
 
-                      <h4 className="font-heading text-xs xs:text-sm sm:text-base font-bold text-white group-hover:text-[#FFBE32] transition-colors leading-snug mb-0.5 sm:mb-1 truncate">
+                      <h4 className="font-heading text-xs xs:text-sm sm:text-base font-bold text-white group-hover:text-[#fc8100] transition-colors leading-snug mb-0.5 sm:mb-1 truncate">
                         {member.name}
                       </h4>
                       <p className="text-[10px] xs:text-[11px] text-gray-400 font-body line-clamp-2">
@@ -507,7 +507,7 @@ export const AboutSection = ({
               <div className="text-center pt-2">
                 <Link
                   to="/about#teams"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#FFBE32] text-black font-heading font-bold text-xs uppercase tracking-wider hover:bg-[#FFCD59] transition-all shadow-[0_0_20px_rgba(255,190,50,0.25)]"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#fc8100] text-black font-heading font-bold text-xs uppercase tracking-wider hover:bg-[#ff9924] transition-all shadow-[0_0_20px_rgba(252, 129, 0,0.25)]"
                 >
                   <span>EXPLORE COMPLETE COLLECTIVE IN ABOUT</span>
                   <ArrowRight className="h-3.5 w-3.5" />

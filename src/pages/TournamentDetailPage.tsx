@@ -299,9 +299,9 @@ export const TournamentDetailPage: React.FC = () => {
 
   if (loading && !tournament) {
     return (
-      <div className="min-h-screen bg-[#050505] flex items-center justify-center text-[#FFBE32] font-mono text-sm">
+      <div className="min-h-screen bg-[#050505] flex items-center justify-center text-[#fc8100] font-mono text-sm">
         <div className="text-center space-y-3">
-          <div className="h-8 w-8 border-2 border-[#FFBE32] border-t-transparent rounded-full animate-spin mx-auto" />
+          <div className="h-8 w-8 border-2 border-[#fc8100] border-t-transparent rounded-full animate-spin mx-auto" />
           <p>LOADING TOURNAMENT ARENA...</p>
         </div>
       </div>
@@ -317,7 +317,7 @@ export const TournamentDetailPage: React.FC = () => {
         <p className="text-sm text-gray-400 mt-2">The tournament arena you are looking for may have concluded or been archived.</p>
         <Link
           to="/tournaments"
-          className="mt-6 px-6 py-2.5 rounded-xl bg-[#FFBE32] text-black font-heading font-bold text-xs uppercase"
+          className="mt-6 px-6 py-2.5 rounded-xl bg-[#fc8100] text-black font-heading font-bold text-xs uppercase"
         >
           View All Tournaments
         </Link>
@@ -398,7 +398,7 @@ export const TournamentDetailPage: React.FC = () => {
 
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white selection:bg-[#FFBE32] selection:text-black w-full max-w-full overflow-x-hidden">
+    <div className="min-h-screen bg-[#050505] text-white selection:bg-[#fc8100] selection:text-black w-full max-w-full overflow-x-hidden">
       <SEO
         title={`${tournament.title} | MG ESPORTS Tournament`}
         description={
@@ -440,7 +440,7 @@ export const TournamentDetailPage: React.FC = () => {
             to="/tournaments"
             className="inline-flex items-center gap-1.5 text-xs font-heading font-bold uppercase tracking-wider text-gray-400 hover:text-white mb-6 transition-colors"
           >
-            <ArrowLeft className="h-4 w-4 text-[#FFBE32]" />
+            <ArrowLeft className="h-4 w-4 text-[#fc8100]" />
             <span>All Tournaments</span>
           </Link>
 
@@ -448,7 +448,7 @@ export const TournamentDetailPage: React.FC = () => {
             <div className="space-y-4 max-w-3xl">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="px-3 py-1 rounded-md text-[10px] font-heading font-extrabold uppercase tracking-widest bg-black/80 border border-white/15 text-white backdrop-blur-md">
-                  <Shield className="inline h-3 w-3 text-[#FFBE32] mr-1" />
+                  <Shield className="inline h-3 w-3 text-[#fc8100] mr-1" />
                   {tournament.game}
                 </span>
 
@@ -468,8 +468,8 @@ export const TournamentDetailPage: React.FC = () => {
                       isConfirmed
                         ? "bg-[#22C55E]/20 text-[#22C55E] border border-[#22C55E]/40"
                         : isPendingInvitation
-                        ? "bg-amber-500/20 text-[#FFBE32] border border-[#FFBE32]/40"
-                        : "bg-[#FFBE32]/20 text-[#FFBE32] border border-[#FFBE32]/40"
+                        ? "bg-amber-500/20 text-[#fc8100] border border-[#fc8100]/40"
+                        : "bg-[#fc8100]/20 text-[#fc8100] border border-[#fc8100]/40"
                     }`}
                   >
                     <CheckCircle2 className="w-3 h-3" />
@@ -482,7 +482,7 @@ export const TournamentDetailPage: React.FC = () => {
                       : "REGISTERED"}
                   </span>
                 ) : (
-                  <span className="px-3 py-1 rounded-md text-[10px] font-heading font-extrabold uppercase tracking-wider bg-amber-950/60 text-[#FFBE32] border border-[#FFBE32]/40 backdrop-blur-md">
+                  <span className="px-3 py-1 rounded-md text-[10px] font-heading font-extrabold uppercase tracking-wider bg-amber-950/60 text-[#fc8100] border border-[#fc8100]/40 backdrop-blur-md">
                     {tournament.status === "REGISTRATION_OPEN"
                       ? isTournamentFull
                         ? allowWaitlist
@@ -516,9 +516,9 @@ export const TournamentDetailPage: React.FC = () => {
               {/* Badges strip */}
               <div className="flex flex-wrap items-center gap-4 text-xs font-mono pt-2">
                 <div className="flex items-center gap-2">
-                  <Trophy className="h-4 w-4 text-[#FFBE32]" />
+                  <Trophy className="h-4 w-4 text-[#fc8100]" />
                   <span className="text-gray-400">Prize Pool:</span>
-                  <strong className="text-[#FFBE32] font-display text-lg">{prizeDisplay}</strong>
+                  <strong className="text-[#fc8100] font-display text-lg">{prizeDisplay}</strong>
                 </div>
                 <div className="flex items-center gap-2">
                   <Calendar className="h-4 w-4 text-gray-400" />
@@ -528,29 +528,29 @@ export const TournamentDetailPage: React.FC = () => {
             </div>
 
             {/* DYNAMIC REGISTRATION CARD */}
-            <div className="p-4 xs:p-6 rounded-2xl bg-black/80 border-2 border-[#FFBE32]/40 backdrop-blur-xl shadow-[0_0_30px_rgba(255,190,50,0.15)] flex flex-col justify-between w-full sm:min-w-[280px]">
+            <div className="p-4 xs:p-6 rounded-2xl bg-black/80 border-2 border-[#fc8100]/40 backdrop-blur-xl shadow-[0_0_30px_rgba(252, 129, 0,0.15)] flex flex-col justify-between w-full sm:min-w-[280px]">
               <div>
                 <div className="text-[10px] font-heading font-extrabold uppercase tracking-widest text-gray-400">
                   REGISTRATION STATUS
                 </div>
                 <div className="mt-1 font-display text-3xl font-bold text-white">
-                  <span className="text-[#FFBE32]">{registeredCount}</span> / {totalSlots}
+                  <span className="text-[#fc8100]">{registeredCount}</span> / {totalSlots}
                 </div>
-                <div className="text-xs font-heading font-bold uppercase tracking-wider text-[#FFBE32] mt-0.5">
+                <div className="text-xs font-heading font-bold uppercase tracking-wider text-[#fc8100] mt-0.5">
                   TEAMS REGISTERED
                 </div>
 
                 {/* Progress bar */}
                 <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden mt-3">
                   <div
-                    className="bg-[#FFBE32] h-full rounded-full transition-all duration-500"
+                    className="bg-[#fc8100] h-full rounded-full transition-all duration-500"
                     style={{ width: `${Math.min(100, (registeredCount / totalSlots) * 100)}%` }}
                   />
                 </div>
 
                 <div className="mt-4 pt-3 border-t border-white/10 flex justify-between text-xs font-mono">
                   <span className="text-gray-400">Entry Fee:</span>
-                  <span className="text-[#FFBE32] font-bold">{feeDisplay}</span>
+                  <span className="text-[#fc8100] font-bold">{feeDisplay}</span>
                 </div>
               </div>
 
@@ -599,7 +599,7 @@ export const TournamentDetailPage: React.FC = () => {
                       roomAccess?.isEliminated
                         ? "bg-white/10 hover:bg-white/20 text-white"
                         : roomAccess?.hasAccess
-                        ? "bg-[#FFBE32] hover:bg-[#FFA000] shadow-[0_0_15px_rgba(255,190,50,0.3)]"
+                        ? "bg-[#fc8100] hover:bg-[#e07200] shadow-[0_0_15px_rgba(252, 129, 0,0.3)]"
                         : "bg-[#22C55E] hover:bg-[#16a34a] shadow-[0_0_15px_rgba(34,197,94,0.3)]"
                     }`}
                   >
@@ -636,7 +636,7 @@ export const TournamentDetailPage: React.FC = () => {
                       ? "bg-white/5 border border-white/10 text-gray-400 cursor-not-allowed opacity-70"
                       : isTournamentFull && allowWaitlist
                       ? "bg-amber-400 hover:bg-amber-300 text-black shadow-[0_0_15px_rgba(251,191,36,0.4)] cursor-pointer"
-                      : "bg-[#FFBE32] hover:bg-[#FFA000] text-black shadow-[0_0_15px_rgba(255,190,50,0.3)] cursor-pointer"
+                      : "bg-[#fc8100] hover:bg-[#e07200] text-black shadow-[0_0_15px_rgba(252, 129, 0,0.3)] cursor-pointer"
                   }`}
                 >
                   {isCompletedTournament
@@ -673,7 +673,7 @@ export const TournamentDetailPage: React.FC = () => {
                           onClick={() => setSelectedRoundTab(rnd.roundId)}
                           className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
                             isSelected
-                              ? "bg-[#FFBE32] text-black shadow-md shadow-[#FFBE32]/20 font-black"
+                              ? "bg-[#fc8100] text-black shadow-md shadow-[#fc8100]/20 font-black"
                               : isElim
                               ? "bg-red-950/40 text-red-300 border border-red-500/30 hover:bg-red-900/50"
                               : "bg-white/10 text-gray-300 hover:bg-white/20 hover:text-white"
@@ -683,7 +683,7 @@ export const TournamentDetailPage: React.FC = () => {
                           {isElim ? (
                             <span className="text-[9px] px-1 rounded bg-red-500/20 text-red-300">Eliminated</span>
                           ) : (
-                            <span className="text-[9px] px-1 rounded bg-black/40 text-[#FFBE32]">Slot #{rnd.slotNumber}</span>
+                            <span className="text-[9px] px-1 rounded bg-black/40 text-[#fc8100]">Slot #{rnd.slotNumber}</span>
                           )}
                         </button>
                       );
@@ -717,15 +717,15 @@ export const TournamentDetailPage: React.FC = () => {
                   </span>
                 </div>
               ) : activeRoundData.hasAccess ? (
-                <div className="p-6 rounded-2xl bg-gradient-to-br from-[#FFBE32]/15 via-[#121218] to-black border-2 border-[#FFBE32]/60 shadow-[0_0_35px_rgba(255,190,50,0.2)] space-y-4">
+                <div className="p-6 rounded-2xl bg-gradient-to-br from-[#fc8100]/15 via-[#121218] to-black border-2 border-[#fc8100]/60 shadow-[0_0_35px_rgba(252, 129, 0,0.2)] space-y-4">
                   <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-[#FFBE32]/20 border border-[#FFBE32]/50 flex items-center justify-center text-[#FFBE32]">
+                      <div className="w-10 h-10 rounded-xl bg-[#fc8100]/20 border border-[#fc8100]/50 flex items-center justify-center text-[#fc8100]">
                         <Key className="w-5 h-5" />
                       </div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="text-[11px] font-heading font-black uppercase tracking-widest text-[#FFBE32]">
+                          <span className="text-[11px] font-heading font-black uppercase tracking-widest text-[#fc8100]">
                             FREE FIRE CUSTOM ROOM CREDENTIALS
                           </span>
                           <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
@@ -738,7 +738,7 @@ export const TournamentDetailPage: React.FC = () => {
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="px-3.5 py-1.5 rounded-xl text-xs font-mono font-black bg-[#FFBE32] text-black shadow-lg">
+                      <span className="px-3.5 py-1.5 rounded-xl text-xs font-mono font-black bg-[#fc8100] text-black shadow-lg">
                         LOBBY SLOT #{activeRoundData.slotNumber}
                       </span>
                     </div>
@@ -787,7 +787,7 @@ export const TournamentDetailPage: React.FC = () => {
 
                     {/* Map */}
                     <div className="p-3.5 rounded-xl bg-black/70 border border-white/15 flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-lg bg-[#FFBE32]/10 border border-[#FFBE32]/20 flex items-center justify-center text-[#FFBE32]">
+                      <div className="w-9 h-9 rounded-lg bg-[#fc8100]/10 border border-[#fc8100]/20 flex items-center justify-center text-[#fc8100]">
                         <MapPin className="w-4 h-4" />
                       </div>
                       <div>
@@ -800,7 +800,7 @@ export const TournamentDetailPage: React.FC = () => {
 
                     {/* Match Time */}
                     <div className="p-3.5 rounded-xl bg-black/70 border border-white/15 flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-lg bg-[#FFBE32]/10 border border-[#FFBE32]/20 flex items-center justify-center text-[#FFBE32]">
+                      <div className="w-9 h-9 rounded-lg bg-[#fc8100]/10 border border-[#fc8100]/20 flex items-center justify-center text-[#fc8100]">
                         <Clock className="w-4 h-4" />
                       </div>
                       <div>
@@ -814,7 +814,7 @@ export const TournamentDetailPage: React.FC = () => {
 
                   {activeRoundData.notes && (
                     <div className="p-3 rounded-xl bg-black/50 border border-white/10 text-xs font-mono text-gray-300 flex items-start gap-2">
-                      <span className="text-[#FFBE32] font-bold shrink-0">ADMIN INSTRUCTIONS:</span>
+                      <span className="text-[#fc8100] font-bold shrink-0">ADMIN INSTRUCTIONS:</span>
                       <span>{activeRoundData.notes}</span>
                     </div>
                   )}
@@ -869,11 +869,11 @@ export const TournamentDetailPage: React.FC = () => {
                   onClick={() => setActiveTab(tab.key)}
                   className={`flex items-center gap-2 py-4 px-5 font-heading text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap border-b-2 cursor-pointer ${
                     active
-                      ? "border-[#FFBE32] text-[#FFBE32] bg-[#FFBE32]/5"
+                      ? "border-[#fc8100] text-[#fc8100] bg-[#fc8100]/5"
                       : "border-transparent text-gray-400 hover:text-white"
                   }`}
                 >
-                  <Icon className={`h-4 w-4 ${active ? "text-[#FFBE32]" : "text-gray-500"}`} />
+                  <Icon className={`h-4 w-4 ${active ? "text-[#fc8100]" : "text-gray-500"}`} />
                   <span>{tab.label}</span>
                 </button>
               );
@@ -903,19 +903,19 @@ export const TournamentDetailPage: React.FC = () => {
               <div className="p-6 rounded-2xl bg-[#0D0D12] border border-white/10 space-y-4">
                 <div className="flex items-center justify-between">
                   <h2 className="font-display text-2xl uppercase tracking-wider text-white flex items-center gap-2">
-                    <Trophy className="h-6 w-6 text-[#FFBE32]" />
+                    <Trophy className="h-6 w-6 text-[#fc8100]" />
                     Prize Pool Distribution
                   </h2>
-                  <span className="text-xs font-mono font-bold text-[#FFBE32] bg-[#FFBE32]/10 px-2.5 py-1 rounded-md border border-[#FFBE32]/30">
+                  <span className="text-xs font-mono font-bold text-[#fc8100] bg-[#fc8100]/10 px-2.5 py-1 rounded-md border border-[#fc8100]/30">
                     Total: {prizeDisplay}
                   </span>
                 </div>
 
                 {parsedPrizes.length === 1 || (tournament as any).prizeType === "WINNER_TAKES_ALL" ? (
-                  <div className="p-8 rounded-2xl bg-gradient-to-b from-[#FFBE32]/20 via-[#171720] to-black border-2 border-[#FFBE32]/50 text-center space-y-3 shadow-[0_0_40px_rgba(255,190,50,0.15)]">
-                    <Crown className="h-12 w-12 text-[#FFBE32] mx-auto animate-pulse" />
+                  <div className="p-8 rounded-2xl bg-gradient-to-b from-[#fc8100]/20 via-[#171720] to-black border-2 border-[#fc8100]/50 text-center space-y-3 shadow-[0_0_40px_rgba(252, 129, 0,0.15)]">
+                    <Crown className="h-12 w-12 text-[#fc8100] mx-auto animate-pulse" />
                     <div>
-                      <span className="text-[11px] font-heading font-black uppercase tracking-widest text-[#FFBE32] bg-[#FFBE32]/10 px-3 py-1 rounded-full border border-[#FFBE32]/30">
+                      <span className="text-[11px] font-heading font-black uppercase tracking-widest text-[#fc8100] bg-[#fc8100]/10 px-3 py-1 rounded-full border border-[#fc8100]/30">
                         WINNER TAKES ALL • 1ST PLACE
                       </span>
                       <div className="font-display text-4xl sm:text-5xl font-black text-white mt-2">
@@ -938,7 +938,7 @@ export const TournamentDetailPage: React.FC = () => {
                           key={pIdx}
                           className={`p-5 rounded-xl text-center space-y-1 transition-all ${
                             isFirst
-                              ? "bg-gradient-to-b from-[#FFBE32]/15 to-transparent border border-[#FFBE32]/40 shadow-[0_0_20px_rgba(255,190,50,0.1)]"
+                              ? "bg-gradient-to-b from-[#fc8100]/15 to-transparent border border-[#fc8100]/40 shadow-[0_0_20px_rgba(252, 129, 0,0.1)]"
                               : isSecond
                               ? "bg-gradient-to-b from-white/10 to-transparent border border-white/15"
                               : isThird
@@ -947,7 +947,7 @@ export const TournamentDetailPage: React.FC = () => {
                           }`}
                         >
                           {isFirst ? (
-                            <Crown className="h-7 w-7 text-[#FFBE32] mx-auto mb-1" />
+                            <Crown className="h-7 w-7 text-[#fc8100] mx-auto mb-1" />
                           ) : isSecond ? (
                             <MedalSilver className="h-7 w-7 text-gray-300 mx-auto mb-1" />
                           ) : isThird ? (
@@ -958,7 +958,7 @@ export const TournamentDetailPage: React.FC = () => {
                           <div
                             className={`text-[10px] font-heading font-extrabold uppercase tracking-widest ${
                               isFirst
-                                ? "text-[#FFBE32]"
+                                ? "text-[#fc8100]"
                                 : isSecond
                                 ? "text-gray-300"
                                 : isThird
@@ -987,7 +987,7 @@ export const TournamentDetailPage: React.FC = () => {
               {parsedSponsors.length > 0 && (
                 <div className="p-6 rounded-2xl bg-[#0D0D12] border border-white/10 space-y-4">
                   <h2 className="font-display text-2xl uppercase tracking-wider text-white flex items-center gap-2">
-                    <Award className="h-6 w-6 text-[#FFBE32]" />
+                    <Award className="h-6 w-6 text-[#fc8100]" />
                     Championship Sponsors &amp; Partners
                   </h2>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -997,17 +997,17 @@ export const TournamentDetailPage: React.FC = () => {
                         href={sp.website || "#"}
                         target={sp.website ? "_blank" : undefined}
                         rel="noopener noreferrer"
-                        className="p-4 rounded-xl bg-black/40 border border-white/10 hover:border-[#FFBE32]/40 transition-colors flex flex-col items-center justify-center text-center space-y-2 group"
+                        className="p-4 rounded-xl bg-black/40 border border-white/10 hover:border-[#fc8100]/40 transition-colors flex flex-col items-center justify-center text-center space-y-2 group"
                       >
                         {sp.logo ? (
                           <img src={sp.logo} alt={sp.name} className="h-10 w-auto object-contain max-w-[120px]" />
                         ) : (
-                          <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center font-display text-xs text-[#FFBE32]">
+                          <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center font-display text-xs text-[#fc8100]">
                             {sp.name.slice(0, 2).toUpperCase()}
                           </div>
                         )}
                         <div>
-                          <strong className="text-xs font-heading font-bold text-white group-hover:text-[#FFBE32] transition-colors block">
+                          <strong className="text-xs font-heading font-bold text-white group-hover:text-[#fc8100] transition-colors block">
                             {sp.name}
                           </strong>
                           {sp.tier && (
@@ -1024,7 +1024,7 @@ export const TournamentDetailPage: React.FC = () => {
             {/* Right Specifications Rail */}
             <div className="space-y-6">
               <div className="p-6 rounded-2xl bg-[#0D0D12] border border-white/10 space-y-4 text-xs font-mono">
-                <h3 className="font-heading text-sm font-bold uppercase tracking-wider text-[#FFBE32]">
+                <h3 className="font-heading text-sm font-bold uppercase tracking-wider text-[#fc8100]">
                   Tournament Details
                 </h3>
 
@@ -1043,7 +1043,7 @@ export const TournamentDetailPage: React.FC = () => {
                   </div>
                   <div className="flex justify-between pt-2">
                     <span className="text-gray-400">Registration Fee:</span>
-                    <span className="text-[#FFBE32] font-bold">{feeDisplay}</span>
+                    <span className="text-[#fc8100] font-bold">{feeDisplay}</span>
                   </div>
                   <div className="flex justify-between pt-2">
                     <span className="text-gray-400">Payment Gateway:</span>
@@ -1063,12 +1063,12 @@ export const TournamentDetailPage: React.FC = () => {
         {activeTab === "REGISTRATION" && (
           <div className="max-w-3xl mx-auto">
             {!isAuthenticated ? (
-              <div className="p-8 sm:p-10 rounded-2xl bg-[#0D0D12] border-2 border-[#FFBE32]/40 text-center space-y-6 shadow-[0_0_40px_rgba(255,190,50,0.15)]">
-                <div className="w-16 h-16 rounded-2xl bg-[#FFBE32]/10 border border-[#FFBE32]/40 flex items-center justify-center text-[#FFBE32] mx-auto shadow-[0_0_20px_rgba(255,190,50,0.2)]">
-                  <Shield className="h-8 w-8 text-[#FFBE32]" />
+              <div className="p-8 sm:p-10 rounded-2xl bg-[#0D0D12] border-2 border-[#fc8100]/40 text-center space-y-6 shadow-[0_0_40px_rgba(252, 129, 0,0.15)]">
+                <div className="w-16 h-16 rounded-2xl bg-[#fc8100]/10 border border-[#fc8100]/40 flex items-center justify-center text-[#fc8100] mx-auto shadow-[0_0_20px_rgba(252, 129, 0,0.2)]">
+                  <Shield className="h-8 w-8 text-[#fc8100]" />
                 </div>
                 <div className="space-y-2 max-w-md mx-auto">
-                  <span className="px-3 py-1 rounded-full text-[10px] font-heading font-black tracking-widest bg-[#FFBE32]/20 text-[#FFBE32] border border-[#FFBE32]/30 uppercase">
+                  <span className="px-3 py-1 rounded-full text-[10px] font-heading font-black tracking-widest bg-[#fc8100]/20 text-[#fc8100] border border-[#fc8100]/30 uppercase">
                     ATHLETE VERIFICATION
                   </span>
                   <h2 className="font-display text-2xl sm:text-3xl uppercase tracking-wider text-white">
@@ -1076,7 +1076,7 @@ export const TournamentDetailPage: React.FC = () => {
                   </h2>
                   <p className="text-xs sm:text-sm text-gray-300 font-body leading-relaxed">
                     You must be logged in as an athlete or team captain to register your squad for{" "}
-                    <strong className="text-[#FFBE32]">{tournament.title}</strong>. Sign in or create your player profile to reserve your slot.
+                    <strong className="text-[#fc8100]">{tournament.title}</strong>. Sign in or create your player profile to reserve your slot.
                   </p>
                 </div>
 
@@ -1090,7 +1090,7 @@ export const TournamentDetailPage: React.FC = () => {
                         openLogin();
                       }
                     }}
-                    className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#FFBE32] hover:bg-[#FFA000] text-black font-heading font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(255,190,50,0.3)] transition-all cursor-pointer"
+                    className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#fc8100] hover:bg-[#e07200] text-black font-heading font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(252, 129, 0,0.3)] transition-all cursor-pointer"
                   >
                     LOGIN / SIGN UP TO REGISTER
                   </button>
@@ -1112,7 +1112,7 @@ export const TournamentDetailPage: React.FC = () => {
                   YOU ARE ALREADY REGISTERED
                 </h2>
                 <p className="text-sm text-gray-300 font-body max-w-md mx-auto">
-                  Your squad is already on the roster for <strong className="text-[#FFBE32]">{tournament.title}</strong>. 
+                  Your squad is already on the roster for <strong className="text-[#fc8100]">{tournament.title}</strong>. 
                   You can track payment verification status, manage your squad roster, or view room access in your athlete dashboard.
                 </p>
 
@@ -1132,21 +1132,21 @@ export const TournamentDetailPage: React.FC = () => {
                 </div>
               </div>
             ) : submitSuccess && submissionResult ? (
-              <div className="p-8 rounded-2xl bg-[#0D0D12] border-2 border-[#FFBE32]/40 text-center space-y-5 shadow-[0_0_40px_rgba(255,190,50,0.15)]">
-                <div className="h-16 w-16 rounded-full bg-[#FFBE32]/20 border border-[#FFBE32] flex items-center justify-center text-[#FFBE32] mx-auto">
+              <div className="p-8 rounded-2xl bg-[#0D0D12] border-2 border-[#fc8100]/40 text-center space-y-5 shadow-[0_0_40px_rgba(252, 129, 0,0.15)]">
+                <div className="h-16 w-16 rounded-full bg-[#fc8100]/20 border border-[#fc8100] flex items-center justify-center text-[#fc8100] mx-auto">
                   <CheckCircle2 className="h-10 w-10" />
                 </div>
                 <h2 className="font-display text-3xl uppercase tracking-wider text-white">
                   SLOT RESERVATION CONFIRMED!
                 </h2>
                 <p className="text-xs text-gray-300 font-body max-w-md mx-auto">
-                  Squad <strong className="text-[#FFBE32]">{teamName}</strong> has been registered for {tournament.title}.
+                  Squad <strong className="text-[#fc8100]">{teamName}</strong> has been registered for {tournament.title}.
                 </p>
 
                 <div className="p-4 rounded-xl bg-black/60 border border-white/10 text-xs font-mono text-left space-y-2 max-w-md mx-auto">
                   <div className="flex justify-between">
                     <span className="text-gray-400">Registration ID:</span>
-                    <span className="text-[#FFBE32] font-bold">{submissionResult.registrationNumber}</span>
+                    <span className="text-[#fc8100] font-bold">{submissionResult.registrationNumber}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-400">Captain IGN:</span>
@@ -1177,7 +1177,7 @@ export const TournamentDetailPage: React.FC = () => {
                   </button>
                   <button
                     onClick={() => setActiveTab("ABOUT")}
-                    className="px-6 py-2.5 rounded-xl bg-[#FFBE32] hover:bg-[#FFA000] text-black text-xs font-heading font-bold uppercase"
+                    className="px-6 py-2.5 rounded-xl bg-[#fc8100] hover:bg-[#e07200] text-black text-xs font-heading font-bold uppercase"
                   >
                     Return to Overview
                   </button>
@@ -1302,7 +1302,7 @@ export const TournamentDetailPage: React.FC = () => {
                           <span className="text-[10px] text-gray-500 uppercase block">
                             Player 0{idx + 1} Role
                           </span>
-                          <span className="font-bold text-[#FFBE32] text-xs uppercase">{p.role}</span>
+                          <span className="font-bold text-[#fc8100] text-xs uppercase">{p.role}</span>
                         </div>
                         <div>
                           <input
@@ -1406,17 +1406,17 @@ export const TournamentDetailPage: React.FC = () => {
                   <button
                     type="button"
                     onClick={handleAddSubstitute}
-                    className="text-xs font-heading font-bold text-[#FFBE32] hover:underline"
+                    className="text-xs font-heading font-bold text-[#fc8100] hover:underline"
                   >
                     + Add Substitute Player
                   </button>
                 </div>
 
                 {/* Free Pre-Entry Reservation Pass */}
-                <div className="p-6 rounded-2xl bg-gradient-to-br from-[#0D0D12] via-[#121218] to-black border-2 border-[#FFBE32]/30 space-y-4 shadow-[0_0_30px_rgba(255,190,50,0.08)]">
+                <div className="p-6 rounded-2xl bg-gradient-to-br from-[#0D0D12] via-[#121218] to-black border-2 border-[#fc8100]/30 space-y-4 shadow-[0_0_30px_rgba(252, 129, 0,0.08)]">
                   <div className="flex items-center justify-between flex-wrap gap-2">
                     <h2 className="font-display text-2xl uppercase tracking-wider text-white flex items-center gap-2">
-                      <Shield className="h-6 w-6 text-[#FFBE32]" />
+                      <Shield className="h-6 w-6 text-[#fc8100]" />
                       FREE PRE-ENTRY SQUAD HOLD
                     </h2>
                     <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5">
@@ -1431,7 +1431,7 @@ export const TournamentDetailPage: React.FC = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs">
                     <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/10 space-y-1">
-                      <span className="font-heading font-bold text-[#FFBE32] block">1. Instant Slot Lock</span>
+                      <span className="font-heading font-bold text-[#fc8100] block">1. Instant Slot Lock</span>
                       <p className="text-[11px] text-gray-400">Squad slot count immediately updates on the live board upon submission.</p>
                     </div>
                     <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/10 space-y-1">
@@ -1448,7 +1448,7 @@ export const TournamentDetailPage: React.FC = () => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full py-4 rounded-xl font-heading text-sm font-extrabold uppercase tracking-wider bg-[#FFBE32] hover:bg-[#FFA000] text-black transition-all shadow-[0_0_25px_rgba(255,190,50,0.35)] disabled:opacity-50 cursor-pointer"
+                  className="w-full py-4 rounded-xl font-heading text-sm font-extrabold uppercase tracking-wider bg-[#fc8100] hover:bg-[#e07200] text-black transition-all shadow-[0_0_25px_rgba(252, 129, 0,0.35)] disabled:opacity-50 cursor-pointer"
                 >
                   {submitting ? "Reserving Pre-Entry Slot..." : "Confirm Pre-Entry Registration"}
                 </button>
@@ -1482,7 +1482,7 @@ export const TournamentDetailPage: React.FC = () => {
                       </div>
                       <h3 className="font-display text-xl uppercase text-white">{team.teamName}</h3>
                       <p className="text-xs text-gray-400 font-mono mt-0.5">
-                        Captain: <strong className="text-[#FFBE32]">{team.captainIgn}</strong>
+                        Captain: <strong className="text-[#fc8100]">{team.captainIgn}</strong>
                       </p>
                     </div>
 
@@ -1524,7 +1524,7 @@ export const TournamentDetailPage: React.FC = () => {
                   <div>
                     <div className="flex items-center justify-between text-xs font-mono text-gray-400">
                       <span>STAGE 0{stg.order || i + 1}</span>
-                      <span className="text-[#FFBE32] uppercase">{stg.status}</span>
+                      <span className="text-[#fc8100] uppercase">{stg.status}</span>
                     </div>
                     <h3 className="font-display text-xl text-white uppercase mt-2">{stg.name}</h3>
                     <p className="text-xs text-gray-400 mt-2 font-body">
@@ -1546,7 +1546,7 @@ export const TournamentDetailPage: React.FC = () => {
             <div className="flex items-center justify-between pb-4 border-b border-white/10">
               <div>
                 <h2 className="font-display text-2xl uppercase tracking-wider text-white flex items-center gap-2">
-                  <Award className="h-6 w-6 text-[#FFBE32]" />
+                  <Award className="h-6 w-6 text-[#fc8100]" />
                   Official Live Leaderboard
                 </h2>
                 <p className="text-xs text-gray-400">
@@ -1555,7 +1555,7 @@ export const TournamentDetailPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="rounded-2xl border-2 border-[#FFBE32]/30 bg-[#0D0D12] overflow-x-auto shadow-2xl">
+            <div className="rounded-2xl border-2 border-[#fc8100]/30 bg-[#0D0D12] overflow-x-auto shadow-2xl">
               <table className="w-full text-left text-xs sm:text-sm font-heading">
                 <thead>
                   <tr className="border-b border-white/10 bg-white/[0.02] text-[10px] sm:text-xs uppercase tracking-wider text-gray-400">
@@ -1564,7 +1564,7 @@ export const TournamentDetailPage: React.FC = () => {
                     <th className="py-3.5 px-4 text-center">MATCHES</th>
                     <th className="py-3.5 px-4 text-center">WWCD (WINS)</th>
                     <th className="py-3.5 px-4 text-center">KILLS</th>
-                    <th className="py-3.5 px-4 text-right text-[#FFBE32] font-bold">TOTAL POINTS</th>
+                    <th className="py-3.5 px-4 text-right text-[#fc8100] font-bold">TOTAL POINTS</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/5">
@@ -1577,14 +1577,14 @@ export const TournamentDetailPage: React.FC = () => {
                         <tr
                           key={row.id || idx}
                           className={`hover:bg-white/[0.02] ${
-                            isTop1 ? "bg-[#FFBE32]/5" : isTop3 ? "bg-white/[0.01]" : ""
+                            isTop1 ? "bg-[#fc8100]/5" : isTop3 ? "bg-white/[0.01]" : ""
                           }`}
                         >
-                          <td className={`py-4 px-4 font-display text-base ${isTop3 ? "text-[#FFBE32]" : "text-gray-400"}`}>
+                          <td className={`py-4 px-4 font-display text-base ${isTop3 ? "text-[#fc8100]" : "text-gray-400"}`}>
                             #{row.rank || idx + 1}
                           </td>
                           <td className="py-4 px-4 font-bold text-white flex items-center gap-2">
-                            {isTop1 && <Crown className="h-4 w-4 text-[#FFBE32]" />}
+                            {isTop1 && <Crown className="h-4 w-4 text-[#fc8100]" />}
                             <span>{row.teamName}</span>
                           </td>
                           <td className="py-4 px-4 text-center text-gray-300 font-mono">
@@ -1596,7 +1596,7 @@ export const TournamentDetailPage: React.FC = () => {
                           <td className="py-4 px-4 text-center text-red-400 font-mono font-bold">
                             {row.kills}
                           </td>
-                          <td className="py-4 px-4 text-right font-display text-lg font-bold text-[#FFBE32]">
+                          <td className="py-4 px-4 text-right font-display text-lg font-bold text-[#fc8100]">
                             {row.totalPoints}
                           </td>
                         </tr>
@@ -1639,8 +1639,8 @@ Slots are non-transferable once verified.`}
 
             {tournament.refundPolicy && (
               <div className="p-6 rounded-2xl bg-[#0D0D12] border border-white/10 space-y-3">
-                <h3 className="font-display text-xl uppercase tracking-wider text-[#FFBE32] flex items-center gap-2">
-                  <Shield className="h-5 w-5 text-[#FFBE32]" />
+                <h3 className="font-display text-xl uppercase tracking-wider text-[#fc8100] flex items-center gap-2">
+                  <Shield className="h-5 w-5 text-[#fc8100]" />
                   Refund &amp; Cancellation Policy
                 </h3>
                 <p className="text-xs font-mono text-gray-300 whitespace-pre-line leading-relaxed">

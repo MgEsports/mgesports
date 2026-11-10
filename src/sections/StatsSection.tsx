@@ -13,11 +13,11 @@ const StatCard = ({
   const count = useCountUp(item.value, 1600, isInView);
 
   return (
-    <div className="flex flex-col items-center text-center p-3.5 xs:p-4 sm:p-8 rounded-xl bg-[#0B0B0E] border border-white/5 hover:border-[#FFBE32]/30 transition-all duration-300 min-w-0 w-full overflow-hidden">
+    <div className="flex flex-col items-center text-center p-3.5 xs:p-4 sm:p-8 rounded-xl bg-[#0B0B0E] border border-white/5 hover:border-[#fc8100]/30 transition-all duration-300 min-w-0 w-full overflow-hidden">
       <div className="font-display text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-1 sm:mb-2 truncate max-w-full">
-        {item.prefix && <span className="text-[#FFBE32]">{item.prefix}</span>}
+        {item.prefix && <span className="text-[#fc8100]">{item.prefix}</span>}
         <span>{count}</span>
-        <span className="text-[#FFBE32]">{item.suffix}</span>
+        <span className="text-[#fc8100]">{item.suffix}</span>
       </div>
       <div className="font-heading text-xs sm:text-base font-bold uppercase tracking-widest text-white truncate max-w-full">
         {item.label}

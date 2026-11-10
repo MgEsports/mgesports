@@ -82,7 +82,7 @@ export const TheCollectiveSection = ({
       } px-4 sm:px-6 lg:px-8 bg-[#070709] border-t border-white/5 overflow-hidden w-full max-w-full`}
     >
       {/* Background Ambience */}
-      <div className="absolute left-1/3 top-1/2 -translate-y-1/2 w-96 h-96 bg-[#FFBE32]/[0.03] blur-[150px] pointer-events-none" />
+      <div className="absolute left-1/3 top-1/2 -translate-y-1/2 w-96 h-96 bg-[#fc8100]/[0.03] blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {showHeader && (
@@ -96,7 +96,7 @@ export const TheCollectiveSection = ({
         {/* Directory Controls & Filter Chips */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 sm:mb-12">
           <div className="flex items-center gap-2.5">
-            <span className="w-2 h-2 rounded-full bg-[#FFBE32] animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-[#fc8100] animate-pulse" />
             <span className="font-mono text-xs uppercase tracking-widest text-gray-400">
               OPERATIONAL VANGUARD ({filteredMembers.length} MEMBERS)
             </span>
@@ -116,8 +116,8 @@ export const TheCollectiveSection = ({
                 onClick={() => setMemberFilter(filter.id)}
                 className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all cursor-pointer ${
                   memberFilter === filter.id
-                    ? "bg-[#FFBE32] text-black font-bold shadow-[0_0_15px_rgba(255,190,50,0.35)]"
-                    : "bg-[#111115] text-gray-400 hover:text-white border border-white/10 hover:border-[#FFBE32]/40"
+                    ? "bg-[#fc8100] text-black font-bold shadow-[0_0_15px_rgba(252, 129, 0,0.35)]"
+                    : "bg-[#111115] text-gray-400 hover:text-white border border-white/10 hover:border-[#fc8100]/40"
                 }`}
               >
                 {filter.label}
@@ -134,14 +134,14 @@ export const TheCollectiveSection = ({
             return (
               <div
                 key={member.id}
-                className="group relative rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#141418] via-[#0C0C0E] to-[#070709] border border-white/10 hover:border-[#FFBE32]/60 p-2.5 xs:p-3 sm:p-5 shadow-[0_15px_40px_rgba(0,0,0,0.8)] hover:shadow-[0_20px_45px_rgba(255,190,50,0.2)] transition-all duration-300 flex flex-col justify-between overflow-hidden min-w-0"
+                className="group relative rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#141418] via-[#0C0C0E] to-[#070709] border border-white/10 hover:border-[#fc8100]/60 p-2.5 xs:p-3 sm:p-5 shadow-[0_15px_40px_rgba(0,0,0,0.8)] hover:shadow-[0_20px_45px_rgba(252, 129, 0,0.2)] transition-all duration-300 flex flex-col justify-between overflow-hidden min-w-0"
               >
                 {/* Top Chamfer Cut Gold Strip */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FFBE32] to-transparent opacity-40 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#fc8100] to-transparent opacity-40 group-hover:opacity-100 transition-opacity" />
 
                 <div>
                   {/* Dedicated Member Portrait Container */}
-                  <div className="relative aspect-[4/5] w-full rounded-lg sm:rounded-xl overflow-hidden bg-gradient-to-b from-[#181820] to-[#0A0A0C] border border-white/10 mb-2 sm:mb-4 group-hover:border-[#FFBE32]/40 transition-colors">
+                  <div className="relative aspect-[4/5] w-full rounded-lg sm:rounded-xl overflow-hidden bg-gradient-to-b from-[#181820] to-[#0A0A0C] border border-white/10 mb-2 sm:mb-4 group-hover:border-[#fc8100]/40 transition-colors">
                     {member.avatar ? (
                       <img
                         src={member.avatar}
@@ -165,7 +165,7 @@ export const TheCollectiveSection = ({
                       style={{ display: member.avatar ? "none" : "flex" }}
                       className="w-full h-full flex flex-col items-center justify-center p-2 sm:p-4 bg-gradient-to-b from-[#16161B] via-[#0D0D10] to-[#08080A]"
                     >
-                      <div className="w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 rounded-full border border-white/10 flex items-center justify-center font-display font-black text-sm xs:text-base sm:text-xl text-white/90 group-hover:border-[#FFBE32]/60 group-hover:text-[#FFBE32] transition-colors">
+                      <div className="w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 rounded-full border border-white/10 flex items-center justify-center font-display font-black text-sm xs:text-base sm:text-xl text-white/90 group-hover:border-[#fc8100]/60 group-hover:text-[#fc8100] transition-colors">
                         {member.initials || "LZ"}
                       </div>
                       {member.handle && (
@@ -188,7 +188,7 @@ export const TheCollectiveSection = ({
 
                   {/* Profile Header & Social Actions */}
                   <div className="flex items-center justify-between gap-1 sm:gap-2 mb-1.5 sm:mb-2">
-                    <span className="text-[9px] xs:text-[10px] font-mono uppercase tracking-wider text-[#FFBE32] truncate">
+                    <span className="text-[9px] xs:text-[10px] font-mono uppercase tracking-wider text-[#fc8100] truncate">
                       {member.divisions[0] || "CORE"}
                     </span>
 
@@ -222,7 +222,7 @@ export const TheCollectiveSection = ({
                   </div>
 
                   {/* Member Name - Retains original alignment, typography, and styling */}
-                  <h4 className="font-heading text-xs xs:text-sm sm:text-lg font-bold text-white group-hover:text-[#FFBE32] transition-colors leading-tight mb-0.5 sm:mb-1 truncate">
+                  <h4 className="font-heading text-xs xs:text-sm sm:text-lg font-bold text-white group-hover:text-[#fc8100] transition-colors leading-tight mb-0.5 sm:mb-1 truncate">
                     {member.name || (member.handle ? member.handle.replace(/^[//_]+/, "") : "Member")}
                   </h4>
 

@@ -334,7 +334,7 @@ export const ProductsPage = () => {
           particleCount: 100,
           spread: 80,
           origin: { y: 0.6 },
-          colors: ["#FFBE32", "#FFFFFF", "#F59E0B"],
+          colors: ["#fc8100", "#FFFFFF", "#F59E0B"],
         });
       } catch {}
     } catch {
@@ -427,12 +427,12 @@ export const ProductsPage = () => {
     return (
       <div
         key={ord.id}
-        className="p-5 rounded-2xl bg-black/80 border border-white/10 hover:border-[#FFBE32]/40 transition-all space-y-4 shadow-lg"
+        className="p-5 rounded-2xl bg-black/80 border border-white/10 hover:border-[#fc8100]/40 transition-all space-y-4 shadow-lg"
       >
         {/* Order Identity Top Bar */}
         <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-white/10">
           <div>
-            <span className="font-mono text-sm font-bold text-[#FFBE32] px-2.5 py-0.5 rounded bg-[#FFBE32]/10 border border-[#FFBE32]/30">
+            <span className="font-mono text-sm font-bold text-[#fc8100] px-2.5 py-0.5 rounded bg-[#fc8100]/10 border border-[#fc8100]/30">
               {ord.orderNumber}
             </span>
             <span className="text-gray-400 font-mono text-xs ml-3">
@@ -466,7 +466,7 @@ export const ProductsPage = () => {
           <div className="py-2">
             <div className="grid grid-cols-4 gap-2 text-center font-mono text-[10px]">
               <div>
-                <div className="w-7 h-7 rounded-full mx-auto mb-1.5 flex items-center justify-center font-bold bg-[#FFBE32] text-black shadow-[0_0_10px_#FFBE32]">
+                <div className="w-7 h-7 rounded-full mx-auto mb-1.5 flex items-center justify-center font-bold bg-[#fc8100] text-black shadow-[0_0_10px_#fc8100]">
                   ✓
                 </div>
                 <span className="text-white font-bold">Placed</span>
@@ -475,7 +475,7 @@ export const ProductsPage = () => {
                 <div
                   className={`w-7 h-7 rounded-full mx-auto mb-1.5 flex items-center justify-center font-bold transition-all ${
                     isProcessing
-                      ? "bg-[#FFBE32] text-black shadow-[0_0_10px_#FFBE32]"
+                      ? "bg-[#fc8100] text-black shadow-[0_0_10px_#fc8100]"
                       : "bg-white/10 text-gray-400"
                   }`}
                 >
@@ -522,12 +522,12 @@ export const ProductsPage = () => {
         )}
 
         {/* Dispatch & Courier Details */}
-        <div className="p-4 rounded-xl bg-gradient-to-r from-[#FFBE32]/10 via-[#0E0E12] to-[#0E0E12] border border-[#FFBE32]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono">
+        <div className="p-4 rounded-xl bg-gradient-to-r from-[#fc8100]/10 via-[#0E0E12] to-[#0E0E12] border border-[#fc8100]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono">
           <div>
             <div className="flex items-center gap-2 text-white font-bold font-heading">
-              <Calendar className="h-4 w-4 text-[#FFBE32]" />
+              <Calendar className="h-4 w-4 text-[#fc8100]" />
               <span>EXPECTED DELIVERY:</span>
-              <span className="text-[#FFBE32] text-sm">
+              <span className="text-[#fc8100] text-sm">
                 {ord.expectedDeliveryDate || "Dispatched in 48-72h"}
               </span>
             </div>
@@ -555,7 +555,7 @@ export const ProductsPage = () => {
                     <button
                       type="button"
                       onClick={() => handleOpenLiveTracking(ord)}
-                      className="px-2.5 py-1 rounded bg-[#FFBE32]/15 hover:bg-[#FFBE32]/25 border border-[#FFBE32]/40 text-[#FFBE32] text-[11px] font-heading font-bold uppercase tracking-wider flex items-center gap-1.5 cursor-pointer shadow-[0_0_10px_rgba(255,190,50,0.2)] transition-all"
+                      className="px-2.5 py-1 rounded bg-[#fc8100]/15 hover:bg-[#fc8100]/25 border border-[#fc8100]/40 text-[#fc8100] text-[11px] font-heading font-bold uppercase tracking-wider flex items-center gap-1.5 cursor-pointer shadow-[0_0_10px_rgba(252, 129, 0,0.2)] transition-all"
                     >
                       <Truck className="h-3 w-3" />
                       <span>Live Courier Tracking</span>
@@ -573,7 +573,7 @@ export const ProductsPage = () => {
               Status: <strong className="text-emerald-400">{ord.paymentStatus}</strong>
             </span>
             {ord.utrNumber && (
-              <p className="text-[#FFBE32] text-[11px]">UTR: {ord.utrNumber}</p>
+              <p className="text-[#fc8100] text-[11px]">UTR: {ord.utrNumber}</p>
             )}
           </div>
         </div>
@@ -587,7 +587,7 @@ export const ProductsPage = () => {
             {ord.customIgn && (
               <>
                 <span className="text-gray-400">•</span>
-                <span className="text-[#FFBE32] font-bold flex items-center gap-1">
+                <span className="text-[#fc8100] font-bold flex items-center gap-1">
                   <Sparkles className="h-3 w-3" />
                   IGN: {ord.customIgn} #{ord.customNumber || "00"}
                 </span>
@@ -657,7 +657,7 @@ export const ProductsPage = () => {
       />
 
       {/* Ambient Lighting */}
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[900px] max-w-[100vw] h-[500px] bg-radial from-[#FFBE32]/10 via-transparent to-transparent blur-[160px] pointer-events-none" />
+      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[900px] max-w-[100vw] h-[500px] bg-radial from-[#fc8100]/10 via-transparent to-transparent blur-[160px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Page Hero Header */}
@@ -668,18 +668,18 @@ export const ProductsPage = () => {
             transition={{ duration: 0.5 }}
           >
             <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFBE32]/10 border border-[#FFBE32]/30">
-                <Sparkles className="h-3.5 w-3.5 text-[#FFBE32]" />
-                <span className="font-heading text-xs font-bold uppercase tracking-widest text-[#FFBE32]">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#fc8100]/10 border border-[#fc8100]/30">
+                <Sparkles className="h-3.5 w-3.5 text-[#fc8100]" />
+                <span className="font-heading text-xs font-bold uppercase tracking-widest text-[#fc8100]">
                   OFFICIAL CLAN ARMORY &amp; APPAREL
                 </span>
               </div>
 
               <Link
                 to="/track"
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 hover:bg-[#FFBE32]/20 border border-white/20 hover:border-[#FFBE32]/50 text-white hover:text-[#FFBE32] text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer shadow-sm"
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 hover:bg-[#fc8100]/20 border border-white/20 hover:border-[#fc8100]/50 text-white hover:text-[#fc8100] text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer shadow-sm"
               >
-                <Truck className="h-3.5 w-3.5 text-[#FFBE32]" />
+                <Truck className="h-3.5 w-3.5 text-[#fc8100]" />
                 <span>
                   {isAuthenticated
                     ? `My Orders ${myOrders.length > 0 ? `(${myOrders.length})` : ""}`
@@ -711,7 +711,7 @@ export const ProductsPage = () => {
               onClick={() => setSelectedCategory(tab.key)}
               className={`px-5 py-2.5 rounded-xl text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer ${
                 selectedCategory === tab.key
-                  ? "bg-[#FFBE32] text-black shadow-[0_0_20px_rgba(255,190,50,0.35)] font-extrabold"
+                  ? "bg-[#fc8100] text-black shadow-[0_0_20px_rgba(252, 129, 0,0.35)] font-extrabold"
                   : "bg-[#0f0f14] text-gray-400 hover:text-white border border-white/5"
               }`}
             >
@@ -723,7 +723,7 @@ export const ProductsPage = () => {
         {/* Products Grid or Empty State */}
         {filteredProducts.length === 0 ? (
           <div className="py-20 px-4 text-center rounded-2xl bg-[#0D0D12] border border-white/10 flex flex-col items-center justify-center gap-4">
-            <div className="h-14 w-14 rounded-2xl bg-[#FFBE32]/10 border border-[#FFBE32]/30 flex items-center justify-center text-[#FFBE32]">
+            <div className="h-14 w-14 rounded-2xl bg-[#fc8100]/10 border border-[#fc8100]/30 flex items-center justify-center text-[#fc8100]">
               <ShoppingBag className="h-7 w-7" />
             </div>
             <div className="space-y-1">
@@ -744,12 +744,12 @@ export const ProductsPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
               whileHover={{ y: -6 }}
-              className="group relative rounded-2xl bg-[#0D0D12] border border-white/10 hover:border-[#FFBE32]/60 overflow-hidden flex flex-col justify-between transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:shadow-[0_15px_40px_rgba(255,190,50,0.15)]"
+              className="group relative rounded-2xl bg-[#0D0D12] border border-white/10 hover:border-[#fc8100]/60 overflow-hidden flex flex-col justify-between transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:shadow-[0_15px_40px_rgba(252, 129, 0,0.15)]"
             >
               {/* Product Image Container */}
               <div className="relative h-56 xs:h-64 sm:h-80 w-full overflow-hidden bg-black/60 flex items-center justify-center p-4">
                 <div className="absolute top-4 left-4 z-20">
-                  <span className="px-3 py-1 rounded-md bg-black/85 border border-[#FFBE32]/40 text-[10px] font-heading font-bold uppercase tracking-wider text-[#FFBE32]">
+                  <span className="px-3 py-1 rounded-md bg-black/85 border border-[#fc8100]/40 text-[10px] font-heading font-bold uppercase tracking-wider text-[#fc8100]">
                     {product.tag}
                   </span>
                 </div>
@@ -778,7 +778,7 @@ export const ProductsPage = () => {
                     </span>
                   </div>
 
-                  <h3 className="font-display text-xl sm:text-2xl font-bold uppercase tracking-wider text-white group-hover:text-[#FFBE32] transition-colors leading-tight">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold uppercase tracking-wider text-white group-hover:text-[#fc8100] transition-colors leading-tight">
                     {product.name}
                   </h3>
 
@@ -792,7 +792,7 @@ export const ProductsPage = () => {
                         key={idx}
                         className="flex items-center gap-2 text-[11px] text-gray-300 font-body"
                       >
-                        <Check className="h-3 w-3 text-[#FFBE32] shrink-0" />
+                        <Check className="h-3 w-3 text-[#fc8100] shrink-0" />
                         <span className="truncate">{sp}</span>
                       </div>
                     ))}
@@ -803,7 +803,7 @@ export const ProductsPage = () => {
                 <div className="pt-4 border-t border-white/10 flex items-center justify-between">
                   <div>
                     <div className="flex items-baseline gap-2">
-                      <span className="font-display text-2xl font-extrabold text-[#FFBE32]">
+                      <span className="font-display text-2xl font-extrabold text-[#fc8100]">
                         ₹{product.price.toLocaleString("en-IN")}
                       </span>
                       <span className="text-xs text-gray-500 line-through font-mono">
@@ -817,7 +817,7 @@ export const ProductsPage = () => {
 
                   <button
                     onClick={() => handleOpenBuy(product)}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#FFBE32] hover:bg-[#FFA000] text-black font-heading text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)] group-hover:shadow-[0_0_25px_rgba(255,190,50,0.5)]"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#fc8100] hover:bg-[#e07200] text-black font-heading text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-[0_0_15px_rgba(252, 129, 0,0.3)] group-hover:shadow-[0_0_25px_rgba(252, 129, 0,0.5)]"
                   >
                     <ShoppingBag className="h-3.5 w-3.5" />
                     <span>Order Now</span>
@@ -832,7 +832,7 @@ export const ProductsPage = () => {
         {/* Armory Trust Badges */}
         <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6 p-6 sm:p-8 rounded-2xl bg-[#0D0D12] border border-white/10 text-center sm:text-left">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-[#FFBE32]/10 border border-[#FFBE32]/30 flex items-center justify-center shrink-0 text-[#FFBE32]">
+            <div className="w-12 h-12 rounded-xl bg-[#fc8100]/10 border border-[#fc8100]/30 flex items-center justify-center shrink-0 text-[#fc8100]">
               <Truck className="h-6 w-6" />
             </div>
             <div>
@@ -846,7 +846,7 @@ export const ProductsPage = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-[#FFBE32]/10 border border-[#FFBE32]/30 flex items-center justify-center shrink-0 text-[#FFBE32]">
+            <div className="w-12 h-12 rounded-xl bg-[#fc8100]/10 border border-[#fc8100]/30 flex items-center justify-center shrink-0 text-[#fc8100]">
               <ShieldCheck className="h-6 w-6" />
             </div>
             <div>
@@ -860,7 +860,7 @@ export const ProductsPage = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-[#FFBE32]/10 border border-[#FFBE32]/30 flex items-center justify-center shrink-0 text-[#FFBE32]">
+            <div className="w-12 h-12 rounded-xl bg-[#fc8100]/10 border border-[#fc8100]/30 flex items-center justify-center shrink-0 text-[#fc8100]">
               <RotateCcw className="h-6 w-6" />
             </div>
             <div>
@@ -886,13 +886,13 @@ export const ProductsPage = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.2 }}
-              className="relative w-full max-w-xl rounded-2xl bg-[#0D0D12] border border-[#FFBE32]/40 p-6 sm:p-8 shadow-[0_25px_70px_rgba(0,0,0,0.95)] max-h-[92vh] overflow-y-auto"
+              className="relative w-full max-w-xl rounded-2xl bg-[#0D0D12] border border-[#fc8100]/40 p-6 sm:p-8 shadow-[0_25px_70px_rgba(0,0,0,0.95)] max-h-[92vh] overflow-y-auto"
             >
               {/* Modal Header */}
               <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-heading font-bold uppercase tracking-widest text-[#FFBE32]">
+                    <span className="text-[10px] font-heading font-bold uppercase tracking-widest text-[#fc8100]">
                       OFFICIAL DISPATCH RESERVATION
                     </span>
                     <span className="text-[10px] font-mono text-gray-400">
@@ -926,10 +926,10 @@ export const ProductsPage = () => {
                     </p>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-black/60 border border-[#FFBE32]/40 space-y-2 text-left max-w-md mx-auto font-mono text-xs">
+                  <div className="p-4 rounded-xl bg-black/60 border border-[#fc8100]/40 space-y-2 text-left max-w-md mx-auto font-mono text-xs">
                     <div className="flex justify-between items-center pb-2 border-b border-white/10">
                       <span className="text-gray-400">Order Reference:</span>
-                      <strong className="text-[#FFBE32] text-sm">{confirmedOrder.orderNumber}</strong>
+                      <strong className="text-[#fc8100] text-sm">{confirmedOrder.orderNumber}</strong>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-gray-400">Payment Mode:</span>
@@ -963,7 +963,7 @@ export const ProductsPage = () => {
                           setTrackSearched(true);
                         });
                       }}
-                      className="px-6 py-2.5 rounded-xl bg-[#FFBE32] hover:bg-[#FFA000] text-black font-heading text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)]"
+                      className="px-6 py-2.5 rounded-xl bg-[#fc8100] hover:bg-[#e07200] text-black font-heading text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-[0_0_15px_rgba(252, 129, 0,0.3)]"
                     >
                       Track My Order Now
                     </button>
@@ -995,7 +995,7 @@ export const ProductsPage = () => {
                         <h4 className="font-display text-sm font-bold uppercase text-white truncate max-w-[220px]">
                           {selectedProduct.name}
                         </h4>
-                        <span className="text-xs font-bold text-[#FFBE32] font-mono">
+                        <span className="text-xs font-bold text-[#fc8100] font-mono">
                           ₹{selectedProduct.price.toLocaleString("en-IN")}
                         </span>
                       </div>
@@ -1019,7 +1019,7 @@ export const ProductsPage = () => {
                             onClick={() => setFormData({ ...formData, size: sz })}
                             className={`px-4 py-2 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${
                               formData.size === sz
-                                ? "bg-[#FFBE32] text-black shadow-[0_0_12px_rgba(255,190,50,0.3)] font-extrabold"
+                                ? "bg-[#fc8100] text-black shadow-[0_0_12px_rgba(252, 129, 0,0.3)] font-extrabold"
                                 : "bg-white/5 text-gray-300 hover:text-white border border-white/10"
                             }`}
                           >
@@ -1032,9 +1032,9 @@ export const ProductsPage = () => {
 
                   {/* Jersey Custom IGN & Squad Number */}
                   {selectedProduct.hasCustomIgn && (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-3.5 rounded-xl bg-white/5 border border-[#FFBE32]/30">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-3.5 rounded-xl bg-white/5 border border-[#fc8100]/30">
                       <div>
-                        <label className="block text-xs font-heading font-bold uppercase text-[#FFBE32] mb-1">
+                        <label className="block text-xs font-heading font-bold uppercase text-[#fc8100] mb-1">
                           Custom Athlete IGN *
                         </label>
                         <input
@@ -1045,11 +1045,11 @@ export const ProductsPage = () => {
                             setFormData({ ...formData, customIgn: e.target.value })
                           }
                           placeholder="BEAST"
-                          className="w-full rounded-lg border border-white/15 bg-black/60 px-3 py-2 text-xs text-white focus:border-[#FFBE32] focus:outline-none font-mono uppercase"
+                          className="w-full rounded-lg border border-white/15 bg-black/60 px-3 py-2 text-xs text-white focus:border-[#fc8100] focus:outline-none font-mono uppercase"
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-heading font-bold uppercase text-[#FFBE32] mb-1">
+                        <label className="block text-xs font-heading font-bold uppercase text-[#fc8100] mb-1">
                           Squad Number (00-99)
                         </label>
                         <input
@@ -1060,7 +1060,7 @@ export const ProductsPage = () => {
                             setFormData({ ...formData, customNumber: e.target.value })
                           }
                           placeholder="00"
-                          className="w-full rounded-lg border border-white/15 bg-black/60 px-3 py-2 text-xs text-white focus:border-[#FFBE32] focus:outline-none font-mono text-center"
+                          className="w-full rounded-lg border border-white/15 bg-black/60 px-3 py-2 text-xs text-white focus:border-[#fc8100] focus:outline-none font-mono text-center"
                         />
                       </div>
                     </div>
@@ -1080,7 +1080,7 @@ export const ProductsPage = () => {
                           setFormData({ ...formData, customerName: e.target.value })
                         }
                         placeholder="Karthik R"
-                        className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-xs text-white focus:border-[#FFBE32] focus:outline-none font-body"
+                        className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-xs text-white focus:border-[#fc8100] focus:outline-none font-body"
                       />
                     </div>
                     <div>
@@ -1095,7 +1095,7 @@ export const ProductsPage = () => {
                           setFormData({ ...formData, customerPhone: e.target.value })
                         }
                         placeholder="+91 98765 43210"
-                        className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-xs text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                        className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-xs text-white focus:border-[#fc8100] focus:outline-none font-mono"
                       />
                     </div>
                   </div>
@@ -1112,7 +1112,7 @@ export const ProductsPage = () => {
                         setFormData({ ...formData, address: e.target.value })
                       }
                       placeholder="Street address, flat / apartment number..."
-                      className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-xs text-white focus:border-[#FFBE32] focus:outline-none font-body"
+                      className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-xs text-white focus:border-[#fc8100] focus:outline-none font-body"
                     />
                   </div>
 
@@ -1129,7 +1129,7 @@ export const ProductsPage = () => {
                           setFormData({ ...formData, city: e.target.value })
                         }
                         placeholder="Chennai"
-                        className="w-full rounded-xl border border-white/15 bg-black/60 px-3 py-2 text-xs text-white focus:border-[#FFBE32] focus:outline-none font-body"
+                        className="w-full rounded-xl border border-white/15 bg-black/60 px-3 py-2 text-xs text-white focus:border-[#fc8100] focus:outline-none font-body"
                       />
                     </div>
                     <div>
@@ -1144,7 +1144,7 @@ export const ProductsPage = () => {
                           setFormData({ ...formData, state: e.target.value })
                         }
                         placeholder="Tamil Nadu"
-                        className="w-full rounded-xl border border-white/15 bg-black/60 px-3 py-2 text-xs text-white focus:border-[#FFBE32] focus:outline-none font-body"
+                        className="w-full rounded-xl border border-white/15 bg-black/60 px-3 py-2 text-xs text-white focus:border-[#fc8100] focus:outline-none font-body"
                       />
                     </div>
                     <div>
@@ -1160,7 +1160,7 @@ export const ProductsPage = () => {
                           setFormData({ ...formData, pincode: e.target.value })
                         }
                         placeholder="600001"
-                        className="w-full rounded-xl border border-white/15 bg-black/60 px-3 py-2 text-xs text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                        className="w-full rounded-xl border border-white/15 bg-black/60 px-3 py-2 text-xs text-white focus:border-[#fc8100] focus:outline-none font-mono"
                       />
                     </div>
                   </div>
@@ -1175,7 +1175,7 @@ export const ProductsPage = () => {
                     </button>
                     <button
                       type="submit"
-                      className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-[#FFBE32] hover:bg-[#FFA000] text-black font-heading text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-[0_0_20px_rgba(255,190,50,0.35)]"
+                      className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-[#fc8100] hover:bg-[#e07200] text-black font-heading text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-[0_0_20px_rgba(252, 129, 0,0.35)]"
                     >
                       <span>Next: Payment Details</span>
                       <ArrowRight className="h-4 w-4" />
@@ -1189,7 +1189,7 @@ export const ProductsPage = () => {
                   <div className="p-3.5 rounded-xl bg-black/60 border border-white/10 flex items-center justify-between">
                     <div>
                       <span className="text-xs text-gray-400 font-body">Amount Payable:</span>
-                      <h4 className="font-display text-xl font-bold text-[#FFBE32]">
+                      <h4 className="font-display text-xl font-bold text-[#fc8100]">
                         ₹{selectedProduct.price.toLocaleString("en-IN")}
                       </h4>
                     </div>
@@ -1210,11 +1210,11 @@ export const ProductsPage = () => {
                         onClick={() => setPaymentMode("UPI")}
                         className={`p-3.5 rounded-xl border text-left flex items-start gap-3 transition-all cursor-pointer ${
                           paymentMode === "UPI"
-                            ? "bg-[#FFBE32]/10 border-[#FFBE32] text-white shadow-[0_0_15px_rgba(255,190,50,0.2)]"
+                            ? "bg-[#fc8100]/10 border-[#fc8100] text-white shadow-[0_0_15px_rgba(252, 129, 0,0.2)]"
                             : "bg-black/60 border-white/10 text-gray-400 hover:text-white hover:border-white/25"
                         }`}
                       >
-                        <QrCode className={`h-5 w-5 mt-0.5 ${paymentMode === "UPI" ? "text-[#FFBE32]" : "text-gray-400"}`} />
+                        <QrCode className={`h-5 w-5 mt-0.5 ${paymentMode === "UPI" ? "text-[#fc8100]" : "text-gray-400"}`} />
                         <div>
                           <h5 className="font-heading text-xs font-bold uppercase text-white">
                             UPI QR / ID {!codEnabled && "(Only Available Mode)"}
@@ -1231,11 +1231,11 @@ export const ProductsPage = () => {
                           onClick={() => setPaymentMode("COD")}
                           className={`p-3.5 rounded-xl border text-left flex items-start gap-3 transition-all cursor-pointer ${
                             paymentMode === "COD"
-                              ? "bg-[#FFBE32]/10 border-[#FFBE32] text-white shadow-[0_0_15px_rgba(255,190,50,0.2)]"
+                              ? "bg-[#fc8100]/10 border-[#fc8100] text-white shadow-[0_0_15px_rgba(252, 129, 0,0.2)]"
                               : "bg-black/60 border-white/10 text-gray-400 hover:text-white hover:border-white/25"
                           }`}
                         >
-                          <Banknote className={`h-5 w-5 mt-0.5 ${paymentMode === "COD" ? "text-[#FFBE32]" : "text-gray-400"}`} />
+                          <Banknote className={`h-5 w-5 mt-0.5 ${paymentMode === "COD" ? "text-[#fc8100]" : "text-gray-400"}`} />
                           <div>
                             <h5 className="font-heading text-xs font-bold uppercase text-white">
                               Cash On Delivery
@@ -1251,7 +1251,7 @@ export const ProductsPage = () => {
 
                   {/* UPI QR & UTR BOX */}
                   {paymentMode === "UPI" ? (
-                    <div className="p-4 rounded-xl bg-gradient-to-br from-[#0D0D15] to-black border border-[#FFBE32]/40 space-y-4">
+                    <div className="p-4 rounded-xl bg-gradient-to-br from-[#0D0D15] to-black border border-[#fc8100]/40 space-y-4">
                       <div className="flex flex-col sm:flex-row items-center gap-4">
                         {/* QR Code Container */}
                         <div className="h-32 w-32 bg-white p-2 rounded-xl shrink-0 flex items-center justify-center shadow-lg border border-white/20">
@@ -1264,7 +1264,7 @@ export const ProductsPage = () => {
 
                         {/* UPI Instructions & Copy */}
                         <div className="flex-1 space-y-2 text-center sm:text-left">
-                          <div className="flex items-center gap-1.5 justify-center sm:justify-start text-[#FFBE32] text-xs font-heading font-bold">
+                          <div className="flex items-center gap-1.5 justify-center sm:justify-start text-[#fc8100] text-xs font-heading font-bold">
                             <Sparkles className="h-3.5 w-3.5" />
                             <span>SCAN WITH ANY UPI APP</span>
                           </div>
@@ -1277,7 +1277,7 @@ export const ProductsPage = () => {
                             <button
                               type="button"
                               onClick={() => handleCopyUpi(activeUpiId)}
-                              className="text-[#FFBE32] hover:text-white transition-colors cursor-pointer"
+                              className="text-[#fc8100] hover:text-white transition-colors cursor-pointer"
                               title="Copy UPI ID"
                             >
                               {copiedUpi ? (
@@ -1292,7 +1292,7 @@ export const ProductsPage = () => {
 
                       {/* UTR Input Field */}
                       <div className="pt-3 border-t border-white/10 space-y-1.5">
-                        <label className="block text-xs font-heading font-bold uppercase text-[#FFBE32]">
+                        <label className="block text-xs font-heading font-bold uppercase text-[#fc8100]">
                           Enter 12-Digit UPI UTR / Transaction ID *
                         </label>
                         <input
@@ -1301,7 +1301,7 @@ export const ProductsPage = () => {
                           value={utrNumber}
                           onChange={(e) => setUtrNumber(e.target.value.toUpperCase())}
                           placeholder="e.g. 423819283746"
-                          className="w-full rounded-xl border border-[#FFBE32]/50 bg-black/80 px-4 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-mono tracking-wider"
+                          className="w-full rounded-xl border border-[#fc8100]/50 bg-black/80 px-4 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none font-mono tracking-wider"
                         />
                         <p className="text-[11px] text-gray-400 font-body">
                           💡 You can find the 12-digit UTR/UPI Ref in your payment receipt on GPay, PhonePe, or Paytm.
@@ -1335,7 +1335,7 @@ export const ProductsPage = () => {
                     <button
                       type="submit"
                       disabled={submitting}
-                      className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-[#FFBE32] hover:bg-[#FFA000] text-black font-heading text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-[0_0_20px_rgba(255,190,50,0.35)] disabled:opacity-50"
+                      className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-[#fc8100] hover:bg-[#e07200] text-black font-heading text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-[0_0_20px_rgba(252, 129, 0,0.35)] disabled:opacity-50"
                     >
                       {submitting ? (
                         <>
@@ -1360,11 +1360,11 @@ export const ProductsPage = () => {
       {/* ================= PUBLIC LIVE COURIER CHECKPOINTS MODAL ================= */}
       {liveTrackingOrder && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
-          <div className="w-full max-w-xl rounded-2xl bg-[#0D0D12] border border-[#FFBE32]/40 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+          <div className="w-full max-w-xl rounded-2xl bg-[#0D0D12] border border-[#fc8100]/40 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
             {/* Modal Header */}
             <div className="flex items-center justify-between p-5 border-b border-white/10 bg-white/5">
               <div className="flex items-center gap-2.5">
-                <Truck className="h-5 w-5 text-[#FFBE32]" />
+                <Truck className="h-5 w-5 text-[#fc8100]" />
                 <div>
                   <h3 className="font-heading text-sm font-bold uppercase tracking-wider text-white">
                     Live Courier Tracking
@@ -1386,7 +1386,7 @@ export const ProductsPage = () => {
             <div className="p-5 overflow-y-auto space-y-5">
               {liveTrackingLoading ? (
                 <div className="flex flex-col items-center justify-center py-12 space-y-3">
-                  <RefreshCw className="h-8 w-8 text-[#FFBE32] animate-spin" />
+                  <RefreshCw className="h-8 w-8 text-[#fc8100] animate-spin" />
                   <p className="text-xs text-gray-400 font-mono">Connecting to courier network...</p>
                 </div>
               ) : liveTrackingData ? (
@@ -1401,7 +1401,7 @@ export const ProductsPage = () => {
                         {liveTrackingData.subtagMessage || liveTrackingData.tag || "In Transit"}
                       </h4>
                       <p className="text-xs text-gray-300 font-mono mt-0.5">
-                        Courier: <strong className="text-[#FFBE32]">{liveTrackingData.courierName}</strong>
+                        Courier: <strong className="text-[#fc8100]">{liveTrackingData.courierName}</strong>
                       </p>
                     </div>
 
@@ -1442,7 +1442,7 @@ export const ProductsPage = () => {
                   {/* Checkpoints Timeline */}
                   <div className="space-y-3">
                     <h5 className="text-xs font-heading font-bold uppercase tracking-wider text-gray-300 flex items-center gap-1.5">
-                      <Clock className="h-3.5 w-3.5 text-[#FFBE32]" />
+                      <Clock className="h-3.5 w-3.5 text-[#fc8100]" />
                       <span>Shipment Journey ({liveTrackingData.checkpoints?.length || 0} Updates)</span>
                     </h5>
 
@@ -1455,7 +1455,7 @@ export const ProductsPage = () => {
                             <div key={idx} className="relative">
                               <div
                                 className={`absolute -left-[23px] top-1 h-3 w-3 rounded-full border-2 border-black ${
-                                  idx === 0 ? "bg-[#FFBE32] ring-2 ring-[#FFBE32]/40" : "bg-gray-600"
+                                  idx === 0 ? "bg-[#fc8100] ring-2 ring-[#fc8100]/40" : "bg-gray-600"
                                 }`}
                               />
                               <div className="text-xs">
@@ -1464,7 +1464,7 @@ export const ProductsPage = () => {
                                 </span>
                                 <div className="text-[11px] text-gray-400 font-mono mt-0.5 flex flex-wrap items-center gap-2">
                                   {cp.location && (
-                                    <span className="flex items-center gap-1 text-[#FFBE32]">
+                                    <span className="flex items-center gap-1 text-[#fc8100]">
                                       <MapPin className="h-3 w-3" />
                                       {cp.location}
                                     </span>
@@ -1508,7 +1508,7 @@ export const ProductsPage = () => {
                 }
                 target="_blank"
                 rel="noreferrer"
-                className="px-4 py-2 rounded-xl bg-[#FFBE32] hover:bg-[#FFA000] text-black text-xs font-heading font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,190,50,0.3)] cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-[#fc8100] hover:bg-[#e07200] text-black text-xs font-heading font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-[0_0_15px_rgba(252, 129, 0,0.3)] cursor-pointer"
               >
                 <span>Carrier Website</span>
                 <ExternalLink className="h-3.5 w-3.5" />
@@ -1544,12 +1544,12 @@ export const ProductsPage = () => {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-3xl rounded-2xl bg-[#0D0D12] border border-[#FFBE32]/40 p-6 sm:p-8 shadow-[0_25px_70px_rgba(0,0,0,0.95)] max-h-[92vh] overflow-y-auto space-y-6"
+              className="relative w-full max-w-3xl rounded-2xl bg-[#0D0D12] border border-[#fc8100]/40 p-6 sm:p-8 shadow-[0_25px_70px_rgba(0,0,0,0.95)] max-h-[92vh] overflow-y-auto space-y-6"
             >
               {/* Header */}
               <div className="flex items-center justify-between pb-4 border-b border-white/10">
                 <div className="flex items-center gap-3">
-                  <div className="h-11 w-11 rounded-xl bg-[#FFBE32]/10 border border-[#FFBE32]/30 flex items-center justify-center text-[#FFBE32] shrink-0">
+                  <div className="h-11 w-11 rounded-xl bg-[#fc8100]/10 border border-[#fc8100]/30 flex items-center justify-center text-[#fc8100] shrink-0">
                     <Truck className="h-5 w-5" />
                   </div>
                   <div>
@@ -1578,7 +1578,7 @@ export const ProductsPage = () => {
                       onClick={() => setTrackViewTab("MY_ORDERS")}
                       className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer ${
                         trackViewTab === "MY_ORDERS"
-                          ? "bg-[#FFBE32] text-black shadow-[0_0_12px_rgba(255,190,50,0.35)]"
+                          ? "bg-[#fc8100] text-black shadow-[0_0_12px_rgba(252, 129, 0,0.35)]"
                           : "text-gray-400 hover:text-white hover:bg-white/5"
                       }`}
                     >
@@ -1591,7 +1591,7 @@ export const ProductsPage = () => {
                     onClick={() => setTrackViewTab("SEARCH")}
                     className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer ${
                       trackViewTab === "SEARCH"
-                        ? "bg-[#FFBE32] text-black shadow-[0_0_12px_rgba(255,190,50,0.35)]"
+                        ? "bg-[#fc8100] text-black shadow-[0_0_12px_rgba(252, 129, 0,0.35)]"
                         : "text-gray-400 hover:text-white hover:bg-white/5"
                     }`}
                   >
@@ -1605,10 +1605,10 @@ export const ProductsPage = () => {
                     type="button"
                     disabled={loadingMyOrders}
                     onClick={loadUserOrders}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-mono text-gray-400 hover:text-[#FFBE32] hover:bg-white/5 cursor-pointer transition-colors"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-mono text-gray-400 hover:text-[#fc8100] hover:bg-white/5 cursor-pointer transition-colors"
                     title="Refresh orders from database"
                   >
-                    <RefreshCw className={`h-3 w-3 ${loadingMyOrders ? "animate-spin text-[#FFBE32]" : ""}`} />
+                    <RefreshCw className={`h-3 w-3 ${loadingMyOrders ? "animate-spin text-[#fc8100]" : ""}`} />
                     <span>Refresh</span>
                   </button>
                 )}
@@ -1618,9 +1618,9 @@ export const ProductsPage = () => {
               {trackViewTab === "MY_ORDERS" && isAuthenticated && (
                 <div className="space-y-4">
                   {/* Athlete Card Header */}
-                  <div className="p-4 rounded-xl bg-gradient-to-r from-[#FFBE32]/10 via-[#0A0A0E] to-black border border-[#FFBE32]/30 flex flex-wrap items-center justify-between gap-3 text-xs">
+                  <div className="p-4 rounded-xl bg-gradient-to-r from-[#fc8100]/10 via-[#0A0A0E] to-black border border-[#fc8100]/30 flex flex-wrap items-center justify-between gap-3 text-xs">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-[#FFBE32] text-black font-display font-bold text-lg flex items-center justify-center shadow-[0_0_15px_rgba(255,190,50,0.3)]">
+                      <div className="w-10 h-10 rounded-xl bg-[#fc8100] text-black font-display font-bold text-lg flex items-center justify-center shadow-[0_0_15px_rgba(252, 129, 0,0.3)]">
                         {user?.ign?.slice(0, 2).toUpperCase() || user?.username?.slice(0, 2).toUpperCase() || "LZ"}
                       </div>
                       <div>
@@ -1637,14 +1637,14 @@ export const ProductsPage = () => {
                         </p>
                       </div>
                     </div>
-                    <span className="font-mono text-xs text-[#FFBE32]">
+                    <span className="font-mono text-xs text-[#fc8100]">
                       {myOrders.length} {myOrders.length === 1 ? "Order Found" : "Orders Found"}
                     </span>
                   </div>
 
                   {loadingMyOrders ? (
                     <div className="py-16 text-center text-gray-400 font-mono text-xs flex flex-col items-center justify-center gap-3">
-                      <Loader2 className="h-6 w-6 animate-spin text-[#FFBE32]" />
+                      <Loader2 className="h-6 w-6 animate-spin text-[#fc8100]" />
                       <span>Fetching your order history from database...</span>
                     </div>
                   ) : myOrders.length === 0 ? (
@@ -1655,7 +1655,7 @@ export const ProductsPage = () => {
                       <button
                         type="button"
                         onClick={() => setTrackModalOpen(false)}
-                        className="px-5 py-2 rounded-lg bg-[#FFBE32] text-black font-heading text-xs font-bold uppercase cursor-pointer"
+                        className="px-5 py-2 rounded-lg bg-[#fc8100] text-black font-heading text-xs font-bold uppercase cursor-pointer"
                       >
                         Explore Clan Gear Catalog
                       </button>
@@ -1682,13 +1682,13 @@ export const ProductsPage = () => {
                           value={trackQuery}
                           onChange={(e) => setTrackQuery(e.target.value)}
                           placeholder="Search Order # (e.g. MG-2026-1042), Mobile Phone, or Email..."
-                          className="w-full rounded-xl border border-white/15 bg-black/70 pl-10 pr-4 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                          className="w-full rounded-xl border border-white/15 bg-black/70 pl-10 pr-4 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none font-mono"
                         />
                       </div>
                       <button
                         type="submit"
                         disabled={trackingLoading}
-                        className="px-6 py-2.5 rounded-xl bg-[#FFBE32] hover:bg-[#FFA000] text-black font-heading text-xs font-bold uppercase tracking-wider cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)] shrink-0 disabled:opacity-50"
+                        className="px-6 py-2.5 rounded-xl bg-[#fc8100] hover:bg-[#e07200] text-black font-heading text-xs font-bold uppercase tracking-wider cursor-pointer shadow-[0_0_15px_rgba(252, 129, 0,0.3)] shrink-0 disabled:opacity-50"
                       >
                         {trackingLoading ? "Searching DB..." : "Track Order"}
                       </button>
@@ -1701,7 +1701,7 @@ export const ProductsPage = () => {
                         onClick={() => {
                           setTrackQuery("MG-2026-1042");
                         }}
-                        className="text-[#FFBE32] hover:underline cursor-pointer"
+                        className="text-[#fc8100] hover:underline cursor-pointer"
                       >
                         MG-2026-1042
                       </button>
@@ -1711,7 +1711,7 @@ export const ProductsPage = () => {
                         onClick={() => {
                           setTrackQuery("rahul.v@gmail.com");
                         }}
-                        className="text-[#FFBE32] hover:underline cursor-pointer"
+                        className="text-[#fc8100] hover:underline cursor-pointer"
                       >
                         rahul.v@gmail.com
                       </button>
@@ -1721,7 +1721,7 @@ export const ProductsPage = () => {
                         onClick={() => {
                           setTrackQuery("9789033445");
                         }}
-                        className="text-[#FFBE32] hover:underline cursor-pointer"
+                        className="text-[#fc8100] hover:underline cursor-pointer"
                       >
                         9789033445
                       </button>
@@ -1748,7 +1748,7 @@ export const ProductsPage = () => {
                       <div className="flex items-center justify-between pb-2 border-b border-white/10 text-xs font-mono">
                         <span className="text-gray-400">
                           Found <strong>{trackedOrders.length}</strong> orders across{" "}
-                          <strong className="text-[#FFBE32]">{groupedOrders.length}</strong> user account
+                          <strong className="text-[#fc8100]">{groupedOrders.length}</strong> user account
                           {groupedOrders.length > 1 ? "s" : ""}:
                         </span>
                       </div>
@@ -1761,26 +1761,26 @@ export const ProductsPage = () => {
                           {/* Separate User Identity Header Card */}
                           <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-white/10">
                             <div className="flex items-center gap-3">
-                              <div className="h-10 w-10 rounded-xl bg-gradient-to-tr from-[#FFBE32] to-[#FFE082] text-black font-display font-bold flex items-center justify-center text-lg shadow-md">
+                              <div className="h-10 w-10 rounded-xl bg-gradient-to-tr from-[#fc8100] to-[#FFE082] text-black font-display font-bold flex items-center justify-center text-lg shadow-md">
                                 {customerGroup.customerName.slice(0, 2).toUpperCase() || "CU"}
                               </div>
                               <div>
                                 <h4 className="font-heading font-bold text-white uppercase text-base flex items-center gap-2">
                                   {customerGroup.customerName}
-                                  <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#FFBE32]/10 text-[#FFBE32] border border-[#FFBE32]/30">
+                                  <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#fc8100]/10 text-[#fc8100] border border-[#fc8100]/30">
                                     {customerGroup.orders.length} {customerGroup.orders.length === 1 ? "Order" : "Orders"}
                                   </span>
                                 </h4>
                                 <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-gray-400 mt-0.5">
                                   {customerGroup.customerEmail && (
                                     <span className="flex items-center gap-1">
-                                      <Mail className="h-3 w-3 text-[#FFBE32]" />
+                                      <Mail className="h-3 w-3 text-[#fc8100]" />
                                       {customerGroup.customerEmail}
                                     </span>
                                   )}
                                   {customerGroup.customerPhone && (
                                     <span className="flex items-center gap-1">
-                                      <Phone className="h-3 w-3 text-[#FFBE32]" />
+                                      <Phone className="h-3 w-3 text-[#fc8100]" />
                                       {customerGroup.customerPhone}
                                     </span>
                                   )}
@@ -1807,11 +1807,11 @@ export const ProductsPage = () => {
       {/* ================= PUBLIC LIVE COURIER CHECKPOINTS MODAL ================= */}
       {liveTrackingOrder && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
-          <div className="w-full max-w-xl rounded-2xl bg-[#0D0D12] border border-[#FFBE32]/40 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+          <div className="w-full max-w-xl rounded-2xl bg-[#0D0D12] border border-[#fc8100]/40 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
             {/* Modal Header */}
             <div className="flex items-center justify-between p-5 border-b border-white/10 bg-white/5">
               <div className="flex items-center gap-2.5">
-                <Truck className="h-5 w-5 text-[#FFBE32]" />
+                <Truck className="h-5 w-5 text-[#fc8100]" />
                 <div>
                   <h3 className="font-heading text-sm font-bold uppercase tracking-wider text-white">
                     Live Courier Tracking
@@ -1833,7 +1833,7 @@ export const ProductsPage = () => {
             <div className="p-5 overflow-y-auto space-y-5">
               {liveTrackingLoading ? (
                 <div className="flex flex-col items-center justify-center py-12 space-y-3">
-                  <RefreshCw className="h-8 w-8 text-[#FFBE32] animate-spin" />
+                  <RefreshCw className="h-8 w-8 text-[#fc8100] animate-spin" />
                   <p className="text-xs text-gray-400 font-mono">Connecting to courier network...</p>
                 </div>
               ) : liveTrackingData ? (
@@ -1848,7 +1848,7 @@ export const ProductsPage = () => {
                         {liveTrackingData.subtagMessage || liveTrackingData.tag || "In Transit"}
                       </h4>
                       <p className="text-xs text-gray-300 font-mono mt-0.5">
-                        Courier: <strong className="text-[#FFBE32]">{liveTrackingData.courierName}</strong>
+                        Courier: <strong className="text-[#fc8100]">{liveTrackingData.courierName}</strong>
                       </p>
                     </div>
 
@@ -1889,7 +1889,7 @@ export const ProductsPage = () => {
                   {/* Checkpoints Timeline */}
                   <div className="space-y-3">
                     <h5 className="text-xs font-heading font-bold uppercase tracking-wider text-gray-300 flex items-center gap-1.5">
-                      <Clock className="h-3.5 w-3.5 text-[#FFBE32]" />
+                      <Clock className="h-3.5 w-3.5 text-[#fc8100]" />
                       <span>Shipment Journey ({liveTrackingData.checkpoints?.length || 0} Updates)</span>
                     </h5>
 
@@ -1902,7 +1902,7 @@ export const ProductsPage = () => {
                             <div key={idx} className="relative">
                               <div
                                 className={`absolute -left-[23px] top-1 h-3 w-3 rounded-full border-2 border-black ${
-                                  idx === 0 ? "bg-[#FFBE32] ring-2 ring-[#FFBE32]/40" : "bg-gray-600"
+                                  idx === 0 ? "bg-[#fc8100] ring-2 ring-[#fc8100]/40" : "bg-gray-600"
                                 }`}
                               />
                               <div className="text-xs">
@@ -1911,7 +1911,7 @@ export const ProductsPage = () => {
                                 </span>
                                 <div className="text-[11px] text-gray-400 font-mono mt-0.5 flex flex-wrap items-center gap-2">
                                   {cp.location && (
-                                    <span className="flex items-center gap-1 text-[#FFBE32]">
+                                    <span className="flex items-center gap-1 text-[#fc8100]">
                                       <MapPin className="h-3 w-3" />
                                       {cp.location}
                                     </span>
@@ -1955,7 +1955,7 @@ export const ProductsPage = () => {
                 }
                 target="_blank"
                 rel="noreferrer"
-                className="px-4 py-2 rounded-xl bg-[#FFBE32] hover:bg-[#FFA000] text-black text-xs font-heading font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,190,50,0.3)] cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-[#fc8100] hover:bg-[#e07200] text-black text-xs font-heading font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-[0_0_15px_rgba(252, 129, 0,0.3)] cursor-pointer"
               >
                 <span>Carrier Website</span>
                 <ExternalLink className="h-3.5 w-3.5" />

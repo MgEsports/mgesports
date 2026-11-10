@@ -219,13 +219,13 @@ export const AdminRegistrationsPage: React.FC = () => {
           onClick={handleExportCsv}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-heading font-bold uppercase tracking-wider text-gray-200 cursor-pointer"
         >
-          <FileSpreadsheet className="h-4 w-4 text-[#FFBE32]" />
+          <FileSpreadsheet className="h-4 w-4 text-[#fc8100]" />
           <span>Export CSV</span>
         </button>
       </div>
 
       {/* CORE REQUIREMENT 5: SELECT TOURNAMENT FIRST */}
-      <div className="p-5 rounded-2xl bg-[#0D0D12] border border-[#FFBE32]/30 shadow-xl space-y-3">
+      <div className="p-5 rounded-2xl bg-[#0D0D12] border border-[#fc8100]/30 shadow-xl space-y-3">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1">
             <span className="text-[10px] font-heading font-extrabold uppercase tracking-widest text-gray-400">
@@ -237,7 +237,7 @@ export const AdminRegistrationsPage: React.FC = () => {
                 setSelectedTourneyId(e.target.value);
                 setSearchParams({ tournamentId: e.target.value });
               }}
-              className="w-full md:w-96 px-4 py-2.5 rounded-xl bg-black border border-white/15 text-sm font-heading font-bold uppercase text-[#FFBE32] cursor-pointer focus:border-[#FFBE32] outline-none"
+              className="w-full md:w-96 px-4 py-2.5 rounded-xl bg-black border border-white/15 text-sm font-heading font-bold uppercase text-[#fc8100] cursor-pointer focus:border-[#fc8100] outline-none"
             >
               <option value="ALL">ALL TOURNAMENTS (COMBINED)</option>
               {tournaments.map((t) => (
@@ -260,7 +260,7 @@ export const AdminRegistrationsPage: React.FC = () => {
                 </div>
               </div>
               <div className="text-right">
-                <div className="font-display text-2xl font-bold text-[#FFBE32]">
+                <div className="font-display text-2xl font-bold text-[#fc8100]">
                   {registrations.length}
                 </div>
                 <div className="text-[9px] uppercase font-bold tracking-widest text-gray-400">
@@ -282,7 +282,7 @@ export const AdminRegistrationsPage: React.FC = () => {
               onClick={() => setStatusFilter(st)}
               className={`px-3 py-1.5 rounded-lg text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer ${
                 statusFilter === st
-                  ? "bg-[#FFBE32] text-black shadow-[0_0_10px_rgba(255,190,50,0.3)] font-extrabold"
+                  ? "bg-[#fc8100] text-black shadow-[0_0_10px_rgba(252, 129, 0,0.3)] font-extrabold"
                   : "bg-black/50 text-gray-400 hover:text-white border border-white/5"
               }`}
             >
@@ -311,7 +311,7 @@ export const AdminRegistrationsPage: React.FC = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search team, captain, phone, UTR..."
-            className="w-full rounded-xl border border-white/10 bg-black/60 pl-9 pr-3 py-1.5 text-xs text-white placeholder-gray-500 focus:border-[#FFBE32] focus:outline-none"
+            className="w-full rounded-xl border border-white/10 bg-black/60 pl-9 pr-3 py-1.5 text-xs text-white placeholder-gray-500 focus:border-[#fc8100] focus:outline-none"
           />
         </div>
       </div>
@@ -393,7 +393,7 @@ export const AdminRegistrationsPage: React.FC = () => {
                   <tr
                     key={reg.id}
                     className={`hover:bg-white/[0.02] transition-colors ${
-                      isSelected ? "bg-[#FFBE32]/5" : ""
+                      isSelected ? "bg-[#fc8100]/5" : ""
                     }`}
                   >
                     <td className="py-3 px-3 text-center">
@@ -468,7 +468,7 @@ export const AdminRegistrationsPage: React.FC = () => {
                       <div className="flex items-center justify-end gap-1.5">
                         <button
                           onClick={() => setActiveRegDetail(reg)}
-                          className="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-[#FFBE32] text-gray-300 hover:text-black border border-white/10 hover:border-[#FFBE32] text-[11px] font-bold uppercase transition-all cursor-pointer"
+                          className="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-[#fc8100] text-gray-300 hover:text-black border border-white/10 hover:border-[#fc8100] text-[11px] font-bold uppercase transition-all cursor-pointer"
                         >
                           View
                         </button>
@@ -512,7 +512,7 @@ export const AdminRegistrationsPage: React.FC = () => {
           <div className="w-full max-w-2xl rounded-2xl border border-white/15 bg-[#0D0D12] p-6 shadow-2xl space-y-5 my-8">
             <div className="flex items-center justify-between pb-4 border-b border-white/10">
               <div>
-                <span className="text-[10px] font-mono text-[#FFBE32]">
+                <span className="text-[10px] font-mono text-[#fc8100]">
                   {activeRegDetail.registrationNumber}
                 </span>
                 <h3 className="font-display text-2xl uppercase text-white">
@@ -553,7 +553,7 @@ export const AdminRegistrationsPage: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-gray-500 block text-[10px]">Current Stage:</span>
-                  <span className="text-[#FFBE32] font-bold">
+                  <span className="text-[#fc8100] font-bold">
                     {activeRegDetail.currentStage?.name || "Round 1"}
                   </span>
                 </div>
@@ -587,7 +587,7 @@ export const AdminRegistrationsPage: React.FC = () => {
                         <span className="text-[10px] text-gray-500">0{idx + 1}</span>
                         <span className="font-bold text-white">{p.ign}</span>
                         {p.isCaptain && (
-                          <span className="px-1.5 py-0.2 rounded bg-amber-500/20 text-[#FFBE32] text-[9px] font-bold">
+                          <span className="px-1.5 py-0.2 rounded bg-amber-500/20 text-[#fc8100] text-[9px] font-bold">
                             IGL
                           </span>
                         )}
@@ -652,7 +652,7 @@ export const AdminRegistrationsPage: React.FC = () => {
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono bg-black/40 p-3 rounded-lg border border-white/5">
                     <div>
                       <span className="text-gray-500 block text-[10px]">Fee Amount:</span>
-                      <span className="text-[#FFBE32] font-bold text-sm">{formatCurrency(amount)}</span>
+                      <span className="text-[#fc8100] font-bold text-sm">{formatCurrency(amount)}</span>
                     </div>
                     <div>
                       <span className="text-gray-500 block text-[10px]">Method:</span>
@@ -686,14 +686,14 @@ export const AdminRegistrationsPage: React.FC = () => {
                           src={screenshot}
                           alt="Screenshot Proof"
                           onClick={() => setPreviewScreenshot(screenshot)}
-                          className="h-16 w-16 object-cover rounded-lg border border-white/20 hover:border-[#FFBE32] cursor-pointer transition-colors shrink-0"
+                          className="h-16 w-16 object-cover rounded-lg border border-white/20 hover:border-[#fc8100] cursor-pointer transition-colors shrink-0"
                           title="Click to enlarge"
                         />
                         <div className="space-y-1">
                           <button
                             type="button"
                             onClick={() => setPreviewScreenshot(screenshot)}
-                            className="px-3 py-1.5 rounded-lg bg-[#FFBE32]/20 hover:bg-[#FFBE32] text-[#FFBE32] hover:text-black text-xs font-heading font-bold uppercase transition-all inline-flex items-center gap-1.5 cursor-pointer"
+                            className="px-3 py-1.5 rounded-lg bg-[#fc8100]/20 hover:bg-[#fc8100] text-[#fc8100] hover:text-black text-xs font-heading font-bold uppercase transition-all inline-flex items-center gap-1.5 cursor-pointer"
                           >
                             <Eye className="h-3.5 w-3.5" /> View Payment Screenshot
                           </button>

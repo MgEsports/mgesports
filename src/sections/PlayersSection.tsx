@@ -50,13 +50,13 @@ export const PlayersSection = ({ showHeader = true }: PlayersSectionProps) => {
   const getRoleIcon = (role: string) => {
     switch (role) {
       case "IGL":
-        return <Shield className="h-4 w-4 text-[#FFBE32]" />;
+        return <Shield className="h-4 w-4 text-[#fc8100]" />;
       case "RUSHER":
-        return <Zap className="h-4 w-4 text-[#FFBE32]" />;
+        return <Zap className="h-4 w-4 text-[#fc8100]" />;
       case "SNIPER":
-        return <Crosshair className="h-4 w-4 text-[#FFBE32]" />;
+        return <Crosshair className="h-4 w-4 text-[#fc8100]" />;
       default:
-        return <Target className="h-4 w-4 text-[#FFBE32]" />;
+        return <Target className="h-4 w-4 text-[#fc8100]" />;
     }
   };
 
@@ -66,7 +66,7 @@ export const PlayersSection = ({ showHeader = true }: PlayersSectionProps) => {
       className={`relative ${showHeader ? "py-24" : "py-12 sm:py-16"} px-4 sm:px-6 lg:px-8 bg-[#050505] overflow-hidden w-full max-w-full`}
     >
       {/* Background Ambience */}
-      <div className="absolute right-0 top-1/4 w-96 h-96 bg-[#FFBE32]/6 blur-[130px] pointer-events-none" />
+      <div className="absolute right-0 top-1/4 w-96 h-96 bg-[#fc8100]/6 blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
         {showHeader && (
@@ -98,10 +98,10 @@ export const PlayersSection = ({ showHeader = true }: PlayersSectionProps) => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.2 }}
                 whileHover={{ y: -8 }}
-                className="group relative flex flex-col justify-between rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#141418] via-[#0C0C0E] to-[#070709] border border-white/10 hover:border-[#FFBE32]/70 p-2.5 xs:p-3 sm:p-5 shadow-[0_15px_40px_rgba(0,0,0,0.8)] hover:shadow-[0_20px_45px_rgba(255,190,50,0.25)] transition-all duration-300 overflow-hidden min-w-0"
+                className="group relative flex flex-col justify-between rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#141418] via-[#0C0C0E] to-[#070709] border border-white/10 hover:border-[#fc8100]/70 p-2.5 xs:p-3 sm:p-5 shadow-[0_15px_40px_rgba(0,0,0,0.8)] hover:shadow-[0_20px_45px_rgba(252, 129, 0,0.25)] transition-all duration-300 overflow-hidden min-w-0"
               >
                 {/* Top Chamfer Cut & Gold Strip */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FFBE32] to-transparent opacity-50 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#fc8100] to-transparent opacity-50 group-hover:opacity-100 transition-opacity" />
 
                 <div>
                   {/* Card Header */}
@@ -119,7 +119,7 @@ export const PlayersSection = ({ showHeader = true }: PlayersSectionProps) => {
                   </div>
 
                   {/* Athlete Visual Anchor / Player Image */}
-                  <div className="relative aspect-[3/4] w-full rounded-lg sm:rounded-xl overflow-hidden bg-gradient-to-b from-[#181820] to-[#0C0C0E] border border-white/10 flex items-center justify-center mb-2 sm:mb-4 group-hover:border-[#FFBE32]/40 transition-all shadow-inner">
+                  <div className="relative aspect-[3/4] w-full rounded-lg sm:rounded-xl overflow-hidden bg-gradient-to-b from-[#181820] to-[#0C0C0E] border border-white/10 flex items-center justify-center mb-2 sm:mb-4 group-hover:border-[#fc8100]/40 transition-all shadow-inner">
                     {athleteImg ? (
                       <div className="relative h-full w-full">
                         <img
@@ -135,7 +135,7 @@ export const PlayersSection = ({ showHeader = true }: PlayersSectionProps) => {
                         {/* Overlay Role / Captain Badge */}
                         <div className="absolute bottom-1.5 left-1.5 right-1.5 sm:bottom-2.5 sm:left-3 sm:right-3 flex items-center justify-between pointer-events-none">
                           {player.isCaptain ? (
-                            <span className="font-heading text-[8px] xs:text-[9px] sm:text-[10px] font-black text-black bg-[#FFBE32] px-1.5 xs:px-2 sm:px-2.5 py-0.5 rounded uppercase tracking-wider shadow-[0_0_12px_rgba(255,190,50,0.6)]">
+                            <span className="font-heading text-[8px] xs:text-[9px] sm:text-[10px] font-black text-black bg-[#fc8100] px-1.5 xs:px-2 sm:px-2.5 py-0.5 rounded uppercase tracking-wider shadow-[0_0_12px_rgba(252, 129, 0,0.6)]">
                               CAPTAIN / IGL
                             </span>
                           ) : (
@@ -150,13 +150,13 @@ export const PlayersSection = ({ showHeader = true }: PlayersSectionProps) => {
                       // Graphic fallback if no athlete image
                       <div className="relative h-full w-full flex flex-col items-center justify-center p-2 sm:p-4 text-center bg-gradient-to-b from-neutral-900 to-black">
                         <div className="absolute inset-0 bg-esports-grid opacity-20" />
-                        <div className="h-12 w-12 sm:h-20 sm:w-20 rounded-full bg-black/80 border border-[#FFBE32]/30 flex items-center justify-center text-[#FFBE32] mb-1.5 sm:mb-3 shadow-[0_0_20px_rgba(255,190,50,0.15)] group-hover:scale-110 transition-transform">
+                        <div className="h-12 w-12 sm:h-20 sm:w-20 rounded-full bg-black/80 border border-[#fc8100]/30 flex items-center justify-center text-[#fc8100] mb-1.5 sm:mb-3 shadow-[0_0_20px_rgba(252, 129, 0,0.15)] group-hover:scale-110 transition-transform">
                           <span className="font-display text-lg sm:text-3xl font-bold">{cleanIgn.slice(0, 2) || "MG"}</span>
                         </div>
                         <span className="font-heading text-[10px] sm:text-xs text-gray-400 font-bold uppercase tracking-wider">
                           {player.team || "MG ESPORTS"}
                         </span>
-                        <span className="font-heading text-[10px] sm:text-xs text-[#FFBE32] font-extrabold uppercase tracking-widest mt-1 sm:mt-2">
+                        <span className="font-heading text-[10px] sm:text-xs text-[#fc8100] font-extrabold uppercase tracking-widest mt-1 sm:mt-2">
                           {player.role}
                         </span>
                       </div>
@@ -166,7 +166,7 @@ export const PlayersSection = ({ showHeader = true }: PlayersSectionProps) => {
                   {/* Player Typography */}
                   <div className="z-10">
                     <div className="flex items-baseline justify-between">
-                      <h3 className="font-display text-base xs:text-lg sm:text-2xl lg:text-3xl uppercase tracking-wider text-white group-hover:text-[#FFBE32] transition-colors leading-tight truncate">
+                      <h3 className="font-display text-base xs:text-lg sm:text-2xl lg:text-3xl uppercase tracking-wider text-white group-hover:text-[#fc8100] transition-colors leading-tight truncate">
                         {cleanIgn}
                       </h3>
                     </div>
@@ -176,7 +176,7 @@ export const PlayersSection = ({ showHeader = true }: PlayersSectionProps) => {
 
                     {/* About The Player */}
                     <div className="mt-2 sm:mt-3 p-2 sm:p-3 rounded-lg sm:rounded-xl bg-black/50 border border-white/5 min-h-[50px] sm:min-h-[72px] flex flex-col justify-center">
-                      <span className="block text-[8px] xs:text-[9px] font-heading font-bold uppercase tracking-widest text-[#FFBE32] mb-0.5">
+                      <span className="block text-[8px] xs:text-[9px] font-heading font-bold uppercase tracking-widest text-[#fc8100] mb-0.5">
                         ABOUT ATHLETE
                       </span>
                       <p className="text-[10px] xs:text-[11px] sm:text-[11.5px] text-gray-300 font-body leading-snug line-clamp-2">

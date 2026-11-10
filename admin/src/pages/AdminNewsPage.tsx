@@ -208,7 +208,7 @@ export const AdminNewsPage: React.FC = () => {
 
         <button
           onClick={handleOpenCreate}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#FFBE32] hover:bg-[#FFA000] transition-all cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)] shrink-0"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#fc8100] hover:bg-[#e07200] transition-all cursor-pointer shadow-[0_0_15px_rgba(252, 129, 0,0.3)] shrink-0"
         >
           <Plus className="h-4 w-4" />
           <span>Publish Announcement</span>
@@ -227,7 +227,7 @@ export const AdminNewsPage: React.FC = () => {
             return (
               <div
                 key={art.id}
-                className="rounded-2xl bg-[#0C0C10] border border-white/10 hover:border-[#FFBE32]/60 transition-all flex flex-col justify-between group shadow-[0_10px_25px_rgba(0,0,0,0.7)] overflow-hidden"
+                className="rounded-2xl bg-[#0C0C10] border border-white/10 hover:border-[#fc8100]/60 transition-all flex flex-col justify-between group shadow-[0_10px_25px_rgba(0,0,0,0.7)] overflow-hidden"
               >
                 <div>
                   {/* Banner Image */}
@@ -260,14 +260,14 @@ export const AdminNewsPage: React.FC = () => {
                     </div>
 
                     <div className="absolute bottom-2 right-3 text-[11px] font-mono text-gray-400 flex items-center gap-1 bg-black/60 px-2 py-0.5 rounded backdrop-blur-sm border border-white/10">
-                      <Calendar className="h-3 w-3 text-[#FFBE32]" /> {art.date}
+                      <Calendar className="h-3 w-3 text-[#fc8100]" /> {art.date}
                     </div>
                   </div>
 
                   {/* Body Info */}
                   <div className="p-5">
                     {/* Title */}
-                    <h3 className="font-display text-lg uppercase tracking-wide text-white group-hover:text-[#FFBE32] transition-colors leading-snug line-clamp-2">
+                    <h3 className="font-display text-lg uppercase tracking-wide text-white group-hover:text-[#fc8100] transition-colors leading-snug line-clamp-2">
                       {art.title}
                     </h3>
 
@@ -278,7 +278,7 @@ export const AdminNewsPage: React.FC = () => {
 
                     {/* Description preview indicator if present */}
                     {(art.content || art.description) && (
-                      <div className="mt-3 text-[11px] text-[#FFBE32]/80 font-mono flex items-center gap-1.5 bg-[#FFBE32]/5 px-2.5 py-1 rounded border border-[#FFBE32]/20">
+                      <div className="mt-3 text-[11px] text-[#fc8100]/80 font-mono flex items-center gap-1.5 bg-[#fc8100]/5 px-2.5 py-1 rounded border border-[#fc8100]/20">
                         <Sparkles className="h-3 w-3" />
                         <span>Full story description attached</span>
                       </div>
@@ -295,8 +295,8 @@ export const AdminNewsPage: React.FC = () => {
                       onClick={() => handleToggleFeatured(art)}
                       className={`px-2.5 py-1 rounded-lg text-[10px] font-mono uppercase tracking-wider border transition-all flex items-center gap-1 cursor-pointer ${
                         art.featured
-                          ? "bg-[#FFBE32] text-black border-[#FFBE32] font-bold shadow-[0_0_10px_rgba(255,190,50,0.4)]"
-                          : "bg-white/5 text-gray-400 border-white/10 hover:border-[#FFBE32]/50 hover:text-[#FFBE32]"
+                          ? "bg-[#fc8100] text-black border-[#fc8100] font-bold shadow-[0_0_10px_rgba(252, 129, 0,0.4)]"
+                          : "bg-white/5 text-gray-400 border-white/10 hover:border-[#fc8100]/50 hover:text-[#fc8100]"
                       }`}
                       title="Click to spotlight this announcement as the full-screen top row banner"
                     >
@@ -312,7 +312,7 @@ export const AdminNewsPage: React.FC = () => {
                   <div className="flex items-center gap-2 ml-auto">
                     <button
                       onClick={() => handleOpenEdit(art)}
-                      className="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-[#FFBE32] cursor-pointer transition-colors"
+                      className="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-[#fc8100] cursor-pointer transition-colors"
                       title="Edit Article & Banner"
                     >
                       <Edit className="h-4 w-4" />
@@ -335,7 +335,7 @@ export const AdminNewsPage: React.FC = () => {
       {/* Modal */}
       {modalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md overflow-y-auto">
-          <div className="relative w-full max-w-2xl rounded-2xl bg-[#0D0D12] border border-[#FFBE32]/40 p-6 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.95)] max-h-[92vh] overflow-y-auto">
+          <div className="relative w-full max-w-2xl rounded-2xl bg-[#0D0D12] border border-[#fc8100]/40 p-6 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.95)] max-h-[92vh] overflow-y-auto">
             <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
               <div>
                 <h3 className="font-display text-2xl uppercase tracking-wider text-white">
@@ -357,7 +357,7 @@ export const AdminNewsPage: React.FC = () => {
               {/* IMAGE BANNER SECTION */}
               <div className="p-4 rounded-xl bg-black/40 border border-white/10 space-y-3">
                 <div className="flex items-center justify-between">
-                  <label className="text-xs font-heading font-bold uppercase text-[#FFBE32] flex items-center gap-1.5">
+                  <label className="text-xs font-heading font-bold uppercase text-[#fc8100] flex items-center gap-1.5">
                     <ImageIcon className="h-4 w-4" />
                     Announcement Banner Image *
                   </label>
@@ -410,11 +410,11 @@ export const AdminNewsPage: React.FC = () => {
                     />
                     <label
                       htmlFor="banner-file-input"
-                      className={`w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-dashed border-white/20 hover:border-[#FFBE32]/60 bg-white/5 hover:bg-white/10 text-xs font-heading font-bold uppercase tracking-wider text-white transition-all cursor-pointer ${
+                      className={`w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-dashed border-white/20 hover:border-[#fc8100]/60 bg-white/5 hover:bg-white/10 text-xs font-heading font-bold uppercase tracking-wider text-white transition-all cursor-pointer ${
                         uploadingImage ? "opacity-50 pointer-events-none" : ""
                       }`}
                     >
-                      <Upload className="h-4 w-4 text-[#FFBE32]" />
+                      <Upload className="h-4 w-4 text-[#fc8100]" />
                       <span>{uploadingImage ? "Uploading Image..." : "Upload from Device"}</span>
                     </label>
                   </div>
@@ -428,7 +428,7 @@ export const AdminNewsPage: React.FC = () => {
                         setFormData({ ...formData, coverImage: e.target.value, image: e.target.value })
                       }
                       placeholder="Or paste banner image URL..."
-                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-8 pr-3 py-2.5 text-xs text-white placeholder:text-gray-600 focus:border-[#FFBE32] focus:outline-none"
+                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-8 pr-3 py-2.5 text-xs text-white placeholder:text-gray-600 focus:border-[#fc8100] focus:outline-none"
                     />
                     <Link className="h-3.5 w-3.5 text-gray-500 absolute left-3 top-3" />
                   </div>
@@ -437,7 +437,7 @@ export const AdminNewsPage: React.FC = () => {
                 {/* Quick Presets */}
                 <div>
                   <div className="text-[10px] font-mono uppercase tracking-wider text-gray-500 mb-1.5 flex items-center gap-1">
-                    <Sparkles className="h-3 w-3 text-[#FFBE32]" /> Quick Preset Banners:
+                    <Sparkles className="h-3 w-3 text-[#fc8100]" /> Quick Preset Banners:
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {PRESET_BANNERS.map((preset, idx) => (
@@ -449,7 +449,7 @@ export const AdminNewsPage: React.FC = () => {
                         }
                         className={`text-[11px] font-mono px-2.5 py-1 rounded-lg border transition-all cursor-pointer ${
                           formData.coverImage === preset.url
-                            ? "bg-[#FFBE32]/20 border-[#FFBE32] text-[#FFBE32]"
+                            ? "bg-[#fc8100]/20 border-[#fc8100] text-[#fc8100]"
                             : "bg-white/5 border-white/10 text-gray-400 hover:border-white/30 hover:text-white"
                         }`}
                       >
@@ -471,7 +471,7 @@ export const AdminNewsPage: React.FC = () => {
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                   placeholder="e.g. FLAME OF GLORY S2 GRAND FINALS COMMENCES WITH ₹50,000 AT STAKE"
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-medium"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none font-medium"
                 />
               </div>
 
@@ -484,7 +484,7 @@ export const AdminNewsPage: React.FC = () => {
                   <select
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value as any })}
-                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                   >
                     <option value="TOURNAMENT">TOURNAMENT</option>
                     <option value="TEAM">TEAM</option>
@@ -503,7 +503,7 @@ export const AdminNewsPage: React.FC = () => {
                     value={formData.author}
                     onChange={(e) => setFormData({ ...formData, author: e.target.value })}
                     placeholder="MG Editorial"
-                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                   />
                 </div>
               </div>
@@ -519,7 +519,7 @@ export const AdminNewsPage: React.FC = () => {
                     value={formData.readTime}
                     onChange={(e) => setFormData({ ...formData, readTime: e.target.value })}
                     placeholder="3 MIN READ"
-                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                   />
                 </div>
                 <div>
@@ -531,7 +531,7 @@ export const AdminNewsPage: React.FC = () => {
                     value={formData.date}
                     onChange={(e) => setFormData({ ...formData, date: e.target.value })}
                     placeholder="SEP 12, 2026"
-                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                   />
                 </div>
               </div>
@@ -547,14 +547,14 @@ export const AdminNewsPage: React.FC = () => {
                   value={formData.excerpt}
                   onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
                   placeholder="Short briefing displayed on news cards (e.g. 32 of the sharpest mobile esports squads converge...)"
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                 />
               </div>
 
               {/* FULL DESCRIPTION / CONTENT */}
               <div>
                 <div className="flex items-center justify-between mb-1">
-                  <label className="block text-xs font-heading font-bold uppercase text-[#FFBE32]">
+                  <label className="block text-xs font-heading font-bold uppercase text-[#fc8100]">
                     Full Announcement Story / Description *
                   </label>
                   <span className="text-[11px] text-gray-500 font-mono">
@@ -568,21 +568,21 @@ export const AdminNewsPage: React.FC = () => {
                     setFormData({ ...formData, content: e.target.value, description: e.target.value })
                   }
                   placeholder="Full announcement details, rules, match schedules, player quotes, or prize pool breakdowns..."
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-body leading-relaxed"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none font-body leading-relaxed"
                 />
               </div>
 
               {/* SPOTLIGHT TOGGLE */}
-              <label className="flex items-center gap-2.5 cursor-pointer p-3 rounded-xl bg-black/40 border border-white/10 hover:border-[#FFBE32]/40 transition-colors">
+              <label className="flex items-center gap-2.5 cursor-pointer p-3 rounded-xl bg-black/40 border border-white/10 hover:border-[#fc8100]/40 transition-colors">
                 <input
                   type="checkbox"
                   checked={formData.featured || false}
                   onChange={(e) => setFormData({ ...formData, featured: e.target.checked })}
-                  className="rounded border-white/20 text-[#FFBE32] focus:ring-[#FFBE32] h-4 w-4 bg-black/60 cursor-pointer"
+                  className="rounded border-white/20 text-[#fc8100] focus:ring-[#fc8100] h-4 w-4 bg-black/60 cursor-pointer"
                 />
                 <div>
                   <span className="text-xs font-heading font-bold uppercase text-white flex items-center gap-1.5">
-                    <Sparkles className="h-3.5 w-3.5 text-[#FFBE32]" />
+                    <Sparkles className="h-3.5 w-3.5 text-[#fc8100]" />
                     Spotlight as Full Screen Top Row Announcement
                   </span>
                   <p className="text-[11px] text-gray-400 font-body">
@@ -601,7 +601,7 @@ export const AdminNewsPage: React.FC = () => {
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2.5 rounded-xl bg-[#FFBE32] text-black font-heading text-xs font-bold uppercase tracking-wider hover:bg-[#FFA000] transition-all cursor-pointer shadow-[0_0_15px_rgba(255,190,50,0.3)]"
+                  className="px-6 py-2.5 rounded-xl bg-[#fc8100] text-black font-heading text-xs font-bold uppercase tracking-wider hover:bg-[#e07200] transition-all cursor-pointer shadow-[0_0_15px_rgba(252, 129, 0,0.3)]"
                 >
                   {editingArticle ? "Save Changes" : "Publish Announcement"}
                 </button>

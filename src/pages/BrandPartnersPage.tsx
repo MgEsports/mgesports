@@ -217,7 +217,7 @@ export const BrandPartnersPage = () => {
   const getTierColor = (tier: string) => {
     switch (tier) {
       case "MAIN SPONSOR":
-        return "bg-[#FFBE32]/15 text-[#FFBE32] border-[#FFBE32]/40";
+        return "bg-[#fc8100]/15 text-[#fc8100] border-[#fc8100]/40";
       case "OFFICIAL TITLE":
         return "bg-emerald-500/15 text-emerald-400 border-emerald-500/40";
       case "GLOBAL ALLIANCE":
@@ -242,7 +242,7 @@ export const BrandPartnersPage = () => {
       />
 
       {/* Background Ambience */}
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[1000px] max-w-[100vw] h-[450px] bg-radial from-[#FFBE32]/8 via-transparent to-transparent blur-[160px] pointer-events-none" />
+      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[1000px] max-w-[100vw] h-[450px] bg-radial from-[#fc8100]/8 via-transparent to-transparent blur-[160px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Page Hero Header */}
@@ -252,9 +252,9 @@ export const BrandPartnersPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFBE32]/10 border border-[#FFBE32]/30 mb-4">
-              <span className="w-2 h-2 rounded-full bg-[#FFBE32] animate-ping" />
-              <span className="font-heading text-xs font-bold uppercase tracking-widest text-[#FFBE32]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#fc8100]/10 border border-[#fc8100]/30 mb-4">
+              <span className="w-2 h-2 rounded-full bg-[#fc8100] animate-ping" />
+              <span className="font-heading text-xs font-bold uppercase tracking-widest text-[#fc8100]">
                 SPONSORSHIP &amp; INTEGRATIONS
               </span>
             </div>
@@ -270,7 +270,7 @@ export const BrandPartnersPage = () => {
             {/* <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
               <Link
                 to="/partner-with-us"
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#FFBE32] hover:bg-[#FFA000] text-black font-heading text-xs font-bold uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(255,190,50,0.3)]"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#fc8100] hover:bg-[#e07200] text-black font-heading text-xs font-bold uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(252, 129, 0,0.3)]"
               >
                 <Handshake className="h-4 w-4" />
                 <span>Become a Partner • View Pricing Plans</span>
@@ -290,7 +290,7 @@ export const BrandPartnersPage = () => {
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-4 py-2 rounded-xl text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer ${
                   selectedCategory === cat
-                    ? "bg-[#FFBE32] text-black shadow-[0_0_15px_rgba(255,190,50,0.3)]"
+                    ? "bg-[#fc8100] text-black shadow-[0_0_15px_rgba(252, 129, 0,0.3)]"
                     : "bg-[#0f0f14] text-gray-400 hover:text-white border border-white/5"
                 }`}
               >
@@ -307,7 +307,7 @@ export const BrandPartnersPage = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search brand partners..."
-              className="w-full rounded-xl bg-[#0f0f14] border border-white/10 pl-10 pr-4 py-2 text-xs text-white placeholder-gray-500 focus:border-[#FFBE32] focus:outline-none font-body"
+              className="w-full rounded-xl bg-[#0f0f14] border border-white/10 pl-10 pr-4 py-2 text-xs text-white placeholder-gray-500 focus:border-[#fc8100] focus:outline-none font-body"
             />
           </div>
         </div>
@@ -326,15 +326,15 @@ export const BrandPartnersPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
                 whileHover={{ y: -3 }}
-                className="group relative rounded-2xl bg-[#0C0C11] border border-white/10 hover:border-[#FFBE32]/60 p-6 sm:p-8 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.7)] hover:shadow-[0_15px_40px_rgba(255,190,50,0.12)] overflow-hidden"
+                className="group relative rounded-2xl bg-[#0C0C11] border border-white/10 hover:border-[#fc8100]/60 p-6 sm:p-8 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.7)] hover:shadow-[0_15px_40px_rgba(252, 129, 0,0.12)] overflow-hidden"
               >
                 {/* Subtle Ambient Gold Glow on Hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#FFBE32]/5 via-transparent to-[#FFBE32]/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#fc8100]/5 via-transparent to-[#fc8100]/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-2xl" />
 
                 <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-10">
                   {/* Left Column: Illuminated Brand Logo Box */}
                   <div className="shrink-0 flex items-center gap-5">
-                    <div className="w-32 sm:w-40 h-24 sm:h-28 rounded-xl bg-black/80 border border-white/10 group-hover:border-[#FFBE32]/40 flex items-center justify-center p-4 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
+                    <div className="w-32 sm:w-40 h-24 sm:h-28 rounded-xl bg-black/80 border border-white/10 group-hover:border-[#fc8100]/40 flex items-center justify-center p-4 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
                       <img
                         src={partner.logo}
                         alt={partner.name}
@@ -369,7 +369,7 @@ export const BrandPartnersPage = () => {
                     </div>
 
                     <div>
-                      <h3 className="font-display text-2xl sm:text-3xl font-extrabold uppercase tracking-wide text-white group-hover:text-[#FFBE32] transition-colors">
+                      <h3 className="font-display text-2xl sm:text-3xl font-extrabold uppercase tracking-wide text-white group-hover:text-[#fc8100] transition-colors">
                         {partner.name}
                       </h3>
                       <p className="text-xs font-heading font-semibold uppercase text-gray-400 tracking-wider mt-0.5">
@@ -388,7 +388,7 @@ export const BrandPartnersPage = () => {
                           key={hIdx}
                           className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] font-body text-gray-300 flex items-center gap-1.5"
                         >
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#FFBE32]" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#fc8100]" />
                           <span>{h}</span>
                         </span>
                       ))}
@@ -401,7 +401,7 @@ export const BrandPartnersPage = () => {
                       href={partner.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/5 hover:bg-[#FFBE32] text-gray-200 hover:text-black font-heading text-xs font-bold uppercase tracking-wider border border-white/15 hover:border-[#FFBE32] transition-all cursor-pointer shadow-[0_4px_15px_rgba(0,0,0,0.5)] group/btn"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/5 hover:bg-[#fc8100] text-gray-200 hover:text-black font-heading text-xs font-bold uppercase tracking-wider border border-white/15 hover:border-[#fc8100] transition-all cursor-pointer shadow-[0_4px_15px_rgba(0,0,0,0.5)] group/btn"
                     >
                       <Globe className="h-3.5 w-3.5" />
                       <span>Visit Platform</span>
@@ -419,7 +419,7 @@ export const BrandPartnersPage = () => {
 
           {filteredPartners.length === 0 && (
             <div className="py-20 text-center rounded-2xl bg-[#0C0C11] border border-white/5">
-              <Handshake className="h-12 w-12 text-[#FFBE32]/40 mx-auto mb-4" />
+              <Handshake className="h-12 w-12 text-[#fc8100]/40 mx-auto mb-4" />
               <h3 className="font-display text-xl uppercase tracking-wider text-white">
                 No Partners Found
               </h3>
@@ -433,9 +433,9 @@ export const BrandPartnersPage = () => {
         </div>
 
         {/* Bottom Banner: Become a Partner CTA */}
-        {/* <div className="mt-16 rounded-2xl bg-gradient-to-r from-[#111116] via-[#161622] to-[#111116] border border-[#FFBE32]/30 p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_15px_50px_rgba(0,0,0,0.8)]">
+        {/* <div className="mt-16 rounded-2xl bg-gradient-to-r from-[#111116] via-[#161622] to-[#111116] border border-[#fc8100]/30 p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_15px_50px_rgba(0,0,0,0.8)]">
           <div className="space-y-2 text-center md:text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFBE32]/10 border border-[#FFBE32]/30 text-[11px] font-heading font-bold uppercase tracking-widest text-[#FFBE32]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#fc8100]/10 border border-[#fc8100]/30 text-[11px] font-heading font-bold uppercase tracking-widest text-[#fc8100]">
               <Sparkles className="h-3 w-3" />
               <span>OPPORTUNITY FOR BRANDS &amp; CREATORS</span>
             </div>
@@ -449,7 +449,7 @@ export const BrandPartnersPage = () => {
 
           <Link
             to="/partner-with-us"
-            className="shrink-0 inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-[#FFBE32] hover:bg-[#FFA000] text-black font-heading text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-[0_0_25px_rgba(255,190,50,0.35)]"
+            className="shrink-0 inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-[#fc8100] hover:bg-[#e07200] text-black font-heading text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-[0_0_25px_rgba(252, 129, 0,0.35)]"
           >
             <Handshake className="h-4 w-4" />
             <span>View Subscription Plans</span>

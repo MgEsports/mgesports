@@ -356,8 +356,8 @@ export const AdminPartnersPage: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <div className="flex items-center gap-2.5 mb-1">
-            <span className="w-2 h-2 rounded-full bg-[#FFBE32] animate-ping" />
-            <span className="font-heading text-xs font-bold uppercase tracking-widest text-[#FFBE32]">
+            <span className="w-2 h-2 rounded-full bg-[#fc8100] animate-ping" />
+            <span className="font-heading text-xs font-bold uppercase tracking-widest text-[#fc8100]">
               Sponsorship &amp; Partner Management
             </span>
           </div>
@@ -374,7 +374,7 @@ export const AdminPartnersPage: React.FC = () => {
             setActiveTab("logos");
             handleOpenCreatePartner();
           }}
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#FFBE32] hover:bg-[#FFA000] transition-all cursor-pointer shadow-[0_0_20px_rgba(255,190,50,0.35)] shrink-0 group"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#fc8100] hover:bg-[#e07200] transition-all cursor-pointer shadow-[0_0_20px_rgba(252, 129, 0,0.35)] shrink-0 group"
         >
           <Plus className="h-4 w-4 transition-transform group-hover:rotate-90" />
           <span>Add Brand Sponsor &amp; Logo</span>
@@ -387,7 +387,7 @@ export const AdminPartnersPage: React.FC = () => {
           onClick={() => setActiveTab("inquiries")}
           className={`relative px-5 py-3 text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center gap-2.5 ${
             activeTab === "inquiries"
-              ? "text-[#FFBE32] border-b-2 border-[#FFBE32]"
+              ? "text-[#fc8100] border-b-2 border-[#fc8100]"
               : "text-gray-400 hover:text-white"
           }`}
         >
@@ -404,7 +404,7 @@ export const AdminPartnersPage: React.FC = () => {
           onClick={() => setActiveTab("plans")}
           className={`relative px-5 py-3 text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center gap-2.5 ${
             activeTab === "plans"
-              ? "text-[#FFBE32] border-b-2 border-[#FFBE32]"
+              ? "text-[#fc8100] border-b-2 border-[#fc8100]"
               : "text-gray-400 hover:text-white"
           }`}
         >
@@ -417,7 +417,7 @@ export const AdminPartnersPage: React.FC = () => {
           onClick={() => setActiveTab("logos")}
           className={`relative px-5 py-3 text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center gap-2.5 ${
             activeTab === "logos"
-              ? "text-[#FFBE32] border-b-2 border-[#FFBE32]"
+              ? "text-[#fc8100] border-b-2 border-[#fc8100]"
               : "text-gray-400 hover:text-white"
           }`}
         >
@@ -442,7 +442,7 @@ export const AdminPartnersPage: React.FC = () => {
                   onClick={() => setInquiryStatusFilter(st)}
                   className={`px-3 py-1 rounded-lg text-xs font-heading font-bold uppercase transition-all cursor-pointer ${
                     inquiryStatusFilter === st
-                      ? "bg-[#FFBE32] text-black shadow-[0_0_10px_rgba(255,190,50,0.3)]"
+                      ? "bg-[#fc8100] text-black shadow-[0_0_10px_rgba(252, 129, 0,0.3)]"
                       : "bg-white/5 text-gray-400 hover:text-white"
                   }`}
                 >
@@ -459,7 +459,7 @@ export const AdminPartnersPage: React.FC = () => {
           {/* Inquiries Table / Cards */}
           {inquiriesLoading ? (
             <div className="py-20 text-center text-gray-400 font-mono text-xs animate-pulse flex flex-col items-center justify-center gap-3">
-              <Loader2 className="h-6 w-6 animate-spin text-[#FFBE32]" />
+              <Loader2 className="h-6 w-6 animate-spin text-[#fc8100]" />
               <span>Loading partner applications...</span>
             </div>
           ) : inquiries.length === 0 ? (
@@ -473,7 +473,7 @@ export const AdminPartnersPage: React.FC = () => {
               {inquiries.map((inq) => (
                 <div
                   key={inq.id}
-                  className="p-5 rounded-2xl bg-[#0C0C10] border border-white/10 hover:border-[#FFBE32]/40 transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-5 shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
+                  className="p-5 rounded-2xl bg-[#0C0C10] border border-white/10 hover:border-[#fc8100]/40 transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-5 shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
                 >
                   {/* Left: Org & Contact Details */}
                   <div className="space-y-1.5 flex-1 min-w-0">
@@ -481,7 +481,7 @@ export const AdminPartnersPage: React.FC = () => {
                       <span className="font-display text-lg uppercase tracking-wider text-white">
                         {inq.orgName}
                       </span>
-                      <span className="px-2.5 py-0.5 rounded-full bg-[#FFBE32]/10 border border-[#FFBE32]/30 text-[#FFBE32] text-xs font-heading font-bold uppercase">
+                      <span className="px-2.5 py-0.5 rounded-full bg-[#fc8100]/10 border border-[#fc8100]/30 text-[#fc8100] text-xs font-heading font-bold uppercase">
                         {inq.planName} ({inq.planPrice})
                       </span>
                       <span className="text-xs font-mono text-gray-500">
@@ -496,7 +496,7 @@ export const AdminPartnersPage: React.FC = () => {
                       </span>
                       <span className="flex items-center gap-1.5">
                         <Mail className="h-3.5 w-3.5 text-gray-500" />
-                        <a href={`mailto:${inq.email}`} className="hover:text-[#FFBE32] text-gray-300">
+                        <a href={`mailto:${inq.email}`} className="hover:text-[#fc8100] text-gray-300">
                           {inq.email}
                         </a>
                       </span>
@@ -541,10 +541,10 @@ export const AdminPartnersPage: React.FC = () => {
                             ? "bg-cyan-500/10 text-cyan-400 border-cyan-500/30"
                             : inq.status === "REJECTED"
                             ? "bg-rose-500/10 text-rose-400 border-rose-500/30"
-                            : "bg-[#FFBE32]/10 text-[#FFBE32] border-[#FFBE32]/30"
+                            : "bg-[#fc8100]/10 text-[#fc8100] border-[#fc8100]/30"
                         }`}
                       >
-                        <option value="PENDING" className="bg-[#111] text-[#FFBE32]">PENDING</option>
+                        <option value="PENDING" className="bg-[#111] text-[#fc8100]">PENDING</option>
                         <option value="CONTACTED" className="bg-[#111] text-cyan-400">CONTACTED</option>
                         <option value="APPROVED" className="bg-[#111] text-emerald-400">APPROVED</option>
                         <option value="REJECTED" className="bg-[#111] text-rose-400">REJECTED</option>
@@ -613,12 +613,12 @@ export const AdminPartnersPage: React.FC = () => {
               return (
                 <div
                   key={plan.id}
-                  className="p-6 rounded-2xl bg-[#0C0C10] border border-white/10 hover:border-[#FFBE32]/60 transition-all flex flex-col justify-between shadow-[0_10px_30px_rgba(0,0,0,0.6)]"
+                  className="p-6 rounded-2xl bg-[#0C0C10] border border-white/10 hover:border-[#fc8100]/60 transition-all flex flex-col justify-between shadow-[0_10px_30px_rgba(0,0,0,0.6)]"
                 >
                   <div>
                     {/* Badge & Status */}
                     <div className="flex items-center justify-between pb-3 border-b border-white/5">
-                      <span className="px-2.5 py-0.5 rounded text-[10px] font-heading font-bold uppercase bg-[#FFBE32]/10 text-[#FFBE32] border border-[#FFBE32]/30">
+                      <span className="px-2.5 py-0.5 rounded text-[10px] font-heading font-bold uppercase bg-[#fc8100]/10 text-[#fc8100] border border-[#fc8100]/30">
                         {plan.badge}
                       </span>
                       <span className="text-[10px] font-mono text-emerald-400 font-bold uppercase">
@@ -640,7 +640,7 @@ export const AdminPartnersPage: React.FC = () => {
                     </div>
 
                     {plan.tag && (
-                      <p className="text-xs text-[#FFBE32] font-semibold mt-2 font-heading">
+                      <p className="text-xs text-[#fc8100] font-semibold mt-2 font-heading">
                         {plan.tag}
                       </p>
                     )}
@@ -665,7 +665,7 @@ export const AdminPartnersPage: React.FC = () => {
                   <div className="mt-6 pt-4 border-t border-white/5">
                     <button
                       onClick={() => handleOpenEditPlan(plan)}
-                      className="w-full py-2.5 rounded-xl bg-white/5 hover:bg-[#FFBE32] text-white hover:text-black font-heading text-xs font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-2"
+                      className="w-full py-2.5 rounded-xl bg-white/5 hover:bg-[#fc8100] text-white hover:text-black font-heading text-xs font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-2"
                     >
                       <Edit className="h-4 w-4" />
                       <span>Edit Plan Pricing &amp; Details</span>
@@ -686,7 +686,7 @@ export const AdminPartnersPage: React.FC = () => {
           {/* Partners Grid */}
           {partnersLoading ? (
             <div className="py-20 text-center text-gray-400 font-mono text-xs animate-pulse flex flex-col items-center justify-center gap-3">
-              <Loader2 className="h-6 w-6 animate-spin text-[#FFBE32]" />
+              <Loader2 className="h-6 w-6 animate-spin text-[#fc8100]" />
               <span>Loading official brand partners &amp; logos...</span>
             </div>
           ) : (
@@ -694,13 +694,13 @@ export const AdminPartnersPage: React.FC = () => {
               {partners.map((p) => (
                 <div
                   key={p.id}
-                  className={`rounded-2xl bg-[#0C0C10] border transition-all flex flex-col justify-between group shadow-[0_10px_30px_rgba(0,0,0,0.7)] hover:shadow-[0_15px_40px_rgba(255,190,50,0.12)] overflow-hidden ${
-                    p.isActive ? "border-white/10 hover:border-[#FFBE32]/60" : "border-white/5 opacity-60 hover:opacity-100"
+                  className={`rounded-2xl bg-[#0C0C10] border transition-all flex flex-col justify-between group shadow-[0_10px_30px_rgba(0,0,0,0.7)] hover:shadow-[0_15px_40px_rgba(252, 129, 0,0.12)] overflow-hidden ${
+                    p.isActive ? "border-white/10 hover:border-[#fc8100]/60" : "border-white/5 opacity-60 hover:opacity-100"
                   }`}
                 >
                   <div className="p-6">
                     <div className="flex items-center justify-between pb-3 border-b border-white/5">
-                      <span className="px-2.5 py-1 rounded-md border text-[10px] font-heading font-bold uppercase tracking-wider bg-[#FFBE32]/10 text-[#FFBE32] border-[#FFBE32]/30">
+                      <span className="px-2.5 py-1 rounded-md border text-[10px] font-heading font-bold uppercase tracking-wider bg-[#fc8100]/10 text-[#fc8100] border-[#fc8100]/30">
                         {p.tier || "OFFICIAL PARTNER"}
                       </span>
                       <button
@@ -717,7 +717,7 @@ export const AdminPartnersPage: React.FC = () => {
                     </div>
 
                     {/* Logo Display Box */}
-                    <div className="mt-4 w-full h-32 rounded-xl bg-black/60 border border-white/5 flex items-center justify-center p-4 relative overflow-hidden group-hover:border-[#FFBE32]/30 transition-colors group/logo">
+                    <div className="mt-4 w-full h-32 rounded-xl bg-black/60 border border-white/5 flex items-center justify-center p-4 relative overflow-hidden group-hover:border-[#fc8100]/30 transition-colors group/logo">
                       {(() => {
                         const resolvedLogo = resolveAdminPartnerLogo(p.logoImage, p.name, p.id);
                         const resolvedCard = resolveAdminPartnerCard(p.cardImage, p.id);
@@ -772,7 +772,7 @@ export const AdminPartnersPage: React.FC = () => {
                         className="absolute inset-0 bg-black/80 backdrop-blur-xs opacity-0 group-hover/logo:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1.5 cursor-pointer z-10"
                         title="Click to quickly upload / change logo"
                       >
-                        <Upload className="h-5 w-5 text-[#FFBE32]" />
+                        <Upload className="h-5 w-5 text-[#fc8100]" />
                         <span className="text-[10px] font-heading font-bold uppercase text-white tracking-wider">
                           Change Logo File
                         </span>
@@ -787,7 +787,7 @@ export const AdminPartnersPage: React.FC = () => {
                     </div>
 
                     <div className="mt-4">
-                      <h3 className="font-display text-xl uppercase tracking-wider text-white group-hover:text-[#FFBE32] transition-colors">
+                      <h3 className="font-display text-xl uppercase tracking-wider text-white group-hover:text-[#fc8100] transition-colors">
                         {p.name}
                       </h3>
                       <p className="text-xs text-gray-400 font-body mt-1">
@@ -801,7 +801,7 @@ export const AdminPartnersPage: React.FC = () => {
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => handleOpenEditPartner(p)}
-                        className="p-1.5 rounded-lg bg-white/5 hover:bg-[#FFBE32] text-gray-300 hover:text-black transition-all cursor-pointer"
+                        className="p-1.5 rounded-lg bg-white/5 hover:bg-[#fc8100] text-gray-300 hover:text-black transition-all cursor-pointer"
                         title="Edit Partner & Logo"
                       >
                         <Edit className="h-4 w-4" />
@@ -827,10 +827,10 @@ export const AdminPartnersPage: React.FC = () => {
       {/* ========================================================================= */}
       {planModalOpen && editingPlan && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md overflow-y-auto">
-          <div className="relative w-full max-w-lg rounded-2xl bg-[#0D0D12] border border-[#FFBE32]/40 p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.9)] max-h-[90vh] overflow-y-auto">
+          <div className="relative w-full max-w-lg rounded-2xl bg-[#0D0D12] border border-[#fc8100]/40 p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.9)] max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
               <div>
-                <span className="text-[10px] font-heading font-bold uppercase tracking-widest text-[#FFBE32]">
+                <span className="text-[10px] font-heading font-bold uppercase tracking-widest text-[#fc8100]">
                   Edit Subscription Tier
                 </span>
                 <h3 className="font-display text-2xl uppercase tracking-wider text-white mt-0.5">
@@ -855,7 +855,7 @@ export const AdminPartnersPage: React.FC = () => {
                   required
                   value={planFormData.name || ""}
                   onChange={(e) => setPlanFormData({ ...planFormData, name: e.target.value })}
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                 />
               </div>
 
@@ -869,7 +869,7 @@ export const AdminPartnersPage: React.FC = () => {
                     required
                     value={planFormData.price || ""}
                     onChange={(e) => setPlanFormData({ ...planFormData, price: e.target.value })}
-                    className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                    className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                   />
                 </div>
                 <div>
@@ -881,7 +881,7 @@ export const AdminPartnersPage: React.FC = () => {
                     required
                     value={planFormData.billing || "/month"}
                     onChange={(e) => setPlanFormData({ ...planFormData, billing: e.target.value })}
-                    className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                    className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                   />
                 </div>
               </div>
@@ -894,7 +894,7 @@ export const AdminPartnersPage: React.FC = () => {
                   type="text"
                   value={planFormData.subheading || ""}
                   onChange={(e) => setPlanFormData({ ...planFormData, subheading: e.target.value })}
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                 />
               </div>
 
@@ -915,7 +915,7 @@ export const AdminPartnersPage: React.FC = () => {
                       features: e.target.value.split("\n").filter((f) => f.trim().length > 0),
                     })
                   }
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-xs text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-xs text-white focus:border-[#fc8100] focus:outline-none font-mono"
                 />
               </div>
 
@@ -925,7 +925,7 @@ export const AdminPartnersPage: React.FC = () => {
                   id="popular-plan-check"
                   checked={planFormData.isPopular || false}
                   onChange={(e) => setPlanFormData({ ...planFormData, isPopular: e.target.checked })}
-                  className="rounded border-white/20 text-[#FFBE32] focus:ring-[#FFBE32] h-4 w-4 bg-black/60"
+                  className="rounded border-white/20 text-[#fc8100] focus:ring-[#fc8100] h-4 w-4 bg-black/60"
                 />
                 <label htmlFor="popular-plan-check" className="text-xs font-heading font-bold text-gray-300 cursor-pointer uppercase">
                   Mark as Most Popular Tier
@@ -943,7 +943,7 @@ export const AdminPartnersPage: React.FC = () => {
                 <button
                   type="submit"
                   disabled={savingPlan}
-                  className="px-6 py-2.5 rounded-xl bg-[#FFBE32] text-black font-heading text-xs font-bold uppercase tracking-wider hover:bg-[#FFA000] transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-6 py-2.5 rounded-xl bg-[#fc8100] text-black font-heading text-xs font-bold uppercase tracking-wider hover:bg-[#e07200] transition-all flex items-center gap-2 cursor-pointer"
                 >
                   {savingPlan ? <Loader2 className="h-4 w-4 animate-spin" /> : <Check className="h-4 w-4" />}
                   <span>Save Plan Tier</span>
@@ -959,10 +959,10 @@ export const AdminPartnersPage: React.FC = () => {
       {/* ========================================================================= */}
       {partnerModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md overflow-y-auto">
-          <div className="relative w-full max-w-xl rounded-2xl bg-[#0D0D12] border border-[#FFBE32]/40 p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.95)] max-h-[92vh] overflow-y-auto">
+          <div className="relative w-full max-w-xl rounded-2xl bg-[#0D0D12] border border-[#fc8100]/40 p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.95)] max-h-[92vh] overflow-y-auto">
             <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
               <div>
-                <span className="text-[10px] font-heading font-bold uppercase tracking-widest text-[#FFBE32]">
+                <span className="text-[10px] font-heading font-bold uppercase tracking-widest text-[#fc8100]">
                   {editingPartner ? "Edit Partner & Logo" : "New Sponsor Partner"}
                 </span>
                 <h3 className="font-display text-2xl uppercase tracking-wider text-white mt-0.5">
@@ -988,14 +988,14 @@ export const AdminPartnersPage: React.FC = () => {
                   value={partnerFormData.name}
                   onChange={(e) => setPartnerFormData({ ...partnerFormData, name: e.target.value })}
                   placeholder="e.g. LOGITECH G, RED BULL, MONSTER"
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none uppercase"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none uppercase"
                 />
               </div>
 
               {/* Logo Upload & URL Section */}
               <div className="p-4 rounded-xl bg-black/40 border border-white/10 space-y-3">
                 <div className="flex items-center justify-between">
-                  <label className="text-xs font-heading font-bold uppercase text-[#FFBE32] flex items-center gap-1.5">
+                  <label className="text-xs font-heading font-bold uppercase text-[#fc8100] flex items-center gap-1.5">
                     <Upload className="h-3.5 w-3.5" />
                     <span>Partner Logo Image *</span>
                   </label>
@@ -1059,16 +1059,16 @@ export const AdminPartnersPage: React.FC = () => {
                     type="button"
                     onClick={() => fileInputRef.current?.click()}
                     disabled={uploadingLogo}
-                    className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-dashed border-white/20 hover:border-[#FFBE32]/60 bg-white/5 hover:bg-white/10 text-xs font-heading font-bold uppercase tracking-wider text-white transition-all cursor-pointer"
+                    className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-dashed border-white/20 hover:border-[#fc8100]/60 bg-white/5 hover:bg-white/10 text-xs font-heading font-bold uppercase tracking-wider text-white transition-all cursor-pointer"
                   >
                     {uploadingLogo ? (
                       <>
-                        <Loader2 className="h-4 w-4 animate-spin text-[#FFBE32]" />
+                        <Loader2 className="h-4 w-4 animate-spin text-[#fc8100]" />
                         <span>Uploading...</span>
                       </>
                     ) : (
                       <>
-                        <Upload className="h-4 w-4 text-[#FFBE32]" />
+                        <Upload className="h-4 w-4 text-[#fc8100]" />
                         <span>Choose File / SVG</span>
                       </>
                     )}
@@ -1082,7 +1082,7 @@ export const AdminPartnersPage: React.FC = () => {
                         setPartnerFormData({ ...partnerFormData, logoImage: e.target.value })
                       }
                       placeholder="Or paste Logo URL..."
-                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-8 pr-3 py-2.5 text-xs text-white placeholder:text-gray-600 focus:border-[#FFBE32] focus:outline-none"
+                      className="w-full rounded-xl border border-white/15 bg-black/60 pl-8 pr-3 py-2.5 text-xs text-white placeholder:text-gray-600 focus:border-[#fc8100] focus:outline-none"
                     />
                     <LinkIcon className="h-3.5 w-3.5 text-gray-500 absolute left-3 top-3" />
                   </div>
@@ -1091,7 +1091,7 @@ export const AdminPartnersPage: React.FC = () => {
                 {/* Quick Preset Logos */}
                 <div>
                   <div className="text-[10px] font-mono uppercase tracking-wider text-gray-500 mb-1.5 flex items-center gap-1">
-                    <Sparkles className="h-3 w-3 text-[#FFBE32]" /> Quick Preset Brands:
+                    <Sparkles className="h-3 w-3 text-[#fc8100]" /> Quick Preset Brands:
                   </div>
                   <div className="flex flex-wrap gap-1.5 max-h-24 overflow-y-auto pr-1">
                     {PRESET_PARTNER_LOGOS.map((preset, idx) => (
@@ -1107,7 +1107,7 @@ export const AdminPartnersPage: React.FC = () => {
                         }
                         className={`text-[10px] font-mono px-2.5 py-1 rounded-lg border transition-all cursor-pointer ${
                           partnerFormData.logoImage === preset.url
-                            ? "bg-[#FFBE32]/20 border-[#FFBE32] text-[#FFBE32]"
+                            ? "bg-[#fc8100]/20 border-[#fc8100] text-[#fc8100]"
                             : "bg-white/5 border-white/10 text-gray-400 hover:border-white/30 hover:text-white"
                         }`}
                       >
@@ -1126,7 +1126,7 @@ export const AdminPartnersPage: React.FC = () => {
                   <select
                     value={partnerFormData.tier}
                     onChange={(e) => setPartnerFormData({ ...partnerFormData, tier: e.target.value })}
-                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                   >
                     <option value="MAIN SPONSOR">MAIN SPONSOR</option>
                     <option value="OFFICIAL PARTNER">OFFICIAL PARTNER</option>
@@ -1143,7 +1143,7 @@ export const AdminPartnersPage: React.FC = () => {
                     required
                     value={partnerFormData.category}
                     onChange={(e) => setPartnerFormData({ ...partnerFormData, category: e.target.value })}
-                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                   />
                 </div>
               </div>
@@ -1157,7 +1157,7 @@ export const AdminPartnersPage: React.FC = () => {
                   value={partnerFormData.websiteUrl || ""}
                   onChange={(e) => setPartnerFormData({ ...partnerFormData, websiteUrl: e.target.value })}
                   placeholder="https://brand.com"
-                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#fc8100] focus:outline-none"
                 />
               </div>
 
@@ -1172,7 +1172,7 @@ export const AdminPartnersPage: React.FC = () => {
                 <button
                   type="submit"
                   disabled={savingPartner}
-                  className="px-6 py-2 rounded-xl bg-[#FFBE32] text-black font-heading text-xs font-bold uppercase tracking-wider"
+                  className="px-6 py-2 rounded-xl bg-[#fc8100] text-black font-heading text-xs font-bold uppercase tracking-wider"
                 >
                   {savingPartner ? "Saving..." : "Save Partner"}
                 </button>

@@ -71,11 +71,11 @@ export const AdminDashboardPage: React.FC = () => {
   return (
     <div className="space-y-8">
       {/* Top Banner & Quick Actions */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 p-6 rounded-2xl bg-gradient-to-r from-[#121218] via-[#0E0E12] to-[#0A0A0C] border border-[#FFBE32]/30 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 p-6 rounded-2xl bg-gradient-to-r from-[#121218] via-[#0E0E12] to-[#0A0A0C] border border-[#fc8100]/30 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
         <div>
           <div className="flex items-center gap-2 mb-1">
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
-            <span className="font-heading text-xs font-bold uppercase tracking-widest text-[#FFBE32]">
+            <span className="font-heading text-xs font-bold uppercase tracking-widest text-[#fc8100]">
               CENTRAL COMMAND ACTIVE
             </span>
           </div>
@@ -94,11 +94,11 @@ export const AdminDashboardPage: React.FC = () => {
             className="p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 hover:text-white transition-colors cursor-pointer"
             title="Refresh metrics"
           >
-            <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin text-[#FFBE32]" : ""}`} />
+            <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin text-[#fc8100]" : ""}`} />
           </button>
           <Link
             to="/admin/tournaments"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#FFBE32] hover:bg-[#FFA000] transition-colors shadow-[0_0_15px_rgba(255,190,50,0.3)]"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-black bg-[#fc8100] hover:bg-[#e07200] transition-colors shadow-[0_0_15px_rgba(252, 129, 0,0.3)]"
           >
             <Plus className="h-4 w-4" />
             <span>New Tournament</span>
@@ -109,12 +109,12 @@ export const AdminDashboardPage: React.FC = () => {
       {/* KPI Stats 4-Column Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {/* Total Revenue */}
-        <div className="p-5 rounded-2xl bg-[#0D0D12] border border-white/10 relative overflow-hidden group hover:border-[#FFBE32]/50 transition-colors">
+        <div className="p-5 rounded-2xl bg-[#0D0D12] border border-white/10 relative overflow-hidden group hover:border-[#fc8100]/50 transition-colors">
           <div className="flex items-center justify-between">
             <span className="text-xs font-heading font-bold uppercase tracking-wider text-gray-400">
               Total Revenue
             </span>
-            <div className="h-9 w-9 rounded-xl bg-[#FFBE32]/10 border border-[#FFBE32]/30 flex items-center justify-center text-[#FFBE32]">
+            <div className="h-9 w-9 rounded-xl bg-[#fc8100]/10 border border-[#fc8100]/30 flex items-center justify-center text-[#fc8100]">
               <TrendingUp className="h-4 w-4" />
             </div>
           </div>
@@ -129,7 +129,7 @@ export const AdminDashboardPage: React.FC = () => {
         </div>
 
         {/* Tournaments */}
-        <div className="p-5 rounded-2xl bg-[#0D0D12] border border-white/10 relative overflow-hidden group hover:border-[#FFBE32]/50 transition-colors">
+        <div className="p-5 rounded-2xl bg-[#0D0D12] border border-white/10 relative overflow-hidden group hover:border-[#fc8100]/50 transition-colors">
           <div className="flex items-center justify-between">
             <span className="text-xs font-heading font-bold uppercase tracking-wider text-gray-400">
               Active Tournaments
@@ -142,7 +142,7 @@ export const AdminDashboardPage: React.FC = () => {
             <span className="font-display text-3xl font-extrabold text-white">
               {kpis?.tournamentsCount ?? 0}
             </span>
-            <span className="block mt-1 text-[11px] text-[#FFBE32] font-heading tracking-wider flex items-center gap-1">
+            <span className="block mt-1 text-[11px] text-[#fc8100] font-heading tracking-wider flex items-center gap-1">
               <Radio className="h-3 w-3 animate-pulse" /> {kpis?.liveTournamentsCount ?? 0} Live Match Fixtures
             </span>
           </div>
@@ -151,7 +151,7 @@ export const AdminDashboardPage: React.FC = () => {
         {/* Pending Registrations */}
         <Link
           to="/admin/registrations"
-          className="p-5 rounded-2xl bg-[#0D0D12] border border-white/10 relative overflow-hidden group hover:border-[#FFBE32]/50 transition-colors block"
+          className="p-5 rounded-2xl bg-[#0D0D12] border border-white/10 relative overflow-hidden group hover:border-[#fc8100]/50 transition-colors block"
         >
           <div className="flex items-center justify-between">
             <span className="text-xs font-heading font-bold uppercase tracking-wider text-gray-400">
@@ -174,7 +174,7 @@ export const AdminDashboardPage: React.FC = () => {
         {/* Orders */}
         <Link
           to="/admin/orders"
-          className="p-5 rounded-2xl bg-[#0D0D12] border border-white/10 relative overflow-hidden group hover:border-[#FFBE32]/50 transition-colors block"
+          className="p-5 rounded-2xl bg-[#0D0D12] border border-white/10 relative overflow-hidden group hover:border-[#fc8100]/50 transition-colors block"
         >
           <div className="flex items-center justify-between">
             <span className="text-xs font-heading font-bold uppercase tracking-wider text-gray-400">
@@ -208,7 +208,7 @@ export const AdminDashboardPage: React.FC = () => {
                 Monthly revenue trajectory across official scrims, merchandise, and championship prize purses.
               </p>
             </div>
-            <span className="px-2.5 py-1 rounded-lg bg-[#FFBE32]/10 border border-[#FFBE32]/30 text-[10px] font-mono font-bold text-[#FFBE32]">
+            <span className="px-2.5 py-1 rounded-lg bg-[#fc8100]/10 border border-[#fc8100]/30 text-[10px] font-mono font-bold text-[#fc8100]">
               2026 Season
             </span>
           </div>
@@ -222,7 +222,7 @@ export const AdminDashboardPage: React.FC = () => {
               return (
                 <div key={item.month} className="flex-1 flex flex-col items-center gap-2 group h-full justify-end">
                   {/* Tooltip on hover */}
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-2 bg-black border border-[#FFBE32] px-2 py-1 rounded text-[10px] font-mono text-[#FFBE32] pointer-events-none shadow-lg z-20">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-2 bg-black border border-[#fc8100] px-2 py-1 rounded text-[10px] font-mono text-[#fc8100] pointer-events-none shadow-lg z-20">
                     ₹{item.revenue.toLocaleString("en-IN")} • {item.registrations} Squads
                   </div>
 
@@ -230,7 +230,7 @@ export const AdminDashboardPage: React.FC = () => {
                   <div className="w-8 sm:w-12 bg-white/5 rounded-t-lg relative overflow-hidden flex items-end justify-center group-hover:bg-white/10 transition-colors">
                     <div
                       style={{ height: `${heightPercent}%` }}
-                      className="w-full bg-gradient-to-t from-[#FFA000] to-[#FFBE32] rounded-t-lg transition-all duration-500 group-hover:brightness-125 shadow-[0_0_15px_rgba(255,190,50,0.3)]"
+                      className="w-full bg-gradient-to-t from-[#e07200] to-[#fc8100] rounded-t-lg transition-all duration-500 group-hover:brightness-125 shadow-[0_0_15px_rgba(252, 129, 0,0.3)]"
                     />
                   </div>
 
@@ -245,7 +245,7 @@ export const AdminDashboardPage: React.FC = () => {
 
           <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono text-gray-400">
             <span>Peak Month: Sep (₹2,84,500)</span>
-            <span className="text-[#FFBE32] font-semibold">Average: ₹1,37,400 / month</span>
+            <span className="text-[#fc8100] font-semibold">Average: ₹1,37,400 / month</span>
           </div>
         </div>
 
@@ -262,22 +262,22 @@ export const AdminDashboardPage: React.FC = () => {
             <div className="space-y-2.5">
               <Link
                 to="/admin/tournaments"
-                className="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-[#FFBE32]/10 border border-white/5 hover:border-[#FFBE32]/40 transition-colors group"
+                className="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-[#fc8100]/10 border border-white/5 hover:border-[#fc8100]/40 transition-colors group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="h-8 w-8 rounded-lg bg-[#FFBE32]/10 flex items-center justify-center text-[#FFBE32]">
+                  <div className="h-8 w-8 rounded-lg bg-[#fc8100]/10 flex items-center justify-center text-[#fc8100]">
                     <Trophy className="h-4 w-4" />
                   </div>
                   <span className="text-xs font-heading font-bold uppercase tracking-wider text-gray-200 group-hover:text-white">
                     Create / Edit Tournament
                   </span>
                 </div>
-                <ArrowUpRight className="h-4 w-4 text-gray-500 group-hover:text-[#FFBE32]" />
+                <ArrowUpRight className="h-4 w-4 text-gray-500 group-hover:text-[#fc8100]" />
               </Link>
 
               <Link
                 to="/admin/registrations"
-                className="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-[#FFBE32]/10 border border-white/5 hover:border-[#FFBE32]/40 transition-colors group"
+                className="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-[#fc8100]/10 border border-white/5 hover:border-[#fc8100]/40 transition-colors group"
               >
                 <div className="flex items-center gap-3">
                   <div className="h-8 w-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400">
@@ -292,7 +292,7 @@ export const AdminDashboardPage: React.FC = () => {
 
               <Link
                 to="/admin/players"
-                className="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-[#FFBE32]/10 border border-white/5 hover:border-[#FFBE32]/40 transition-colors group"
+                className="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-[#fc8100]/10 border border-white/5 hover:border-[#fc8100]/40 transition-colors group"
               >
                 <div className="flex items-center gap-3">
                   <div className="h-8 w-8 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400">
@@ -307,7 +307,7 @@ export const AdminDashboardPage: React.FC = () => {
 
               <Link
                 to="/admin/settings"
-                className="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-[#FFBE32]/10 border border-white/5 hover:border-[#FFBE32]/40 transition-colors group"
+                className="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-[#fc8100]/10 border border-white/5 hover:border-[#fc8100]/40 transition-colors group"
               >
                 <div className="flex items-center gap-3">
                   <div className="h-8 w-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400">
@@ -336,12 +336,12 @@ export const AdminDashboardPage: React.FC = () => {
         <div className="p-6 rounded-2xl bg-[#0C0C10] border border-white/10">
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-heading text-sm font-bold uppercase tracking-wider text-white flex items-center gap-2">
-              <Users className="h-4 w-4 text-[#FFBE32]" />
+              <Users className="h-4 w-4 text-[#fc8100]" />
               <span>Incoming Squad Registrations</span>
             </h3>
             <Link
               to="/admin/registrations"
-              className="text-xs font-heading font-bold uppercase tracking-wider text-[#FFBE32] hover:underline"
+              className="text-xs font-heading font-bold uppercase tracking-wider text-[#fc8100] hover:underline"
             >
               View All →
             </Link>
@@ -390,12 +390,12 @@ export const AdminDashboardPage: React.FC = () => {
         <div className="p-6 rounded-2xl bg-[#0C0C10] border border-white/10">
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-heading text-sm font-bold uppercase tracking-wider text-white flex items-center gap-2">
-              <PackageCheck className="h-4 w-4 text-[#FFBE32]" />
+              <PackageCheck className="h-4 w-4 text-[#fc8100]" />
               <span>Recent Merchandise Orders</span>
             </h3>
             <Link
               to="/admin/orders"
-              className="text-xs font-heading font-bold uppercase tracking-wider text-[#FFBE32] hover:underline"
+              className="text-xs font-heading font-bold uppercase tracking-wider text-[#fc8100] hover:underline"
             >
               Fulfill Orders →
             </Link>
@@ -409,7 +409,7 @@ export const AdminDashboardPage: React.FC = () => {
               >
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="font-mono text-xs font-bold text-[#FFBE32]">
+                    <span className="font-mono text-xs font-bold text-[#fc8100]">
                       {ord.orderNumber}
                     </span>
                     <span className="text-xs text-white font-heading font-bold uppercase">

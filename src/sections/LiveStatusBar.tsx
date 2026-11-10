@@ -22,7 +22,7 @@ export const LiveStatusBar = ({ onViewMatch }: LiveStatusBarProps) => {
   }, []);
 
   return (
-    <div id="live-status" className="relative z-20 w-full bg-[#0B0B0D] border-y border-[#FFBE32]/25 py-3 px-4 sm:px-6">
+    <div id="live-status" className="relative z-20 w-full bg-[#0B0B0D] border-y border-[#fc8100]/25 py-3 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-6">
         
         {/* Left: Animated Status Indicator */}
@@ -40,7 +40,7 @@ export const LiveStatusBar = ({ onViewMatch }: LiveStatusBarProps) => {
           <div className="h-4 w-px bg-white/15 hidden sm:block shrink-0" />
 
           <div className="flex items-center gap-2 min-w-0">
-            <Flame className="h-4 w-4 text-[#FFBE32] animate-pulse shrink-0" />
+            <Flame className="h-4 w-4 text-[#fc8100] animate-pulse shrink-0" />
             <span className="font-display text-base sm:text-lg tracking-wider uppercase text-white font-bold truncate">
               {tickerText}
             </span>
@@ -59,7 +59,7 @@ export const LiveStatusBar = ({ onViewMatch }: LiveStatusBarProps) => {
           <motion.button
             whileHover={{ x: 2 }}
             onClick={onViewMatch}
-            className="group inline-flex items-center gap-1.5 font-heading text-xs font-bold uppercase tracking-wider text-[#FFBE32] hover:text-[#FFCD59] cursor-pointer transition-colors"
+            className="group inline-flex items-center gap-1.5 font-heading text-xs font-bold uppercase tracking-wider text-[#fc8100] hover:text-[#ff9924] cursor-pointer transition-colors"
           >
             <span>VIEW LIVE MATCH</span>
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
