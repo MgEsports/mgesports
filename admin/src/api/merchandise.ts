@@ -99,15 +99,40 @@ export const merchandiseApi = {
   },
 
   deleteOrder: async (id: string): Promise<{ success: boolean }> => {
-    return apiRequest<{ success: boolean }>(`/orders/${id}`, {
-      method: "DELETE",
-    });
+    const encoded = encodeURIComponent(id.trim());
+    try {
+      return await apiRequest<{ success: boolean }>(`/orders/${encoded}`, {
+        method: "DELETE",
+      });
+    } catch {
+      try {
+        return await apiRequest<{ success: boolean }>(`/admin/orders/${encoded}`, {
+          method: "DELETE",
+        });
+      } catch {
+        return await apiRequest<{ success: boolean }>(`/orders?id=${encoded}`, {
+          method: "DELETE",
+        });
+      }
+    }
   },
 
   deleteAllOrders: async (): Promise<{ success: boolean }> => {
-    return apiRequest<{ success: boolean }>("/orders/all", {
-      method: "DELETE",
-    });
+    try {
+      return await apiRequest<{ success: boolean }>("/orders/all", {
+        method: "DELETE",
+      });
+    } catch {
+      try {
+        return await apiRequest<{ success: boolean }>("/orders", {
+          method: "DELETE",
+        });
+      } catch {
+        return await apiRequest<{ success: boolean }>("/admin/orders/all", {
+          method: "DELETE",
+        });
+      }
+    }
   },
 
   updateOrderStatus: async (

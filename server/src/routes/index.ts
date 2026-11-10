@@ -435,9 +435,39 @@ router.put(
   orderCtrl.updateOrderStatus
 );
 router.delete(
+  "/orders/all",
+  authenticate,
+  requireRole("SUPER_ADMIN", "ADMIN", "TOURNAMENT_ADMIN"),
+  orderCtrl.deleteAllOrders
+);
+router.delete(
   "/orders/:id",
   authenticate,
-  requireRole("SUPER_ADMIN", "TOURNAMENT_ADMIN"),
+  requireRole("SUPER_ADMIN", "ADMIN", "TOURNAMENT_ADMIN"),
+  orderCtrl.deleteOrder
+);
+router.delete(
+  "/orders",
+  authenticate,
+  requireRole("SUPER_ADMIN", "ADMIN", "TOURNAMENT_ADMIN"),
+  orderCtrl.deleteOrder
+);
+router.delete(
+  "/admin/orders/all",
+  authenticate,
+  requireRole("SUPER_ADMIN", "ADMIN", "TOURNAMENT_ADMIN"),
+  orderCtrl.deleteAllOrders
+);
+router.delete(
+  "/admin/orders/:id",
+  authenticate,
+  requireRole("SUPER_ADMIN", "ADMIN", "TOURNAMENT_ADMIN"),
+  orderCtrl.deleteOrder
+);
+router.delete(
+  "/admin/orders",
+  authenticate,
+  requireRole("SUPER_ADMIN", "ADMIN", "TOURNAMENT_ADMIN"),
   orderCtrl.deleteOrder
 );
 

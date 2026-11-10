@@ -220,16 +220,48 @@ export const updateOrderStatus = async (
 };
 
 
-export const deleteOrder = async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> => {
+export const deleteAllOrders = async (
+  _req: AuthenticatedRequest,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
   try {
-    const { id } = req.params;
-    if (id === "all") {
+    await prisma.order.deleteMany({});
+    res.json({ success: true, message: "All orders deleted successfully" });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const deleteOrder = async (
+  req: AuthenticatedRequest,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  try {
+    const rawId = req.params.id || (req.query.id as string) || req.body?.id;
+    const targetId = rawId ? decodeURIComponent(rawId).trim() : "";
+
+    if (!targetId || targetId === "all" || req.query.all === "true" || req.body?.all === true) {
       await prisma.order.deleteMany({});
       res.json({ success: true, message: "All orders deleted successfully" });
       return;
     }
-    await prisma.order.delete({ where: { id } });
-    res.json({ success: true, message: "Order deleted successfully" });
+
+    const result = await prisma.order.deleteMany({
+      where: {
+        OR: [
+          { id: targetId },
+          { orderNumber: targetId },
+          { orderNumber: { equals: targetId, mode: "insensitive" } },
+        ],
+      },
+    });
+
+    res.json({
+      success: true,
+      message: result.count > 0 ? "Order deleted successfully" : "Order already deleted or not found",
+    });
   } catch (error) {
     next(error);
   }

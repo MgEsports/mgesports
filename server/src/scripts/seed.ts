@@ -46,7 +46,7 @@ async function main() {
   });
 
   // 3. Seed Tournaments
-  const tournaments = [];
+  const tournaments: any[] = [];
 
   for (const t of tournaments) {
     await prisma.tournament.upsert({
@@ -58,7 +58,7 @@ async function main() {
   console.log(`✅ Seeded ${tournaments.length} Tournaments`);
 
   // 4. Seed Tournament Registrations
-  const sampleRegistrations = [];
+  const sampleRegistrations: any[] = [];
 
   for (const reg of sampleRegistrations) {
     await prisma.tournamentRegistration.create({ data: reg });
@@ -66,7 +66,7 @@ async function main() {
   console.log(`✅ Seeded ${sampleRegistrations.length} Sample Registrations`);
 
   // 5. Seed Matches
-  const matches = [];
+  const matches: any[] = [];
 
   for (const m of matches) {
     await prisma.match.upsert({
@@ -78,7 +78,7 @@ async function main() {
   console.log(`✅ Seeded ${matches.length} Match fixtures`);
 
   // 6. Seed Standings
-  const standings = [];
+  const standings: any[] = [];
 
   for (const s of standings) {
     await prisma.standing.create({
@@ -91,7 +91,7 @@ async function main() {
   console.log(`✅ Seeded ${standings.length} Standings rows`);
 
   // 7. Seed Active Pro Players
-  const players = [];
+  const players: any[] = [];
 
   for (const p of players) {
     await prisma.player.upsert({
@@ -103,7 +103,7 @@ async function main() {
   console.log(`✅ Seeded ${players.length} Pro Athletes`);
 
   // 8. Seed Old Players / Legends Section
-  const legends = [];
+  const legends: any[] = [];
 
   for (const l of legends) {
     await prisma.legend.upsert({
@@ -115,7 +115,7 @@ async function main() {
   console.log(`✅ Seeded ${legends.length} Hall of Fame Legends`);
 
   // 9. Seed Merchandise Products
-  const products = [];
+  const products: any[] = [];
 
   for (const prod of products) {
     await prisma.product.upsert({
@@ -127,7 +127,7 @@ async function main() {
   console.log(`✅ Seeded ${products.length} Merchandise products`);
 
   // 10. Seed Sample Orders
-  const sampleOrders = [];
+  const sampleOrders: any[] = [];
 
   for (const ord of sampleOrders) {
     await prisma.order.upsert({
@@ -139,7 +139,7 @@ async function main() {
   console.log(`✅ Seeded ${sampleOrders.length} Sample Orders`);
 
   // 11. Seed News Articles
-  const articles = [];
+  const articles: any[] = [];
 
   for (const art of articles) {
     await prisma.newsArticle.upsert({
@@ -151,7 +151,7 @@ async function main() {
   console.log(`✅ Seeded ${articles.length} News Articles`);
 
   // 12. Seed Partners
-  const partners = [];
+  const partners: any[] = [];
 
   for (const part of partners) {
     await prisma.partner.upsert({
@@ -163,7 +163,7 @@ async function main() {
   console.log(`✅ Seeded ${partners.length} Partners`);
 
   // 13. Seed Media Items
-  const media = [];
+  const media: any[] = [];
 
   for (const m of media) {
     await prisma.mediaItem.upsert({

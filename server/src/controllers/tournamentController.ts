@@ -167,7 +167,7 @@ prisma.$connect()
   .then(() => {
     dbConnected = true;
   })
-  .catch((err) => {
+  .catch((err: any) => {
     console.warn("Prisma background connect notice:", err?.message);
     // Keep dbConnected true so individual queries still attempt Neon connection
   });
@@ -4299,7 +4299,7 @@ export const updateRoundCredentials = async (req: AuthenticatedRequest, res: Res
         });
 
         // 1. In-app notifications
-        const userIds = Array.from(new Set(regs.map((r) => r.submittedById).filter(Boolean)));
+        const userIds = Array.from(new Set(regs.map((r: any) => r.submittedById).filter(Boolean)));
         for (const uid of userIds) {
           await prisma.notification.create({
             data: {

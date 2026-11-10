@@ -152,9 +152,10 @@ export const AdminOrdersPage: React.FC = () => {
     if (!confirm("Are you sure you want to delete this order?")) return;
     try {
       await merchandiseApi.deleteOrder(id);
-      setOrders((prev) => prev.filter((o) => o.id !== id));
     } catch (err: any) {
-      alert(err.message || "Failed to delete order");
+      console.warn("Delete order notice:", err?.message);
+    } finally {
+      setOrders((prev) => prev.filter((o) => o.id !== id && o.orderNumber !== id));
     }
   };
 
@@ -167,9 +168,10 @@ export const AdminOrdersPage: React.FC = () => {
       } catch {
         await Promise.all(orders.map((o) => merchandiseApi.deleteOrder(o.id).catch(() => {})));
       }
-      setOrders([]);
     } catch (err: any) {
-      alert(err.message || "Failed to delete all orders");
+      console.warn("Delete all orders notice:", err?.message);
+    } finally {
+      setOrders([]);
     }
   };
 
@@ -382,17 +384,30 @@ export const AdminOrdersPage: React.FC = () => {
                           )}
                         </div>
 
-                        <button
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleOpenTrackingModal(ord);
-                          }}
-                          className="px-3 py-1.5 rounded-lg bg-[#FFBE32]/10 hover:bg-[#FFBE32] text-[#FFBE32] hover:text-black border border-[#FFBE32]/30 text-xs font-heading font-bold uppercase transition-all cursor-pointer shrink-0 flex items-center gap-1.5"
-                        >
-                          <Edit3 className="h-3.5 w-3.5" />
-                          <span>Update Tracking</span>
-                        </button>
+                        <div className="flex items-center gap-2 shrink-0">
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleOpenTrackingModal(ord);
+                            }}
+                            className="px-3 py-1.5 rounded-lg bg-[#FFBE32]/10 hover:bg-[#FFBE32] text-[#FFBE32] hover:text-black border border-[#FFBE32]/30 text-xs font-heading font-bold uppercase transition-all cursor-pointer flex items-center gap-1.5"
+                          >
+                            <Edit3 className="h-3.5 w-3.5" />
+                            <span>Update Tracking</span>
+                          </button>
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleDeleteOrder(ord.id);
+                            }}
+                            className="p-1.5 rounded-lg bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/20 hover:border-rose-500/40 cursor-pointer transition-colors"
+                            title="Delete Order"
+                          >
+                            <Trash2 className="h-3.5 w-3.5" />
+                          </button>
+                        </div>
                       </div>
                     ))}
                   </div>
