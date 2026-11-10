@@ -137,15 +137,15 @@ export const JerseyShowcaseSection = ({
                 </div>
                 <div>
                   <h4 className="font-heading text-xs sm:text-sm font-bold uppercase text-white tracking-wider">
-                    Dravidian Temple Architectural Art
+                    Clash of Clans Heritage Design
                   </h4>
                   <p className="text-[11px] sm:text-xs text-gray-400 font-body">
-                    Gold line art portraying historic Tamil gopuram sanctuaries rising through the flames.
+                    Inspired by the legendary Clash of Clans universe, featuring castle architecture, clan emblems, and battle-inspired detailing that celebrates strategy, unity, and victory.
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3">
+              {/* <div className="flex items-start gap-3">
                 <div className="h-5 w-5 sm:h-6 sm:w-6 rounded bg-[#FFBE32]/15 border border-[#FFBE32]/40 flex items-center justify-center text-[#FFBE32] shrink-0 mt-0.5">
                   <Shield className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                 </div>
@@ -157,7 +157,7 @@ export const JerseyShowcaseSection = ({
                     Official Tamil script ("தமிழன்") woven into the cuff with the Indian national tricolor.
                   </p>
                 </div>
-              </div>
+              </div> */}
 
               <div className="flex items-start gap-3">
                 <div className="h-5 w-5 sm:h-6 sm:w-6 rounded bg-[#FFBE32]/15 border border-[#FFBE32]/40 flex items-center justify-center text-[#FFBE32] shrink-0 mt-0.5">
