@@ -20,10 +20,53 @@ interface PlayersSectionProps {
   showHeader?: boolean;
 }
 
+const KNOWN_MEMBER_IMAGES: Record<string, string> = {
+  aadil: "/members/player-aadhil.png",
+  aadhil: "/members/player-aadhil.png",
+  norman: "/members/player-norman.png",
+  aero: "/members/player-aero.png",
+  drago: "/uploads/db-tickerPlayers-4-image-1793023262887-37vld.png",
+  kolaya: "/members/player-kolaya.png",
+  omkar: "/members/player-omkar.png",
+  rudy: "/members/player-rudy.png",
+  destro: "/members/player-destro.png",
+  leap: "/members/player-leap.png",
+};
+
+const getPlayerFallbackImage = (player: Player): string | null => {
+  const ign = (player.ign || "").trim().toLowerCase();
+  const id = (player.id || "").trim().toLowerCase();
+
+  for (const [key, path] of Object.entries(KNOWN_MEMBER_IMAGES)) {
+    if (ign.includes(key) || id.includes(key)) {
+      return path;
+    }
+  }
+
+  if (ign.includes("beast") || id.includes("beast")) return "/players/player-beast.jpg";
+  if (ign.includes("falcon") || id.includes("falcon")) return "/players/player-falcon.jpg";
+  if (ign.includes("shadow") || id.includes("shadow")) return "/players/player-shadow.jpg";
+  if (ign.includes("viper") || id.includes("viper")) return "/players/player-viper.jpg";
+
+  return null;
+};
+
+const resolvePlayerImage = (player: Player): string | null => {
+  let img = player.image || player.avatarUrl;
+  if (img && typeof img === "string" && img.trim()) {
+    let clean = img.trim().replace(/^\/?public\//i, "/");
+    if (!clean.startsWith("http") && !clean.startsWith("/")) {
+      clean = `/${clean}`;
+    }
+    return clean;
+  }
+  return getPlayerFallbackImage(player);
+};
+
 export const PlayersSection = ({ showHeader = true }: PlayersSectionProps) => {
   const [players, setPlayers] = useState<Player[]>(() => {
     try {
-      const cached = localStorage.getItem("mg_pro_athletes_cache_v2");
+      const cached = localStorage.getItem("mg_pro_athletes_cache_v3");
       if (cached) {
         const parsed = JSON.parse(cached);
         if (Array.isArray(parsed) && parsed.length > 0) return parsed;
@@ -40,7 +83,7 @@ export const PlayersSection = ({ showHeader = true }: PlayersSectionProps) => {
         if (data && data.length > 0) {
           setPlayers(data);
           try {
-            localStorage.setItem("mg_pro_athletes_cache_v2", JSON.stringify(data));
+            localStorage.setItem("mg_pro_athletes_cache_v3", JSON.stringify(data));
           } catch {}
         }
       })
@@ -82,9 +125,10 @@ export const PlayersSection = ({ showHeader = true }: PlayersSectionProps) => {
           {players.map((player) => {
             const cleanIgn = (player.ign || "").trim();
             const cleanRealName = (player.realName || "").trim();
-            const isBeast = cleanIgn === "BEAST" || player.id === "player-beast";
             const isImageFailed = failedImages[player.id];
-            const rawImg = !isImageFailed && (player.image || player.avatarUrl || (isBeast ? "/players/player-beast.jpg" : null));
+            const fallbackImg = getPlayerFallbackImage(player);
+            const resolvedImg = resolvePlayerImage(player);
+            const rawImg = isImageFailed ? fallbackImg : (resolvedImg || fallbackImg);
             const athleteImg = rawImg ? optimizeCloudinaryUrl(rawImg, 500) : null;
             const rawInsta = (player.instagram || "").replace(/^insta:/i, "").replace(/^@/, "").trim();
             const instaUrl = rawInsta ? (rawInsta.startsWith("http") ? rawInsta : `https://instagram.com/${rawInsta}`) : null;
@@ -125,7 +169,13 @@ export const PlayersSection = ({ showHeader = true }: PlayersSectionProps) => {
                         <img
                           src={athleteImg}
                           alt={`${cleanIgn} (${cleanRealName}) - Pro Athlete for MG ESPORTS`}
-                          onError={() => setFailedImages((prev) => ({ ...prev, [player.id]: true }))}
+                          onError={(e) => {
+                            if (fallbackImg && e.currentTarget.src !== fallbackImg && !e.currentTarget.src.endsWith(fallbackImg)) {
+                              e.currentTarget.src = fallbackImg;
+                            } else {
+                              setFailedImages((prev) => ({ ...prev, [player.id]: true }));
+                            }
+                          }}
                           loading="eager"
                           decoding="async"
                           className="h-full w-full object-cover object-top filter contrast-105 group-hover:scale-105 transition-transform duration-500"

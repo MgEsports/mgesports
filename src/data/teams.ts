@@ -288,7 +288,7 @@ export const collectiveMembers: CollectiveMember[] = [
     divisions: ["Leadership"],
     focus: "Organizational strategy, franchise roadmap, partnerships & Clash of Clans division",
     initials: "HA",
-    avatar: "/public/members/owner-harisree mg (1).png",
+    avatar: "/members/owner-harisree mg (1).png",
     instagram: "https://www.instagram.com/mg13e.sports",
   },
   {
@@ -299,8 +299,8 @@ export const collectiveMembers: CollectiveMember[] = [
     divisions: ["Leadership"],
     focus: "Executive leadership, brand positioning, operations & esports management",
     initials: "VK",
-    avatar: "/public/members/co founder-vicky.png",
-    instagram: "public/members/s",
+    avatar: "/members/co founder-vicky.png",
+    instagram: "https://www.instagram.com/mg13e.sports",
   },
   {
     id: "rony-manager",
@@ -310,7 +310,7 @@ export const collectiveMembers: CollectiveMember[] = [
     divisions: ["Leadership", "Operations"],
     focus: "Roster performance, tournament scheduling, logistics & athlete preparation",
     initials: "RN",
-    avatar: "/public/members/manager-rony.png",
+    avatar: "/members/manager-rony.png",
     instagram: "https://www.instagram.com/mg13e.sports",
   },
   {
@@ -321,7 +321,7 @@ export const collectiveMembers: CollectiveMember[] = [
     divisions: ["Leadership", "Creative", "Community"],
     focus: "Visual identity, creative design, social storytelling & Discord community",
     initials: "MJ",
-    avatar: "/public/members/community manager-mj.png",
+    avatar: "/members/community manager-mj.png",
     instagram: "https://www.instagram.com/mg13e.sports",
   },  
 ];

@@ -130,6 +130,7 @@ export const TheCollectiveSection = ({
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 xs:gap-3.5 sm:gap-6">
           {filteredMembers.map((member) => {
             const objectPosition = memberImagePositions[member.id] || "center 20%";
+            const avatarSrc = member.avatar ? member.avatar.replace(/^\/?public\//i, "/") : undefined;
 
             return (
               <div
@@ -142,9 +143,9 @@ export const TheCollectiveSection = ({
                 <div>
                   {/* Dedicated Member Portrait Container */}
                   <div className="relative aspect-[4/5] w-full rounded-lg sm:rounded-xl overflow-hidden bg-gradient-to-b from-[#181820] to-[#0A0A0C] border border-white/10 mb-2 sm:mb-4 group-hover:border-[#fc8100]/40 transition-colors">
-                    {member.avatar ? (
+                    {avatarSrc ? (
                       <img
-                        src={member.avatar}
+                        src={avatarSrc}
                         alt={`${member.name} - ${member.primaryRole}`}
                         loading="eager"
                         decoding="async"
@@ -162,7 +163,7 @@ export const TheCollectiveSection = ({
 
                     {/* Monogram Initials Fallback */}
                     <div
-                      style={{ display: member.avatar ? "none" : "flex" }}
+                      style={{ display: avatarSrc ? "none" : "flex" }}
                       className="w-full h-full flex flex-col items-center justify-center p-2 sm:p-4 bg-gradient-to-b from-[#16161B] via-[#0D0D10] to-[#08080A]"
                     >
                       <div className="w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 rounded-full border border-white/10 flex items-center justify-center font-display font-black text-sm xs:text-base sm:text-xl text-white/90 group-hover:border-[#fc8100]/60 group-hover:text-[#fc8100] transition-colors">
