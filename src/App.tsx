@@ -7,6 +7,7 @@ import { Navbar } from "./components/navbar/Navbar";
 import { FooterSection } from "./sections/FooterSection";
 import { ModalProvider } from "./context/ModalContext";
 import { AuthProvider } from "./context/AuthContext";
+import { ThemeProvider } from "./context/ThemeContext";
 
 // Eager HomePage for fastest initial render & LCP
 import { HomePage } from "./pages/HomePage";
@@ -55,9 +56,10 @@ function PublicLayout() {
 
 export function App() {
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <ModalProvider>
+    <ThemeProvider>
+      <BrowserRouter>
+        <AuthProvider>
+          <ModalProvider>
           <Routes>
             {/* Unified Admin Portal (no separate server needed) */}
             <Route
@@ -105,6 +107,7 @@ export function App() {
         </ModalProvider>
       </AuthProvider>
     </BrowserRouter>
+  </ThemeProvider>
   );
 }
 

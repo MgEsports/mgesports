@@ -11,6 +11,7 @@ import {
   Truck,
 } from "lucide-react";
 import logoImg from "../../assets/lordz-logo.png";
+import { ThemeToggle } from "../common/ThemeToggle";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -105,8 +106,11 @@ export const MobileMenu = ({
             })}
           </div>
 
-          {/* Action CTAs */}
-          
+          {/* Footer Theme Toggle */}
+          <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+            <span className="text-xs font-mono text-gray-400 uppercase tracking-wider">Interface Theme</span>
+            <ThemeToggle showLabel={true} />
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

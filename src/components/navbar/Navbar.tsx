@@ -4,6 +4,7 @@ import logoImg from "../../assets/lordz-logo.png";
 import { useScrollPosition } from "../../hooks/useScrollPosition";
 import { MobileMenu } from "./MobileMenu";
 import { useModals } from "../../context/useModals";
+import { ThemeToggle } from "../common/ThemeToggle";
 
 // Straight Desktop Nav Items (PLAYERS & TEAMS consolidated into ABOUT)
 const straightNavItems = [
@@ -84,25 +85,23 @@ export const Navbar = () => {
             })}
           </nav>
 
-          {/* Right Action CTAs */}
+          {/* Right Action CTAs & Theme Toggle */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            <ThemeToggle />
 
-          <div className="hidden sm:flex items-center gap-2.5 sm:gap-3 shrink-0">
-          
+            {/* Mobile / Tablet Hamburger Toggle - Precision 3-bar layout */}
+            <button
+              onClick={() => setMobileMenuOpen(true)}
+              aria-label="Open navigation menu"
+              className="xl:hidden shrink-0 flex items-center justify-center p-2 rounded-xl text-white hover:text-[#fc8100] hover:bg-white/5 active:bg-white/10 transition-colors focus:outline-none cursor-pointer"
+            >
+              <div className="w-5.5 sm:w-6 h-4 sm:h-[18px] flex flex-col justify-between items-center shrink-0" aria-hidden="true">
+                <span className="w-full h-[2px] bg-current rounded-full transition-transform" />
+                <span className="w-full h-[2px] bg-current rounded-full transition-transform" />
+                <span className="w-full h-[2px] bg-current rounded-full transition-transform" />
+              </div>
+            </button>
           </div>
-
-
-          {/* Mobile / Tablet Hamburger Toggle - Precision 3-bar layout */}
-          <button
-            onClick={() => setMobileMenuOpen(true)}
-            aria-label="Open navigation menu"
-            className="xl:hidden shrink-0 flex items-center justify-center p-2 rounded-xl text-white hover:text-[#fc8100] hover:bg-white/5 active:bg-white/10 transition-colors focus:outline-none cursor-pointer"
-          >
-            <div className="w-5.5 sm:w-6 h-4 sm:h-[18px] flex flex-col justify-between items-center shrink-0" aria-hidden="true">
-              <span className="w-full h-[2px] bg-current rounded-full transition-transform" />
-              <span className="w-full h-[2px] bg-current rounded-full transition-transform" />
-              <span className="w-full h-[2px] bg-current rounded-full transition-transform" />
-            </div>
-          </button>
         </div>
       </header>
 

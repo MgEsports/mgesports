@@ -217,3 +217,146 @@ body {
   border-color: rgba(252, 129, 0, 0.5);
   box-shadow: 0 12px 35px -10px rgba(252, 129, 0, 0.3);
 }
+
+/* ==========================================================================
+   LIGHT MODE THEME SYSTEM
+   ========================================================================== */
+html.light {
+  color-scheme: light;
+  background-color: #F8F9FA !important;
+}
+
+html.light body {
+  background-color: #F8F9FA !important;
+  color: #111827 !important;
+}
+
+html.light #root {
+  background-color: #F8F9FA !important;
+}
+
+/* Background Replacements */
+html.light .bg-\[\#050505\],
+html.light .bg-\[\#050507\],
+html.light .bg-\[\#070708\],
+html.light .bg-\[\#070709\],
+html.light .bg-\[\#08080A\],
+html.light .bg-black {
+  background-color: #F8F9FA !important;
+}
+
+html.light header.bg-\[\#070708\],
+html.light header.bg-\[\#070708\]\/95 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Cards & Panel Backgrounds */
+html.light .bg-\[\#0A0A0A\],
+html.light .bg-\[\#0A0A0D\],
+html.light .bg-\[\#0A0A0E\],
+html.light .bg-\[\#0C0C10\],
+html.light .bg-\[\#0D0D10\],
+html.light .bg-\[\#0D0D0E\],
+html.light .bg-\[\#0E0E12\],
+html.light .bg-\[\#111111\],
+html.light .bg-\[\#111116\],
+html.light .bg-\[\#121217\],
+html.light .bg-\[\#141416\],
+html.light .bg-\[\#14141C\],
+html.light .bg-\[\#161622\],
+html.light .bg-\[\#181820\],
+html.light .gold-glow-card,
+html.light .esports-glass-card {
+  background-color: #FFFFFF !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.06) !important;
+}
+
+html.light .gold-glow-card:hover,
+html.light .esports-glass-card:hover {
+  border-color: rgba(252, 129, 0, 0.5) !important;
+  box-shadow: 0 10px 30px -5px rgba(252, 129, 0, 0.18) !important;
+}
+
+/* Translucent Overlays & Gradients */
+html.light .bg-black\/40,
+html.light .bg-black\/50,
+html.light .bg-black\/60,
+html.light .bg-black\/70,
+html.light .bg-black\/80 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light .bg-white\/5,
+html.light .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Borders */
+html.light .border-white\/5,
+html.light .border-white\/10,
+html.light .border-white\/15,
+html.light .border-white\/20,
+html.light .border-white\/\[0\.07\],
+html.light .border-white\/\[0\.08\] {
+  border-color: rgba(0, 0, 0, 0.09) !important;
+}
+
+/* Text Colors */
+html.light .text-white {
+  color: #111827 !important;
+}
+
+html.light .text-gray-300,
+html.light .text-gray-400,
+html.light .text-\[\#9CA3AF\],
+html.light .text-\[\#A0A0A0\],
+html.light .text-\[\#D1D5DB\],
+html.light .text-\[\#E0E0E0\],
+html.light .text-\[\#E5E7EB\],
+html.light .text-\[\#F3F4F6\] {
+  color: #4B5563 !important;
+}
+
+html.light .text-gray-500,
+html.light .text-gray-600 {
+  color: #6B7280 !important;
+}
+
+html.light .text-gold-gradient {
+  background: linear-gradient(135deg, #d96b00 0%, #fc8100 50%, #b35500 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Inputs & Form Fields in Light Mode */
+html.light input,
+html.light textarea,
+html.light select {
+  color: #111827 !important;
+  background-color: #FFFFFF !important;
+  border-color: #D1D5DB !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #9CA3AF !important;
+}
+
+/* Scrollbar in Light Mode */
+html.light ::-webkit-scrollbar-track {
+  background: #F1F3F5;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #fc8100;
+}
