@@ -27,11 +27,13 @@ import {
   ArrowLeft,
   Send,
   RefreshCw,
+  ExternalLink,
 } from "lucide-react";
 import logoImg from "../../assets/lordz-logo.png";
 import { useAuth } from "../../context/AuthContext";
 import { authApi } from "../../api/auth";
 import { merchandiseApi, type OrderItem } from "../../api/merchandise";
+import { detectCourierSlug, getAftershipTrackingUrl } from "../../api/courier";
 
 interface LoginModalProps {
   isOpen: boolean;
@@ -651,6 +653,19 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                                         <Copy className="inline h-2.5 w-2.5" />
                                       )}
                                     </button>
+                                    <a
+                                      href={getAftershipTrackingUrl(
+                                        detectCourierSlug(ord.courierPartner),
+                                        ord.trackingNumber
+                                      )}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                      className="ml-1.5 text-[#FFBE32] hover:underline inline-flex items-center gap-0.5"
+                                      title="Track on AfterShip"
+                                    >
+                                      <span>Track</span>
+                                      <ExternalLink className="inline h-2.5 w-2.5" />
+                                    </a>
                                   </span>
                                 )}
                               </span>

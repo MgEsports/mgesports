@@ -31,8 +31,13 @@ import {
   Vote,
   HardDrive,
   Banknote,
+  Truck,
+  Eye,
+  EyeOff,
+  ExternalLink,
 } from "lucide-react";
 import { adminApi } from "../api/admin";
+import { courierApi } from "../api/courier";
 
 
 const MODULE_METADATA: Array<{
@@ -96,6 +101,37 @@ export const AdminSettingsPage: React.FC = () => {
   const [importTab, setImportTab] = useState<"file" | "paste">("file");
   const [fileName, setFileName] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // AfterShip & Courier Tracking State
+  const [showAftershipKey, setShowAftershipKey] = useState(false);
+  const [testingAftership, setTestingAftership] = useState(false);
+  const [aftershipTestResult, setAftershipTestResult] = useState<{ success: boolean; message: string } | null>(null);
+
+  const handleTestAftership = async () => {
+    setTestingAftership(true);
+    setAftershipTestResult(null);
+    try {
+      const res = await courierApi.testConnection(settings.aftershipApiKey);
+      if (res.success) {
+        setAftershipTestResult({
+          success: true,
+          message: `Connected successfully! ${res.couriersCount || 2276} couriers active on AfterShip.`,
+        });
+      } else {
+        setAftershipTestResult({
+          success: false,
+          message: res.message || "Failed to authenticate with AfterShip. Check your API key.",
+        });
+      }
+    } catch (err: any) {
+      setAftershipTestResult({
+        success: false,
+        message: err.message || "Failed to reach AfterShip API",
+      });
+    } finally {
+      setTestingAftership(false);
+    }
+  };
 
   useEffect(() => {
     const loadSettings = async () => {
@@ -885,6 +921,129 @@ export const AdminSettingsPage: React.FC = () => {
                 </button>
               </div>
             </div>
+          </div>
+
+          {/* ================= COURIER TRACKING & AFTERSHIP SETTINGS ================= */}
+          <div className="rounded-2xl border border-white/10 bg-[#0E0E12] p-6 space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-4">
+              <div className="flex items-center gap-2 text-white font-heading font-bold text-sm uppercase">
+                <Truck className="h-4 w-4 text-[#FFBE32]" />
+                <span>Courier &amp; AfterShip Live Tracking Configuration</span>
+              </div>
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase border bg-amber-500/20 text-amber-300 border-amber-500/40">
+                AfterShip Active
+              </span>
+            </div>
+
+            <p className="text-xs text-gray-400 font-body">
+              Configure real-time courier tracking powered by AfterShip. Customers can track shipments for <strong>India Post Domestic (india-post)</strong>, <strong>India Post International (india-post-int)</strong>, Delhivery, Blue Dart, DTDC, and 2,000+ international carriers directly from your store.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* AfterShip API Key */}
+              <div className="space-y-2">
+                <label className="block text-xs font-heading font-bold uppercase text-gray-300">
+                  AfterShip API Key (as-api-key)
+                </label>
+                <div className="relative">
+                  <input
+                    type={showAftershipKey ? "text" : "password"}
+                    value={settings.aftershipApiKey || ""}
+                    onChange={(e) => handleChange("aftershipApiKey", e.target.value)}
+                    placeholder="asat_..."
+                    className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 pr-10 text-xs text-white focus:border-[#FFBE32] focus:outline-none font-mono"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowAftershipKey(!showAftershipKey)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white"
+                  >
+                    {showAftershipKey ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                  </button>
+                </div>
+                <p className="text-[11px] text-gray-500">
+                  Header: <code className="text-[#FFBE32]">as-api-key</code>. Generated from your AfterShip Organization portal.
+                </p>
+              </div>
+
+              {/* Default Courier Partner */}
+              <div className="space-y-2">
+                <label className="block text-xs font-heading font-bold uppercase text-gray-300">
+                  Default Courier Partner / Slug
+                </label>
+                <select
+                  value={settings.aftershipDefaultCourier || "india-post"}
+                  onChange={(e) => handleChange("aftershipDefaultCourier", e.target.value)}
+                  className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-xs text-white focus:border-[#FFBE32] focus:outline-none font-body"
+                >
+                  <option value="india-post">India Post Domestic (india-post) — Recommended</option>
+                  <option value="india-post-int">India Post International (india-post-int)</option>
+                  <option value="delhivery">Delhivery (delhivery)</option>
+                  <option value="bluedart">Blue Dart Express (bluedart)</option>
+                  <option value="dtdc">DTDC India (dtdc)</option>
+                  <option value="shadowfax">Shadowfax (shadowfax)</option>
+                  <option value="ecom-express">Ecom Express (ecom-express)</option>
+                  <option value="xpressbees">XpressBees (xpressbees)</option>
+                  <option value="dhl">DHL Express (dhl)</option>
+                  <option value="fedex">FedEx (fedex)</option>
+                  <option value="ups">UPS (ups)</option>
+                </select>
+                <p className="text-[11px] text-gray-500">
+                  Selected default carrier slug used when auto-creating shipments.
+                </p>
+              </div>
+            </div>
+
+            {/* Test Connection & Auto-Sync Row */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl bg-black/60 border border-white/10">
+              <div className="space-y-1">
+                <h4 className="font-heading text-xs font-bold uppercase tracking-wider text-white">
+                  AfterShip Connection &amp; Auto-Sync
+                </h4>
+                <p className="text-xs text-gray-400 font-body">
+                  Verify API key authentication and courier database availability.
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={handleTestAftership}
+                  disabled={testingAftership}
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl border border-amber-500/40 bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer"
+                >
+                  <RefreshCw className={`h-3.5 w-3.5 ${testingAftership ? "animate-spin" : ""}`} />
+                  <span>{testingAftership ? "Testing..." : "Test Connection"}</span>
+                </button>
+                <a
+                  href="https://admin.aftership.com/settings/couriers"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-1.5 px-3 py-2 rounded-xl border border-white/10 text-xs text-gray-400 hover:text-white"
+                >
+                  <span>AfterShip Portal</span>
+                  <ExternalLink className="h-3 w-3" />
+                </a>
+              </div>
+            </div>
+
+            {/* Connection Test Result Alert */}
+            {aftershipTestResult && (
+              <div
+                className={`p-3 rounded-xl border text-xs font-mono flex items-center gap-2 ${
+                  aftershipTestResult.success
+                    ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-300"
+                    : "bg-rose-500/10 border-rose-500/30 text-rose-300"
+                }`}
+              >
+                {aftershipTestResult.success ? (
+                  <Check className="h-4 w-4 shrink-0 text-emerald-400" />
+                ) : (
+                  <AlertCircle className="h-4 w-4 shrink-0 text-rose-400" />
+                )}
+                <span>{aftershipTestResult.message}</span>
+              </div>
+            )}
           </div>
         </form>
       )}

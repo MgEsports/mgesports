@@ -16,6 +16,9 @@ export interface SettingsMap {
   twitterUrl?: string;
   businessEmail?: string;
   codEnabled?: string; // "true" or "false"
+  aftershipApiKey?: string;
+  aftershipDefaultCourier?: string; // "india-post", "india-post-int", "delhivery", etc.
+  aftershipAutoSync?: string; // "true" or "false"
   [key: string]: string | undefined;
 }
 
@@ -35,6 +38,9 @@ export const fallbackSettings: SettingsMap = {
   twitterUrl: "https://x.com/mg13esports",
   businessEmail: "contact@mgesports.gg",
   codEnabled: "true",
+  aftershipApiKey: "asat_3a9186ede78a4f6cb61cbd41573f1471",
+  aftershipDefaultCourier: "india-post",
+  aftershipAutoSync: "true",
 };
 
 export const settingsApi = {

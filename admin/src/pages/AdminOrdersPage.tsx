@@ -17,7 +17,18 @@ import {
   ChevronUp,
   Mail,
   Trash2,
+  ExternalLink,
+  Clock,
+  RefreshCw,
 } from "lucide-react";
+import {
+  courierApi,
+  POPULAR_COURIERS,
+  detectCourierSlug,
+  getAftershipTrackingUrl,
+  getCourierDirectUrl,
+  type TrackingResponse,
+} from "../api/courier";
 
 export const AdminOrdersPage: React.FC = () => {
   const [orders, setOrders] = useState<OrderItem[]>([]);
@@ -29,9 +40,19 @@ export const AdminOrdersPage: React.FC = () => {
   const [trackingModalOrder, setTrackingModalOrder] = useState<OrderItem | null>(null);
   const [copiedUtr, setCopiedUtr] = useState<string | null>(null);
 
+  // Live Courier Tracking State
+  const [liveTrackingOrder, setLiveTrackingOrder] = useState<OrderItem | null>(null);
+  const [liveTrackingLoading, setLiveTrackingLoading] = useState(false);
+  const [liveTrackingData, setLiveTrackingData] = useState<TrackingResponse | null>(null);
+
+  // AfterShip Sync inside Fulfillment Modal
+  const [selectedCourierSlug, setSelectedCourierSlug] = useState("india-post");
+  const [syncingAftership, setSyncingAftership] = useState(false);
+  const [aftershipSyncMessage, setAftershipSyncMessage] = useState<string | null>(null);
+
   const [trackingForm, setTrackingForm] = useState({
     orderStatus: "PENDING",
-    courierPartner: "Delhivery",
+    courierPartner: "India Post Domestic",
     trackingNumber: "",
     expectedDeliveryDate: "",
     paymentStatus: "PENDING",
@@ -95,14 +116,55 @@ export const AdminOrdersPage: React.FC = () => {
 
   const handleOpenTrackingModal = (ord: OrderItem) => {
     setTrackingModalOrder(ord);
+    const partner = ord.courierPartner || "India Post Domestic";
+    const slug = detectCourierSlug(partner);
+    setSelectedCourierSlug(slug);
+    setAftershipSyncMessage(null);
     setTrackingForm({
       orderStatus: ord.orderStatus || "PENDING",
-      courierPartner: ord.courierPartner || "Delhivery",
+      courierPartner: partner,
       trackingNumber: ord.trackingNumber || "",
       expectedDeliveryDate: ord.expectedDeliveryDate || "",
       paymentStatus: ord.paymentStatus || "PENDING",
       adminNotes: ord.adminNotes || "",
     });
+  };
+
+  const handleSyncAftershipNow = async () => {
+    if (!trackingForm.trackingNumber?.trim()) {
+      alert("Please enter a Tracking / AWB number first");
+      return;
+    }
+    setSyncingAftership(true);
+    setAftershipSyncMessage(null);
+    try {
+      const res = await courierApi.create(
+        trackingForm.trackingNumber.trim(),
+        selectedCourierSlug,
+        trackingModalOrder?.orderNumber
+      );
+      setAftershipSyncMessage(res.message || "Tracking registered on AfterShip!");
+    } catch (err: any) {
+      setAftershipSyncMessage(err.message || "Failed to register on AfterShip");
+    } finally {
+      setSyncingAftership(false);
+    }
+  };
+
+  const handleOpenLiveTracking = async (ord: OrderItem) => {
+    if (!ord.trackingNumber) return;
+    setLiveTrackingOrder(ord);
+    setLiveTrackingLoading(true);
+    setLiveTrackingData(null);
+    try {
+      const slug = detectCourierSlug(ord.courierPartner);
+      const data = await courierApi.track(ord.trackingNumber, slug);
+      setLiveTrackingData(data);
+    } catch {
+      // Gracefully handled by courierApi
+    } finally {
+      setLiveTrackingLoading(false);
+    }
   };
 
   const handleSaveTracking = async (e: React.FormEvent) => {
@@ -119,9 +181,20 @@ export const AdminOrdersPage: React.FC = () => {
         adminNotes: trackingForm.adminNotes || null,
       });
 
+      // Automatically register with AfterShip in background if tracking number is provided
+      if (trackingForm.trackingNumber?.trim()) {
+        courierApi
+          .create(
+            trackingForm.trackingNumber.trim(),
+            selectedCourierSlug,
+            trackingModalOrder.orderNumber
+          )
+          .catch(() => {});
+      }
+
       setOrders((prev) =>
         prev.map((o) =>
-          o.id === trackingModalOrder.id ? { ...o, ...trackingForm } as OrderItem : o
+          o.id === trackingModalOrder.id ? ({ ...o, ...trackingForm } as OrderItem) : o
         )
       );
 
@@ -385,8 +458,22 @@ export const AdminOrdersPage: React.FC = () => {
                             {ord.customIgn ? ` • IGN: ${ord.customIgn} #${ord.customNumber || "00"}` : ""} • ₹{ord.totalAmount}
                           </div>
                           {ord.trackingNumber && (
-                            <div className="text-[11px] font-mono text-gray-400">
-                              Courier: {ord.courierPartner || "Standard"} • AWB: {ord.trackingNumber}
+                            <div className="flex items-center gap-2 text-[11px] font-mono text-gray-400">
+                              <span>
+                                Courier: {ord.courierPartner || "India Post"} • AWB:{" "}
+                                <strong className="text-white">{ord.trackingNumber}</strong>
+                              </span>
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleOpenLiveTracking(ord);
+                                }}
+                                className="px-2 py-0.5 rounded bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px] font-bold uppercase flex items-center gap-1 cursor-pointer"
+                              >
+                                <Truck className="h-3 w-3" />
+                                <span>Track Live</span>
+                              </button>
                             </div>
                           )}
                         </div>
@@ -547,9 +634,17 @@ export const AdminOrdersPage: React.FC = () => {
                     </div>
 
                     {ord.trackingNumber && (
-                      <div className="flex items-center gap-1.5">
+                      <div className="flex items-center gap-2">
                         <span>AWB:</span>
                         <strong className="text-[#FFBE32]">{ord.trackingNumber}</strong>
+                        <button
+                          type="button"
+                          onClick={() => handleOpenLiveTracking(ord)}
+                          className="px-2 py-0.5 rounded bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px] font-bold uppercase flex items-center gap-1 cursor-pointer transition-all"
+                        >
+                          <Truck className="h-3 w-3" />
+                          <span>Track Live</span>
+                        </button>
                       </div>
                     )}
 
@@ -664,32 +759,96 @@ export const AdminOrdersPage: React.FC = () => {
                 </select>
               </div>
 
-              {/* Courier Partner */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-heading font-bold uppercase text-gray-300 mb-1">
-                    Courier Partner
-                  </label>
-                  <input
-                    type="text"
-                    value={trackingForm.courierPartner}
-                    onChange={(e) => setTrackingForm({ ...trackingForm, courierPartner: e.target.value })}
-                    placeholder="Delhivery / BlueDart / DTDC"
-                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-body"
-                  />
+              {/* Courier Partner & AWB */}
+              <div className="space-y-3 p-4 rounded-xl bg-white/[0.02] border border-white/10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-heading font-bold uppercase text-gray-300 mb-1">
+                      Courier Partner (Carrier) *
+                    </label>
+                    <select
+                      value={selectedCourierSlug}
+                      onChange={(e) => {
+                        const slug = e.target.value;
+                        setSelectedCourierSlug(slug);
+                        const match = POPULAR_COURIERS.find((c) => c.slug === slug);
+                        setTrackingForm({
+                          ...trackingForm,
+                          courierPartner: match?.name || "India Post Domestic",
+                        });
+                      }}
+                      className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-body"
+                    >
+                      <option value="india-post">🇮🇳 India Post Domestic (india-post) — Recommended</option>
+                      <option value="india-post-int">🌍 India Post International (india-post-int)</option>
+                      <option value="delhivery">📦 Delhivery (delhivery)</option>
+                      <option value="bluedart">⚡ Blue Dart Express (bluedart)</option>
+                      <option value="dtdc">📫 DTDC India (dtdc)</option>
+                      <option value="shadowfax">🚀 Shadowfax (shadowfax)</option>
+                      <option value="ecom-express">🚚 Ecom Express (ecom-express)</option>
+                      <option value="xpressbees">🐝 XpressBees (xpressbees)</option>
+                      <option value="dhl">✈️ DHL Express (dhl)</option>
+                      <option value="fedex">🌐 FedEx (fedex)</option>
+                      <option value="other">⚙️ Other / Custom Carrier</option>
+                    </select>
+
+                    {selectedCourierSlug === "other" && (
+                      <input
+                        type="text"
+                        value={trackingForm.courierPartner}
+                        onChange={(e) => setTrackingForm({ ...trackingForm, courierPartner: e.target.value })}
+                        placeholder="Enter courier name"
+                        className="mt-2 w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-xs text-white focus:border-[#FFBE32] focus:outline-none"
+                      />
+                    )}
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-heading font-bold uppercase text-gray-300 mb-1">
+                      Tracking / AWB Number *
+                    </label>
+                    <input
+                      type="text"
+                      value={trackingForm.trackingNumber}
+                      onChange={(e) => setTrackingForm({ ...trackingForm, trackingNumber: e.target.value })}
+                      placeholder="e.g. CL510579225IN or DEL-9988112"
+                      className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-mono tracking-wider font-bold"
+                    />
+                  </div>
                 </div>
 
-                <div>
-                  <label className="block text-xs font-heading font-bold uppercase text-gray-300 mb-1">
-                    Tracking / AWB Number
-                  </label>
-                  <input
-                    type="text"
-                    value={trackingForm.trackingNumber}
-                    onChange={(e) => setTrackingForm({ ...trackingForm, trackingNumber: e.target.value })}
-                    placeholder="e.g. DEL-9988112"
-                    className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-mono"
-                  />
+                {/* AfterShip 1-Click Sync & Tracking Link Preview */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2 border-t border-white/5">
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={handleSyncAftershipNow}
+                      disabled={syncingAftership || !trackingForm.trackingNumber.trim()}
+                      className="px-3 py-1.5 rounded-lg bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/30 text-amber-300 text-xs font-heading font-bold uppercase tracking-wider flex items-center gap-1.5 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                    >
+                      <RefreshCw className={`h-3.5 w-3.5 ${syncingAftership ? "animate-spin" : ""}`} />
+                      <span>{syncingAftership ? "Syncing..." : "Sync to AfterShip"}</span>
+                    </button>
+
+                    {aftershipSyncMessage && (
+                      <span className="text-[11px] font-mono text-emerald-400 flex items-center gap-1">
+                        <Check className="h-3 w-3" />
+                        {aftershipSyncMessage}
+                      </span>
+                    )}
+                  </div>
+
+                  {trackingForm.trackingNumber.trim() && (
+                    <a
+                      href={getAftershipTrackingUrl(selectedCourierSlug, trackingForm.trackingNumber)}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-[11px] text-[#FFBE32] hover:underline font-mono flex items-center gap-1"
+                    >
+                      <span>Preview Live Tracking URL</span>
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  )}
                 </div>
               </div>
 
@@ -744,6 +903,183 @@ export const AdminOrdersPage: React.FC = () => {
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* ================= LIVE COURIER CHECKPOINTS MODAL ================= */}
+      {liveTrackingOrder && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
+          <div className="w-full max-w-xl rounded-2xl bg-[#0D0D12] border border-[#FFBE32]/40 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+            {/* Modal Header */}
+            <div className="flex items-center justify-between p-5 border-b border-white/10 bg-white/5">
+              <div className="flex items-center gap-2.5">
+                <Truck className="h-5 w-5 text-[#FFBE32]" />
+                <div>
+                  <h3 className="font-heading text-sm font-bold uppercase tracking-wider text-white">
+                    Live Courier Tracking
+                  </h3>
+                  <p className="text-xs text-gray-400 font-mono">
+                    Order #{liveTrackingOrder.orderNumber} • AWB: {liveTrackingOrder.trackingNumber}
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={() => setLiveTrackingOrder(null)}
+                className="p-1.5 rounded-lg text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 cursor-pointer"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-5 overflow-y-auto space-y-5">
+              {liveTrackingLoading ? (
+                <div className="flex flex-col items-center justify-center py-12 space-y-3">
+                  <RefreshCw className="h-8 w-8 text-[#FFBE32] animate-spin" />
+                  <p className="text-xs text-gray-400 font-mono">Fetching latest checkpoints from carrier...</p>
+                </div>
+              ) : liveTrackingData ? (
+                <>
+                  {/* Status Card */}
+                  <div className="p-4 rounded-xl bg-gradient-to-r from-amber-500/10 via-black/60 to-black/60 border border-amber-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                      <span className="text-[10px] font-mono text-gray-400 uppercase tracking-widest block">
+                        Carrier Status
+                      </span>
+                      <h4 className="text-lg font-heading font-black uppercase tracking-wider text-white">
+                        {liveTrackingData.subtagMessage || liveTrackingData.tag || "In Transit"}
+                      </h4>
+                      <p className="text-xs text-gray-300 font-mono mt-0.5">
+                        Courier: <strong className="text-[#FFBE32]">{liveTrackingData.courierName}</strong>
+                      </p>
+                    </div>
+
+                    <span
+                      className={`px-3 py-1 rounded-full text-xs font-mono font-bold uppercase border self-start sm:self-center ${
+                        liveTrackingData.tag === "Delivered"
+                          ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/40"
+                          : liveTrackingData.tag === "OutForDelivery"
+                          ? "bg-blue-500/20 text-blue-300 border-blue-500/40"
+                          : "bg-amber-500/20 text-amber-300 border-amber-500/40"
+                      }`}
+                    >
+                      {liveTrackingData.tag || "In Transit"}
+                    </span>
+                  </div>
+
+                  {/* Route & Expected Delivery */}
+                  {(liveTrackingData.originLocation ||
+                    liveTrackingData.destinationLocation ||
+                    liveTrackingData.expectedDelivery) && (
+                    <div className="grid grid-cols-2 gap-3 p-3 rounded-xl bg-black/40 border border-white/5 text-xs font-mono">
+                      <div>
+                        <span className="text-gray-500 block text-[10px]">ORIGIN / DESTINATION</span>
+                        <span className="text-white">
+                          {liveTrackingData.originLocation || "Origin"} →{" "}
+                          {liveTrackingData.destinationLocation || "Destination"}
+                        </span>
+                      </div>
+                      {liveTrackingData.expectedDelivery && (
+                        <div>
+                          <span className="text-gray-500 block text-[10px]">ESTIMATED DELIVERY</span>
+                          <span className="text-emerald-400 font-bold">{liveTrackingData.expectedDelivery}</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Checkpoints Timeline */}
+                  <div className="space-y-3">
+                    <h5 className="text-xs font-heading font-bold uppercase tracking-wider text-gray-300 flex items-center gap-1.5">
+                      <Clock className="h-3.5 w-3.5 text-[#FFBE32]" />
+                      <span>Shipment Journey ({liveTrackingData.checkpoints?.length || 0} Checkpoints)</span>
+                    </h5>
+
+                    {liveTrackingData.checkpoints && liveTrackingData.checkpoints.length > 0 ? (
+                      <div className="space-y-3 border-l-2 border-white/10 ml-2 pl-4 py-1">
+                        {liveTrackingData.checkpoints
+                          .slice()
+                          .reverse()
+                          .map((cp, idx) => (
+                            <div key={idx} className="relative">
+                              <div
+                                className={`absolute -left-[23px] top-1 h-3 w-3 rounded-full border-2 border-black ${
+                                  idx === 0 ? "bg-[#FFBE32] ring-2 ring-[#FFBE32]/40" : "bg-gray-600"
+                                }`}
+                              />
+                              <div className="text-xs">
+                                <span className="font-bold text-white block">
+                                  {cp.message || cp.subtag_message || "Checkpoint Update"}
+                                </span>
+                                <div className="text-[11px] text-gray-400 font-mono mt-0.5 flex flex-wrap items-center gap-2">
+                                  {cp.location && (
+                                    <span className="flex items-center gap-1 text-[#FFBE32]">
+                                      <MapPin className="h-3 w-3" />
+                                      {cp.location}
+                                    </span>
+                                  )}
+                                  {cp.checkpoint_time && (
+                                    <span>
+                                      {new Date(cp.checkpoint_time).toLocaleString("en-IN", {
+                                        dateStyle: "medium",
+                                        timeStyle: "short",
+                                      })}
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                      </div>
+                    ) : (
+                      <div className="p-4 rounded-xl bg-black/40 border border-white/5 text-center text-xs font-mono text-gray-400">
+                        Package registered with carrier. Initial depot scan pending.
+                      </div>
+                    )}
+                  </div>
+                </>
+              ) : (
+                <div className="py-8 text-center text-xs text-gray-400 font-mono">
+                  Could not retrieve checkpoints. Please use the carrier's direct tracking link below.
+                </div>
+              )}
+            </div>
+
+            {/* Modal Footer */}
+            <div className="p-4 border-t border-white/10 bg-white/5 flex flex-wrap items-center justify-between gap-3">
+              <a
+                href={
+                  liveTrackingData?.courierTrackingUrl ||
+                  getCourierDirectUrl(
+                    detectCourierSlug(liveTrackingOrder.courierPartner),
+                    liveTrackingOrder.trackingNumber!
+                  )
+                }
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 rounded-xl bg-[#FFBE32] hover:bg-[#FFA000] text-black text-xs font-heading font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,190,50,0.3)] cursor-pointer"
+              >
+                <span>Carrier Website</span>
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+
+              <a
+                href={
+                  liveTrackingData?.aftershipTrackingUrl ||
+                  getAftershipTrackingUrl(
+                    detectCourierSlug(liveTrackingOrder.courierPartner),
+                    liveTrackingOrder.trackingNumber!
+                  )
+                }
+                target="_blank"
+                rel="noreferrer"
+                className="px-3.5 py-2 rounded-xl border border-white/15 hover:border-white/30 text-xs text-gray-300 hover:text-white flex items-center gap-1.5"
+              >
+                <span>AfterShip Tracker</span>
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            </div>
           </div>
         </div>
       )}

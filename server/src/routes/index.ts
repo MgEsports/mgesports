@@ -22,6 +22,7 @@ import * as uploadCtrl from "../controllers/uploadController.js";
 import * as planCtrl from "../controllers/partnerPlanController.js";
 import * as votingCtrl from "../controllers/votingController.js";
 import * as backupCtrl from "../controllers/backupController.js";
+import * as trackingCtrl from "../controllers/trackingController.js";
 import { cacheMiddleware, delCache, getCacheStatus } from "../config/cache.js";
 
 const invalidate = (pattern: string) => (_req: any, _res: any, next: any) => {
@@ -470,6 +471,12 @@ router.delete(
   requireRole("SUPER_ADMIN", "ADMIN", "TOURNAMENT_ADMIN"),
   orderCtrl.deleteOrder
 );
+
+// ================= COURIER & AFTERSHIP TRACKING ROUTES =================
+router.get("/courier/track", trackingCtrl.trackCourier);
+router.post("/courier/create", optionalAuth, trackingCtrl.createCourierTracking);
+router.get("/courier/test", trackingCtrl.testAftershipConnection);
+router.get("/courier/couriers", trackingCtrl.listCouriers);
 
 // ================= NEWS ROUTES =================
 router.get("/news", cacheMiddleware(180), newsCtrl.getArticles);
