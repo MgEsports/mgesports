@@ -224,4 +224,29 @@ export const courierApi = {
       return POPULAR_COURIERS;
     }
   },
+
+  syncAll: async (): Promise<{
+    success: boolean;
+    checkedCount: number;
+    updatedCount: number;
+    message: string;
+    updatedDetails?: any[];
+  }> => {
+    try {
+      return await apiRequest<{
+        success: boolean;
+        checkedCount: number;
+        updatedCount: number;
+        message: string;
+        updatedDetails?: any[];
+      }>("/courier/sync-all", { method: "POST" });
+    } catch (err: any) {
+      return {
+        success: false,
+        checkedCount: 0,
+        updatedCount: 0,
+        message: err.message || "Failed to trigger courier sync",
+      };
+    }
+  },
 };

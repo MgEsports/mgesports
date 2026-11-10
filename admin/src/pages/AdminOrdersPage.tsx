@@ -50,6 +50,10 @@ export const AdminOrdersPage: React.FC = () => {
   const [syncingAftership, setSyncingAftership] = useState(false);
   const [aftershipSyncMessage, setAftershipSyncMessage] = useState<string | null>(null);
 
+  // Batch AfterShip Delivery Status Sync State
+  const [isSyncingAll, setIsSyncingAll] = useState(false);
+  const [syncAllNotice, setSyncAllNotice] = useState<string | null>(null);
+
   const [trackingForm, setTrackingForm] = useState({
     orderStatus: "PENDING",
     courierPartner: "India Post Domestic",
@@ -167,6 +171,21 @@ export const AdminOrdersPage: React.FC = () => {
     }
   };
 
+  const handleSyncAllDeliveries = async () => {
+    setIsSyncingAll(true);
+    setSyncAllNotice(null);
+    try {
+      const res = await courierApi.syncAll();
+      setSyncAllNotice(res.message);
+      await loadOrders();
+    } catch (err: any) {
+      setSyncAllNotice(err.message || "Failed to sync deliveries");
+    } finally {
+      setIsSyncingAll(false);
+      setTimeout(() => setSyncAllNotice(null), 7000);
+    }
+  };
+
   const handleSaveTracking = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!trackingModalOrder) return;
@@ -267,17 +286,47 @@ export const AdminOrdersPage: React.FC = () => {
           </p>
         </div>
 
-        {orders.length > 0 && (
+        <div className="flex items-center gap-2.5 flex-wrap">
           <button
-            onClick={handleDeleteAllOrders}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-rose-400 hover:text-white bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/20 hover:border-rose-500/40 transition-all cursor-pointer shrink-0"
-            title="Delete all demo and customer orders"
+            type="button"
+            onClick={handleSyncAllDeliveries}
+            disabled={isSyncingAll}
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-amber-300 hover:text-black bg-amber-500/10 hover:bg-[#FFBE32] border border-amber-500/30 hover:border-[#FFBE32] transition-all cursor-pointer shadow-sm disabled:opacity-50"
+            title="Query AfterShip to automatically update delivery status for all in-transit shipments"
           >
-            <Trash2 className="h-4 w-4" />
-            <span>Delete All Orders ({orders.length})</span>
+            <RefreshCw className={`h-4 w-4 ${isSyncingAll ? "animate-spin" : ""}`} />
+            <span>{isSyncingAll ? "Syncing AfterShip..." : "Auto-Sync Deliveries (AfterShip)"}</span>
           </button>
-        )}
+
+          {orders.length > 0 && (
+            <button
+              onClick={handleDeleteAllOrders}
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider text-rose-400 hover:text-white bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/20 hover:border-rose-500/40 transition-all cursor-pointer shrink-0"
+              title="Delete all demo and customer orders"
+            >
+              <Trash2 className="h-4 w-4" />
+              <span>Delete All Orders ({orders.length})</span>
+            </button>
+          )}
+        </div>
       </div>
+
+      {/* Auto-Sync Notice Banner */}
+      {syncAllNotice && (
+        <div className="p-3.5 rounded-xl bg-gradient-to-r from-amber-500/20 via-[#0D0D12] to-black/60 border border-amber-500/40 text-amber-300 text-xs font-mono flex items-center justify-between gap-3 animate-fadeIn">
+          <div className="flex items-center gap-2">
+            <Truck className="h-4 w-4 text-[#FFBE32] shrink-0" />
+            <span>{syncAllNotice}</span>
+          </div>
+          <button
+            type="button"
+            onClick={() => setSyncAllNotice(null)}
+            className="text-gray-400 hover:text-white"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        </div>
+      )}
 
       {/* View Mode & Filter Bar */}
       <div className="space-y-3">

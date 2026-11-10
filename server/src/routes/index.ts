@@ -477,6 +477,9 @@ router.get("/courier/track", trackingCtrl.trackCourier);
 router.post("/courier/create", optionalAuth, trackingCtrl.createCourierTracking);
 router.get("/courier/test", trackingCtrl.testAftershipConnection);
 router.get("/courier/couriers", trackingCtrl.listCouriers);
+router.post("/courier/sync-all", optionalAuth, trackingCtrl.syncAllCourierDeliveries);
+router.get("/courier/sync-all", optionalAuth, trackingCtrl.syncAllCourierDeliveries);
+router.post("/courier/webhook", trackingCtrl.handleAftershipWebhook);
 
 // ================= NEWS ROUTES =================
 router.get("/news", cacheMiddleware(180), newsCtrl.getArticles);

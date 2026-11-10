@@ -141,8 +141,83 @@ function callAftershipApi(
 }
 
 /**
+ * Automatically synchronizes an order's delivery status in the database based on AfterShip live tracking tag.
+ */
+export async function syncOrderDeliveryStatus(
+  cleanNumber: string,
+  tag?: string,
+  estimatedDelivery?: string | null
+): Promise<{ updated: boolean; orderId?: string; orderNumber?: string; oldStatus?: string; newStatus?: string }> {
+  if (!cleanNumber || !tag) return { updated: false };
+
+  try {
+    const order = await prisma.order.findFirst({
+      where: {
+        OR: [
+          { trackingNumber: cleanNumber },
+          { trackingNumber: { contains: cleanNumber, mode: "insensitive" } },
+        ],
+        orderStatus: { not: "DELETED" },
+      },
+    });
+
+    if (!order) return { updated: false };
+
+    let newStatus: string | null = null;
+    let newPaymentStatus: string | null = null;
+
+    if (tag === "Delivered") {
+      newStatus = "DELIVERED";
+      if (order.paymentMethod === "COD" && order.paymentStatus !== "PAID") {
+        newPaymentStatus = "PAID";
+      }
+    } else if (
+      tag === "InTransit" ||
+      tag === "OutForDelivery" ||
+      tag === "AttemptFail" ||
+      tag === "Exception"
+    ) {
+      if (order.orderStatus === "PENDING" || order.orderStatus === "PROCESSING") {
+        newStatus = "SHIPPED";
+      }
+    }
+
+    const updateData: any = {};
+    if (newStatus && newStatus !== order.orderStatus) {
+      updateData.orderStatus = newStatus;
+    }
+    if (newPaymentStatus && newPaymentStatus !== order.paymentStatus) {
+      updateData.paymentStatus = newPaymentStatus;
+    }
+    if (estimatedDelivery && !order.expectedDeliveryDate) {
+      updateData.expectedDeliveryDate = estimatedDelivery;
+    }
+
+    if (Object.keys(updateData).length > 0) {
+      await prisma.order.update({
+        where: { id: order.id },
+        data: updateData,
+      });
+
+      return {
+        updated: true,
+        orderId: order.id,
+        orderNumber: order.orderNumber,
+        oldStatus: order.orderStatus,
+        newStatus: updateData.orderStatus || order.orderStatus,
+      };
+    }
+
+    return { updated: false, orderId: order.id, orderNumber: order.orderNumber };
+  } catch (err) {
+    console.warn("Failed to auto-update order delivery status:", err);
+    return { updated: false };
+  }
+}
+
+/**
  * GET /api/courier/track?trackingNumber=...&slug=...
- * Retrieves real-time tracking checkpoints from AfterShip.
+ * Retrieves real-time tracking checkpoints from AfterShip and automatically updates delivery status.
  */
 export const trackCourier = async (
   req: Request,
@@ -173,6 +248,13 @@ export const trackCourier = async (
       const matchedCourier = POPULAR_COURIERS.find(
         (c) => c.slug === tracking.slug
       );
+
+      // Automatically sync delivery status in database
+      syncOrderDeliveryStatus(
+        cleanNumber,
+        tracking.tag,
+        tracking.aftership_estimated_delivery_date || tracking.courier_estimated_delivery_date
+      ).catch(() => {});
 
       res.json({
         success: true,
@@ -233,8 +315,100 @@ export const trackCourier = async (
 };
 
 /**
+ * POST /api/courier/sync-all & GET /api/courier/sync-all
+ * Automatically updates delivery status for all active in-transit orders using live AfterShip data.
+ */
+export const syncAllCourierDeliveries = async (
+  _req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  try {
+    const orders = await prisma.order.findMany({
+      where: {
+        trackingNumber: { not: null },
+        orderStatus: {
+          notIn: ["DELIVERED", "DELETED", "CANCELLED"],
+        },
+      },
+    });
+
+    const validOrders = orders.filter((o: any) => o.trackingNumber && o.trackingNumber.trim().length > 3);
+
+    if (validOrders.length === 0) {
+      res.json({
+        success: true,
+        checkedCount: 0,
+        updatedCount: 0,
+        message: "All current orders are either already fulfilled or have no active tracking numbers.",
+      });
+      return;
+    }
+
+    const apiKey = await getEffectiveApiKey();
+    const trackingNumbers = validOrders.map((o: any) => o.trackingNumber!.trim()).join(",");
+
+    const queryPath = `/tracking/2026-07/trackings?tracking_numbers=${encodeURIComponent(trackingNumbers)}`;
+    const response = await callAftershipApi(queryPath, "GET", apiKey);
+
+    const trackings: any[] = response.data?.data?.trackings || [];
+    let updatedCount = 0;
+    const updatedDetails: any[] = [];
+
+    for (const t of trackings) {
+      if (t.tracking_number && t.tag) {
+        const result = await syncOrderDeliveryStatus(
+          t.tracking_number,
+          t.tag,
+          t.aftership_estimated_delivery_date || t.courier_estimated_delivery_date
+        );
+        if (result.updated) {
+          updatedCount++;
+          updatedDetails.push(result);
+        }
+      }
+    }
+
+    res.json({
+      success: true,
+      checkedCount: validOrders.length,
+      updatedCount,
+      updatedDetails,
+      message: `Checked ${validOrders.length} active orders with AfterShip. Automatically updated ${updatedCount} delivery status(es).`,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * POST /api/courier/webhook
+ * Receives automated real-time tracking webhooks from AfterShip.
+ */
+export const handleAftershipWebhook = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  try {
+    const body = req.body;
+    const msg = body?.msg;
+    const trackingNumber = msg?.tracking_number;
+    const tag = msg?.tag;
+    const estimated = msg?.aftership_estimated_delivery_date || msg?.courier_estimated_delivery_date;
+
+    if (trackingNumber && tag) {
+      await syncOrderDeliveryStatus(trackingNumber, tag, estimated);
+    }
+
+    res.json({ success: true, message: "Webhook processed" });
+  } catch {
+    res.json({ success: true, message: "Webhook acknowledged" });
+  }
+};
+
+/**
  * POST /api/courier/create
- * Registers a new tracking number with AfterShip.
+ * Registers a new tracking number with AfterShip and syncs delivery status.
  */
 export const createCourierTracking = async (
   req: Request,
@@ -266,13 +440,16 @@ export const createCourierTracking = async (
       }
     );
 
-    // AfterShip returns 4003 if already created, which is also a success state
     const code = response.data?.meta?.code;
     const isSuccess = response.statusCode >= 200 && response.statusCode < 300;
     const isAlreadyExists = code === 4003 || response.data?.meta?.message?.includes("already exists");
 
     if (isSuccess || isAlreadyExists) {
       const trackingData = response.data?.data;
+      if (trackingData?.tag) {
+        syncOrderDeliveryStatus(cleanNumber, trackingData.tag).catch(() => {});
+      }
+
       res.json({
         success: true,
         message: isAlreadyExists
