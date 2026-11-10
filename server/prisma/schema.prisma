@@ -512,7 +512,7 @@ model Order {
   orderNumber          String   @unique
   productId            String?
   product              Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
-  productName          String   @default("LORDZ PRO COMBAT JERSEY 2026")
+  productName          String   @default("MG PRO COMBAT JERSEY 2026")
   customerName         String
   customerEmail        String
   customerPhone        String

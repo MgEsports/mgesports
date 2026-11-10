@@ -1689,7 +1689,7 @@ export const ProductsPage = () => {
                           required
                           value={trackQuery}
                           onChange={(e) => setTrackQuery(e.target.value)}
-                          placeholder="Search Order # (e.g. LZ-2026-1042), Mobile Phone, or Email..."
+                          placeholder="Search Order # (e.g. MG-2026-1042), Mobile Phone, or Email..."
                           className="w-full rounded-xl border border-white/15 bg-black/70 pl-10 pr-4 py-2.5 text-sm text-white focus:border-[#FFBE32] focus:outline-none font-mono"
                         />
                       </div>
@@ -1707,11 +1707,11 @@ export const ProductsPage = () => {
                       <button
                         type="button"
                         onClick={() => {
-                          setTrackQuery("LZ-2026-1042");
+                          setTrackQuery("MG-2026-1042");
                         }}
                         className="text-[#FFBE32] hover:underline cursor-pointer"
                       >
-                        LZ-2026-1042
+                        MG-2026-1042
                       </button>
                       <span>•</span>
                       <button
@@ -1745,7 +1745,7 @@ export const ProductsPage = () => {
                         We could not find any orders matching "<span className="text-white font-bold">{trackQuery}</span>".
                       </p>
                       <p className="text-[11px] text-gray-500">
-                        Please verify your Order Reference Number (e.g. LZ-2026-XXXX), Phone Number, or Email address.
+                        Please verify your Order Reference Number (e.g. MG-2026-XXXX), Phone Number, or Email address.
                       </p>
                     </div>
                   )}

@@ -671,7 +671,7 @@ export const AdminOrdersPage: React.FC = () => {
                   <a
                     href={`https://wa.me/${phoneClean}?text=Hello%20${encodeURIComponent(
                       ord.customerName
-                    )},%20update%20regarding%20your%20Lord%20Esports%20order%20${ord.orderNumber}:`}
+                    )},%20update%20regarding%20your%20MG%20Esports%20order%20${ord.orderNumber}:`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-3.5 py-2 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold inline-flex items-center gap-1.5 cursor-pointer w-full sm:w-auto justify-center"

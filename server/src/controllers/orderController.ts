@@ -28,7 +28,7 @@ export const createOrder = async (req: AuthenticatedRequest, res: Response, next
   try {
     const data = orderSchema.parse(req.body);
     const randomSuffix = Math.floor(1000 + Math.random() * 9000);
-    const orderNumber = `LZ-${new Date().getFullYear()}-${randomSuffix}`;
+    const orderNumber = `MG-${new Date().getFullYear()}-${randomSuffix}`;
 
     const defaultPaymentStatus =
       data.paymentStatus ||
@@ -37,7 +37,7 @@ export const createOrder = async (req: AuthenticatedRequest, res: Response, next
         : "COD_PENDING");
 
     // If user is logged in, ensure customerEmail and customerName default cleanly
-    const customerEmail = data.customerEmail || req.user?.email || "fan@lordz.gg";
+    const customerEmail = data.customerEmail || req.user?.email || "fan@mgesports.gg";
 
     const order = await prisma.order.create({
       data: {
