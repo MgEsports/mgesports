@@ -49,6 +49,14 @@ export interface OrderItem {
   createdAt: string;
 }
 
+export function normalizeOrder(ord: OrderItem): OrderItem {
+  if (!ord) return ord;
+  return {
+    ...ord,
+    orderNumber: ord.orderNumber ? ord.orderNumber.replace(/^LZ-/i, "MG-") : ord.orderNumber,
+  };
+}
+
 export const fallbackProducts: ProductItem[] = [];
 
 export const merchandiseApi = {
@@ -77,10 +85,11 @@ export const merchandiseApi = {
   },
 
   createOrder: async (data: any): Promise<OrderItem> => {
-    return apiRequest<OrderItem>("/orders", {
+    const res = await apiRequest<OrderItem>("/orders", {
       method: "POST",
       body: JSON.stringify(data),
     });
+    return normalizeOrder(res);
   },
 
   getOrders: async (params?: { status?: string; search?: string }): Promise<OrderItem[]> => {
@@ -90,25 +99,36 @@ export const merchandiseApi = {
 
     const qs = query.toString() ? `?${query.toString()}` : "";
     const list = await apiRequest<OrderItem[]>(`/orders${qs}`, { method: "GET" }, []);
-    return (Array.isArray(list) ? list : []).filter(
-      (o) => o && (o.orderStatus as any) !== "DELETED" && o.adminNotes !== "__DELETED__"
-    );
+    return (Array.isArray(list) ? list : [])
+      .filter((o) => o && (o.orderStatus as any) !== "DELETED" && o.adminNotes !== "__DELETED__")
+      .map(normalizeOrder);
   },
 
   trackOrders: async (query: string): Promise<OrderItem[]> => {
-    const orders = await apiRequest<OrderItem[]>(`/orders/track?query=${encodeURIComponent(query)}`, { method: "GET" }, []);
-    return (Array.isArray(orders) ? orders : []).filter(
-      (o) => o && (o.orderStatus as any) !== "DELETED" && o.adminNotes !== "__DELETED__"
-    );
+    const clean = query.trim();
+    let orders = await apiRequest<OrderItem[]>(`/orders/track?query=${encodeURIComponent(clean)}`, { method: "GET" }, []);
+
+    // If query starts with MG-, also search with LZ- fallback so legacy DB records match seamlessly
+    if ((!orders || orders.length === 0) && clean.toUpperCase().startsWith("MG-")) {
+      const lzQuery = clean.replace(/^MG-/i, "LZ-");
+      const altOrders = await apiRequest<OrderItem[]>(`/orders/track?query=${encodeURIComponent(lzQuery)}`, { method: "GET" }, []);
+      if (altOrders && altOrders.length > 0) {
+        orders = altOrders;
+      }
+    }
+
+    return (Array.isArray(orders) ? orders : [])
+      .filter((o) => o && (o.orderStatus as any) !== "DELETED" && o.adminNotes !== "__DELETED__")
+      .map(normalizeOrder);
   },
 
   getMyOrders: async (): Promise<OrderItem[]> => {
     try {
       const res = await apiRequest<{ success: boolean; data: OrderItem[]; user?: any } | OrderItem[]>("/orders/my-orders", { method: "GET" });
       const list = Array.isArray(res) ? res : res && Array.isArray((res as any).data) ? (res as any).data : [];
-      return list.filter(
-        (o: OrderItem) => o && (o.orderStatus as any) !== "DELETED" && o.adminNotes !== "__DELETED__"
-      );
+      return list
+        .filter((o: OrderItem) => o && (o.orderStatus as any) !== "DELETED" && o.adminNotes !== "__DELETED__")
+        .map(normalizeOrder);
     } catch {
       return [];
     }

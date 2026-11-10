@@ -73,6 +73,14 @@ export function markOrderAsDeleted(identifiers: string[]) {
 
 export const fallbackProducts: ProductItem[] = [];
 
+export function normalizeOrder(ord: OrderItem): OrderItem {
+  if (!ord) return ord;
+  return {
+    ...ord,
+    orderNumber: ord.orderNumber ? ord.orderNumber.replace(/^LZ-/i, "MG-") : ord.orderNumber,
+  };
+}
+
 export const merchandiseApi = {
   getProducts: async (): Promise<ProductItem[]> => {
     return apiRequest<ProductItem[]>("/merchandise", { method: "GET" }, []);
@@ -120,13 +128,15 @@ export const merchandiseApi = {
     const list = await apiRequest<OrderItem[]>(`/orders${qs}`, { method: "GET" }, []);
     const deletedSet = getDeletedOrderSet();
 
-    return (Array.isArray(list) ? list : []).filter((ord) => {
-      if (!ord) return false;
-      if ((ord.orderStatus as any) === "DELETED" || ord.adminNotes === "__DELETED__") return false;
-      if (ord.id && deletedSet.has(ord.id)) return false;
-      if (ord.orderNumber && deletedSet.has(ord.orderNumber)) return false;
-      return true;
-    });
+    return (Array.isArray(list) ? list : [])
+      .filter((ord) => {
+        if (!ord) return false;
+        if ((ord.orderStatus as any) === "DELETED" || ord.adminNotes === "__DELETED__") return false;
+        if (ord.id && deletedSet.has(ord.id)) return false;
+        if (ord.orderNumber && deletedSet.has(ord.orderNumber)) return false;
+        return true;
+      })
+      .map(normalizeOrder);
   },
 
   deleteOrder: async (id: string, orderNumber?: string): Promise<{ success: boolean }> => {

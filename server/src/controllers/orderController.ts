@@ -153,10 +153,14 @@ export const trackOrder = async (req: Request, res: Response, next: NextFunction
       return;
     }
     const cleanQuery = query.trim();
+    const lzQuery = cleanQuery.replace(/^MG-/i, "LZ-");
+    const mgQuery = cleanQuery.replace(/^LZ-/i, "MG-");
     const cleanPhone = cleanQuery.replace(/[^0-9]/g, "");
 
     const conditions: any[] = [
       { orderNumber: { contains: cleanQuery, mode: "insensitive" } },
+      { orderNumber: { contains: lzQuery, mode: "insensitive" } },
+      { orderNumber: { contains: mgQuery, mode: "insensitive" } },
       { customerEmail: { equals: cleanQuery, mode: "insensitive" } },
       { trackingNumber: { contains: cleanQuery, mode: "insensitive" } },
     ];
@@ -191,6 +195,7 @@ export const updateOrderStatus = async (
   try {
     const { id } = req.params;
     const {
+      orderNumber,
       orderStatus,
       trackingNumber,
       paymentStatus,
@@ -202,6 +207,7 @@ export const updateOrderStatus = async (
     const order = await prisma.order.update({
       where: { id },
       data: {
+        ...(orderNumber ? { orderNumber } : {}),
         ...(orderStatus ? { orderStatus } : {}),
         ...(trackingNumber !== undefined ? { trackingNumber } : {}),
         ...(paymentStatus ? { paymentStatus } : {}),
