@@ -5,7 +5,7 @@ import { SectionHeading } from "../components/common/SectionHeading";
 import { GoldButton } from "../components/common/GoldButton";
 import jerseyFrontImg from "../assets/FRONT.png";
 import jerseyBackImg from "../assets/back.png";
-import { Sparkles, Shield, Compass, ArrowRight } from "lucide-react";
+import { Sparkles, Compass, ArrowRight } from "lucide-react";
 
 interface JerseyShowcaseSectionProps {
   onShopJersey: () => void;
