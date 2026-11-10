@@ -1,3 +1,13 @@
+import aadhilImg from "../assets/members/player-aadhil.png";
+import normanImg from "../assets/members/player-norman.png";
+import aeroImg from "../assets/members/player-aero.png";
+import dragoImg from "../assets/members/player-drago.png";
+import kolayaImg from "../assets/members/player-kolaya.png";
+import omkarImg from "../assets/members/player-omkar.png";
+import rudyImg from "../assets/members/player-rudy.png";
+import destroImg from "../assets/members/player-destro.png";
+import leapImg from "../assets/members/player-leap.png";
+
 export interface Player {
   id: string;
   ign: string;
@@ -29,8 +39,8 @@ export const playersData: Player[] = [
     team: "MG ESPORTS",
     about: "Base architect and strategic anchor steering MG to the World Championship.",
     instagram: "@mg13e.sports",
-    image: "/members/player-aadhil.png",
-    avatarUrl: "/members/player-aadhil.png",
+    image: aadhilImg,
+    avatarUrl: aadhilImg,
     featuredQuote: "Tactics win wars. Conviction wins championships.",
     avatarBg: "insta:@mg13e.sports",
     isCaptain: true,
@@ -45,8 +55,8 @@ export const playersData: Player[] = [
     team: "MG ESPORTS",
     about: "Triple-star specialist with unparalleled high-pressure execution.",
     instagram: "@mg13e.sports",
-    image: "/members/player-norman.png",
-    avatarUrl: "/members/player-norman.png",
+    image: normanImg,
+    avatarUrl: normanImg,
     featuredQuote: "Flawless pathing under championship pressure.",
     avatarBg: "insta:@mg13e.sports",
     isCaptain: false,
@@ -61,8 +71,8 @@ export const playersData: Player[] = [
     team: "MG ESPORTS",
     about: "Air attack master and precision surgical deployment specialist.",
     instagram: "@mg13e.sports",
-    image: "/members/player-aero.png",
-    avatarUrl: "/members/player-aero.png",
+    image: aeroImg,
+    avatarUrl: aeroImg,
     featuredQuote: "Precision timing from the skies.",
     avatarBg: "insta:@mg13e.sports",
     isCaptain: false,
@@ -77,8 +87,8 @@ export const playersData: Player[] = [
     team: "MG ESPORTS",
     about: "Fierce offense and aggressive smash attack innovator.",
     instagram: "@mg13e.sports",
-    image: "/uploads/db-tickerPlayers-4-image-1793023262887-37vld.png",
-    avatarUrl: "/uploads/db-tickerPlayers-4-image-1793023262887-37vld.png",
+    image: dragoImg,
+    avatarUrl: dragoImg,
     featuredQuote: "Break lines and overwhelm defences.",
     avatarBg: "insta:@mg13e.sports",
     isCaptain: false,
@@ -93,8 +103,8 @@ export const playersData: Player[] = [
     team: "MG ESPORTS",
     about: "Defensive fortress designer behind MG's lowest star concessions.",
     instagram: "@mg13e.sports",
-    image: "/members/player-kolaya.png",
-    avatarUrl: "/members/player-kolaya.png",
+    image: kolayaImg,
+    avatarUrl: kolayaImg,
     featuredQuote: "Every wall placement tells a defensive story.",
     avatarBg: "insta:@mg13e.sports",
     isCaptain: false,
@@ -109,8 +119,8 @@ export const playersData: Player[] = [
     team: "MG ESPORTS",
     about: "Analytical mind analyzing opponent replay weaknesses in real time.",
     instagram: "@mg13e.sports",
-    image: "/members/player-omkar.png",
-    avatarUrl: "/members/player-omkar.png",
+    image: omkarImg,
+    avatarUrl: omkarImg,
     featuredQuote: "Preparation before the war determines victory.",
     avatarBg: "insta:@mg13e.sports",
     isCaptain: false,
@@ -125,8 +135,8 @@ export const playersData: Player[] = [
     team: "MG ESPORTS",
     about: "High percentage clutch finisher on the global stage.",
     instagram: "@mg13e.sports",
-    image: "/members/player-rudy.png",
-    avatarUrl: "/members/player-rudy.png",
+    image: rudyImg,
+    avatarUrl: rudyImg,
     featuredQuote: "Stepping up when everything is on the line.",
     avatarBg: "insta:@mg13e.sports",
     isCaptain: false,
@@ -141,8 +151,8 @@ export const playersData: Player[] = [
     team: "MG ESPORTS",
     about: "Ground attack mastery and Queen charge precision specialist.",
     instagram: "@mg13e.sports",
-    image: "/members/player-destro.png",
-    avatarUrl: "/members/player-destro.png",
+    image: destroImg,
+    avatarUrl: destroImg,
     featuredQuote: "Patience and surgical funneling create triumphs.",
     avatarBg: "insta:@mg13e.sports",
     isCaptain: false,
@@ -157,8 +167,8 @@ export const playersData: Player[] = [
     team: "MG ESPORTS",
     about: "Dynamic multi-army versatility keeping opponents off-balance.",
     instagram: "@mg13e.sports",
-    image: "/members/player-leap.png",
-    avatarUrl: "/members/player-leap.png",
+    image: leapImg,
+    avatarUrl: leapImg,
     featuredQuote: "Adapt and conquer any defense layout.",
     avatarBg: "insta:@mg13e.sports",
     isCaptain: false,

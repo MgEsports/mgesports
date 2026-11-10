@@ -287,6 +287,47 @@ html.light .bg-black\/95 {
   color: #0F172A !important;
 }
 
+/* ==========================================================================
+   STRIP ALL DARK GRADIENTS IN LIGHT MODE & FORCE CLEAN WHITE / LIGHT GREY CARDS
+   (Fixes black banners, jersey containers, and player cards in light theme)
+   ========================================================================== */
+html.light [class*="from-\[\#0"],
+html.light [class*="from-\[\#1"],
+html.light [class*="from-black"],
+html.light [class*="from-neutral-900"],
+html.light [class*="from-zinc-900"] {
+  background-image: none !important;
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Sub-containers & inner visual frames inside cards */
+html.light .group [class*="from-\[\#181820\]"],
+html.light .group [class*="from-\[\#16161B\]"],
+html.light .group [class*="from-neutral-900"] {
+  background-image: none !important;
+  background-color: #F8F9FA !important;
+  border-color: #E2E8F0 !important;
+}
+
+/* Remove bottom black gradient overlays on athlete portraits & thumbnails in Light Mode */
+html.light .pointer-events-none.bg-gradient-to-t.from-\[\#0C0C0E\],
+html.light .pointer-events-none.bg-gradient-to-t.from-black,
+html.light .pointer-events-none.bg-gradient-to-t.from-black\/80,
+html.light [class*="bg-gradient-to-t"][class*="from-\[\#0C0C0E\]"],
+html.light [class*="bg-gradient-to-t"][class*="from-black"] {
+  display: none !important;
+}
+
+/* Jersey card container & preview in Light Mode */
+html.light .border-\[\#fc8100\]\/40.bg-gradient-to-b {
+  background-image: none !important;
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 10px 40px -5px rgba(0, 0, 0, 0.08) !important;
+}
+
 /* Modal Backdrop Overlay in Light Mode - Soft Light Grey Blur */
 html.light .fixed.inset-0.bg-black\/85,
 html.light .fixed.inset-0.bg-black\/80,

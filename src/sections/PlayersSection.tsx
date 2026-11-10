@@ -7,6 +7,20 @@ import { optimizeCloudinaryUrl } from "../utils/imageOptimizer";
 import logoImg from "../assets/lordz-logo.png";
 import { Crosshair, Shield, Zap, Target } from "lucide-react";
 
+import aadhilImg from "../assets/members/player-aadhil.png";
+import normanImg from "../assets/members/player-norman.png";
+import aeroImg from "../assets/members/player-aero.png";
+import dragoImg from "../assets/members/player-drago.png";
+import kolayaImg from "../assets/members/player-kolaya.png";
+import omkarImg from "../assets/members/player-omkar.png";
+import rudyImg from "../assets/members/player-rudy.png";
+import destroImg from "../assets/members/player-destro.png";
+import leapImg from "../assets/members/player-leap.png";
+import beastImg from "../assets/player-beast.jpg";
+import falconImg from "../assets/player-falcon.jpg";
+import shadowImg from "../assets/player-shadow.jpg";
+import viperImg from "../assets/player-viper.jpg";
+
 // Social SVG Icons
 const InstagramIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -21,41 +35,40 @@ interface PlayersSectionProps {
 }
 
 const KNOWN_MEMBER_IMAGES: Record<string, string> = {
-  aadil: "/members/player-aadhil.png",
-  aadhil: "/members/player-aadhil.png",
-  norman: "/members/player-norman.png",
-  aero: "/members/player-aero.png",
-  drago: "/uploads/db-tickerPlayers-4-image-1793023262887-37vld.png",
-  kolaya: "/members/player-kolaya.png",
-  omkar: "/members/player-omkar.png",
-  rudy: "/members/player-rudy.png",
-  destro: "/members/player-destro.png",
-  leap: "/members/player-leap.png",
+  aadil: aadhilImg,
+  aadhil: aadhilImg,
+  norman: normanImg,
+  aero: aeroImg,
+  drago: dragoImg,
+  kolaya: kolayaImg,
+  omkar: omkarImg,
+  rudy: rudyImg,
+  destro: destroImg,
+  leap: leapImg,
+  beast: beastImg,
+  falcon: falconImg,
+  shadow: shadowImg,
+  viper: viperImg,
 };
 
 const getPlayerFallbackImage = (player: Player): string | null => {
   const ign = (player.ign || "").trim().toLowerCase();
   const id = (player.id || "").trim().toLowerCase();
 
-  for (const [key, path] of Object.entries(KNOWN_MEMBER_IMAGES)) {
+  for (const [key, asset] of Object.entries(KNOWN_MEMBER_IMAGES)) {
     if (ign.includes(key) || id.includes(key)) {
-      return path;
+      return asset;
     }
   }
 
-  if (ign.includes("beast") || id.includes("beast")) return "/players/player-beast.jpg";
-  if (ign.includes("falcon") || id.includes("falcon")) return "/players/player-falcon.jpg";
-  if (ign.includes("shadow") || id.includes("shadow")) return "/players/player-shadow.jpg";
-  if (ign.includes("viper") || id.includes("viper")) return "/players/player-viper.jpg";
-
-  return null;
+  return beastImg;
 };
 
 const resolvePlayerImage = (player: Player): string | null => {
   let img = player.image || player.avatarUrl;
-  if (img && typeof img === "string" && img.trim()) {
+  if (img && typeof img === "string" && img.trim() && !img.includes("undefined") && !img.includes("null")) {
     let clean = img.trim().replace(/^\/?public\//i, "/");
-    if (!clean.startsWith("http") && !clean.startsWith("/")) {
+    if (!clean.startsWith("http") && !clean.startsWith("/") && !clean.startsWith("data:") && !clean.startsWith("blob:")) {
       clean = `/${clean}`;
     }
     return clean;
