@@ -14,7 +14,7 @@ function readDb(): Record<string, any> {
       return JSON.parse(fs.readFileSync(DB_FILE, 'utf-8'))
     }
   } catch {}
-  return { media: [], tournaments: [], news: [], partners: [] }
+  return { media: [], tournaments: [], news: [], partners: [], orders: [] }
 }
 
 function writeDb(db: Record<string, any>) {
@@ -147,6 +147,99 @@ function localDatabasePlugin(): Plugin {
           }
           writeDb(db)
           return sendJson(res, 200, { success: true, message: 'Backup imported successfully' })
+        }
+
+        // 1d. Order Management & Tracking Routes
+        if (pathname === '/orders/track') {
+          const db = readDb()
+          const orders = Array.isArray(db.orders) ? db.orders : []
+          const rawQuery = urlStr.includes('?') ? new URLSearchParams(urlStr.split('?')[1]).get('query') || '' : ''
+          const clean = rawQuery.trim().toUpperCase()
+          const cleanDigits = rawQuery.replace(/[^0-9]/g, '')
+
+          if (!clean) {
+            return sendJson(res, 200, { success: true, data: [] })
+          }
+
+          const matched = orders.filter((o: any) => {
+            if (!o) return false
+            const ordNum = (o.orderNumber || '').toUpperCase()
+            const phone = (o.customerPhone || '').replace(/[^0-9]/g, '')
+            const email = (o.customerEmail || '').toUpperCase()
+            const tracking = (o.trackingNumber || '').toUpperCase()
+
+            if (ordNum === clean || ordNum.includes(clean)) return true
+            if (clean.startsWith('MG-') && ordNum.includes(clean.replace(/^MG-/, ''))) return true
+            if (clean.startsWith('LZ-') && ordNum.includes(clean.replace(/^LZ-/, ''))) return true
+            if (email === clean) return true
+            if (tracking && tracking.includes(clean)) return true
+            if (cleanDigits.length >= 6 && phone.includes(cleanDigits)) return true
+            return false
+          })
+
+          return sendJson(res, 200, { success: true, data: matched })
+        }
+
+        if (pathname === '/orders/my-orders') {
+          const db = readDb()
+          return sendJson(res, 200, { success: true, data: Array.isArray(db.orders) ? db.orders : [] })
+        }
+
+        if (pathname.startsWith('/orders/') && pathname.endsWith('/status') && (method === 'PUT' || method === 'POST')) {
+          const parts = pathname.split('/')
+          const targetId = decodeURIComponent(parts[2] || '')
+          const body = await parseJsonBody(req)
+          const db = readDb()
+          const orders = Array.isArray(db.orders) ? db.orders : []
+          let updatedOrder: any = null
+
+          db.orders = orders.map((o: any) => {
+            if (o.id === targetId || o.orderNumber === targetId) {
+              updatedOrder = { ...o, ...body, updatedAt: new Date().toISOString() }
+              return updatedOrder
+            }
+            return o
+          })
+
+          if (!updatedOrder) {
+            updatedOrder = { id: targetId, ...body, updatedAt: new Date().toISOString() }
+            db.orders = [updatedOrder, ...db.orders]
+          }
+
+          writeDb(db)
+          return sendJson(res, 200, { success: true, message: 'Order status updated', data: updatedOrder })
+        }
+
+        if (pathname === '/orders' && method === 'POST') {
+          const body = await parseJsonBody(req)
+          const db = readDb()
+          const orders = Array.isArray(db.orders) ? db.orders : []
+          const randomSuffix = Math.floor(1000 + Math.random() * 9000)
+          const orderNumber = body.orderNumber || `MG-${new Date().getFullYear()}-${randomSuffix}`
+
+          const newOrder = {
+            id: body.id || `ord-${Date.now()}`,
+            orderNumber,
+            productName: body.productName || 'MG PRO COMBAT JERSEY 2026',
+            customerName: body.customerName || 'Fan',
+            customerEmail: body.customerEmail || 'fan@mgesports.in',
+            customerPhone: body.customerPhone || '',
+            address: body.address || '',
+            city: body.city || 'Chennai',
+            state: body.state || 'Tamil Nadu',
+            pincode: body.pincode || '600001',
+            size: body.size || 'L',
+            totalAmount: Number(body.totalAmount) || 1299,
+            paymentMethod: body.paymentMethod || 'UPI',
+            paymentStatus: body.paymentStatus || (body.paymentMethod === 'UPI' ? 'PENDING_VERIFICATION' : 'COD_PENDING'),
+            orderStatus: body.orderStatus || 'PENDING',
+            ...body,
+            createdAt: new Date().toISOString(),
+          }
+
+          db.orders = [newOrder, ...orders]
+          writeDb(db)
+          return sendJson(res, 201, { success: true, message: 'Order created successfully', data: newOrder })
         }
 
         // 2. Resource Collections: /media, /tournaments, /news, /partners

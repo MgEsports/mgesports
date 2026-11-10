@@ -116,6 +116,22 @@ export const AdminOrdersPage: React.FC = () => {
 
   useEffect(() => {
     loadOrders();
+
+    const handleOrdersChange = () => {
+      loadOrders();
+    };
+
+    window.addEventListener("mg_order_created", handleOrdersChange);
+    window.addEventListener("mg_orders_updated", handleOrdersChange);
+    window.addEventListener("storage", handleOrdersChange);
+    window.addEventListener("focus", handleOrdersChange);
+
+    return () => {
+      window.removeEventListener("mg_order_created", handleOrdersChange);
+      window.removeEventListener("mg_orders_updated", handleOrdersChange);
+      window.removeEventListener("storage", handleOrdersChange);
+      window.removeEventListener("focus", handleOrdersChange);
+    };
   }, [statusFilter, searchQuery]);
 
   const handleOpenTrackingModal = (ord: OrderItem) => {

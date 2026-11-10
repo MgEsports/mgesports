@@ -29,7 +29,7 @@ import {
   Clock,
 } from "lucide-react";
 import confetti from "canvas-confetti";
-import { merchandiseApi, type ProductItem as ApiProductItem, type OrderItem } from "../api/merchandise";
+import { merchandiseApi, saveSingleOrder, type ProductItem as ApiProductItem, type OrderItem } from "../api/merchandise";
 import { settingsApi } from "../api/settings";
 import {
   courierApi,
@@ -296,8 +296,12 @@ export const ProductsPage = () => {
     }
 
     setSubmitting(true);
+    const randomSuffix = Math.floor(1000 + Math.random() * 9000);
+    const generatedOrderNumber = `MG-${new Date().getFullYear()}-${randomSuffix}`;
+
     try {
       const orderPayload = {
+        orderNumber: generatedOrderNumber,
         productId: selectedProduct.id,
         productName: selectedProduct.name,
         customerName: formData.customerName,
@@ -319,12 +323,12 @@ export const ProductsPage = () => {
       const res = await merchandiseApi.createOrder(orderPayload);
       const created = res || {
         id: `ord-${Date.now()}`,
-        orderNumber: `MG-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`,
         ...orderPayload,
         orderStatus: "PENDING" as const,
         createdAt: new Date().toISOString(),
       };
 
+      saveSingleOrder(created);
       setConfirmedOrder(created);
       setCheckoutStep("CONFIRMED");
       loadUserOrders();
@@ -341,7 +345,7 @@ export const ProductsPage = () => {
       // Graceful offline fallback
       const offlineOrder: OrderItem = {
         id: `ord-${Date.now()}`,
-        orderNumber: `MG-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`,
+        orderNumber: generatedOrderNumber,
         productName: selectedProduct.name,
         customerName: formData.customerName,
         customerEmail: formData.customerEmail || "fan@mgesports.in",
@@ -360,6 +364,7 @@ export const ProductsPage = () => {
         orderStatus: "PENDING",
         createdAt: new Date().toISOString(),
       };
+      saveSingleOrder(offlineOrder);
       setConfirmedOrder(offlineOrder);
       setCheckoutStep("CONFIRMED");
     } finally {
@@ -1067,7 +1072,7 @@ export const ProductsPage = () => {
                   )}
 
                   {/* Customer Information */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div>
                       <label className="block text-xs font-heading font-bold uppercase text-gray-300 mb-1">
                         Full Name *
@@ -1080,12 +1085,12 @@ export const ProductsPage = () => {
                           setFormData({ ...formData, customerName: e.target.value })
                         }
                         placeholder="Karthik R"
-                        className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-xs text-white focus:border-[#fc8100] focus:outline-none font-body"
+                        className="w-full rounded-xl border border-white/15 bg-black/60 px-3 py-2 text-xs text-white focus:border-[#fc8100] focus:outline-none font-body"
                       />
                     </div>
                     <div>
                       <label className="block text-xs font-heading font-bold uppercase text-gray-300 mb-1">
-                        Phone Number (WhatsApp) *
+                        Phone Number *
                       </label>
                       <input
                         type="tel"
@@ -1095,7 +1100,21 @@ export const ProductsPage = () => {
                           setFormData({ ...formData, customerPhone: e.target.value })
                         }
                         placeholder="+91 98765 43210"
-                        className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-2.5 text-xs text-white focus:border-[#fc8100] focus:outline-none font-mono"
+                        className="w-full rounded-xl border border-white/15 bg-black/60 px-3 py-2 text-xs text-white focus:border-[#fc8100] focus:outline-none font-mono"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-heading font-bold uppercase text-gray-300 mb-1">
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        value={formData.customerEmail}
+                        onChange={(e) =>
+                          setFormData({ ...formData, customerEmail: e.target.value })
+                        }
+                        placeholder="fan@mgesports.in"
+                        className="w-full rounded-xl border border-white/15 bg-black/60 px-3 py-2 text-xs text-white focus:border-[#fc8100] focus:outline-none font-body"
                       />
                     </div>
                   </div>

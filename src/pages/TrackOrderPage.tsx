@@ -13,7 +13,7 @@ import {
   ArrowRight,
   User,
 } from "lucide-react";
-import { merchandiseApi, type OrderItem } from "../api/merchandise";
+import { merchandiseApi, getStoredOrders, type OrderItem } from "../api/merchandise";
 import {
   courierApi,
   detectCourierSlug,
@@ -159,6 +159,15 @@ export const TrackOrderPage = () => {
     } else if (isAuthenticated && user?.email) {
       setSearchQuery(user.email);
       executeSearch(user.email);
+    } else {
+      const recent = getStoredOrders();
+      if (recent.length > 0) {
+        setOrders(recent);
+        setSearched(true);
+        if (recent[0].orderNumber) {
+          setSearchQuery(recent[0].orderNumber);
+        }
+      }
     }
   }, [searchParams, isAuthenticated, user]);
 

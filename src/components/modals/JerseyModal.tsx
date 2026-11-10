@@ -5,7 +5,7 @@ import { Check, ShieldCheck, Sparkles } from "lucide-react";
 import jerseyFrontImg from "../../assets/jersey-front.jpg";
 import jerseyBackImg from "../../assets/jersey-back.jpg";
 import confetti from "canvas-confetti";
-import { getApiUrl } from "../../api/client";
+import { merchandiseApi } from "../../api/merchandise";
 
 interface JerseyModalProps {
   isOpen: boolean;
@@ -27,35 +27,34 @@ export const JerseyModal = ({ isOpen, onClose }: JerseyModalProps) => {
   const handleOrder = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    const randomSuffix = Math.floor(1000 + Math.random() * 9000);
+    const generatedOrderNumber = `MG-${new Date().getFullYear()}-${randomSuffix}`;
+
     try {
-      const res = await fetch(getApiUrl("/orders"), {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          productName: "MG PRO COMBAT JERSEY 2026",
-          customerName: customerName || "Esports Enthusiast",
-          customerEmail: "fan@mgesports.in",
-          customerPhone: customerPhone || "+91 98765 00000",
-          address: "Official Shipping Dispatch",
-          city: "Chennai",
-          state: "Tamil Nadu",
-          pincode: "600001",
-          size: selectedSize,
-          customIgn: customIgn.toUpperCase(),
-          customNumber: customNumber,
-          totalAmount: 1299,
-          paymentMethod: "ONLINE",
-        }),
+      const created = await merchandiseApi.createOrder({
+        productName: "MG PRO COMBAT JERSEY 2026",
+        customerName: customerName || "Esports Enthusiast",
+        customerEmail: "fan@mgesports.in",
+        customerPhone: customerPhone || "+91 98765 00000",
+        address: "Official Shipping Dispatch",
+        city: "Chennai",
+        state: "Tamil Nadu",
+        pincode: "600001",
+        size: selectedSize,
+        customIgn: customIgn.toUpperCase(),
+        customNumber: customNumber,
+        totalAmount: 1299,
+        paymentMethod: "ONLINE",
+        orderNumber: generatedOrderNumber,
       });
 
-      if (res.ok) {
-        const data = await res.json();
-        if (data.data?.orderNumber) {
-          setOrderNumber(data.data.orderNumber);
-        }
+      if (created?.orderNumber) {
+        setOrderNumber(created.orderNumber);
+      } else {
+        setOrderNumber(generatedOrderNumber);
       }
     } catch {
-      // offline fallback
+      setOrderNumber(generatedOrderNumber);
     }
 
     confetti({

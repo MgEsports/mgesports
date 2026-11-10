@@ -4,15 +4,17 @@ import { prisma } from "../config/prisma.js";
 import { AuthenticatedRequest } from "../middleware/auth.js";
 
 const orderSchema = z.object({
+  id: z.string().optional().nullable(),
+  orderNumber: z.string().optional().nullable(),
   productId: z.string().optional().nullable(),
-  productName: z.string().default("LORDZ PRO COMBAT JERSEY 2026"),
-  customerName: z.string().min(2),
-  customerEmail: z.string().email(),
-  customerPhone: z.string().min(8),
-  address: z.string().min(5),
-  city: z.string().min(2),
-  state: z.string().min(2),
-  pincode: z.string().min(4),
+  productName: z.string().default("MG PRO COMBAT JERSEY 2026"),
+  customerName: z.string().min(1).default("Clan Supporter"),
+  customerEmail: z.string().optional().nullable(),
+  customerPhone: z.string().optional().nullable(),
+  address: z.string().optional().nullable(),
+  city: z.string().optional().nullable(),
+  state: z.string().optional().nullable(),
+  pincode: z.string().optional().nullable(),
   size: z.string().default("L"),
   customIgn: z.string().optional().nullable(),
   customNumber: z.string().optional().nullable(),
@@ -21,14 +23,16 @@ const orderSchema = z.object({
   utrNumber: z.string().optional().nullable(),
   paymentStatus: z.string().optional().nullable(),
   courierPartner: z.string().optional().nullable(),
+  trackingNumber: z.string().optional().nullable(),
   expectedDeliveryDate: z.string().optional().nullable(),
+  adminNotes: z.string().optional().nullable(),
 });
 
 export const createOrder = async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> => {
   try {
     const data = orderSchema.parse(req.body);
     const randomSuffix = Math.floor(1000 + Math.random() * 9000);
-    const orderNumber = `MG-${new Date().getFullYear()}-${randomSuffix}`;
+    const orderNumber = req.body.orderNumber || data.orderNumber || `MG-${new Date().getFullYear()}-${randomSuffix}`;
 
     const defaultPaymentStatus =
       data.paymentStatus ||
@@ -37,12 +41,22 @@ export const createOrder = async (req: AuthenticatedRequest, res: Response, next
         : "COD_PENDING");
 
     // If user is logged in, ensure customerEmail and customerName default cleanly
-    const customerEmail = data.customerEmail || req.user?.email || "fan@mgesports.gg";
+    const customerEmail = data.customerEmail?.trim() || req.user?.email || "fan@mgesports.in";
+    const customerPhone = data.customerPhone?.trim() || "";
+    const address = data.address?.trim() || "Official Clan Dispatch";
+    const city = data.city?.trim() || "Chennai";
+    const state = data.state?.trim() || "Tamil Nadu";
+    const pincode = data.pincode?.trim() || "600001";
 
     const order = await prisma.order.create({
       data: {
         ...data,
         customerEmail,
+        customerPhone,
+        address,
+        city,
+        state,
+        pincode,
         orderNumber,
         paymentStatus: defaultPaymentStatus,
         orderStatus: "PENDING",
@@ -165,9 +179,9 @@ export const trackOrder = async (req: Request, res: Response, next: NextFunction
       { trackingNumber: { contains: cleanQuery, mode: "insensitive" } },
     ];
 
-    if (cleanPhone.length >= 10) {
-      const last10 = cleanPhone.slice(-10);
-      conditions.push({ customerPhone: { contains: last10 } });
+    if (cleanPhone.length >= 6) {
+      const matchDigits = cleanPhone.length > 10 ? cleanPhone.slice(-10) : cleanPhone;
+      conditions.push({ customerPhone: { contains: matchDigits } });
     }
 
     const orders = await prisma.order.findMany({

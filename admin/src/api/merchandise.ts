@@ -49,15 +49,66 @@ export interface OrderItem {
   createdAt: string;
 }
 
+export const ORDERS_STORAGE_KEY = "mg_cached_orders";
+export const DELETED_ORDERS_KEY = "lordz_deleted_orders";
+
 function getDeletedOrderSet(): Set<string> {
   try {
-    const raw = typeof localStorage !== "undefined" ? localStorage.getItem("lordz_deleted_orders") : null;
+    const raw = typeof localStorage !== "undefined" ? localStorage.getItem(DELETED_ORDERS_KEY) : null;
     if (!raw) return new Set();
     const arr = JSON.parse(raw);
     return new Set(Array.isArray(arr) ? arr : []);
   } catch {
     return new Set();
   }
+}
+
+export function getStoredOrders(): OrderItem[] {
+  if (typeof window !== "undefined") {
+    try {
+      const deletedSet = getDeletedOrderSet();
+      const raw = localStorage.getItem(ORDERS_STORAGE_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) {
+          return parsed
+            .filter((o: OrderItem) => o && (o.id || o.orderNumber) && !deletedSet.has(o.id) && !deletedSet.has(o.orderNumber))
+            .map(normalizeOrder);
+        }
+      }
+    } catch {}
+  }
+  return [];
+}
+
+export function persistStoredOrders(items: OrderItem[]) {
+  if (typeof window !== "undefined") {
+    try {
+      const deletedSet = getDeletedOrderSet();
+      const filtered = items
+        .filter((o) => o && (o.id || o.orderNumber) && !deletedSet.has(o.id) && !deletedSet.has(o.orderNumber))
+        .map(normalizeOrder);
+      localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(filtered));
+      window.dispatchEvent(new CustomEvent("mg_orders_updated", { detail: filtered }));
+    } catch {}
+  }
+}
+
+export function saveSingleOrder(ord: OrderItem): OrderItem {
+  const normalized = normalizeOrder(ord);
+  const current = getStoredOrders();
+  const existingIdx = current.findIndex(
+    (o) => (normalized.id && o.id === normalized.id) || (normalized.orderNumber && o.orderNumber === normalized.orderNumber)
+  );
+  let updated: OrderItem[];
+  if (existingIdx >= 0) {
+    updated = [...current];
+    updated[existingIdx] = { ...updated[existingIdx], ...normalized };
+  } else {
+    updated = [normalized, ...current];
+  }
+  persistStoredOrders(updated);
+  return normalized;
 }
 
 export function markOrderAsDeleted(identifiers: string[]) {
@@ -67,7 +118,11 @@ export function markOrderAsDeleted(identifiers: string[]) {
     identifiers.forEach((id) => {
       if (id && typeof id === "string") set.add(id.trim());
     });
-    localStorage.setItem("lordz_deleted_orders", JSON.stringify(Array.from(set)));
+    localStorage.setItem(DELETED_ORDERS_KEY, JSON.stringify(Array.from(set)));
+
+    // Also remove from stored orders
+    const current = getStoredOrders().filter((o) => !set.has(o.id) && !set.has(o.orderNumber));
+    persistStoredOrders(current);
   } catch {}
 }
 
@@ -113,22 +168,90 @@ export const merchandiseApi = {
   },
 
   createOrder: async (data: any): Promise<OrderItem> => {
-    return apiRequest<OrderItem>("/orders", {
-      method: "POST",
-      body: JSON.stringify(data),
-    });
+    const tempId = data.id || `ord-${Date.now()}`;
+    const randomSuffix = Math.floor(1000 + Math.random() * 9000);
+    const generatedOrderNumber = data.orderNumber || `MG-${new Date().getFullYear()}-${randomSuffix}`;
+
+    const localOrder: OrderItem = {
+      id: tempId,
+      orderNumber: generatedOrderNumber,
+      productId: data.productId || null,
+      productName: data.productName || "MG PRO COMBAT JERSEY 2026",
+      customerName: data.customerName || "Clan Supporter",
+      customerEmail: data.customerEmail || "fan@mgesports.in",
+      customerPhone: data.customerPhone || "",
+      address: data.address || "",
+      city: data.city || "Chennai",
+      state: data.state || "Tamil Nadu",
+      pincode: data.pincode || "600001",
+      size: data.size || "L",
+      customIgn: data.customIgn || null,
+      customNumber: data.customNumber || null,
+      totalAmount: Number(data.totalAmount) || 1299,
+      paymentMethod: data.paymentMethod || "UPI",
+      paymentStatus: data.paymentStatus || "PENDING",
+      utrNumber: data.utrNumber || null,
+      orderStatus: "PENDING",
+      courierPartner: null,
+      trackingNumber: null,
+      expectedDeliveryDate: null,
+      adminNotes: null,
+      createdAt: new Date().toISOString(),
+    };
+
+    saveSingleOrder(localOrder);
+
+    try {
+      const res = await apiRequest<OrderItem>("/orders", {
+        method: "POST",
+        body: JSON.stringify({ ...data, orderNumber: generatedOrderNumber }),
+      });
+      if (res && (res.id || res.orderNumber)) {
+        const synced = normalizeOrder({
+          ...localOrder,
+          ...res,
+          orderNumber: res.orderNumber ? res.orderNumber.replace(/^LZ-/i, "MG-") : generatedOrderNumber,
+        });
+        saveSingleOrder(synced);
+        return synced;
+      }
+      return localOrder;
+    } catch {
+      return localOrder;
+    }
   },
 
   getOrders: async (params?: { status?: string; search?: string }): Promise<OrderItem[]> => {
+    const local = getStoredOrders();
     const query = new URLSearchParams();
     if (params?.status && params.status !== "ALL") query.set("status", params.status);
     if (params?.search) query.set("search", params.search);
 
     const qs = query.toString() ? `?${query.toString()}` : "";
-    const list = await apiRequest<OrderItem[]>(`/orders${qs}`, { method: "GET" }, []);
-    const deletedSet = getDeletedOrderSet();
+    let serverOrders: OrderItem[] = [];
+    try {
+      const list = await apiRequest<OrderItem[]>(`/orders${qs}`, { method: "GET" }, []);
+      if (Array.isArray(list)) {
+        serverOrders = list.map(normalizeOrder);
+      }
+    } catch {}
 
-    return (Array.isArray(list) ? list : [])
+    // Merge server and local orders
+    const map = new Map<string, OrderItem>();
+    local.forEach((o) => {
+      const key = o.orderNumber || o.id;
+      if (key) map.set(key, o);
+    });
+    serverOrders.forEach((o) => {
+      const key = o.orderNumber || o.id;
+      if (key) {
+        const existing = map.get(key);
+        map.set(key, existing ? { ...existing, ...o } : o);
+      }
+    });
+
+    const deletedSet = getDeletedOrderSet();
+    const merged = Array.from(map.values())
       .filter((ord) => {
         if (!ord) return false;
         if ((ord.orderStatus as any) === "DELETED" || ord.adminNotes === "__DELETED__") return false;
@@ -136,7 +259,10 @@ export const merchandiseApi = {
         if (ord.orderNumber && deletedSet.has(ord.orderNumber)) return false;
         return true;
       })
-      .map(normalizeOrder);
+      .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+
+    persistStoredOrders(merged);
+    return merged;
   },
 
   deleteOrder: async (id: string, orderNumber?: string): Promise<{ success: boolean }> => {
@@ -206,9 +332,24 @@ export const merchandiseApi = {
         ? { orderStatus: payload, trackingNumber }
         : payload;
 
-    return apiRequest<OrderItem>(`/orders/${id}/status`, {
-      method: "PUT",
-      body: JSON.stringify(body),
-    });
+    // Update local cache immediately
+    const local = getStoredOrders();
+    const existing = local.find((o) => o.id === id || o.orderNumber === id);
+    if (existing) {
+      saveSingleOrder({ ...existing, ...body } as OrderItem);
+    }
+
+    try {
+      const res = await apiRequest<OrderItem>(`/orders/${encodeURIComponent(id)}/status`, {
+        method: "PUT",
+        body: JSON.stringify(body),
+      });
+      if (res && (res.id || res.orderNumber)) {
+        saveSingleOrder(res);
+        return normalizeOrder(res);
+      }
+    } catch {}
+
+    return existing ? ({ ...existing, ...body } as OrderItem) : ({} as OrderItem);
   },
 };
