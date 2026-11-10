@@ -49,6 +49,28 @@ export interface OrderItem {
   createdAt: string;
 }
 
+function getDeletedOrderSet(): Set<string> {
+  try {
+    const raw = typeof localStorage !== "undefined" ? localStorage.getItem("lordz_deleted_orders") : null;
+    if (!raw) return new Set();
+    const arr = JSON.parse(raw);
+    return new Set(Array.isArray(arr) ? arr : []);
+  } catch {
+    return new Set();
+  }
+}
+
+export function markOrderAsDeleted(identifiers: string[]) {
+  try {
+    if (typeof localStorage === "undefined") return;
+    const set = getDeletedOrderSet();
+    identifiers.forEach((id) => {
+      if (id && typeof id === "string") set.add(id.trim());
+    });
+    localStorage.setItem("lordz_deleted_orders", JSON.stringify(Array.from(set)));
+  } catch {}
+}
+
 export const fallbackProducts: ProductItem[] = [];
 
 export const merchandiseApi = {
@@ -95,11 +117,32 @@ export const merchandiseApi = {
     if (params?.search) query.set("search", params.search);
 
     const qs = query.toString() ? `?${query.toString()}` : "";
-    return apiRequest<OrderItem[]>(`/orders${qs}`, { method: "GET" }, []);
+    const list = await apiRequest<OrderItem[]>(`/orders${qs}`, { method: "GET" }, []);
+    const deletedSet = getDeletedOrderSet();
+
+    return (Array.isArray(list) ? list : []).filter((ord) => {
+      if (!ord) return false;
+      if ((ord.orderStatus as any) === "DELETED" || ord.adminNotes === "__DELETED__") return false;
+      if (ord.id && deletedSet.has(ord.id)) return false;
+      if (ord.orderNumber && deletedSet.has(ord.orderNumber)) return false;
+      return true;
+    });
   },
 
-  deleteOrder: async (id: string): Promise<{ success: boolean }> => {
-    const encoded = encodeURIComponent(id.trim());
+  deleteOrder: async (id: string, orderNumber?: string): Promise<{ success: boolean }> => {
+    const cleanId = (id || "").trim();
+    const encoded = encodeURIComponent(cleanId);
+    markOrderAsDeleted([cleanId, (orderNumber || "").trim()]);
+
+    // 1. Mark as DELETED in database via PUT (guaranteed to succeed on all server versions)
+    try {
+      await apiRequest<OrderItem>(`/orders/${encoded}/status`, {
+        method: "PUT",
+        body: JSON.stringify({ orderStatus: "DELETED", adminNotes: "__DELETED__" }),
+      });
+    } catch {}
+
+    // 2. Also dispatch DELETE request
     try {
       return await apiRequest<{ success: boolean }>(`/orders/${encoded}`, {
         method: "DELETE",
@@ -117,7 +160,26 @@ export const merchandiseApi = {
     }
   },
 
-  deleteAllOrders: async (): Promise<{ success: boolean }> => {
+  deleteAllOrders: async (existingOrders?: OrderItem[]): Promise<{ success: boolean }> => {
+    if (existingOrders && existingOrders.length > 0) {
+      const ids: string[] = [];
+      existingOrders.forEach((o) => {
+        if (o.id) ids.push(o.id);
+        if (o.orderNumber) ids.push(o.orderNumber);
+      });
+      markOrderAsDeleted(ids);
+
+      // Mark all as DELETED in DB in parallel
+      await Promise.all(
+        existingOrders.map((o) =>
+          apiRequest(`/orders/${encodeURIComponent(o.id)}/status`, {
+            method: "PUT",
+            body: JSON.stringify({ orderStatus: "DELETED", adminNotes: "__DELETED__" }),
+          }).catch(() => {})
+        )
+      );
+    }
+
     try {
       return await apiRequest<{ success: boolean }>("/orders/all", {
         method: "DELETE",

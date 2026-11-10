@@ -86,6 +86,8 @@ export const getMyOrders = async (
     const orders = await prisma.order.findMany({
       where: {
         customerEmail: { equals: email, mode: "insensitive" },
+        orderStatus: { not: "DELETED" },
+        adminNotes: { not: "__DELETED__" },
       },
       orderBy: { createdAt: "desc" },
     });
@@ -110,7 +112,10 @@ export const getOrders = async (req: AuthenticatedRequest, res: Response, next: 
   try {
     const { status, search, email, phone } = req.query;
 
-    const where: any = {};
+    const where: any = {
+      orderStatus: { not: "DELETED" },
+      adminNotes: { not: "__DELETED__" },
+    };
     if (status && status !== "ALL") where.orderStatus = String(status);
     if (email) where.customerEmail = { equals: String(email), mode: "insensitive" };
     if (phone) {
@@ -162,7 +167,11 @@ export const trackOrder = async (req: Request, res: Response, next: NextFunction
 
     const orders = await prisma.order.findMany({
       where: {
-        OR: conditions,
+        AND: [
+          { OR: conditions },
+          { orderStatus: { not: "DELETED" } },
+          { adminNotes: { not: "__DELETED__" } },
+        ],
       },
       orderBy: { createdAt: "desc" },
     });

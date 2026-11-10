@@ -93,15 +93,19 @@ export const merchandiseApi = {
   },
 
   trackOrders: async (query: string): Promise<OrderItem[]> => {
-    return apiRequest<OrderItem[]>(`/orders/track?query=${encodeURIComponent(query)}`, { method: "GET" }, []);
+    const orders = await apiRequest<OrderItem[]>(`/orders/track?query=${encodeURIComponent(query)}`, { method: "GET" }, []);
+    return (Array.isArray(orders) ? orders : []).filter(
+      (o) => o && (o.orderStatus as any) !== "DELETED" && o.adminNotes !== "__DELETED__"
+    );
   },
 
   getMyOrders: async (): Promise<OrderItem[]> => {
     try {
       const res = await apiRequest<{ success: boolean; data: OrderItem[]; user?: any } | OrderItem[]>("/orders/my-orders", { method: "GET" });
-      if (Array.isArray(res)) return res;
-      if (res && Array.isArray((res as any).data)) return (res as any).data;
-      return [];
+      const list = Array.isArray(res) ? res : res && Array.isArray((res as any).data) ? (res as any).data : [];
+      return list.filter(
+        (o: OrderItem) => o && (o.orderStatus as any) !== "DELETED" && o.adminNotes !== "__DELETED__"
+      );
     } catch {
       return [];
     }

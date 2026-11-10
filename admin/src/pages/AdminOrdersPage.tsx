@@ -148,25 +148,32 @@ export const AdminOrdersPage: React.FC = () => {
     setTimeout(() => setCopiedUtr(null), 2000);
   };
 
-  const handleDeleteOrder = async (id: string) => {
+  const handleDeleteOrder = async (id: string, orderNumber?: string) => {
     if (!confirm("Are you sure you want to delete this order?")) return;
     try {
-      await merchandiseApi.deleteOrder(id);
+      await merchandiseApi.deleteOrder(id, orderNumber);
     } catch (err: any) {
       console.warn("Delete order notice:", err?.message);
     } finally {
-      setOrders((prev) => prev.filter((o) => o.id !== id && o.orderNumber !== id));
+      setOrders((prev) =>
+        prev.filter(
+          (o) => o.id !== id && o.orderNumber !== id && (orderNumber ? o.orderNumber !== orderNumber : true)
+        )
+      );
     }
   };
 
   const handleDeleteAllOrders = async () => {
     if (orders.length === 0) return;
     if (!confirm(`Are you sure you want to delete ALL ${orders.length} orders? This will wipe all demo and customer orders.`)) return;
+    const currentOrders = [...orders];
     try {
       try {
-        await merchandiseApi.deleteAllOrders();
+        await merchandiseApi.deleteAllOrders(currentOrders);
       } catch {
-        await Promise.all(orders.map((o) => merchandiseApi.deleteOrder(o.id).catch(() => {})));
+        await Promise.all(
+          currentOrders.map((o) => merchandiseApi.deleteOrder(o.id, o.orderNumber).catch(() => {}))
+        );
       }
     } catch (err: any) {
       console.warn("Delete all orders notice:", err?.message);
@@ -400,7 +407,7 @@ export const AdminOrdersPage: React.FC = () => {
                             type="button"
                             onClick={(e) => {
                               e.stopPropagation();
-                              handleDeleteOrder(ord.id);
+                              handleDeleteOrder(ord.id, ord.orderNumber);
                             }}
                             className="p-1.5 rounded-lg bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/20 hover:border-rose-500/40 cursor-pointer transition-colors"
                             title="Delete Order"
@@ -590,7 +597,7 @@ export const AdminOrdersPage: React.FC = () => {
                     </button>
                     <button
                       type="button"
-                      onClick={() => handleDeleteOrder(ord.id)}
+                      onClick={() => handleDeleteOrder(ord.id, ord.orderNumber)}
                       className="p-2 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/20 hover:border-rose-500/40 cursor-pointer transition-colors"
                       title="Delete Order"
                     >
