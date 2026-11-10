@@ -6,11 +6,7 @@ import {
   Check,
   Copy,
   Calendar,
-  MapPin,
-  Clock,
-  ExternalLink,
   PackageCheck,
-  RotateCcw,
   Sparkles,
   Phone,
   AlertCircle,
@@ -21,8 +17,6 @@ import { merchandiseApi, type OrderItem } from "../api/merchandise";
 import {
   courierApi,
   detectCourierSlug,
-  getAftershipTrackingUrl,
-  getCourierDirectUrl,
   type TrackingResponse,
 } from "../api/courier";
 import { useAuth } from "../context/AuthContext";
@@ -347,8 +341,6 @@ export const TrackOrderPage = () => {
 
               {displayedOrders.map((ord) => {
                 const liveData = liveTrackingMap[ord.id];
-                const isLoadingTracking = loadingTrackingMap[ord.id];
-                const courierSlug = detectCourierSlug(ord.courierPartner);
 
                 // Auto-sync status with AfterShip live verification
                 const isCarrierDelivered =
@@ -581,143 +573,6 @@ export const TrackOrderPage = () => {
                         )}
                       </div>
                     </div>
-
-                    {/* Live Carrier Checkpoints & Journey */}
-                    {ord.trackingNumber && (
-                      <div className="p-4 rounded-xl bg-black/60 border border-white/10 space-y-4">
-                        <div className="flex items-center justify-between border-b border-white/5 pb-3">
-                          <div className="flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-wider text-white">
-                            <Clock className="h-4 w-4 text-[#fc8100]" />
-                            <span>Live Carrier Checkpoints (AfterShip Integration)</span>
-                          </div>
-
-                          <button
-                            type="button"
-                            onClick={() =>
-                              fetchLiveTracking(ord.id, ord.trackingNumber!, ord.courierPartner)
-                            }
-                            disabled={isLoadingTracking}
-                            className="text-[11px] font-mono text-gray-400 hover:text-[#fc8100] flex items-center gap-1 cursor-pointer"
-                          >
-                            <RotateCcw className={`h-3 w-3 ${isLoadingTracking ? "animate-spin" : ""}`} />
-                            <span>Refresh</span>
-                          </button>
-                        </div>
-
-                        {isLoadingTracking ? (
-                          <div className="py-6 text-center text-xs font-mono text-gray-400">
-                            Retrieving latest carrier scan updates...
-                          </div>
-                        ) : liveData ? (
-                          <div className="space-y-4">
-                            {/* Carrier Status Tag */}
-                            <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
-                              <div>
-                                <span className="text-gray-400">Carrier Status: </span>
-                                <strong className="text-white">
-                                  {liveData.subtagMessage || liveData.tag || "In Transit"}
-                                </strong>
-                              </div>
-                              <span
-                                className={`px-2.5 py-0.5 rounded text-[10px] font-bold uppercase border ${
-                                  liveData.tag === "Delivered"
-                                    ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/30"
-                                    : "bg-amber-500/20 text-amber-300 border-amber-500/30"
-                                }`}
-                              >
-                                {liveData.tag || "In Transit"}
-                              </span>
-                            </div>
-
-                            {/* Checkpoints Timeline */}
-                            {liveData.checkpoints && liveData.checkpoints.length > 0 ? (
-                              <div className="space-y-3 border-l-2 border-white/10 ml-2 pl-4 py-1">
-                                {liveData.checkpoints
-                                  .slice()
-                                  .reverse()
-                                  .map((cp, idx) => (
-                                    <div key={idx} className="relative">
-                                      <div
-                                        className={`absolute -left-[23px] top-1 h-3 w-3 rounded-full border-2 border-black ${
-                                          idx === 0
-                                            ? "bg-[#fc8100] ring-2 ring-[#fc8100]/40"
-                                            : "bg-gray-600"
-                                        }`}
-                                      />
-                                      <div className="text-xs">
-                                        <span className="font-bold text-white block">
-                                          {cp.message || cp.subtag_message || "Checkpoint Update"}
-                                        </span>
-                                        <div className="text-[11px] text-gray-400 font-mono mt-0.5 flex flex-wrap items-center gap-2">
-                                          {cp.location && (
-                                            <span className="flex items-center gap-1 text-[#fc8100]">
-                                              <MapPin className="h-3 w-3" />
-                                              {cp.location}
-                                            </span>
-                                          )}
-                                          {cp.checkpoint_time && (
-                                            <span>
-                                              {new Date(cp.checkpoint_time).toLocaleString("en-IN", {
-                                                dateStyle: "medium",
-                                                timeStyle: "short",
-                                              })}
-                                            </span>
-                                          )}
-                                        </div>
-                                      </div>
-                                    </div>
-                                  ))}
-                              </div>
-                            ) : (
-                              <div className="text-xs text-gray-400 font-mono py-2">
-                                Package registered with carrier. Initial hub scan pending.
-                              </div>
-                            )}
-
-                            {/* External Tracking Links */}
-                            <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-white/5 text-xs font-mono">
-                              <a
-                                href={
-                                  liveData.courierTrackingUrl ||
-                                  getCourierDirectUrl(courierSlug, ord.trackingNumber)
-                                }
-                                target="_blank"
-                                rel="noreferrer"
-                                className="px-3.5 py-1.5 rounded-lg bg-[#fc8100] hover:bg-[#e07200] text-black font-bold uppercase tracking-wider flex items-center gap-1"
-                              >
-                                <span>Carrier Website</span>
-                                <ExternalLink className="h-3 w-3" />
-                              </a>
-                              <a
-                                href={
-                                  liveData.aftershipTrackingUrl ||
-                                  getAftershipTrackingUrl(courierSlug, ord.trackingNumber)
-                                }
-                                target="_blank"
-                                rel="noreferrer"
-                                className="px-3 py-1.5 rounded-lg border border-white/15 hover:border-white/30 text-gray-300 hover:text-white flex items-center gap-1"
-                              >
-                                <span>AfterShip Portal</span>
-                                <ExternalLink className="h-3 w-3" />
-                              </a>
-                            </div>
-                          </div>
-                        ) : (
-                          <div className="flex items-center justify-between text-xs font-mono">
-                            <span className="text-gray-400">Carrier Scan: Registered with courier</span>
-                            <a
-                              href={getCourierDirectUrl(courierSlug, ord.trackingNumber)}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="text-[#fc8100] hover:underline flex items-center gap-1"
-                            >
-                              <span>Track on Carrier Website</span>
-                              <ExternalLink className="h-3 w-3" />
-                            </a>
-                          </div>
-                        )}
-                      </div>
-                    )}
 
                     {/* Item Details */}
                     <div className="p-3 rounded-xl bg-black/40 border border-white/5 flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
