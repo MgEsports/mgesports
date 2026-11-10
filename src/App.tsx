@@ -23,6 +23,7 @@ const BrandPartnersPage = lazy(() => import("./pages/BrandPartnersPage").then((m
 const PartnersPage = lazy(() => import("./pages/PartnersPage").then((m) => ({ default: m.PartnersPage })));
 const MyTournamentsPage = lazy(() => import("./pages/MyTournamentsPage").then((m) => ({ default: m.MyTournamentsPage })));
 const VotingPage = lazy(() => import("./pages/VotingPage").then((m) => ({ default: m.VotingPage })));
+const TrackOrderPage = lazy(() => import("./pages/TrackOrderPage").then((m) => ({ default: m.TrackOrderPage })));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage").then((m) => ({ default: m.NotFoundPage })));
 const AdminPortalRoutes = lazy(() => import("../admin/src/AdminPortalRoutes").then((m) => ({ default: m.AdminPortalRoutes })));
 
@@ -87,6 +88,9 @@ export function App() {
               <Route path="/voting" element={<VotingPage />} />
               <Route path="/teams" element={<Navigate to="/about#teams" replace />} />
               <Route path="/products" element={<ProductsPage />} />
+              <Route path="/track" element={<TrackOrderPage />} />
+              <Route path="/track-order" element={<Navigate to="/track" replace />} />
+              <Route path="/order-tracking" element={<Navigate to="/track" replace />} />
               <Route path="/jersey" element={<Navigate to="/products" replace />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/hall-of-glory" element={<Navigate to="/tournaments" replace />} />

@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ShoppingBag,
@@ -674,26 +675,17 @@ export const ProductsPage = () => {
                 </span>
               </div>
 
-              <button
-                type="button"
-                onClick={() => {
-                  if (isAuthenticated) {
-                    loadUserOrders();
-                    setTrackViewTab("MY_ORDERS");
-                  } else {
-                    setTrackViewTab("SEARCH");
-                  }
-                  setTrackModalOpen(true);
-                }}
+              <Link
+                to="/track"
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 hover:bg-[#FFBE32]/20 border border-white/20 hover:border-[#FFBE32]/50 text-white hover:text-[#FFBE32] text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer shadow-sm"
               >
-                <Truck className="h-3.5 w-3.5" />
+                <Truck className="h-3.5 w-3.5 text-[#FFBE32]" />
                 <span>
                   {isAuthenticated
                     ? `My Orders ${myOrders.length > 0 ? `(${myOrders.length})` : ""}`
                     : "Track My Order"}
                 </span>
-              </button>
+              </Link>
             </div>
 
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-wide text-white leading-[1.1]">

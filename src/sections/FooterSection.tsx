@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import logoImg from "../assets/lordz-logo.png";
-import { ArrowUp, Mail, MapPin } from "lucide-react";
+import { ArrowUp, Mail, MapPin, Truck } from "lucide-react";
 import { useModals } from "../context/useModals";
 
 export const FooterSection = () => {
@@ -199,7 +199,14 @@ export const FooterSection = () => {
               </button>
             </div>
 
-            <div className="mt-4 flex flex-col gap-2">
+            <div className="mt-4 flex flex-col gap-2.5">
+              <Link
+                to="/track"
+                className="text-xs font-heading font-bold uppercase tracking-wider text-[#FFBE32] hover:text-[#FFA000] flex items-center gap-1.5 transition-colors"
+              >
+                <Truck className="h-3.5 w-3.5" />
+                <span>TRACK MY ORDER &rarr;</span>
+              </Link>
               <button
                 onClick={openLogin}
                 className="text-xs font-heading font-bold uppercase tracking-wider text-gray-300 hover:text-[#FFBE32] transition-colors cursor-pointer text-left"

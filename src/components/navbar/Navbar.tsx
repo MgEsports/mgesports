@@ -11,6 +11,7 @@ const straightNavItems = [
   // { label: "TOURNAMENTS", path: "/tournaments" },
   // { label: "VOTING", path: "/voting" },
   { label: "PRODUCTS", path: "/products" },
+  { label: "TRACK ORDER", path: "/track" },
   { label: "PARTNERS", path: "/partners" },
   // { label: "PARTNER WITH US", path: "/partner-with-us" },
   { label: "MEDIA", path: "/media" },
