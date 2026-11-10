@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import type { MediaItem } from "../../data/media";
+import { normalizeMediaGame } from "../../api/media";
 import jerseyPromoImg from "../../assets/jersey-promo.jpg";
 
 interface VideoCardProps {
@@ -70,7 +71,7 @@ export const VideoCard = ({ item, onPlay }: VideoCardProps) => {
         {/* Meta Bar */}
         <div className="mt-3 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-gray-400">
           <span>{item.date}</span>
-          <span className="text-[#fc8100] font-semibold">{item.game}</span>
+          <span className="text-[#fc8100] font-semibold">{normalizeMediaGame(item.game)}</span>
         </div>
       </div>
     </motion.div>

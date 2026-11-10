@@ -62,26 +62,37 @@ function unmarkMediaIdDeleted(id: string) {
   } catch {}
 }
 
+function normalizeMediaGame(game?: string): string {
+  if (!game || game.toUpperCase().includes("FREE FIRE")) {
+    return "CLASH OF CLANS";
+  }
+  return game;
+}
+
 function getStoredMedia(): MediaItem[] {
   try {
     const raw = localStorage.getItem(MEDIA_STORAGE_KEY);
     if (raw) {
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed) && parsed.length > 0) {
-        const cleaned = parsed.filter((m: MediaItem) => m && m.id && !isExcludedMedia(m));
-        if (cleaned.length !== parsed.length) {
-          localStorage.setItem(MEDIA_STORAGE_KEY, JSON.stringify(cleaned));
-        }
+        const cleaned = parsed
+          .filter((m: MediaItem) => m && m.id && !isExcludedMedia(m))
+          .map((m: MediaItem) => ({ ...m, game: normalizeMediaGame(m.game) }));
+        localStorage.setItem(MEDIA_STORAGE_KEY, JSON.stringify(cleaned));
         return cleaned;
       }
     }
   } catch {}
-  return mediaData.filter((m) => !isExcludedMedia(m));
+  return mediaData
+    .filter((m) => !isExcludedMedia(m))
+    .map((m) => ({ ...m, game: normalizeMediaGame(m.game) }));
 }
 
 function persistMedia(items: MediaItem[]) {
   try {
-    const sanitized = items.filter((m) => !isExcludedMedia(m));
+    const sanitized = items
+      .filter((m) => !isExcludedMedia(m))
+      .map((m) => ({ ...m, game: normalizeMediaGame(m.game) }));
     localStorage.setItem(MEDIA_STORAGE_KEY, JSON.stringify(sanitized));
     window.dispatchEvent(new CustomEvent("mg_media_updated", { detail: sanitized }));
   } catch {}
@@ -97,7 +108,7 @@ export const AdminMediaPage: React.FC = () => {
   const [formData, setFormData] = useState<Partial<MediaItem>>({
     title: "",
     type: "VIDEOS",
-    game: "FREE FIRE MAX",
+    game: "CLASH OF CLANS",
     youtubeId: "o-1d_Ez_LcA",
     duration: "02:30",
     views: "10K VIEWS",
@@ -137,7 +148,7 @@ export const AdminMediaPage: React.FC = () => {
     setFormData({
       title: "",
       type: "VIDEOS",
-      game: "FREE FIRE MAX",
+      game: "CLASH OF CLANS",
       youtubeId: "",
       duration: "02:30",
       views: "15K VIEWS",
@@ -204,7 +215,7 @@ export const AdminMediaPage: React.FC = () => {
     const payload: Partial<MediaItem> = {
       title: formData.title?.trim() || "NEW VIDEO",
       type: formData.type || "VIDEOS",
-      game: formData.game || "FREE FIRE MAX",
+      game: normalizeMediaGame(formData.game),
       youtubeId: cleanYtId || "o-1d_Ez_LcA",
       thumbnail,
       duration: formData.duration || "02:30",

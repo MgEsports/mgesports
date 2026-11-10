@@ -25,18 +25,19 @@ export const VideoModal = ({
   onClose,
   title,
   category = "HIGHLIGHTS",
-  game = "FREE FIRE MAX",
+  game = "CLASH OF CLANS",
   youtubeId,
 }: VideoModalProps) => {
   const cleanId = extractYouTubeId(youtubeId);
   const youtubeWatchUrl = cleanId ? `https://www.youtube.com/watch?v=${cleanId}` : "https://www.youtube.com";
+  const displayGame = !game || game.toUpperCase().includes("FREE FIRE") ? "CLASH OF CLANS" : game;
 
   return (
     <Modal
       isOpen={isOpen}
       onClose={onClose}
       title="MG STREAM BROADCAST"
-      subtitle={`${game} • ${category}`}
+      subtitle={`${displayGame} • ${category}`}
       maxWidth="xl"
     >
       <div className="space-y-4">

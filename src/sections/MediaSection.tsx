@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionHeading } from "../components/common/SectionHeading";
 import { mediaData, type MediaItem } from "../data/media";
-import { mediaApi, getStoredMediaList } from "../api/media";
+import { mediaApi, getStoredMediaList, normalizeMediaGame } from "../api/media";
 import { Play, Flame } from "lucide-react";
 import jerseyPromoImg from "../assets/jersey-promo.jpg";
 
@@ -143,7 +143,7 @@ export const MediaSection = ({
                 <div className="mt-1.5 sm:mt-2.5 flex flex-wrap items-center gap-2 sm:gap-3 text-[10px] xs:text-[11px] sm:text-xs font-mono text-gray-300 drop-shadow">
                   <span>{featuredVideo.date}</span>
                   <span>•</span>
-                  <span className="text-[#fc8100] font-semibold">{featuredVideo.game}</span>
+                  <span className="text-[#fc8100] font-semibold">{normalizeMediaGame(featuredVideo.game)}</span>
                   {featuredVideo.views && (
                     <>
                       <span>•</span>
@@ -225,7 +225,7 @@ export const MediaSection = ({
                     {item.title}
                   </h4>
                   <div className="mt-3 flex items-center justify-between text-xs text-gray-400 font-mono">
-                    <span className="text-[#fc8100] font-semibold">{item.game}</span>
+                    <span className="text-[#fc8100] font-semibold">{normalizeMediaGame(item.game)}</span>
                     <span>{item.date}</span>
                   </div>
                 </div>

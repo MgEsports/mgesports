@@ -26,9 +26,9 @@ export const ModalProvider = ({ children }: { children: ReactNode }) => {
   const [selectedTournament, setSelectedTournament] = useState<Tournament | null>(null);
   const [pendingTournamentForRegister, setPendingTournamentForRegister] = useState<Tournament | null>(null);
   const [selectedVideo, setSelectedVideo] = useState<VideoPayload>({
-    title: "FLAME OF GLORY S2 • OFFICIAL TRAILER",
+    title: "MG ESPORTS • WORLD CHAMPIONSHIP",
     category: "OFFICIAL STREAM",
-    game: "FREE FIRE MAX",
+    game: "CLASH OF CLANS",
   });
   const [selectedArticle, setSelectedArticle] = useState<NewsArticle | null>(null);
 

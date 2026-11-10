@@ -18,6 +18,13 @@ export function isExcludedMedia(item?: { title?: string; id?: string } | null): 
 }
 
 
+export function normalizeMediaGame(game?: string): string {
+  if (!game || game.toUpperCase().includes("FREE FIRE")) {
+    return "CLASH OF CLANS";
+  }
+  return game;
+}
+
 export function getStoredMediaList(): MediaItem[] {
   if (typeof window !== "undefined") {
     try {
@@ -27,25 +34,29 @@ export function getStoredMediaList(): MediaItem[] {
       if (raw) {
         const parsed = JSON.parse(raw);
         if (Array.isArray(parsed) && parsed.length > 0) {
-          const cleaned = parsed.filter(
-            (m: MediaItem) => m && m.id && !deletedIds.has(m.id) && !isExcludedMedia(m)
-          );
-          if (cleaned.length !== parsed.length) {
-            localStorage.setItem(MEDIA_STORAGE_KEY, JSON.stringify(cleaned));
-          }
+          const cleaned = parsed
+            .filter((m: MediaItem) => m && m.id && !deletedIds.has(m.id) && !isExcludedMedia(m))
+            .map((m: MediaItem) => ({ ...m, game: normalizeMediaGame(m.game) }));
+          localStorage.setItem(MEDIA_STORAGE_KEY, JSON.stringify(cleaned));
           return cleaned;
         }
       }
-      return mediaData.filter((m) => !deletedIds.has(m.id) && !isExcludedMedia(m));
+      return mediaData
+        .filter((m) => !deletedIds.has(m.id) && !isExcludedMedia(m))
+        .map((m) => ({ ...m, game: normalizeMediaGame(m.game) }));
     } catch {}
   }
-  return mediaData.filter((m) => !isExcludedMedia(m));
+  return mediaData
+    .filter((m) => !isExcludedMedia(m))
+    .map((m) => ({ ...m, game: normalizeMediaGame(m.game) }));
 }
 
 export function persistStoredMedia(items: MediaItem[]) {
   if (typeof window !== "undefined") {
     try {
-      const sanitized = items.filter((m) => !isExcludedMedia(m));
+      const sanitized = items
+        .filter((m) => !isExcludedMedia(m))
+        .map((m) => ({ ...m, game: normalizeMediaGame(m.game) }));
       localStorage.setItem(MEDIA_STORAGE_KEY, JSON.stringify(sanitized));
       window.dispatchEvent(new CustomEvent("mg_media_updated", { detail: sanitized }));
     } catch {}
@@ -93,7 +104,7 @@ export const mediaApi = {
       id: tempId,
       title: data.title || "NEW VIDEO",
       type: data.type || "VIDEOS",
-      game: data.game || "FREE FIRE MAX",
+      game: normalizeMediaGame(data.game),
       youtubeId: data.youtubeId || "o-1d_Ez_LcA",
       thumbnail: data.thumbnail,
       duration: data.duration || "02:30",
