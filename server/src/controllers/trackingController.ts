@@ -165,17 +165,18 @@ export async function syncOrderDeliveryStatus(
 
     let newStatus: string | null = null;
     let newPaymentStatus: string | null = null;
+    const cleanTag = tag.trim().toLowerCase();
 
-    if (tag === "Delivered") {
+    if (cleanTag === "delivered" || cleanTag.includes("delivered")) {
       newStatus = "DELIVERED";
       if (order.paymentMethod === "COD" && order.paymentStatus !== "PAID") {
         newPaymentStatus = "PAID";
       }
     } else if (
-      tag === "InTransit" ||
-      tag === "OutForDelivery" ||
-      tag === "AttemptFail" ||
-      tag === "Exception"
+      cleanTag === "intransit" ||
+      cleanTag === "outfordelivery" ||
+      cleanTag === "attemptfail" ||
+      cleanTag === "exception"
     ) {
       if (order.orderStatus === "PENDING" || order.orderStatus === "PROCESSING") {
         newStatus = "SHIPPED";

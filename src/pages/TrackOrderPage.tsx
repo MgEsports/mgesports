@@ -90,6 +90,41 @@ export const TrackOrderPage = () => {
       const slug = detectCourierSlug(courierPartner);
       const data = await courierApi.track(trackingNumber, slug);
       setLiveTrackingMap((prev) => ({ ...prev, [orderId]: data }));
+
+      // If AfterShip reports package as Delivered, auto-sync order status both locally and to database
+      const isDeliveredByAftership =
+        data.tag?.toLowerCase() === "delivered" ||
+        data.subtagMessage?.toLowerCase()?.includes("delivered");
+
+      if (isDeliveredByAftership) {
+        setOrders((prev) =>
+          prev.map((o) =>
+            o.id === orderId
+              ? {
+                  ...o,
+                  orderStatus: "DELIVERED",
+                  expectedDeliveryDate:
+                    o.expectedDeliveryDate || data.expectedDelivery || "Delivered",
+                }
+              : o
+          )
+        );
+        setMyOrders((prev) =>
+          prev.map((o) =>
+            o.id === orderId
+              ? {
+                  ...o,
+                  orderStatus: "DELIVERED",
+                  expectedDeliveryDate:
+                    o.expectedDeliveryDate || data.expectedDelivery || "Delivered",
+                }
+              : o
+          )
+        );
+
+        // Sync with backend API silently so database reflects DELIVERED
+        merchandiseApi.updateOrderStatus(orderId, "DELIVERED").catch(() => {});
+      }
     } catch {
       // Handled gracefully by courierApi
     } finally {
@@ -315,10 +350,20 @@ export const TrackOrderPage = () => {
                 const isLoadingTracking = loadingTrackingMap[ord.id];
                 const courierSlug = detectCourierSlug(ord.courierPartner);
 
-                const isDelivered = ord.orderStatus === "DELIVERED";
-                const isShipped = ord.orderStatus === "SHIPPED" || isDelivered;
-                const isProcessing = ord.orderStatus === "PROCESSING" || isShipped;
-                const isCancelled = ord.orderStatus === "CANCELLED";
+                // Auto-sync status with AfterShip live verification
+                const isCarrierDelivered =
+                  liveData?.tag?.toLowerCase() === "delivered" ||
+                  liveData?.subtagMessage?.toLowerCase()?.includes("delivered");
+
+                const effectiveStatus =
+                  ord.orderStatus === "DELIVERED" || isCarrierDelivered
+                    ? "DELIVERED"
+                    : ord.orderStatus;
+
+                const isDelivered = effectiveStatus === "DELIVERED";
+                const isShipped = effectiveStatus === "SHIPPED" || isDelivered;
+                const isProcessing = effectiveStatus === "PROCESSING" || isShipped;
+                const isCancelled = effectiveStatus === "CANCELLED";
 
                 return (
                   <div
@@ -354,18 +399,18 @@ export const TrackOrderPage = () => {
                       <div className="flex items-center gap-2">
                         <span
                           className={`px-3 py-1 rounded-full text-xs font-mono font-bold uppercase border ${
-                            ord.orderStatus === "DELIVERED"
+                            effectiveStatus === "DELIVERED"
                               ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"
-                              : ord.orderStatus === "SHIPPED"
+                              : effectiveStatus === "SHIPPED"
                               ? "bg-blue-500/20 text-blue-300 border-blue-500/40"
-                              : ord.orderStatus === "PROCESSING"
+                              : effectiveStatus === "PROCESSING"
                               ? "bg-purple-500/20 text-purple-300 border-purple-500/40"
-                              : ord.orderStatus === "CANCELLED"
+                              : effectiveStatus === "CANCELLED"
                               ? "bg-rose-500/20 text-rose-300 border-rose-500/40"
                               : "bg-amber-500/20 text-amber-300 border-amber-500/40"
                           }`}
                         >
-                          {ord.orderStatus}
+                          {effectiveStatus}
                         </span>
                       </div>
                     </div>
@@ -470,13 +515,31 @@ export const TrackOrderPage = () => {
                     )}
 
                     {/* Delivery & Expected Date Card */}
-                    <div className="p-4 rounded-xl bg-gradient-to-r from-amber-500/10 via-black/60 to-black/60 border border-amber-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono">
+                    <div
+                      className={`p-4 rounded-xl border flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono transition-colors ${
+                        isDelivered
+                          ? "bg-gradient-to-r from-emerald-500/15 via-black/60 to-black/60 border-emerald-500/40"
+                          : "bg-gradient-to-r from-amber-500/10 via-black/60 to-black/60 border-amber-500/30"
+                      }`}
+                    >
                       <div>
                         <div className="flex items-center gap-2 text-white font-bold font-heading">
-                          <Calendar className="h-4 w-4 text-[#FFBE32]" />
-                          <span>EXPECTED DELIVERY:</span>
-                          <span className="text-[#FFBE32] text-sm">
-                            {ord.expectedDeliveryDate || "Dispatched in 48-72h"}
+                          <Calendar
+                            className={`h-4 w-4 ${isDelivered ? "text-emerald-400" : "text-[#FFBE32]"}`}
+                          />
+                          <span>{isDelivered ? "DELIVERY CONFIRMED:" : "EXPECTED DELIVERY:"}</span>
+                          <span
+                            className={
+                              isDelivered
+                                ? "text-emerald-400 text-sm font-bold"
+                                : "text-[#FFBE32] text-sm"
+                            }
+                          >
+                            {isDelivered
+                              ? ord.expectedDeliveryDate ||
+                                liveData?.expectedDelivery ||
+                                "Package Delivered to Recipient"
+                              : ord.expectedDeliveryDate || "Dispatched in 48-72h"}
                           </span>
                         </div>
                         {ord.courierPartner && (

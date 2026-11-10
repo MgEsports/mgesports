@@ -158,6 +158,7 @@ export const trackOrder = async (req: Request, res: Response, next: NextFunction
     const conditions: any[] = [
       { orderNumber: { contains: cleanQuery, mode: "insensitive" } },
       { customerEmail: { equals: cleanQuery, mode: "insensitive" } },
+      { trackingNumber: { contains: cleanQuery, mode: "insensitive" } },
     ];
 
     if (cleanPhone.length >= 10) {
