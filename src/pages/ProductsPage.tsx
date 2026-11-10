@@ -27,6 +27,7 @@ import {
 } from "lucide-react";
 import confetti from "canvas-confetti";
 import { merchandiseApi, type ProductItem as ApiProductItem, type OrderItem } from "../api/merchandise";
+import { settingsApi } from "../api/settings";
 import { useAuth } from "../context/AuthContext";
 import { SEO } from "../components/common/SEO";
 import { SITE_URL } from "../config/seo";
@@ -92,6 +93,22 @@ export const ProductsPage = () => {
   // Multi-step checkout states
   const [checkoutStep, setCheckoutStep] = useState<"DETAILS" | "PAYMENT" | "CONFIRMED">("DETAILS");
   const [paymentMode, setPaymentMode] = useState<"UPI" | "COD">("UPI");
+  const [codEnabled, setCodEnabled] = useState(true);
+
+  useEffect(() => {
+    settingsApi
+      .getSettings()
+      .then((s) => {
+        if (s.codEnabled !== undefined) {
+          const isEnabled = s.codEnabled !== "false";
+          setCodEnabled(isEnabled);
+          if (!isEnabled) {
+            setPaymentMode("UPI");
+          }
+        }
+      })
+      .catch(() => {});
+  }, []);
   const [utrNumber, setUtrNumber] = useState("");
   const [copiedUpi, setCopiedUpi] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -761,7 +778,7 @@ export const ProductsPage = () => {
                       </span>
                     </div>
                     <span className="text-[10px] font-mono text-emerald-400 uppercase">
-                      UPI / Cash on Delivery
+                      {codEnabled ? "UPI / Cash on Delivery" : "Prepaid UPI Payment"}
                     </span>
                   </div>
 
@@ -1154,7 +1171,7 @@ export const ProductsPage = () => {
                     <label className="block text-xs font-heading font-bold uppercase text-gray-300 mb-2">
                       Choose Payment Method *
                     </label>
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className={`grid gap-3 ${codEnabled ? "grid-cols-2" : "grid-cols-1"}`}>
                       <button
                         type="button"
                         onClick={() => setPaymentMode("UPI")}
@@ -1167,33 +1184,35 @@ export const ProductsPage = () => {
                         <QrCode className={`h-5 w-5 mt-0.5 ${paymentMode === "UPI" ? "text-[#FFBE32]" : "text-gray-400"}`} />
                         <div>
                           <h5 className="font-heading text-xs font-bold uppercase text-white">
-                            UPI QR / ID
+                            UPI QR / ID {!codEnabled && "(Only Available Mode)"}
                           </h5>
                           <p className="text-[11px] text-gray-400 font-body mt-0.5">
-                            GPay, PhonePe, Paytm, BHIM
+                            GPay, PhonePe, Paytm, BHIM {!codEnabled && "• Instant verification"}
                           </p>
                         </div>
                       </button>
 
-                      <button
-                        type="button"
-                        onClick={() => setPaymentMode("COD")}
-                        className={`p-3.5 rounded-xl border text-left flex items-start gap-3 transition-all cursor-pointer ${
-                          paymentMode === "COD"
-                            ? "bg-[#FFBE32]/10 border-[#FFBE32] text-white shadow-[0_0_15px_rgba(255,190,50,0.2)]"
-                            : "bg-black/60 border-white/10 text-gray-400 hover:text-white hover:border-white/25"
-                        }`}
-                      >
-                        <Banknote className={`h-5 w-5 mt-0.5 ${paymentMode === "COD" ? "text-[#FFBE32]" : "text-gray-400"}`} />
-                        <div>
-                          <h5 className="font-heading text-xs font-bold uppercase text-white">
-                            Cash On Delivery
-                          </h5>
-                          <p className="text-[11px] text-gray-400 font-body mt-0.5">
-                            Pay upon doorstep delivery
-                          </p>
-                        </div>
-                      </button>
+                      {codEnabled && (
+                        <button
+                          type="button"
+                          onClick={() => setPaymentMode("COD")}
+                          className={`p-3.5 rounded-xl border text-left flex items-start gap-3 transition-all cursor-pointer ${
+                            paymentMode === "COD"
+                              ? "bg-[#FFBE32]/10 border-[#FFBE32] text-white shadow-[0_0_15px_rgba(255,190,50,0.2)]"
+                              : "bg-black/60 border-white/10 text-gray-400 hover:text-white hover:border-white/25"
+                          }`}
+                        >
+                          <Banknote className={`h-5 w-5 mt-0.5 ${paymentMode === "COD" ? "text-[#FFBE32]" : "text-gray-400"}`} />
+                          <div>
+                            <h5 className="font-heading text-xs font-bold uppercase text-white">
+                              Cash On Delivery
+                            </h5>
+                            <p className="text-[11px] text-gray-400 font-body mt-0.5">
+                              Pay upon doorstep delivery
+                            </p>
+                          </div>
+                        </button>
+                      )}
                     </div>
                   </div>
 

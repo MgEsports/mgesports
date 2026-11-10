@@ -15,6 +15,7 @@ export interface SettingsMap {
   instagramUrl?: string;
   twitterUrl?: string;
   businessEmail?: string;
+  codEnabled?: string; // "true" or "false"
   [key: string]: string | undefined;
 }
 
@@ -33,6 +34,7 @@ export const fallbackSettings: SettingsMap = {
   instagramUrl: "https://www.instagram.com/mg13e.sports",
   twitterUrl: "https://x.com/mg13esports",
   businessEmail: "contact@mgesports.gg",
+  codEnabled: "true",
 };
 
 export const settingsApi = {

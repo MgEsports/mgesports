@@ -29,7 +29,8 @@ import {
   Award,
   ShoppingBag,
   Vote,
-  HardDrive
+  HardDrive,
+  Banknote,
 } from "lucide-react";
 import { adminApi } from "../api/admin";
 
@@ -829,6 +830,59 @@ export const AdminSettingsPage: React.FC = () => {
                   onChange={(e) => handleChange("businessEmail", e.target.value)}
                   className="w-full rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 text-sm text-white focus:border-[#FFBE32] focus:outline-none"
                 />
+              </div>
+            </div>
+          </div>
+
+          {/* E-Commerce & Store Payment Configuration */}
+          <div className="p-6 rounded-2xl bg-[#0D0D12] border border-white/10 space-y-4">
+            <div className="flex items-center justify-between pb-3 border-b border-white/10">
+              <div className="flex items-center gap-2 text-white font-heading font-bold text-sm uppercase">
+                <Banknote className="h-4 w-4 text-[#FFBE32]" />
+                <span>Store Checkout &amp; Payment Options</span>
+              </div>
+              <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase border ${
+                settings.codEnabled !== "false"
+                  ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"
+                  : "bg-rose-500/20 text-rose-300 border-rose-500/40"
+              }`}>
+                {settings.codEnabled !== "false" ? "COD ACTIVE" : "PREPAID ONLY"}
+              </span>
+            </div>
+
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl bg-black/60 border border-white/10">
+              <div className="space-y-1">
+                <h4 className="font-heading text-xs font-bold uppercase tracking-wider text-white">
+                  Cash On Delivery (COD) Checkout Option
+                </h4>
+                <p className="text-xs text-gray-400 font-body max-w-xl">
+                  Allow customers to pay cash upon doorstep delivery. When disabled, the Cash on Delivery choice is hidden at checkout, requiring instant UPI verification.
+                </p>
+              </div>
+
+              <div className="flex items-center gap-2 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => handleChange("codEnabled", "true")}
+                  className={`px-4 py-2 rounded-xl text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                    settings.codEnabled !== "false"
+                      ? "bg-emerald-500 text-black font-extrabold shadow-[0_0_15px_rgba(16,185,129,0.3)]"
+                      : "bg-white/5 text-gray-400 hover:text-white border border-white/10"
+                  }`}
+                >
+                  Enabled
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleChange("codEnabled", "false")}
+                  className={`px-4 py-2 rounded-xl text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                    settings.codEnabled === "false"
+                      ? "bg-rose-500 text-white font-extrabold shadow-[0_0_15px_rgba(244,63,94,0.3)]"
+                      : "bg-white/5 text-gray-400 hover:text-white border border-white/10"
+                  }`}
+                >
+                  Disabled
+                </button>
               </div>
             </div>
           </div>

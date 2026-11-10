@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { merchandiseApi, type ProductItem } from "../api/merchandise";
 import { adminApi } from "../api/admin";
+import { settingsApi } from "../api/settings";
 import {
   Plus,
   Edit,
@@ -12,6 +13,8 @@ import {
   Search,
   Image as ImageIcon,
   ShoppingBag,
+  Banknote,
+  Check,
 } from "lucide-react";
 import { optimizeCloudinaryUrl } from "../utils/imageOptimizer";
 
@@ -27,6 +30,9 @@ export const AdminMerchandisePage: React.FC = () => {
   const [categoryFilter, setCategoryFilter] = useState("ALL");
   const [uploadingImage, setUploadingImage] = useState(false);
   const [uploadingQr, setUploadingQr] = useState(false);
+  const [codEnabled, setCodEnabled] = useState(true);
+  const [togglingCod, setTogglingCod] = useState(false);
+  const [codNotice, setCodNotice] = useState<string | null>(null);
 
   const imageInputRef = useRef<HTMLInputElement>(null);
   const qrInputRef = useRef<HTMLInputElement>(null);
@@ -65,7 +71,35 @@ export const AdminMerchandisePage: React.FC = () => {
 
   useEffect(() => {
     loadProducts();
+    settingsApi
+      .getSettings()
+      .then((s) => {
+        if (s.codEnabled !== undefined) {
+          setCodEnabled(s.codEnabled !== "false");
+        }
+      })
+      .catch(() => {});
   }, []);
+
+  const handleToggleCod = async () => {
+    const nextVal = !codEnabled;
+    setTogglingCod(true);
+    setCodNotice(null);
+    try {
+      await settingsApi.updateSettings({ codEnabled: String(nextVal) });
+      setCodEnabled(nextVal);
+      setCodNotice(
+        nextVal
+          ? "Cash On Delivery (COD) is now ENABLED across the store."
+          : "Cash On Delivery (COD) is now DISABLED. Store is Prepaid UPI only."
+      );
+      setTimeout(() => setCodNotice(null), 4000);
+    } catch (err: any) {
+      alert("Failed to update COD setting: " + (err.message || "Unknown error"));
+    } finally {
+      setTogglingCod(false);
+    }
+  };
 
   const handleOpenCreate = () => {
     setEditingProduct(null);
@@ -283,6 +317,72 @@ export const AdminMerchandisePage: React.FC = () => {
             <span>Add New Product</span>
           </button>
         </div>
+      </div>
+
+      {/* COD (Cash on Delivery) Store Checkout Toggle Banner */}
+      <div
+        className={`p-4 sm:p-5 rounded-2xl border transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4 ${
+          codEnabled
+            ? "bg-emerald-950/20 border-emerald-500/30 shadow-[0_0_20px_rgba(16,185,129,0.1)]"
+            : "bg-rose-950/20 border-rose-500/30 shadow-[0_0_20px_rgba(244,63,94,0.1)]"
+        }`}
+      >
+        <div className="flex items-center gap-3.5">
+          <div
+            className={`h-11 w-11 rounded-xl flex items-center justify-center shrink-0 border ${
+              codEnabled
+                ? "bg-emerald-500/20 border-emerald-500/40 text-emerald-400"
+                : "bg-rose-500/20 border-rose-500/40 text-rose-400"
+            }`}
+          >
+            <Banknote className="h-5 w-5" />
+          </div>
+          <div>
+            <div className="flex flex-wrap items-center gap-2">
+              <h3 className="font-heading text-sm font-bold uppercase tracking-wider text-white">
+                Cash On Delivery (COD) Checkout
+              </h3>
+              <span
+                className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase border ${
+                  codEnabled
+                    ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"
+                    : "bg-rose-500/20 text-rose-300 border-rose-500/40"
+                }`}
+              >
+                {codEnabled ? "ENABLED / ACTIVE" : "DISABLED (PREPAID ONLY)"}
+              </span>
+            </div>
+            <p className="text-xs text-gray-400 font-body mt-0.5">
+              {codEnabled
+                ? "Customers can choose either Cash On Delivery or Prepaid UPI at checkout."
+                : "COD option is hidden at checkout. Customers can only purchase via Prepaid UPI."}
+            </p>
+            {codNotice && (
+              <p className="text-[11px] font-mono text-emerald-400 mt-1 flex items-center gap-1 animate-pulse">
+                <Check className="h-3 w-3" /> {codNotice}
+              </p>
+            )}
+          </div>
+        </div>
+
+        <button
+          type="button"
+          onClick={handleToggleCod}
+          disabled={togglingCod}
+          className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shrink-0 disabled:opacity-50 ${
+            codEnabled
+              ? "bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/40 hover:border-rose-500/60"
+              : "bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/40 hover:border-emerald-500/60"
+          }`}
+        >
+          {togglingCod ? (
+            <span>Updating...</span>
+          ) : codEnabled ? (
+            <span>Disable COD</span>
+          ) : (
+            <span>Enable COD</span>
+          )}
+        </button>
       </div>
 
       {/* Filter & Search Bar */}
