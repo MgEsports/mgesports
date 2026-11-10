@@ -1,11 +1,8 @@
 import { Link } from "react-router-dom";
 import logoImg from "../assets/lordz-logo.png";
-import { ArrowUp, Mail, MapPin, Truck } from "lucide-react";
-import { useModals } from "../context/useModals";
+import { ArrowUp, Mail, MapPin } from "lucide-react";
 
 export const FooterSection = () => {
-  const { openJoinTournament, openLogin, openJersey } = useModals();
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -18,8 +15,8 @@ export const FooterSection = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
           
-          {/* Brand Column (lg:col-span-4) */}
-          <div className="lg:col-span-4">
+          {/* Brand Column (lg:col-span-6) */}
+          <div className="lg:col-span-6">
             <Link to="/" className="inline-flex items-center gap-2.5 sm:gap-3">
               <img
                 src={logoImg}
@@ -38,7 +35,7 @@ export const FooterSection = () => {
               </div>
             </Link>
 
-            <p className="mt-4 text-xs sm:text-sm text-[#9CA3AF] font-body leading-relaxed max-w-sm">
+            <p className="mt-4 text-xs sm:text-sm text-[#9CA3AF] font-body leading-relaxed max-w-md">
               A professional mobile esports organization competing for the Clash of Clans world title. Together we conquer.
             </p>
 
@@ -100,40 +97,8 @@ export const FooterSection = () => {
             </div>
           </div>
 
-          {/* Quick Links: Arena (lg:col-span-2) */}
-          <div className="lg:col-span-2">
-            <h4 className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-[#FFBE32] mb-4">
-              ARENA
-            </h4>
-            <ul className="space-y-2.5 text-xs font-heading tracking-wider uppercase text-gray-400">
-              <li>
-                <Link to="/tournaments" className="hover:text-[#FFBE32] transition-colors">
-                  Tournaments
-                </Link>
-              </li>
-              <li>
-                <Link to="/jersey" className="hover:text-[#FFBE32] transition-colors">
-                  Official Jersey
-                </Link>
-              </li>
-              <li>
-                <Link to="/media" className="hover:text-[#FFBE32] transition-colors">
-                  Media Highlights
-                </Link>
-              </li>
-              <li>
-                <button
-                  onClick={() => openJoinTournament()}
-                  className="hover:text-[#FFBE32] transition-colors cursor-pointer text-left uppercase"
-                >
-                  Slot Registration
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          {/* Quick Links: Organization (lg:col-span-2) */}
-          <div className="lg:col-span-2">
+          {/* Quick Links: Organization (lg:col-span-3) */}
+          <div className="lg:col-span-3">
             <h4 className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-[#FFBE32] mb-4">
               ORGANIZATION
             </h4>
@@ -154,21 +119,6 @@ export const FooterSection = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/products" className="hover:text-[#FFBE32] transition-colors">
-                  Products &amp; Armory
-                </Link>
-              </li>
-              <li>
-                <Link to="/news" className="hover:text-[#FFBE32] transition-colors">
-                  News & Dispatches
-                </Link>
-              </li>
-              <li>
-                <Link to="/community" className="hover:text-[#FFBE32] transition-colors">
-                  Community Hubs
-                </Link>
-              </li>
-              <li>
                 <Link to="/partners" className="hover:text-[#FFBE32] transition-colors">
                   Partnerships
                 </Link>
@@ -176,45 +126,35 @@ export const FooterSection = () => {
             </ul>
           </div>
 
-          {/* Combat Store & Portal (lg:col-span-4) */}
-          <div className="lg:col-span-4">
+          {/* Quick Links: Store & Services (lg:col-span-3) */}
+          <div className="lg:col-span-3">
             <h4 className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-[#FFBE32] mb-4">
-              COMBAT STORE & PORTAL
+              STORE & DISPATCHES
             </h4>
-            <div className="p-4 rounded-xl bg-[#0D0D10] border border-white/10">
-              <div className="flex items-center justify-between mb-2">
-                <span className="font-display text-lg uppercase text-white">
-                  2026 PRO JERSEY
-                </span>
-                <span className="text-xs font-bold text-[#FFBE32] font-mono">₹1,299</span>
-              </div>
-              <p className="text-xs text-gray-400 font-body mb-3">
-                Black & Gold Dravidian Temple Art edition. Customized player IGN print.
-              </p>
-              <button
-                onClick={openJersey}
-                className="w-full py-2 rounded bg-[#FFBE32] text-black font-heading text-xs font-bold uppercase tracking-wider hover:bg-[#FFCD59] transition-all cursor-pointer"
-              >
-                PRE-ORDER JERSEY
-              </button>
-            </div>
-
-            <div className="mt-4 flex flex-col gap-2.5">
-              <Link
-                to="/track"
-                className="text-xs font-heading font-bold uppercase tracking-wider text-[#FFBE32] hover:text-[#FFA000] flex items-center gap-1.5 transition-colors"
-              >
-                <Truck className="h-3.5 w-3.5" />
-                <span>TRACK MY ORDER &rarr;</span>
-              </Link>
-              <button
-                onClick={openLogin}
-                className="text-xs font-heading font-bold uppercase tracking-wider text-gray-300 hover:text-[#FFBE32] transition-colors cursor-pointer text-left"
-              >
-                ATHLETE PORTAL LOGIN &rarr;
-              </button>
-            </div>
+            <ul className="space-y-2.5 text-xs font-heading tracking-wider uppercase text-gray-400">
+              <li>
+                <Link to="/products" className="hover:text-[#FFBE32] transition-colors">
+                  Products &amp; Armory
+                </Link>
+              </li>
+              <li>
+                <Link to="/track" className="text-[#FFBE32] hover:text-[#FFA000] font-semibold transition-colors">
+                  Track Your Order &rarr;
+                </Link>
+              </li>
+              <li>
+                <Link to="/news" className="hover:text-[#FFBE32] transition-colors">
+                  News &amp; Dispatches
+                </Link>
+              </li>
+              <li>
+                <Link to="/community" className="hover:text-[#FFBE32] transition-colors">
+                  Community Hubs
+                </Link>
+              </li>
+            </ul>
           </div>
+
         </div>
 
         {/* Bottom Bar: Copyright & Legal */}
@@ -238,6 +178,7 @@ export const FooterSection = () => {
             
             <button
               onClick={scrollToTop}
+              aria-label="Scroll to top"
               className="flex items-center gap-1 text-[#FFBE32] hover:text-[#FFCD59] transition-colors cursor-pointer ml-1 sm:ml-2"
             >
               <span>TOP</span>
