@@ -70,14 +70,14 @@ body {
   background: #fc8100;
 }
 
-/* Light Theme in Admin */
+/* Light Theme in Admin (Light Grey Palette) */
 html.light {
   color-scheme: light;
-  background-color: #F8F9FA !important;
+  background-color: #F1F3F5 !important;
 }
 
 html.light body {
-  background-color: #F8F9FA !important;
+  background-color: #F1F3F5 !important;
   color: #0F172A !important;
 }
 
@@ -85,9 +85,21 @@ html.light .bg-\[\#050507\],
 html.light .bg-\[\#060608\],
 html.light .bg-\[\#070709\],
 html.light .bg-\[\#08080A\],
-html.light .bg-\[\#0A0A0E\],
-html.light .bg-black {
-  background-color: #F8F9FA !important;
+html.light .bg-\[\#0A0A0E\] {
+  background-color: #F1F3F5 !important;
+}
+
+/* ALL Black & Semi-Black elements become Light Grey in Admin */
+html.light .bg-black,
+html.light .bg-black\/20,
+html.light .bg-black\/40,
+html.light .bg-black\/50,
+html.light .bg-black\/60,
+html.light .bg-black\/70,
+html.light .bg-black\/80 {
+  background-color: #ECEEF2 !important;
+  border-color: #E2E8F0 !important;
+  color: #0F172A !important;
 }
 
 html.light header,
@@ -112,6 +124,10 @@ html.light .bg-\[\#14141C\] {
 }
 
 html.light .text-white {
+  color: #0F172A !important;
+}
+
+html.light .text-black {
   color: #0F172A !important;
 }
 
@@ -153,7 +169,7 @@ html.light textarea::placeholder {
 }
 
 html.light ::-webkit-scrollbar-track {
-  background: #F1F5F9;
+  background: #F1F3F5;
 }
 
 html.light ::-webkit-scrollbar-thumb {

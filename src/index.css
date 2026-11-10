@@ -219,32 +219,31 @@ body {
 }
 
 /* ==========================================================================
-   LIGHT MODE THEME SYSTEM
+   LIGHT MODE THEME SYSTEM (LIGHT GREY PALETTE)
    ========================================================================== */
 html.light {
   color-scheme: light;
-  background-color: #F8F9FA !important;
+  background-color: #F1F3F5 !important;
 }
 
 html.light body {
-  background-color: #F8F9FA !important;
+  background-color: #F1F3F5 !important;
   color: #0F172A !important;
 }
 
 html.light #root {
-  background-color: #F8F9FA !important;
+  background-color: #F1F3F5 !important;
 }
 
-/* Base Viewport & Page Backgrounds */
+/* Base Viewport & Page Backgrounds -> Soft Light Grey (#F1F3F5) */
 html.light .bg-\[\#050505\],
 html.light .bg-\[\#050507\],
 html.light .bg-\[\#060608\],
 html.light .bg-\[\#070708\],
 html.light .bg-\[\#070709\],
 html.light .bg-\[\#08080A\],
-html.light .bg-\[\#090909\],
-html.light .bg-black {
-  background-color: #F8F9FA !important;
+html.light .bg-\[\#090909\] {
+  background-color: #F1F3F5 !important;
 }
 
 /* Header & Fixed Navigation in Light Mode */
@@ -256,16 +255,44 @@ html.light header.bg-\[\#070708\]\/95 {
   box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05) !important;
 }
 
-/* Mobile Menu Backdrop & Drawer */
+/* Mobile Menu Backdrop & Drawer in Light Mode */
 html.light .bg-\[\#050505\]\/98 {
-  background-color: rgba(255, 255, 255, 0.98) !important;
+  background-color: #F1F3F5 !important;
 }
 
-/* Footer Section */
+/* Footer Section in Light Mode -> Distinguished Light Grey */
 html.light footer,
 html.light footer.bg-\[\#050505\] {
-  background-color: #FFFFFF !important;
-  border-top-color: #E2E8F0 !important;
+  background-color: #E9ECEF !important;
+  border-top-color: #DEE2E6 !important;
+}
+
+/* ALL Black & Semi-Black elements become Light Grey in Light Theme */
+html.light .bg-black,
+html.light .bg-black\/10,
+html.light .bg-black\/20,
+html.light .bg-black\/30,
+html.light .bg-black\/40,
+html.light .bg-black\/50,
+html.light .bg-black\/55,
+html.light .bg-black\/60,
+html.light .bg-black\/70,
+html.light .bg-black\/75,
+html.light .bg-black\/80,
+html.light .bg-black\/85,
+html.light .bg-black\/90,
+html.light .bg-black\/95 {
+  background-color: #ECEEF2 !important;
+  border-color: #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
+/* Modal Backdrop Overlay in Light Mode - Soft Light Grey Blur */
+html.light .fixed.inset-0.bg-black\/85,
+html.light .fixed.inset-0.bg-black\/80,
+html.light .fixed.inset-0.bg-black\/75 {
+  background-color: rgba(226, 232, 240, 0.78) !important;
+  backdrop-filter: blur(12px) !important;
 }
 
 /* Cards, Modals, Panels & Surfaces across all pages */
@@ -329,18 +356,10 @@ html.light .bg-\[\#0D0D10\]\/80 {
   border-color: #E2E8F0 !important;
 }
 
-/* Modal Backdrops & Overlays */
-html.light .bg-black\/85,
-html.light .bg-black\/80,
-html.light .bg-black\/75,
-html.light .bg-black\/70 {
-  background-color: rgba(15, 23, 42, 0.65) !important;
-}
-
 /* Buttons / Pills with White Opacity in Light Mode */
 html.light .bg-white\/5,
 html.light .bg-white\/10 {
-  background-color: #F1F5F9 !important;
+  background-color: #ECEEF2 !important;
   color: #1E293B !important;
 }
 
@@ -373,6 +392,11 @@ html.light .divide-white\/20 {
 
 /* Primary Headings & High Contrast Text */
 html.light .text-white {
+  color: #0F172A !important;
+}
+
+/* Avoid pure black text on light mode; use rich dark slate */
+html.light .text-black {
   color: #0F172A !important;
 }
 
@@ -442,34 +466,34 @@ html.light .bg-esports-grid {
     linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px) !important;
 }
 
-/* Hero Section Frosted Overlay in Light Mode */
+/* Hero Section: Replace Black Overlays with Soft Light Grey */
 html.light #home .bg-black\/55 {
-  background-color: rgba(248, 249, 250, 0.8) !important;
+  background-color: rgba(241, 243, 245, 0.82) !important;
 }
 
 html.light #home .bg-gradient-to-r.from-black\/90 {
-  background: linear-gradient(to right, rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.85), rgba(248, 249, 250, 0.4)) !important;
+  background: linear-gradient(to right, rgba(241, 243, 245, 0.96), rgba(241, 243, 245, 0.85), rgba(241, 243, 245, 0.35)) !important;
 }
 
 html.light #home .bg-gradient-to-t.from-black\/80 {
-  background: linear-gradient(to top, rgba(248, 249, 250, 0.95), transparent) !important;
+  background: linear-gradient(to top, rgba(241, 243, 245, 0.95), transparent) !important;
 }
 
-/* Edge Gradients for Marquee & Sliders in Light Mode */
+/* Edge Gradients for Marquee & Sliders in Light Mode - Fade to Light Grey */
 html.light .bg-gradient-to-r.from-\[\#050505\] {
-  background: linear-gradient(to right, #F8F9FA, rgba(248, 249, 250, 0.85), transparent) !important;
+  background: linear-gradient(to right, #F1F3F5, rgba(241, 243, 245, 0.85), transparent) !important;
 }
 
 html.light .bg-gradient-to-l.from-\[\#050505\] {
-  background: linear-gradient(to left, #F8F9FA, rgba(248, 249, 250, 0.85), transparent) !important;
+  background: linear-gradient(to left, #F1F3F5, rgba(241, 243, 245, 0.85), transparent) !important;
 }
 
 html.light .bg-gradient-to-t.from-\[\#050505\] {
-  background: linear-gradient(to top, #F8F9FA, transparent) !important;
+  background: linear-gradient(to top, #F1F3F5, transparent) !important;
 }
 
 html.light .bg-gradient-to-b.from-\[\#050505\] {
-  background: linear-gradient(to bottom, #F8F9FA, transparent) !important;
+  background: linear-gradient(to bottom, #F1F3F5, transparent) !important;
 }
 
 /* Marquee Partner Logos in Light Mode: subtle drop-shadow for white SVG paths */
@@ -481,7 +505,7 @@ html.light .animate-marquee-right img {
 
 /* Scrollbar in Light Mode */
 html.light ::-webkit-scrollbar-track {
-  background: #F1F5F9;
+  background: #F1F3F5;
 }
 
 html.light ::-webkit-scrollbar-thumb {

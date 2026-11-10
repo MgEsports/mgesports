@@ -39,7 +39,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
       localStorage.setItem(THEME_STORAGE_KEY, theme);
       const metaThemeColor = document.querySelector('meta[name="theme-color"]');
       if (metaThemeColor) {
-        metaThemeColor.setAttribute("content", theme === "light" ? "#F8F9FA" : "#050505");
+        metaThemeColor.setAttribute("content", theme === "light" ? "#F1F3F5" : "#050505");
       }
     } catch {}
   }, [theme]);
