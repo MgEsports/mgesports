@@ -44,7 +44,7 @@ export const AboutPage = () => {
         badge="ORGANIZATION PROFILE & DIRECTORY"
         title="ABOUT"
         titleHighlight="MG ESPORTS"
-        subtitle="The competitive manifesto, national champion athlete roster, and the operational collective powering India's elite clan."
+        subtitle="The competitive manifesto, national champion athlete roster, and the operational collective powering Golden Ticket Winning clan."
       />
 
       {/* 1. Manifesto & Organization Story Section */}

@@ -57,7 +57,7 @@ export const Navbar = () => {
                 MG <span className="text-[#fc8100]">ESPORTS</span>
               </span>
               <span className="font-heading text-[7.5px] sm:text-[9px] tracking-[0.25em] text-[#9CA3AF] uppercase whitespace-nowrap">
-                India's Elite Clan
+                Golden Ticket Winners
               </span>
             </div>
           </Link>
