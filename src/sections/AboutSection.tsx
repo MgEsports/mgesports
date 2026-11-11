@@ -18,6 +18,39 @@ import { Link } from "react-router-dom";
 import { playersData, type Player } from "../data/players";
 import { playersApi } from "../api/players";
 import { collectiveMembers } from "../data/teams";
+import aadhilImg from "../assets/members/player-aadhil.png";
+import normanImg from "../assets/members/player-norman.png";
+import aeroImg from "../assets/members/player-aero.png";
+import dragoImg from "../assets/members/player-drago.png";
+import kolayaImg from "../assets/members/player-kolaya.png";
+import omkarImg from "../assets/members/player-omkar.png";
+import rudyImg from "../assets/members/player-rudy.png";
+import destroImg from "../assets/members/player-destro.png";
+import leapImg from "../assets/members/player-leap.png";
+
+const KNOWN_MEMBER_IMAGES: Record<string, string> = {
+  aadil: aadhilImg,
+  aadhil: aadhilImg,
+  norman: normanImg,
+  aero: aeroImg,
+  drago: dragoImg,
+  kolaya: kolayaImg,
+  omkar: omkarImg,
+  rudy: rudyImg,
+  destro: destroImg,
+  leap: leapImg,
+};
+
+const getMemberFallbackImage = (player: Player): string => {
+  const ign = (player.ign || "").trim().toLowerCase();
+  const id = (player.id || "").trim().toLowerCase();
+  for (const [key, asset] of Object.entries(KNOWN_MEMBER_IMAGES)) {
+    if (ign.includes(key) || id.includes(key)) {
+      return asset;
+    }
+  }
+  return aadhilImg;
+};
 
 // Social SVG Icon for Instagram
 const InstagramIcon = ({ className = "h-3.5 w-3.5" }: { className?: string }) => (
@@ -313,16 +346,16 @@ export const AboutSection = ({
                 {athletes.slice(0, 4).map((player) => {
                   const cleanIgn = (player.ign || "").trim();
                   const cleanRealName = (player.realName || "").trim();
-                  const isBeast = cleanIgn === "BEAST" || player.id === "player-beast";
-                  const athleteImg = player.image || player.avatarUrl || (isBeast ? "/players/player-beast.jpg" : null);
+                  const fallbackImg = getMemberFallbackImage(player);
+                  const athleteImg = player.image || player.avatarUrl || fallbackImg;
                   const rawInsta = (player.instagram || "").replace(/^insta:/i, "").replace(/^@/, "").trim();
-                  const instaUrl = rawInsta ? `https://instagram.com/${rawInsta}` : null;
-                  const instaHandleDisplay = rawInsta ? `@${rawInsta}` : "@lordesports";
+                  const instaUrl = rawInsta ? (rawInsta.startsWith("http") ? rawInsta : `https://instagram.com/${rawInsta}`) : null;
+                  const instaHandleDisplay = rawInsta ? `@${rawInsta.replace(/^https?:\/\/(www\.)?instagram\.com\//, "").replace(/\/$/, "")}` : "@mg13e.sports";
 
                   return (
                     <div
                       key={player.id}
-                      className="group relative rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#141418] via-[#0C0C0E] to-[#070709] border border-white/10 hover:border-[#fc8100]/70 p-2.5 xs:p-3 sm:p-4 shadow-[0_15px_40px_rgba(0,0,0,0.8)] hover:shadow-[0_20px_45px_rgba(252, 129, 0,0.2)] transition-all flex flex-col justify-between overflow-hidden"
+                      className="player-athlete-card group relative rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#141418] via-[#0C0C0E] to-[#070709] border border-white/10 hover:border-[#fc8100]/70 p-2.5 xs:p-3 sm:p-4 shadow-[0_15px_40px_rgba(0,0,0,0.8)] hover:shadow-[0_20px_45px_rgba(252, 129, 0,0.2)] transition-all flex flex-col justify-between overflow-hidden"
                     >
                       {/* Gold Strip */}
                       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#fc8100] to-transparent opacity-40 group-hover:opacity-100 transition-opacity" />
@@ -344,17 +377,19 @@ export const AboutSection = ({
                           {athleteImg ? (
                             <img
                               src={athleteImg}
-                              alt={`${cleanIgn} (${cleanRealName}) - Pro Clan Athlete for Mg ESPORTS`}
+                              alt={`${cleanIgn} (${cleanRealName}) - Pro Clan Athlete for MG ESPORTS`}
                               loading="lazy"
                               decoding="async"
                               className="w-full h-full object-cover object-top filter contrast-105 group-hover:scale-105 transition-transform duration-500"
                               onError={(e) => {
-                                e.currentTarget.src = "/players/player-beast.jpg";
+                                if (fallbackImg && e.currentTarget.src !== fallbackImg) {
+                                  e.currentTarget.src = fallbackImg;
+                                }
                               }}
                             />
                           ) : (
                             <div className="w-full h-full flex flex-col items-center justify-center p-2 sm:p-4 text-center bg-gradient-to-b from-neutral-900 to-black">
-                              <span className="font-display text-xl sm:text-3xl font-bold text-[#fc8100]">{cleanIgn.slice(0, 2) || "LZ"}</span>
+                              <span className="font-display text-xl sm:text-3xl font-bold text-[#fc8100]">{cleanIgn.slice(0, 2) || "MG"}</span>
                             </div>
                           )}
                           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
@@ -376,7 +411,7 @@ export const AboutSection = ({
                       </div>
 
                       <div className="mt-2.5 sm:mt-4 pt-2 sm:pt-3 border-t border-white/5 flex items-center justify-between text-[10px] sm:text-xs shrink-0">
-                        <span className="font-mono text-[9px] sm:text-[10px] text-gray-500">FREE FIRE</span>
+                        <span className="font-mono text-[9px] sm:text-[10px] text-gray-500">{player.game || "CLASH OF CLANS"}</span>
                         {instaUrl ? (
                           <a
                             href={instaUrl}
@@ -389,7 +424,7 @@ export const AboutSection = ({
                             <span className="truncate">{instaHandleDisplay}</span>
                           </a>
                         ) : (
-                          <span className="font-mono text-[9px] sm:text-[10px] text-gray-500">@lordesports</span>
+                          <span className="font-mono text-[9px] sm:text-[10px] text-gray-500">@mg13e.sports</span>
                         )}
                       </div>
                     </div>

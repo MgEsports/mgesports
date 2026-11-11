@@ -299,7 +299,7 @@ export const PartnersSection = ({
 
 
         {/* Bottom Banner Stats Strip */}
-        <div className="mt-16 rounded-2xl bg-gradient-to-r from-[#0C0C10] via-[#111116] to-[#0C0C10] border border-white/10 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
+        <div className="sponsor-cta-banner mt-16 rounded-2xl bg-gradient-to-r from-[#0C0C10] via-[#111116] to-[#0C0C10] border border-white/10 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
           <div className="flex items-center gap-4 text-left">
             <div className="w-12 h-12 rounded-xl bg-[#fc8100]/10 border border-[#fc8100]/30 flex items-center justify-center shrink-0">
               <Handshake className="h-6 w-6 text-[#fc8100]" />

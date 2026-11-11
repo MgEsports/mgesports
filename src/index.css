@@ -291,21 +291,94 @@ html.light .bg-black\/95 {
    STRIP ALL DARK GRADIENTS IN LIGHT MODE & FORCE CLEAN WHITE / LIGHT GREY CARDS
    (Fixes black banners, jersey containers, and player cards in light theme)
    ========================================================================== */
-html.light [class*="from-\[\#0"],
-html.light [class*="from-\[\#1"],
+html.light [class*="from-[#"],
 html.light [class*="from-black"],
-html.light [class*="from-neutral-900"],
-html.light [class*="from-zinc-900"] {
+html.light [class*="from-neutral-"],
+html.light [class*="from-zinc-"] {
   background-image: none !important;
   background-color: #FFFFFF !important;
   border-color: #E2E8F0 !important;
-  box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+html.light [class*="via-[#"],
+html.light [class*="via-black"],
+html.light [class*="to-[#"],
+html.light [class*="to-black"] {
+  background-image: none !important;
+}
+
+/* Neutralize harsh heavy black shadows in Light Mode across all components */
+html.light [class*="shadow-[0_10px_30px_rgba(0,0,0"],
+html.light [class*="shadow-[0_15px_40px_rgba(0,0,0"],
+html.light [class*="shadow-[0_20px_60px_rgba(0,0,0"],
+html.light [class*="shadow-[0_10px_40px_rgba(0,0,0"],
+html.light [class*="shadow-[0_4px_30px_rgba(0,0,0"],
+html.light [class*="shadow-[0_2px_15px_rgba(0,0,0"] {
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* About Page Sticky Sub-Navigation Bar in Light Mode (Zero Bleed Shadows) */
+html.light .about-subnav-bar {
+  background-color: #FFFFFF !important;
+  border-top: 1px solid #E2E8F0 !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+html.light .about-subnav-bar button:not(.bg-\[\#fc8100\]) {
+  background-color: #F1F3F5 !important;
+  border-color: #E2E8F0 !important;
+  color: #334155 !important;
+}
+
+html.light .about-subnav-bar button:not(.bg-\[\#fc8100\]):hover {
+  background-color: #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
+/* Specific Banners & Feature Cards in Light Mode */
+html.light .sponsor-cta-banner,
+html.light .fulfillment-help-card {
+  background-image: none !important;
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+html.light .jersey-display-card {
+  background-image: none !important;
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light .jersey-display-card .bg-black\/50 {
+  background-color: #F8F9FA !important;
+}
+
+html.light .player-athlete-card {
+  background-image: none !important;
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.06) !important;
+}
+
+html.light .player-athlete-card .aspect-\[3\/4\] {
+  background-image: none !important;
+  background-color: #F1F3F5 !important;
+  border-color: #E2E8F0 !important;
+}
+
+html.light .player-athlete-card .bg-black\/50 {
+  background-color: #F8F9FA !important;
+  border-color: #E2E8F0 !important;
 }
 
 /* Sub-containers & inner visual frames inside cards */
-html.light .group [class*="from-\[\#181820\]"],
-html.light .group [class*="from-\[\#16161B\]"],
-html.light .group [class*="from-neutral-900"] {
+html.light .group [class*="from-[#181820]"],
+html.light .group [class*="from-[#16161B]"],
+html.light .group [class*="from-neutral-"] {
   background-image: none !important;
   background-color: #F8F9FA !important;
   border-color: #E2E8F0 !important;
@@ -315,7 +388,7 @@ html.light .group [class*="from-neutral-900"] {
 html.light .pointer-events-none.bg-gradient-to-t.from-\[\#0C0C0E\],
 html.light .pointer-events-none.bg-gradient-to-t.from-black,
 html.light .pointer-events-none.bg-gradient-to-t.from-black\/80,
-html.light [class*="bg-gradient-to-t"][class*="from-\[\#0C0C0E\]"],
+html.light [class*="bg-gradient-to-t"][class*="from-[#0C0C0E]"],
 html.light [class*="bg-gradient-to-t"][class*="from-black"] {
   display: none !important;
 }

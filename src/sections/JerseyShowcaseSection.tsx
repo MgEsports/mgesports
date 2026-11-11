@@ -65,7 +65,7 @@ export const JerseyShowcaseSection = ({
             </div>
 
             {/* Jersey Card Container */}
-            <div className="relative w-full max-w-[480px] rounded-2xl border border-[#fc8100]/40 bg-gradient-to-b from-[#121216] to-[#08080A] p-3 sm:p-6 shadow-[0_20px_60px_rgba(0,0,0,0.9),0_0_30px_rgba(252, 129, 0,0.15)] group overflow-hidden">
+            <div className="jersey-display-card relative w-full max-w-[480px] rounded-2xl border border-[#fc8100]/40 bg-gradient-to-b from-[#121216] to-[#08080A] p-3 sm:p-6 shadow-[0_20px_60px_rgba(0,0,0,0.9),0_0_30px_rgba(252, 129, 0,0.15)] group overflow-hidden">
               
               {/* Corner Badge */}
               {/* <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-20 flex items-center gap-2">

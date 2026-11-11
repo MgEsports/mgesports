@@ -110,10 +110,13 @@ export function detectCourierSlug(nameOrPartner?: string | null): string {
   if (!nameOrPartner) return "india-post";
   const str = nameOrPartner.toLowerCase().trim();
 
-  if (str.includes("india-post-int") || (str.includes("india post") && (str.includes("int") || str.includes("international")))) {
-    return "india-post-int";
-  }
-  if (str.includes("india-post") || str.includes("india post") || str.includes("speed post") || str.includes("post office") || str.includes("postal")) {
+  if (
+    str.includes("india-post") ||
+    str.includes("india post") ||
+    str.includes("speed post") ||
+    str.includes("post office") ||
+    str.includes("postal")
+  ) {
     return "india-post";
   }
   if (str.includes("delhivery")) return "delhivery";
@@ -142,6 +145,126 @@ export function getCourierDirectUrl(slug: string, awb: string): string {
   return getAftershipTrackingUrl(slug, awb);
 }
 
+export const AFTERSHIP_PUBLIC_KEY = "asat_3a9186ede78a4f6cb61cbd41573f1471";
+
+async function fetchDirectFromAftership(
+  cleanNumber: string,
+  cleanSlug: string
+): Promise<TrackingResponse | null> {
+  try {
+    const url = `https://api.aftership.com/tracking/2026-07/trackings?tracking_numbers=${encodeURIComponent(
+      cleanNumber
+    )}`;
+    let res = await fetch(url, {
+      method: "GET",
+      headers: {
+        "as-api-key": AFTERSHIP_PUBLIC_KEY,
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!res.ok) return null;
+    let json = await res.json();
+    let trackings: any[] = json?.data?.trackings || [];
+
+    if (trackings.length === 0) {
+      try {
+        const preferredSlug =
+          cleanSlug === "india-post-int" || cleanNumber.toUpperCase().endsWith("IN")
+            ? "india-post"
+            : cleanSlug;
+
+        await fetch("https://api.aftership.com/tracking/2026-07/trackings", {
+          method: "POST",
+          headers: {
+            "as-api-key": AFTERSHIP_PUBLIC_KEY,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            tracking_number: cleanNumber,
+            slug: preferredSlug,
+          }),
+        });
+
+        const retryRes = await fetch(url, {
+          method: "GET",
+          headers: {
+            "as-api-key": AFTERSHIP_PUBLIC_KEY,
+            "Content-Type": "application/json",
+          },
+        });
+        if (retryRes.ok) {
+          const retryJson = await retryRes.json();
+          trackings = retryJson?.data?.trackings || [];
+        }
+      } catch {}
+    }
+
+    if (trackings.length > 0) {
+      const t =
+        trackings.find((x) => Array.isArray(x.checkpoints) && x.checkpoints.length > 0) ||
+        trackings.find((x) => x.tag === "Delivered" || x.tag === "InTransit" || x.tag === "OutForDelivery") ||
+        trackings.find((x) => x.slug === cleanSlug) ||
+        trackings[0];
+
+      const effectiveSlug = t.slug || (cleanNumber.toUpperCase().endsWith("IN") ? "india-post" : cleanSlug);
+      const matched = POPULAR_COURIERS.find((c) => c.slug === effectiveSlug) || POPULAR_COURIERS.find((c) => c.slug === "india-post");
+      const aftershipTrackingUrl =
+        t.aftership_tracking_url ||
+        getAftershipTrackingUrl(effectiveSlug, cleanNumber);
+      const courierTrackingUrl =
+        t.courier_tracking_link ||
+        matched?.trackingUrl?.(cleanNumber) ||
+        getCourierDirectUrl(effectiveSlug, cleanNumber);
+
+      const rawDeliveryDate =
+        t.shipment_delivery_date ||
+        t.aftership_estimated_delivery_date ||
+        t.courier_estimated_delivery_date;
+      const formattedDelivery =
+        rawDeliveryDate
+          ? new Date(rawDeliveryDate).toLocaleDateString("en-IN", {
+              day: "numeric",
+              month: "short",
+              year: "numeric",
+            })
+          : t.tag === "Delivered"
+          ? "Delivered"
+          : null;
+
+      return {
+        success: true,
+        found: true,
+        trackingNumber: t.tracking_number || cleanNumber,
+        slug: effectiveSlug,
+        courierName: matched?.name || (effectiveSlug.includes("india-post") ? "India Post" : effectiveSlug),
+        tag: t.tag || "InTransit",
+        subtagMessage: t.subtag_message || t.tag || "Delivered",
+        originLocation: t.origin_raw_location || "",
+        destinationLocation: t.destination_raw_location || "",
+        expectedDelivery: formattedDelivery,
+        courierEstimatedDelivery: t.courier_estimated_delivery_date || null,
+        checkpoints: Array.isArray(t.checkpoints)
+          ? t.checkpoints.map((cp: any) => ({
+              checkpoint_time: cp.checkpoint_time,
+              city: cp.city,
+              state: cp.state,
+              location: cp.location,
+              message: cp.message,
+              tag: cp.tag,
+              subtag_message: cp.subtag_message,
+            }))
+          : [],
+        aftershipTrackingUrl,
+        courierTrackingUrl,
+      };
+    }
+  } catch (err) {
+    console.warn("Direct AfterShip query error:", err);
+  }
+  return null;
+}
+
 export const courierApi = {
   track: async (trackingNumber: string, slug?: string): Promise<TrackingResponse> => {
     const cleanNumber = trackingNumber.trim();
@@ -152,25 +275,32 @@ export const courierApi = {
         trackingNumber: cleanNumber,
         slug: cleanSlug,
       });
-      return await apiRequest<TrackingResponse>(`/courier/track?${qs.toString()}`, {
+      const data = await apiRequest<TrackingResponse>(`/courier/track?${qs.toString()}`, {
         method: "GET",
       });
-    } catch {
-      // Graceful fallback response if server is unreachable
-      const matched = POPULAR_COURIERS.find((c) => c.slug === cleanSlug);
-      return {
-        success: true,
-        found: false,
-        trackingNumber: cleanNumber,
-        slug: cleanSlug,
-        courierName: matched?.name || "India Post",
-        tag: "InTransit",
-        subtagMessage: "Active shipment in transit. Official carrier tracking available.",
-        checkpoints: [],
-        aftershipTrackingUrl: getAftershipTrackingUrl(cleanSlug, cleanNumber),
-        courierTrackingUrl: getCourierDirectUrl(cleanSlug, cleanNumber),
-      };
+      if (data && data.success && data.found) {
+        return data;
+      }
+    } catch {}
+
+    const direct = await fetchDirectFromAftership(cleanNumber, cleanSlug);
+    if (direct) {
+      return direct;
     }
+
+    const matched = POPULAR_COURIERS.find((c) => c.slug === cleanSlug);
+    return {
+      success: true,
+      found: false,
+      trackingNumber: cleanNumber,
+      slug: cleanSlug,
+      courierName: matched?.name || "India Post",
+      tag: "InTransit",
+      subtagMessage: "Active shipment in transit. Official carrier tracking available.",
+      checkpoints: [],
+      aftershipTrackingUrl: getAftershipTrackingUrl(cleanSlug, cleanNumber),
+      courierTrackingUrl: getCourierDirectUrl(cleanSlug, cleanNumber),
+    };
   },
 
   create: async (

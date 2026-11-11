@@ -245,7 +245,11 @@ export const trackCourier = async (
     const trackings: any[] = response.data?.data?.trackings || [];
 
     if (trackings.length > 0) {
-      const tracking = trackings[0];
+      const tracking =
+        trackings.find((x) => Array.isArray(x.checkpoints) && x.checkpoints.length > 0) ||
+        trackings.find((x) => x.tag === "Delivered" || x.tag === "InTransit" || x.tag === "OutForDelivery") ||
+        trackings.find((x) => x.slug === cleanSlug) ||
+        trackings[0];
       const matchedCourier = POPULAR_COURIERS.find(
         (c) => c.slug === tracking.slug
       );

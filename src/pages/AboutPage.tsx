@@ -83,8 +83,8 @@ export const AboutPage = () => {
         subtitle="The competitive manifesto, national champion athlete roster, and the operational collective powering India's elite clan."
       />
 
-      {/* Floating Sub-Navigation Anchor Bar - Solid Opaque, Perfect Sticky Alignment */}
-      <div className="sticky top-16 sm:top-[68px] z-40 bg-[#070709] border-b border-white/10 py-2.5 sm:py-3 shadow-[0_10px_30px_rgba(0,0,0,0.9)] w-full max-w-full">
+      {/* Floating Sub-Navigation Anchor Bar - Solid Opaque, Clean Shadow Without Top/Bottom Bleed */}
+      <div className="about-subnav-bar sticky top-16 sm:top-[68px] z-40 bg-[#070709] border-y border-white/10 py-2.5 sm:py-3 shadow-md w-full max-w-full">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           {/* Mobile: Clean 2x2 Grid with balanced widths; Tablet/Desktop: Centered Row */}
           <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-1.5 xs:gap-2 sm:gap-2.5 w-full max-w-md sm:max-w-none mx-auto">

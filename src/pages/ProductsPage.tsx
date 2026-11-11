@@ -410,6 +410,35 @@ export const ProductsPage = () => {
       const slug = detectCourierSlug(ord.courierPartner);
       const data = await courierApi.track(ord.trackingNumber, slug);
       setLiveTrackingData(data);
+
+      const isDeliveredByAftership =
+        data.tag?.toLowerCase() === "delivered" ||
+        data.subtagMessage?.toLowerCase()?.includes("delivered");
+
+      if (isDeliveredByAftership) {
+        const updatedDeliveryDate = ord.expectedDeliveryDate || data.expectedDelivery || "Delivered";
+        setTrackedOrders((prev) =>
+          prev.map((o) =>
+            o.id === ord.id ? { ...o, orderStatus: "DELIVERED", expectedDeliveryDate: updatedDeliveryDate } : o
+          )
+        );
+        setMyOrders((prev) =>
+          prev.map((o) =>
+            o.id === ord.id ? { ...o, orderStatus: "DELIVERED", expectedDeliveryDate: updatedDeliveryDate } : o
+          )
+        );
+        setLiveTrackingOrder((prev) =>
+          prev && prev.id === ord.id
+            ? { ...prev, orderStatus: "DELIVERED", expectedDeliveryDate: updatedDeliveryDate }
+            : prev
+        );
+        saveSingleOrder({
+          ...ord,
+          orderStatus: "DELIVERED",
+          expectedDeliveryDate: updatedDeliveryDate,
+        });
+        merchandiseApi.updateOrderStatus(ord.id, "DELIVERED").catch(() => {});
+      }
     } catch {
       // Handled gracefully
     } finally {

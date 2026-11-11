@@ -629,7 +629,7 @@ export const TrackOrderPage = () => {
           )}
 
           {/* Need Help Card */}
-          <div className="p-6 rounded-2xl bg-gradient-to-r from-black/80 via-[#0E0E12] to-black/80 border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono">
+          <div className="fulfillment-help-card p-6 rounded-2xl bg-gradient-to-r from-black/80 via-[#0E0E12] to-black/80 border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono">
             <div className="space-y-1">
               <h4 className="font-heading font-bold text-white uppercase tracking-wider text-sm">
                 Need Help With Order Fulfillment?

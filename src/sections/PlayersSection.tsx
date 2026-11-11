@@ -155,7 +155,7 @@ export const PlayersSection = ({ showHeader = true }: PlayersSectionProps) => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.2 }}
                 whileHover={{ y: -8 }}
-                className="group relative flex flex-col justify-between rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#141418] via-[#0C0C0E] to-[#070709] border border-white/10 hover:border-[#fc8100]/70 p-2.5 xs:p-3 sm:p-5 shadow-[0_15px_40px_rgba(0,0,0,0.8)] hover:shadow-[0_20px_45px_rgba(252, 129, 0,0.25)] transition-all duration-300 overflow-hidden min-w-0"
+                className="player-athlete-card group relative flex flex-col justify-between rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#141418] via-[#0C0C0E] to-[#070709] border border-white/10 hover:border-[#fc8100]/70 p-2.5 xs:p-3 sm:p-5 shadow-[0_15px_40px_rgba(0,0,0,0.8)] hover:shadow-[0_20px_45px_rgba(252, 129, 0,0.25)] transition-all duration-300 overflow-hidden min-w-0"
               >
                 {/* Top Chamfer Cut & Gold Strip */}
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#fc8100] to-transparent opacity-50 group-hover:opacity-100 transition-opacity" />
