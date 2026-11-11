@@ -43,7 +43,7 @@ export async function sendPasswordResetOtpEmail(
 ): Promise<SendOtpResult> {
   const resend = getResendClient();
   const fromEmail = getEffectiveFromEmail();
-  const replyTo = process.env.REPLY_TO_EMAIL || "lordesportz75@gmail.com";
+  const replyTo = process.env.REPLY_TO_EMAIL || "contact@mgesports.live";
 
   console.log(`\n======================================================`);
   console.log(`🔑 [AUTH OTP] Password Reset Code for: ${toEmail}`);
@@ -167,9 +167,9 @@ export async function sendWelcomeEmail(
 ): Promise<{ success: boolean; messageId?: string; error?: string }> {
   const resend = getResendClient();
   const fromEmail = getEffectiveFromEmail();
-  const replyTo = process.env.REPLY_TO_EMAIL || "lordesportz75@gmail.com";
-  const clientUrl = process.env.CLIENT_URL || "https://lordz-esports.lordesportz75.workers.dev";
-  const logoUrl = "https://lordz-esports.lordesportz75.workers.dev/lordz-logo.png";
+  const replyTo = process.env.REPLY_TO_EMAIL || "contact@mgesports.live";
+  const clientUrl = process.env.CLIENT_URL || "";
+  const logoUrl = "";
 
   const athleteUsername = user.username?.trim() || user.email.split("@")[0];
   const athleteName = user.fullName || user.ign || athleteUsername || "Athlete";
@@ -331,7 +331,7 @@ export async function sendWelcomeEmail(
           <!-- COMMUNITY CALLOUT -->
           <div style="background-color: #08080C; border-left: 3px solid #fc8100; border-radius: 8px; padding: 14px 18px; margin-top: 10px;">
             <p style="margin: 0; font-size: 12px; color: #9CA3AF; line-height: 1.6;">
-              <strong style="color: #FFFFFF;">Need Squad Assistance or Have Questions?</strong> Connect with our clan coordinators on our official portal or email <a href="mailto:lordesportz75@gmail.com" style="color: #fc8100; text-decoration: none;">lordesportz75@gmail.com</a>.
+              <strong style="color: #FFFFFF;">Need Squad Assistance or Have Questions?</strong> Connect with our clan coordinators on our official portal or email <a href="mailto:contact@mgesports.live" style="color: #fc8100; text-decoration: none;">contact@mgesports.live</a>.
             </p>
           </div>
         </td>
@@ -407,7 +407,7 @@ export async function sendRoomCredentialsEmail(
 ): Promise<{ success: boolean; messageId?: string; error?: string }> {
   const resend = getResendClient();
   const fromEmail = getEffectiveFromEmail();
-  const replyTo = process.env.REPLY_TO_EMAIL || "lordesportz75@gmail.com";
+  const replyTo = process.env.REPLY_TO_EMAIL || "contact@mgesports.live";
 
   console.log(`\n======================================================`);
   console.log(`🎮 [ROOM CREDENTIALS EMAIL] Sending credentials to: ${data.leaderEmail}`);

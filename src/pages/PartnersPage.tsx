@@ -566,8 +566,8 @@ export const PartnersPage = () => {
                   {/* Direct Contact Note */}
                   <div className="text-[11px] text-gray-400 font-body flex items-center justify-between px-1">
                     <span>Direct Business &amp; Partnership Desk:</span>
-                    <a href="mailto:lordesportz75@gmail.com" className="text-[#fc8100] hover:underline font-mono">
-                      lordesportz75@gmail.com
+                    <a href="mailto:contact@mgesports.live" className="text-[#fc8100] hover:underline font-mono">
+                      contact@mgesports.live
                     </a>
                   </div>
 
