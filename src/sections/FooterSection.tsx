@@ -161,8 +161,6 @@ export const FooterSection = () => {
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500 font-body text-center sm:text-left">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
             <span>© 2026 MG ESPORTS. ALL RIGHTS RESERVED.</span>
-            <span className="hidden xs:inline">•</span>
-            <span className="text-gray-400">MADE FOR INDIAN ESPORTS</span>
           </div>
 
           <div className="flex flex-wrap items-center justify-center sm:justify-end gap-3 sm:gap-6">
