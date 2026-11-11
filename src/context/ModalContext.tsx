@@ -270,7 +270,7 @@ export const ModalProvider = ({ children }: { children: ReactNode }) => {
           <div className="p-4 rounded-lg bg-black/60 border border-white/10 text-xs space-y-2 font-mono">
             <div className="flex justify-between">
               <span className="text-gray-400">Commercial Desk:</span>
-              <a href="mailto:lordesportz75@gmail.com" className="text-[#FFBE32] hover:underline font-mono">conatct@mgesport.live</a>
+              <a href="mailto:contact@mgesports.live" className="text-[#FFBE32] hover:underline font-mono">conatct@mgesport.live</a>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-400">Headquarters:</span>
